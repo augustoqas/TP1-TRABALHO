@@ -27,8 +27,10 @@
  */
 class ContainerCartao {
     private:
+        // ATENCAO: cartoes e desenvolvedores andam juntos. Todo metodo que incluir
+        // ou remover um cartao deve incluir ou remover tambem o seu desenvolvedor.
         std::map<std::string, CartaoAtividade> cartoes;  ///< Cartoes indexados pelo valor do identificador.
-        std::map<std::string, Email> desenvolvedores;    ///< Email do desenvolvedor de cada cartao, indexado pelo valor do identificador.
+        std::map<std::string, Email> desenvolvedores;    ///< Email do desenvolvedor de cada cartao, indexado pelo valor do identificador (sempre com as mesmas chaves de cartoes).
 
     public:
         /**

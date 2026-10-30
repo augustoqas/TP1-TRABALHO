@@ -26,8 +26,10 @@
  */
 class ContainerProjeto {
     private:
+        // ATENCAO: projetos e gestores andam juntos. Todo metodo que incluir ou
+        // remover um projeto deve incluir ou remover tambem o seu gestor.
         std::map<std::string, Projeto> projetos;  ///< Projetos indexados pelo valor do identificador.
-        std::map<std::string, Email> gestores;    ///< Email do gestor de cada projeto, indexado pelo valor do identificador.
+        std::map<std::string, Email> gestores;    ///< Email do gestor de cada projeto, indexado pelo valor do identificador (sempre com as mesmas chaves de projetos).
 
     public:
         /**
