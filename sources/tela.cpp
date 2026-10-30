@@ -26,8 +26,7 @@ void Tela::campo(const std::string& rotulo, const std::string& valor) {
     std::cout << MARGEM << rotulo << ": " << valor << "\n";
 }
 
-// Mensagens de resultado comecam com linha em branco para chamar atencao; a
-// linha em branco depois delas vem do titulo da proxima tela.
+// Linha em branco antes para destacar; a de depois vem do titulo da proxima tela.
 void Tela::sucesso(const std::string& texto) {
     std::cout << "\n" << MARGEM << "[OK] " << texto << "\n";
 }
@@ -59,8 +58,7 @@ bool Tela::lerLinha(const std::string& pergunta, std::string& linha) {
     if (!std::getline(std::cin, linha)) {
         return false;
     }
-    // Remove '\r' (entrada com quebra de linha do Windows) e espacos no fim.
-    // E seguro: nenhum dominio aceita espaco no fim.
+    // Tira o '\r' de arquivos do Windows e espacos no fim (nenhum dominio aceita espaco no fim).
     while (!linha.empty() && (linha[linha.size() - 1] == '\r' || linha[linha.size() - 1] == ' ')) {
         linha.erase(linha.size() - 1);
     }

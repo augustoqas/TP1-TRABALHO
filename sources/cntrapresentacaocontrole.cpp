@@ -43,7 +43,7 @@ void CntrApresentacaoControle::executar() {
                 }
             }
         }
-        // EOF dentro de outra controladora: ela so retorna; o Controle encerra.
+        // Se a entrada acabou dentro de outra tela, ela so retorna; quem encerra e aqui.
         if (Tela::entradaEncerrada()) {
             mostrarFimEntrada();
             return;
@@ -105,7 +105,7 @@ bool CntrApresentacaoControle::executarPessoas(const Email& usuario) {
     try {
         this->cntrApresentacaoPessoa->executar(usuario);
     } catch (const ExcecaoSessaoEncerrada&) {
-        // A apresentacao de pessoas ja mostrou as mensagens ao usuario.
+        // A tela de pessoas ja avisou o usuario.
         return false;
     }
     return true;

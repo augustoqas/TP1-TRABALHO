@@ -11,14 +11,10 @@ const std::string CntrApresentacaoPessoa::DICA_NOME = "1 a 15 letras, espaco sim
 const std::string CntrApresentacaoPessoa::DICA_SENHA = "5 letras ou digitos, com ao menos 1 letra e 1 digito";
 const std::string CntrApresentacaoPessoa::DICA_PAPEL = "GESTOR ou DESENVOLVEDOR, em maiusculas";
 
-// ---------------------------------------------------------------------------
-// Leitura de campos
-// ---------------------------------------------------------------------------
+// --- Leitura de campos ---
 
-// Papel ainda nao lanca excecao em todas as versoes: o texto e conferido
-// antes, e setValor fica em try/catch para a versao que lanca.
-// PROVISORIO: quando Papel::setValor lancar excecao (issue #9), remover a
-// pre-checagem e usar Tela::lerCampo, como nos outros campos.
+// PROVISORIO (issue #9): Papel::setValor ainda nao lanca excecao em todas as
+// versoes, entao o texto e conferido antes. Quando lancar, usar Tela::lerCampo.
 Tela::Leitura CntrApresentacaoPessoa::lerPapel(Papel& papel) {
     std::string texto;
     while (true) {
@@ -75,7 +71,7 @@ Tela::Leitura CntrApresentacaoPessoa::lerNovaPessoa(Pessoa& pessoa) {
 }
 
 void CntrApresentacaoPessoa::mostrarPessoa(const Pessoa& pessoa) {
-    Papel papel = pessoa.getPapel();  // copia: getValor de Papel nao e const.
+    Papel papel = pessoa.getPapel();  // Copia nao const: Papel::getValor() ainda nao e const.
     Tela::separador();
     Tela::campo("Email", pessoa.getEmail().getValor());
     Tela::campo("Nome", pessoa.getNome().getValor());
@@ -83,9 +79,7 @@ void CntrApresentacaoPessoa::mostrarPessoa(const Pessoa& pessoa) {
     Tela::separador();
 }
 
-// ---------------------------------------------------------------------------
-// Criar conta / criar pessoa
-// ---------------------------------------------------------------------------
+// --- Criar conta / criar pessoa ---
 
 bool CntrApresentacaoPessoa::formularioCriacao(const std::string& titulo, const std::string& mensagemSucesso,
                                                const std::string& mensagemFalha) {
@@ -114,9 +108,7 @@ bool CntrApresentacaoPessoa::cadastrar() {
                              "Falha ao criar conta.");
 }
 
-// ---------------------------------------------------------------------------
-// Menu de pessoas
-// ---------------------------------------------------------------------------
+// --- Menu de pessoas ---
 
 void CntrApresentacaoPessoa::executar(const Email& usuario) {
     const int CRIAR = 1;

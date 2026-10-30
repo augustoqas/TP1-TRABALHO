@@ -1,5 +1,7 @@
 #include "email.hpp"
 
+// Compara faixas em vez de usar islower/isdigit: essas dependem de locale e
+// tem comportamento indefinido com char negativo. Aceita so minusculas.
 bool Email::ehLetraOuDigito(char c) {
     return (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9');
 }
@@ -14,13 +16,13 @@ bool Email::validarParteLocal(const std::string& parteLocal) {
             continue;
         }
         if (c != '.' && c != '-') {
-            return false;                       // caractere nao permitido
+            return false;
         }
         if (i == 0) {
-            return false;                       // inicia com ponto ou hifen
+            return false;                       // comeca com ponto ou hifen
         }
         if (i + 1 == parteLocal.size() || !ehLetraOuDigito(parteLocal[i + 1])) {
-            return false;                       // termina com ponto/hifen ou nao e seguido de letra/digito
+            return false;                       // termina com ponto/hifen, ou o proximo nao e letra/digito
         }
     }
     return true;
@@ -28,14 +30,14 @@ bool Email::validarParteLocal(const std::string& parteLocal) {
 
 bool Email::validarParteDominio(const std::string& parte) {
     if (parte.empty()) {
-        return false;                           // parte vazia (ex.: "unb..br")
+        return false;                           // ex.: "unb..br", ou ponto no inicio/fim
     }
     if (parte[0] == '-' || parte[parte.size() - 1] == '-') {
-        return false;                           // inicia ou termina com hifen
+        return false;
     }
     for (std::string::size_type i = 0; i < parte.size(); i++) {
         if (!ehLetraOuDigito(parte[i]) && parte[i] != '-') {
-            return false;                       // caractere nao permitido
+            return false;
         }
     }
     return true;
@@ -45,7 +47,7 @@ bool Email::validarDominio(const std::string& dominio) {
     if (dominio.empty() || dominio.size() > MAXIMO_DOMINIO) {
         return false;
     }
-    // Valida cada parte que termina em ponto; depois, a ultima parte.
+    // O laco valida cada parte que termina em ponto; a ultima fica para o fim.
     std::string::size_type inicio = 0;
     std::string::size_type ponto = dominio.find('.');
     while (ponto != std::string::npos) {
@@ -59,7 +61,7 @@ bool Email::validarDominio(const std::string& dominio) {
 }
 
 void Email::validar(std::string valor) {
-    // Deve haver exatamente um '@'.
+    // Exatamente um '@': achou o primeiro e nao ha outro depois dele.
     std::string::size_type arroba = valor.find('@');
     if (arroba == std::string::npos || valor.find('@', arroba + 1) != std::string::npos) {
         throw std::invalid_argument("Email invalido: deve conter exatamente um @.");
