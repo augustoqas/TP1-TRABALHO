@@ -44,6 +44,15 @@ class CntrServicoPessoa : public IServicoPessoa {
          */
         bool usuarioCadastrado(const Email& usuario) const;
 
+        /**
+         * @brief Verifica se a pessoa esta completa: email, nome e senha
+         *        preenchidos e papel GESTOR ou DESENVOLVEDOR. Um dominio nunca
+         *        atribuido guarda valor vazio, que e invalido.
+         * @param pessoa Pessoa a verificar.
+         * @return true se todos os atributos sao validos; false caso contrario.
+         */
+        static bool pessoaCompleta(const Pessoa& pessoa);
+
     public:
         /**
          * @brief Informa o conteiner de pessoas.
@@ -66,7 +75,9 @@ class CntrServicoPessoa : public IServicoPessoa {
         /**
          * @brief Cria uma pessoa (servico 1). Nao exige sessao.
          * @param pessoa Pessoa completa (email, nome, senha e papel).
-         * @return true se criou; false se o email ja esta cadastrado.
+         * @return true se criou; false se o email ja esta cadastrado ou se a
+         *         pessoa esta incompleta (email, nome ou senha vazios, ou papel
+         *         diferente de GESTOR e DESENVOLVEDOR).
          */
         bool criar(const Pessoa& pessoa) override;
 
@@ -88,7 +99,7 @@ class CntrServicoPessoa : public IServicoPessoa {
          * @param usuario Email do usuario autenticado.
          * @param pessoa Pessoa com o email (chave) e os novos dados.
          * @return true se atualizou; false se o usuario nao esta cadastrado, se
-         *         a pessoa nao existe, se ela e gestora de algum projeto e o
+         *         a pessoa nao existe ou esta incompleta, se ela e gestora de algum projeto e o
          *         novo papel nao e GESTOR, ou se ela e desenvolvedora de algum
          *         cartao e o novo papel nao e DESENVOLVEDOR.
          */
