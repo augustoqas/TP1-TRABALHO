@@ -52,13 +52,13 @@ class IServicoPessoa {
         /**
          * @brief Atualiza nome, senha e papel (servico 3).
          * Retorna false se a pessoa nao existir, se for gestora de projeto e deixar de ser
-         * GESTOR, ou se for dev de cartao e deixar de ser DESENVOLVEDOR.
+         * GESTOR, ou se for desenvolvedor de cartao e deixar de ser DESENVOLVEDOR.
          */
         virtual bool atualizar(const Email& usuario, const Pessoa& pessoa) = 0;
 
         /**
          * @brief Exclui a pessoa (servico 4).
-         * Retorna false se ela nao existir ou for gestora de projeto ou dev de cartao.
+         * Retorna false se ela nao existir ou for gestora de projeto ou desenvolvedora de cartao.
          */
         virtual bool excluir(const Email& usuario, const Email& email) = 0;
 

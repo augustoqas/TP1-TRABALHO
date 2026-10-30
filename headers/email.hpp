@@ -14,7 +14,7 @@
  * - Dominio: 1 a 255 caracteres, em partes separadas por '.'. Cada parte nao
  *   e vazia, usa a-z, 0-9 e '-', e nao comeca nem termina com '-'.
  *
- * Ex.: joao.silva@unb.br.
+ * Ex.: "joao.silva@unb.br"
  */
 class Email {
     private:

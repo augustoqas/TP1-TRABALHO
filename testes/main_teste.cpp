@@ -3,11 +3,12 @@
  * @brief Igual ao main.cpp, mas ja comeca com um projeto e um cartao para
  *        testar os vinculos de Pessoa.
  *
- * Projeto PRJ001 com gestor gestor@unb.br e cartao CRT001 com dev dev@unb.br.
+ * Projeto PRJ001 com gestor gestor@unb.br e cartao CRT001 com desenvolvedor dev@unb.br.
  * As contas dessas pessoas sao criadas pelo menu, no proprio roteiro.
  *
  * Fora dos blocos "DADOS DE TESTE" este arquivo tem que ser igual ao main.cpp:
- * o rodar compara os dois e avisa se divergirem.
+ * o rodar compara os dois e avisa se divergirem. Roda tambem os roteiros
+ * @apenas_teste (ver testes/README.md).
  */
 
 #include "cntrapresentacaoautenticacao.hpp"

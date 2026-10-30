@@ -71,7 +71,7 @@ Tela::Leitura CntrApresentacaoPessoa::lerNovaPessoa(Pessoa& pessoa) {
 }
 
 void CntrApresentacaoPessoa::mostrarPessoa(const Pessoa& pessoa) {
-    Papel papel = pessoa.getPapel();  // copia porque getValor de Papel nao e const
+    Papel papel = pessoa.getPapel();  // Copia nao const: Papel::getValor() ainda nao e const.
     Tela::separador();
     Tela::campo("Email", pessoa.getEmail().getValor());
     Tela::campo("Nome", pessoa.getNome().getValor());

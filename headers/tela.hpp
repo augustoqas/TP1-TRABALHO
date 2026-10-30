@@ -30,7 +30,7 @@
  *     return;
  * }
  * if (!servico->criar(usuario, projeto, quadro)) {
- *     Tela::falha("Nao foi possivel criar o quadro.", {"usuario nao e GESTOR"});
+ *     Tela::falha("Nao foi possivel criar o quadro.", {"usuario nao e GESTOR", "projeto nao existe", "identificador ja existe"});
  * }
  * @endcode
  */
@@ -39,7 +39,7 @@ class Tela {
         /** @brief Resultado de lerCampo e lerCampoInteiro. */
         enum class Leitura {
             LIDO,       ///< Valor valido, ja guardado no dominio.
-            CANCELADO,  ///< O usuario digitou 0; abandone a operacao.
+            CANCELADO,  ///< O usuario digitou 0 (o aviso ja foi mostrado); abandone a operacao.
             FIM         ///< A entrada acabou (EOF); volte sem fazer mais nada.
         };
 
@@ -73,7 +73,7 @@ class Tela {
         static void cancelado();
 
         /**
-         * @brief Mostra a pergunta e le uma linha, sem '\r' nem espacos no fim.
+         * @brief Mostra a pergunta e le uma linha, sem '\\r' nem espacos no fim.
          * @return false se a entrada acabou (EOF).
          */
         static bool lerLinha(const std::string& pergunta, std::string& linha);
@@ -87,7 +87,7 @@ class Tela {
 
         /**
          * @brief Pergunta S/N ate ter uma resposta valida.
-         * @param resposta true para S; false para N ou 0.
+         * @param resposta true para S/s; false para N/n ou 0.
          * @return false se a entrada acabou (EOF).
          */
         static bool confirmar(const std::string& pergunta, bool& resposta);
@@ -97,6 +97,7 @@ class Tela {
          *
          * Serve para qualquer dominio com setValor(std::string), lance ele
          * excecao ou retorne bool. A dica aparece entre parenteses.
+         * Se o usuario digitar 0, ja mostra "Operacao cancelada" e retorna CANCELADO.
          * @param dominio So e preenchido quando o retorno e LIDO.
          */
         template<typename Dominio>
@@ -114,7 +115,7 @@ class Tela {
         static const std::string LINHA_SIMPLES;
         static const std::string MARGEM;
 
-        // Retorna 1 a 99, ou -1 se o texto nao for numero nessa faixa.
+        // Retorna 0 a 99, ou -1 se o texto nao for um numero de 1 ou 2 digitos.
         static int converterOpcao(const std::string& texto);
 
         static bool converterInteiro(const std::string& texto, int& numero);

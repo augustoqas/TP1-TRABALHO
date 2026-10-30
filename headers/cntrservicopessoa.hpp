@@ -12,7 +12,7 @@
  * @brief Servico de pessoas (servicos 1 a 5): aplica as regras de Pessoa.
  *
  * Usa tres conteineres passados por setter: pessoas, projetos (para saber quem e
- * gestor) e cartoes (para saber quem e dev). So guarda os ponteiros; o main mantem
+ * gestor) e cartoes (para saber quem e desenvolvedor). So guarda os ponteiros; o main mantem
  * os conteineres vivos. Qualquer usuario cadastrado pode ler, atualizar, excluir
  * (ate a si mesmo) e listar qualquer pessoa; criar nao exige sessao.
  * Se faltar um conteiner, o metodo retorna false: criar, ler e listar precisam so
@@ -37,7 +37,7 @@ class CntrServicoPessoa : public IServicoPessoa {
         /** @brief Define o conteiner de projetos (para saber quem e gestor). */
         void setContainerProjeto(ContainerProjeto* containerProjeto);
 
-        /** @brief Define o conteiner de cartoes (para saber quem e dev). */
+        /** @brief Define o conteiner de cartoes (para saber quem e desenvolvedor). */
         void setContainerCartao(ContainerCartao* containerCartao);
 
         /**
@@ -55,7 +55,7 @@ class CntrServicoPessoa : public IServicoPessoa {
         /**
          * @brief Atualiza nome, senha e papel (servico 3).
          * Retorna false se o usuario nao estiver cadastrado, se a pessoa nao existir ou
-         * estiver incompleta, ou se ela for gestora de projeto ou dev de cartao e o novo
+         * estiver incompleta, ou se ela for gestora de projeto ou desenvolvedora de cartao e o novo
          * papel nao bater.
          */
         bool atualizar(const Email& usuario, const Pessoa& pessoa) override;
@@ -63,7 +63,7 @@ class CntrServicoPessoa : public IServicoPessoa {
         /**
          * @brief Exclui a pessoa (servico 4), sem cascata.
          * Retorna false se o usuario nao estiver cadastrado, se a pessoa nao existir ou
-         * se ela for gestora de projeto ou dev de cartao.
+         * se ela for gestora de projeto ou desenvolvedora de cartao.
          */
         bool excluir(const Email& usuario, const Email& email) override;
 

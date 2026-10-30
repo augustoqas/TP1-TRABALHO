@@ -1,7 +1,7 @@
 #include "email.hpp"
 
-// Compara faixas em vez de usar islower/isdigit: nao depende de locale e
-// aceita so minusculas, como o formato pede.
+// Compara faixas em vez de usar islower/isdigit: essas dependem de locale e
+// tem comportamento indefinido com char negativo. Aceita so minusculas.
 bool Email::ehLetraOuDigito(char c) {
     return (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9');
 }

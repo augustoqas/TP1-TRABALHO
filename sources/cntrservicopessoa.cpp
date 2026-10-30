@@ -71,7 +71,7 @@ bool CntrServicoPessoa::atualizar(const Email& usuario, const Pessoa& pessoa) {
     std::string novoPapel = papel.getValor();
     Email email = pessoa.getEmail();
 
-    // Quem e gestor de projeto ou dev de cartao nao pode mudar de papel.
+    // Quem e gestor de projeto ou desenvolvedor de cartao nao pode mudar de papel.
     if (novoPapel != "GESTOR" && this->containerProjeto->existeGestor(email)) {
         return false;
     }
@@ -90,7 +90,7 @@ bool CntrServicoPessoa::excluir(const Email& usuario, const Email& email) {
         return false;
     }
 
-    // Sem cascata: recusa se a pessoa for gestora de projeto ou dev de cartao.
+    // Sem cascata: recusa se a pessoa for gestora de projeto ou desenvolvedora de cartao.
     if (this->containerProjeto->existeGestor(email)) {
         return false;
     }

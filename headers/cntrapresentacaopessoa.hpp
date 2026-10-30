@@ -9,7 +9,7 @@
 /**
  * @brief Telas de pessoas: criar conta e o menu de pessoas.
  *
- * A senha nunca aparece na tela.
+ * Digitar 0 cancela. A senha nunca aparece na tela.
  */
 class CntrApresentacaoPessoa : public IApresentacaoPessoa {
     private:

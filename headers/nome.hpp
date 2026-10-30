@@ -10,7 +10,7 @@
  * Formato: 1 a 15 caracteres, so letras (A-Z, a-z) e espaco. Nao comeca
  * nem termina com espaco, e todo espaco vem seguido de letra.
  *
- * Ex.: Ana Maria.
+ * Ex.: "Ana Maria"
  */
 class Nome {
     private:

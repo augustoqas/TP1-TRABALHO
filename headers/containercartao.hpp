@@ -34,7 +34,7 @@ class ContainerCartao {
         /** @brief Atribuicao proibida (ver ContainerPessoa). */
         ContainerCartao& operator=(const ContainerCartao&) = delete;
 
-        /** @brief Guarda o cartao e o seu dev. Retorna false se o identificador ja existir. */
+        /** @brief Guarda o cartao e o seu desenvolvedor. Retorna false se o identificador ja existir. */
         bool incluir(const CartaoAtividade& cartao, const Email& desenvolvedor);
 
         /** @brief Remove o cartao e o seu desenvolvedor. Retorna false se ele nao existir. */

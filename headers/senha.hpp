@@ -10,7 +10,7 @@
  * Formato: exatamente 5 letras (a-z, A-Z) ou digitos (0-9), com ao menos
  * 1 letra e 1 digito.
  *
- * Ex.: Abc12.
+ * Ex.: "Abc12"
  */
 class Senha {
     private:
