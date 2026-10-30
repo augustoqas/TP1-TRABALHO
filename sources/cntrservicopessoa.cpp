@@ -22,8 +22,27 @@ bool CntrServicoPessoa::usuarioCadastrado(const Email& usuario) const {
     return this->containerPessoa->pesquisar(usuario, pessoa);
 }
 
+bool CntrServicoPessoa::pessoaCompleta(const Pessoa& pessoa) {
+    // Copia nao const: Papel::getValor() ainda nao e const.
+    Papel papel = pessoa.getPapel();
+    std::string valorPapel = papel.getValor();
+    if (valorPapel != "GESTOR" && valorPapel != "DESENVOLVEDOR") {
+        return false;
+    }
+    if (pessoa.getEmail().getValor().empty()) {
+        return false;
+    }
+    if (pessoa.getNome().getValor().empty()) {
+        return false;
+    }
+    return !pessoa.getSenha().getValor().empty();
+}
+
 bool CntrServicoPessoa::criar(const Pessoa& pessoa) {
     if (this->containerPessoa == nullptr) {
+        return false;
+    }
+    if (!pessoaCompleta(pessoa)) {
         return false;
     }
     return this->containerPessoa->incluir(pessoa);
@@ -41,6 +60,9 @@ bool CntrServicoPessoa::atualizar(const Email& usuario, const Pessoa& pessoa) {
         return false;
     }
     if (this->containerProjeto == nullptr || this->containerCartao == nullptr) {
+        return false;
+    }
+    if (!pessoaCompleta(pessoa)) {
         return false;
     }
 
