@@ -1,9 +1,10 @@
-#ifndef CARTAOATIVIDADE_HPP_INCLUDED
-#define CARTAOATIVIDADE_HPP_INCLUDED
+#ifndef STUB_CARTAOATIVIDADE_HPP_INCLUDED
+#define STUB_CARTAOATIVIDADE_HPP_INCLUDED
 
 // STUB de teste: so a chave primaria (identificador).
-// Sai de cena sozinho quando headers/cartaoatividade.hpp tiver "class CartaoAtividade"
-// (o rodar avisa); depois disso, apague este arquivo.
+// Sai de cena sozinho quando headers/cartaoatividade.hpp tiver qualquer conteudo
+// (o rodar avisa); depois disso, apague este arquivo. Guarda propria (STUB_): se o
+// stub e a classe real entrarem juntos, o g++ acusa "redefinition" em vez de escolher um.
 #include "identificador.hpp"
 
 class CartaoAtividade {
@@ -19,4 +20,4 @@ class CartaoAtividade {
         }
 };
 
-#endif // CARTAOATIVIDADE_HPP_INCLUDED
+#endif // STUB_CARTAOATIVIDADE_HPP_INCLUDED

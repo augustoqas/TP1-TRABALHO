@@ -61,7 +61,9 @@ inline std::string visivel(int valor) {
 }
 
 // Testa um dominio cujo setValor lanca std::invalid_argument e cujo getValor e const.
-// Valor = std::string (padrao) ou int (ex.: TesteDominio<Limite, int> limite(5);).
+// Dominio que ainda devolve bool no setValor nao compila aqui: use verificar (ver README).
+// Valor = std::string (padrao) ou int (ex.: TesteDominio<Limite, int> limite(5); depois que
+// Limite seguir a convencao).
 template <class Dominio, class Valor = std::string>
 class TesteDominio {
     private:

@@ -1,9 +1,10 @@
-#ifndef PROJETO_HPP_INCLUDED
-#define PROJETO_HPP_INCLUDED
+#ifndef STUB_PROJETO_HPP_INCLUDED
+#define STUB_PROJETO_HPP_INCLUDED
 
 // STUB de teste: so a chave primaria (identificador).
-// Sai de cena sozinho quando headers/projeto.hpp tiver "class Projeto"
-// (o rodar avisa); depois disso, apague este arquivo.
+// Sai de cena sozinho quando headers/projeto.hpp tiver qualquer conteudo
+// (o rodar avisa); depois disso, apague este arquivo. Guarda propria (STUB_): se o
+// stub e a classe real entrarem juntos, o g++ acusa "redefinition" em vez de escolher um.
 #include "identificador.hpp"
 
 class Projeto {
@@ -19,4 +20,4 @@ class Projeto {
         }
 };
 
-#endif // PROJETO_HPP_INCLUDED
+#endif // STUB_PROJETO_HPP_INCLUDED

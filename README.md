@@ -208,9 +208,13 @@ TP1-TRABALHO/
 │   ├── <dominio>.hpp   #   Classes domínio (Email, Nome, Senha, ...)
 │   └── <entidade>.hpp  #   Classes entidade (Pessoa, Projeto, ...)
 ├── sources/            # Implementações (.cpp)
+├── testes/             # Testes automatizados (ver testes/README.md)
 ├── main.cpp            # Ponto de entrada: monta as camadas e inicia o menu
 └── README.md
 ```
+
+> [!WARNING]
+> **Não adicione `testes/*.cpp` ao projeto do Code::Blocks.** Cada teste (e o `testes/main_teste.cpp`) tem o seu próprio `main`, o que quebraria o build do sistema. No `.cbp` entram só `main.cpp`, `headers/` e `sources/`. Os testes rodam à parte com `testes\rodar.bat` (detalhes em [`testes/README.md`](testes/README.md)).
 
 ---
 

@@ -1,9 +1,10 @@
-#ifndef IDENTIFICADOR_HPP_INCLUDED
-#define IDENTIFICADOR_HPP_INCLUDED
+#ifndef STUB_IDENTIFICADOR_HPP_INCLUDED
+#define STUB_IDENTIFICADOR_HPP_INCLUDED
 
 // STUB de teste: aceita qualquer valor (o real valida 3 letras e 3 digitos).
-// Sai de cena sozinho quando headers/identificador.hpp tiver "class Identificador"
-// (o rodar avisa); depois disso, apague este arquivo.
+// Sai de cena sozinho quando headers/identificador.hpp tiver qualquer conteudo
+// (o rodar avisa); depois disso, apague este arquivo. Guarda propria (STUB_): se o
+// stub e a classe real entrarem juntos, o g++ acusa "redefinition" em vez de escolher um.
 #include <string>
 
 class Identificador {
@@ -19,4 +20,4 @@ class Identificador {
         }
 };
 
-#endif // IDENTIFICADOR_HPP_INCLUDED
+#endif // STUB_IDENTIFICADOR_HPP_INCLUDED

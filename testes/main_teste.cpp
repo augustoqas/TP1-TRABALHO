@@ -8,11 +8,13 @@
  * - cartao "CRT001" com desenvolvedor dev@unb.br.
  * As pessoas gestor@unb.br e dev@unb.br NAO sao criadas aqui: o roteiro de
  * teste cria as contas pelo menu.
- * Mantenha o resto igual ao main.cpp (ao plugar Projeto/Quadro/Cartao la, plugue aqui).
- * Roda todos os roteiros, inclusive os marcados com @apenas_teste (ver testes/README.md).
+ *
+ * Fora dos blocos "INICIO/FIM DADOS DE TESTE", este arquivo deve ser IGUAL ao
+ * main.cpp: o rodar compara os dois e avisa se divergirem (ao mudar o main.cpp,
+ * copie a mudanca para ca). Roda todos os roteiros, inclusive os marcados com
+ * @apenas_teste (ver testes/README.md).
  */
 
-#include "cartaoatividade.hpp"
 #include "cntrapresentacaoautenticacao.hpp"
 #include "cntrapresentacaocontrole.hpp"
 #include "cntrapresentacaopessoa.hpp"
@@ -21,9 +23,13 @@
 #include "containercartao.hpp"
 #include "containerpessoa.hpp"
 #include "containerprojeto.hpp"
+
+// INICIO DADOS DE TESTE
+#include "cartaoatividade.hpp"
 #include "email.hpp"
 #include "identificador.hpp"
 #include "projeto.hpp"
+// FIM DADOS DE TESTE
 
 int main() {
     // 1. Conteineres.
@@ -32,7 +38,8 @@ int main() {
     ContainerCartao containerCartao;
     // COLEGAS: criar aqui os demais conteineres (ex.: ContainerQuadro).
 
-    // Dados de teste: projeto PRJ001 (gestor gestor@unb.br).
+    // INICIO DADOS DE TESTE
+    // Projeto PRJ001 (gestor gestor@unb.br).
     Identificador identificadorProjeto;
     identificadorProjeto.setValor("PRJ001");
     Projeto projeto;
@@ -41,7 +48,7 @@ int main() {
     gestor.setValor("gestor@unb.br");
     containerProjeto.incluir(projeto, gestor);
 
-    // Dados de teste: cartao CRT001 (desenvolvedor dev@unb.br).
+    // Cartao CRT001 (desenvolvedor dev@unb.br).
     Identificador identificadorCartao;
     identificadorCartao.setValor("CRT001");
     CartaoAtividade cartao;
@@ -49,6 +56,7 @@ int main() {
     Email desenvolvedor;
     desenvolvedor.setValor("dev@unb.br");
     containerCartao.incluir(cartao, desenvolvedor);
+    // FIM DADOS DE TESTE
 
     // 2. Controladoras de servico.
     CntrServicoAutenticacao cntrServicoAutenticacao;
