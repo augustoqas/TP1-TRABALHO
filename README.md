@@ -1,8 +1,8 @@
 <div align="center">
 
-# 📋 TP1 · Sistema de Gestão de Projetos
+# 📋 TP1 · Sistema Kanban
 
-**Sistema de gestão de projetos com quadros e cartões de atividade, em C++ com arquitetura em camadas.**
+**Sistema de gestão de projetos pelo método Kanban, em C++ com arquitetura em camadas.**
 
 Trabalho prático de **Técnicas de Programação 1 (CIC0197)** · Universidade de Brasília
 
@@ -25,7 +25,7 @@ Trabalho prático de **Técnicas de Programação 1 (CIC0197)** · Universidade 
 
 ## 📖 Sobre
 
-O sistema apoia a gestão de projetos. Cada projeto possui quadros e cada quadro organiza **cartões de atividade** em três colunas:
+O sistema apoia a gestão de projetos que adotam o método **Kanban**. Cada projeto possui quadros e cada quadro organiza **cartões de atividade** em três colunas:
 
 ```mermaid
 flowchart LR
@@ -185,8 +185,8 @@ Cada atributo é uma **classe domínio**. O `setValor` lança `std::invalid_argu
 ### Opção 2 · Linha de comando
 
 ```bash
-g++ -std=c++11 -Wall -Wextra -Iheaders main.cpp sources/*.cpp -o tp1
-./tp1
+g++ -std=c++11 -Wall -Wextra -Iheaders main.cpp sources/*.cpp -o kanban
+./kanban
 ```
 
 ### Documentação
