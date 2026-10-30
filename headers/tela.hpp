@@ -65,9 +65,9 @@ class Tela {
 
         /**
          * @brief Mostra um titulo de tela entre linhas duplas.
-         * @param titulo Texto do titulo.
+         * @param texto Texto do titulo.
          */
-        static void titulo(const std::string& titulo);
+        static void titulo(const std::string& texto);
 
         /**
          * @brief Mostra uma linha separadora simples.
@@ -122,7 +122,7 @@ class Tela {
         /**
          * @brief Mostra uma pergunta e le uma linha da entrada padrao.
          * @param pergunta Texto da pergunta (impresso em linha propria).
-         * @param linha Saida: linha lida, sem '\\r' final.
+         * @param linha Saida: linha lida, sem '\\r' nem espacos no final.
          * @return true se leu; false se a entrada terminou (EOF).
          */
         static bool lerLinha(const std::string& pergunta, std::string& linha);
@@ -132,16 +132,16 @@ class Tela {
          *
          * Se a opcao nao for numero ou estiver fora da faixa, mostra
          * "Opcao invalida" e o mesmo menu de novo.
-         * @param titulo Titulo do menu.
+         * @param tituloMenu Titulo do menu.
          * @param opcoes Textos das opcoes, na ordem em que sao numeradas.
          * @return Opcao escolhida (1 a opcoes.size()); 0 se a entrada terminou.
          */
-        static int lerOpcao(const std::string& titulo, const std::vector<std::string>& opcoes);
+        static int lerOpcao(const std::string& tituloMenu, const std::vector<std::string>& opcoes);
 
         /**
-         * @brief Faz uma pergunta de sim/nao ate obter S/s ou N/n.
+         * @brief Faz uma pergunta de sim/nao ate obter S/s, N/n ou 0.
          * @param pergunta Texto da pergunta.
-         * @param resposta Saida: true para S/s; false para N/n.
+         * @param resposta Saida: true para S/s; false para N/n ou 0 (cancelar).
          * @return true se obteve resposta; false se a entrada terminou (EOF).
          */
         static bool confirmar(const std::string& pergunta, bool& resposta);
@@ -206,6 +206,10 @@ class Tela {
          *
          * Escolhe, em tempo de compilacao, uma das duas versoes abaixo conforme
          * o tipo de retorno de setValor (bool ou void).
+         *
+         * PROVISORIO: existe so porque Papel, Prioridade, Tamanho e Limite ainda
+         * retornam bool. Quando todos os dominios lancarem std::invalid_argument,
+         * remover atribuir e chamar dominio.setValor(valor) direto.
          * @param dominio Dominio que recebe o valor.
          * @param valor Valor a armazenar.
          * @return true se aceito; false se setValor retornou false.

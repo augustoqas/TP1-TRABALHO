@@ -8,9 +8,9 @@ const std::string Tela::LINHA_DUPLA = "=========================================
 const std::string Tela::LINHA_SIMPLES = "--------------------------------------------------";
 const std::string Tela::MARGEM = "  ";
 
-void Tela::titulo(const std::string& titulo) {
+void Tela::titulo(const std::string& texto) {
     std::cout << "\n" << LINHA_DUPLA << "\n";
-    std::cout << MARGEM << titulo << "\n";
+    std::cout << MARGEM << texto << "\n";
     std::cout << LINHA_DUPLA << "\n";
 }
 
@@ -59,7 +59,9 @@ bool Tela::lerLinha(const std::string& pergunta, std::string& linha) {
     if (!std::getline(std::cin, linha)) {
         return false;
     }
-    if (!linha.empty() && linha[linha.size() - 1] == '\r') {
+    // Remove '\r' (entrada com quebra de linha do Windows) e espacos no fim.
+    // E seguro: nenhum dominio aceita espaco no fim.
+    while (!linha.empty() && (linha[linha.size() - 1] == '\r' || linha[linha.size() - 1] == ' ')) {
         linha.erase(linha.size() - 1);
     }
     return true;
@@ -102,13 +104,13 @@ bool Tela::converterInteiro(const std::string& texto, int& numero) {
     return true;
 }
 
-int Tela::lerOpcao(const std::string& titulo, const std::vector<std::string>& opcoes) {
+int Tela::lerOpcao(const std::string& tituloMenu, const std::vector<std::string>& opcoes) {
     const int quantidade = static_cast<int>(opcoes.size());
     std::ostringstream pergunta;
     pergunta << "Escolha uma opcao (1 a " << quantidade << "):";
     std::string texto;
     while (true) {
-        Tela::titulo(titulo);
+        titulo(tituloMenu);
         for (int i = 0; i < quantidade; i++) {
             std::cout << MARGEM << "[" << (i + 1) << "] " << opcoes[i] << "\n";
         }
@@ -134,11 +136,11 @@ bool Tela::confirmar(const std::string& pergunta, bool& resposta) {
             resposta = true;
             return true;
         }
-        if (texto == "N" || texto == "n") {
+        if (texto == "N" || texto == "n" || texto == "0") {
             resposta = false;
             return true;
         }
-        erro("Resposta invalida. Digite S (sim) ou N (nao).");
+        erro("Resposta invalida. Digite S (sim) ou N (nao); 0 tambem cancela.");
     }
 }
 

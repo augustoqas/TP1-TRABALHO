@@ -429,6 +429,9 @@ class IApresentacaoPessoa {
          * @brief Exibe o menu de pessoas (servicos 1 a 5) para o usuario
          *        autenticado.
          * @param usuario Email do usuario autenticado.
+         * @throw ExcecaoSessaoEncerrada Se o usuario excluir a propria conta.
+         *        Quem chama (o menu principal) deve capturar e encerrar a
+         *        sessao.
          */
         virtual void executar(const Email& usuario) = 0;
 

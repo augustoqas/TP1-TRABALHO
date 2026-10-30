@@ -17,6 +17,8 @@ const std::string CntrApresentacaoPessoa::DICA_PAPEL = "GESTOR ou DESENVOLVEDOR,
 
 // Papel ainda nao lanca excecao em todas as versoes: o texto e conferido
 // antes, e setValor fica em try/catch para a versao que lanca.
+// PROVISORIO: quando Papel::setValor lancar excecao (issue #9), remover a
+// pre-checagem e usar Tela::lerCampo, como nos outros campos.
 Tela::Leitura CntrApresentacaoPessoa::lerPapel(Papel& papel) {
     std::string texto;
     while (true) {
