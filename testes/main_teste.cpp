@@ -1,18 +1,13 @@
 /**
  * @file main_teste.cpp
- * @brief Programa de TESTE: igual ao main.cpp, mas pre-carrega um projeto e um
- *        cartao nos conteineres para testar os vinculos de Pessoa.
+ * @brief Igual ao main.cpp, mas ja comeca com um projeto e um cartao para
+ *        testar os vinculos de Pessoa.
  *
- * Dados pre-carregados (incluidos direto nos conteineres, sem servico):
- * - projeto "PRJ001" com gestor gestor@unb.br;
- * - cartao "CRT001" com desenvolvedor dev@unb.br.
- * As pessoas gestor@unb.br e dev@unb.br NAO sao criadas aqui: o roteiro de
- * teste cria as contas pelo menu.
+ * Projeto PRJ001 com gestor gestor@unb.br e cartao CRT001 com dev dev@unb.br.
+ * As contas dessas pessoas sao criadas pelo menu, no proprio roteiro.
  *
- * Fora dos blocos "INICIO/FIM DADOS DE TESTE", este arquivo deve ser IGUAL ao
- * main.cpp: o rodar compara os dois e avisa se divergirem (ao mudar o main.cpp,
- * copie a mudanca para ca). Roda todos os roteiros, inclusive os marcados com
- * @apenas_teste (ver testes/README.md).
+ * Fora dos blocos "DADOS DE TESTE" este arquivo tem que ser igual ao main.cpp:
+ * o rodar compara os dois e avisa se divergirem.
  */
 
 #include "cntrapresentacaoautenticacao.hpp"
@@ -36,10 +31,9 @@ int main() {
     ContainerPessoa containerPessoa;
     ContainerProjeto containerProjeto;
     ContainerCartao containerCartao;
-    // COLEGAS: criar aqui os demais conteineres (ex.: ContainerQuadro).
+    // COLEGAS: criar aqui os outros conteineres (ex.: ContainerQuadro).
 
     // INICIO DADOS DE TESTE
-    // Projeto PRJ001 (gestor gestor@unb.br).
     Identificador identificadorProjeto;
     identificadorProjeto.setValor("PRJ001");
     Projeto projeto;
@@ -48,7 +42,6 @@ int main() {
     gestor.setValor("gestor@unb.br");
     containerProjeto.incluir(projeto, gestor);
 
-    // Cartao CRT001 (desenvolvedor dev@unb.br).
     Identificador identificadorCartao;
     identificadorCartao.setValor("CRT001");
     CartaoAtividade cartao;
@@ -67,8 +60,8 @@ int main() {
     cntrServicoPessoa.setContainerProjeto(&containerProjeto);
     cntrServicoPessoa.setContainerCartao(&containerCartao);
 
-    // COLEGAS: criar aqui CntrServicoProjeto, CntrServicoQuadro e
-    // CntrServicoCartao e informar os conteineres com setContainer*(&...).
+    // COLEGAS: criar aqui os servicos de Projeto, Quadro e Cartao e passar os
+    // conteineres com setContainer*(&...).
 
     // 3. Controladoras de apresentacao.
     CntrApresentacaoAutenticacao cntrApresentacaoAutenticacao;
@@ -77,16 +70,16 @@ int main() {
     CntrApresentacaoPessoa cntrApresentacaoPessoa;
     cntrApresentacaoPessoa.setCntrServicoPessoa(&cntrServicoPessoa);
 
-    // COLEGAS: criar aqui CntrApresentacaoProjeto, CntrApresentacaoQuadro e
-    // CntrApresentacaoCartao e informar os servicos com setCntrServico*(&...).
+    // COLEGAS: criar aqui as telas de Projeto, Quadro e Cartao e passar os
+    // servicos com setCntrServico*(&...).
 
     // 4. Controle (menus inicial e principal).
     CntrApresentacaoControle cntrApresentacaoControle;
     cntrApresentacaoControle.setCntrApresentacaoAutenticacao(&cntrApresentacaoAutenticacao);
     cntrApresentacaoControle.setCntrApresentacaoPessoa(&cntrApresentacaoPessoa);
 
-    // COLEGAS: plugar aqui as apresentacoes de Projeto, Quadro e Cartao.
-    // Enquanto ficarem nulas, o menu mostra "Funcionalidade ainda nao disponivel".
+    // COLEGAS: trocar nullptr pelas telas de Projeto, Quadro e Cartao.
+    // Enquanto for nullptr, o menu mostra "Funcionalidade ainda nao disponivel".
     cntrApresentacaoControle.setCntrApresentacaoProjeto(nullptr);
     cntrApresentacaoControle.setCntrApresentacaoQuadro(nullptr);
     cntrApresentacaoControle.setCntrApresentacaoCartao(nullptr);

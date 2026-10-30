@@ -7,234 +7,130 @@
 #include <vector>
 
 /**
- * @brief Utilitarios de tela (entrada e saida em modo texto) compartilhados
- *        pelas controladoras de apresentacao.
+ * @brief Funcoes de tela em modo texto usadas por todas as controladoras de
+ *        apresentacao, para que todas as telas tenham a mesma cara.
  *
- * Centraliza o visual (titulos, separadores, menus numerados, mensagens de
- * sucesso/erro/aviso) e a leitura linha a linha com std::getline, para que
- * todas as telas do sistema tenham a mesma aparencia e o mesmo tratamento de
- * fim de entrada (EOF).
+ * Tudo e estatico. Cada pergunta sai numa linha propria e nada digitado e
+ * repetido na tela (a senha nunca aparece). Digitar 0 em um campo cancela;
+ * nenhum dominio aceita "0", entao nao ha conflito.
  *
- * Convencoes:
- * - Toda leitura usa std::getline(std::cin, ...) e remove um '\\r' final.
- * - Cada pergunta e impressa em uma linha propria (terminada em '\\n'). Assim
- *   a saida continua legivel quando a entrada vem de arquivo (o texto
- *   digitado nao aparece na tela).
- * - Nada digitado e repetido na saida (nenhuma senha aparece).
- * - Em campos de dominio, digitar CANCELAR ("0") cancela a operacao. "0" e
- *   invalido em todos os dominios do sistema, entao nao ha conflito.
- * - lerCampo e lerCampoInteiro aceitam dominios cujo setValor lanca
- *   std::invalid_argument (padrao do projeto) e tambem os que ainda retornam
- *   bool (false = valor recusado): nunca aceitam valor invalido em silencio.
- *
- * Todos os membros sao estaticos: a classe nao guarda estado proprio (o
- * estado de fim de entrada e o do proprio std::cin).
- *
- * Exemplo de uso (ex.: em CntrApresentacaoQuadro):
+ * Exemplo (tela de quadros):
  * @code
  * int opcao = Tela::lerOpcao("MENU DE QUADROS", {"Criar quadro", "Voltar"});
  * if (opcao == 0) {
- *     return;                                      // fim da entrada
+ *     return;  // a entrada acabou
  * }
  * Tela::titulo("CRIAR QUADRO");
  * Identificador identificador;
  * if (Tela::lerCampo("Identificador", "3 letras e 3 digitos", identificador) != Tela::Leitura::LIDO) {
- *     return;                                      // cancelado ou fim da entrada
+ *     return;  // cancelou ou a entrada acabou
  * }
- * Limite limite;                                   // setValor recebe int
+ * Limite limite;  // setValor recebe int
  * if (Tela::lerCampoInteiro("Limite", "1 a 25", limite) != Tela::Leitura::LIDO) {
  *     return;
  * }
  * if (!servico->criar(usuario, projeto, quadro)) {
- *     Tela::falha("Nao foi possivel criar o quadro.", {"usuario nao e GESTOR", "projeto nao existe"});
+ *     Tela::falha("Nao foi possivel criar o quadro.", {"usuario nao e GESTOR"});
  * }
  * @endcode
  */
 class Tela {
     public:
-        /**
-         * @brief Resultado da leitura de um campo de formulario.
-         */
+        /** @brief Resultado de lerCampo e lerCampoInteiro. */
         enum class Leitura {
-            LIDO,       ///< Valor valido lido e armazenado no dominio.
-            CANCELADO,  ///< Usuario digitou CANCELAR; operacao deve ser abandonada.
-            FIM         ///< Fim da entrada (EOF); o programa deve encerrar.
+            LIDO,       ///< Valor valido, ja guardado no dominio.
+            CANCELADO,  ///< O usuario digitou 0; abandone a operacao.
+            FIM         ///< A entrada acabou (EOF); volte sem fazer mais nada.
         };
 
-        static const std::string CANCELAR;  ///< Texto que cancela um formulario ("0").
+        static const std::string CANCELAR;  ///< O que o usuario digita para cancelar ("0").
 
-        /**
-         * @brief Mostra um titulo de tela entre linhas duplas.
-         * @param texto Texto do titulo.
-         */
+        /** @brief Mostra um titulo entre linhas duplas. */
         static void titulo(const std::string& texto);
 
-        /**
-         * @brief Mostra uma linha separadora simples.
-         */
+        /** @brief Mostra uma linha separadora. */
         static void separador();
 
-        /**
-         * @brief Mostra uma linha de texto comum, indentada.
-         * @param texto Texto a mostrar.
-         */
+        /** @brief Mostra uma linha de texto comum. */
         static void info(const std::string& texto);
 
-        /**
-         * @brief Mostra um dado no formato "rotulo: valor".
-         * @param rotulo Nome do dado (ex.: "Email").
-         * @param valor Valor do dado.
-         */
+        /** @brief Mostra um dado como "rotulo: valor". */
         static void campo(const std::string& rotulo, const std::string& valor);
 
-        /**
-         * @brief Mostra uma mensagem de sucesso bem visivel ("[OK] ...").
-         * @param texto Mensagem.
-         */
+        /** @brief Mostra "[OK] texto". */
         static void sucesso(const std::string& texto);
 
-        /**
-         * @brief Mostra o resultado de uma operacao recusada, bem visivel
-         *        ("[FALHA] ..." apos uma linha em branco), seguido dos motivos.
-         * @param texto Mensagem principal.
-         * @param motivos Motivos possiveis, um por linha (pode ser vazio).
-         */
+        /** @brief Mostra "[FALHA] texto" e, se houver, a lista de motivos possiveis. */
         static void falha(const std::string& texto, const std::vector<std::string>& motivos = std::vector<std::string>());
 
-        /**
-         * @brief Mostra um erro de digitacao em um campo ("[ERRO] ..."), sem
-         *        linhas em branco, pois o campo e pedido de novo em seguida.
-         * @param texto Mensagem.
-         */
+        /** @brief Mostra "[ERRO] texto" para um campo digitado errado (sem linha em branco). */
         static void erro(const std::string& texto);
 
-        /**
-         * @brief Mostra uma mensagem de aviso bem visivel ("[AVISO] ...").
-         * @param texto Mensagem.
-         */
+        /** @brief Mostra "[AVISO] texto". */
         static void aviso(const std::string& texto);
 
-        /**
-         * @brief Mostra a mensagem padrao de operacao cancelada.
-         */
+        /** @brief Mostra o aviso padrao de operacao cancelada. */
         static void cancelado();
 
         /**
-         * @brief Mostra uma pergunta e le uma linha da entrada padrao.
-         * @param pergunta Texto da pergunta (impresso em linha propria).
-         * @param linha Saida: linha lida, sem '\\r' nem espacos no final.
-         * @return true se leu; false se a entrada terminou (EOF).
+         * @brief Mostra a pergunta e le uma linha, sem '\r' nem espacos no fim.
+         * @return false se a entrada acabou (EOF).
          */
         static bool lerLinha(const std::string& pergunta, std::string& linha);
 
         /**
-         * @brief Mostra um menu numerado (a partir de 1) e le a opcao.
-         *
-         * Se a opcao nao for numero ou estiver fora da faixa, mostra
-         * "Opcao invalida" e o mesmo menu de novo.
-         * @param tituloMenu Titulo do menu.
-         * @param opcoes Textos das opcoes, na ordem em que sao numeradas.
-         * @return Opcao escolhida (1 a opcoes.size()); 0 se a entrada terminou.
+         * @brief Mostra um menu numerado a partir de 1 e le a opcao; repete o
+         *        menu se a opcao for invalida.
+         * @return Opcao escolhida, ou 0 se a entrada acabou.
          */
         static int lerOpcao(const std::string& tituloMenu, const std::vector<std::string>& opcoes);
 
         /**
-         * @brief Faz uma pergunta de sim/nao ate obter S/s, N/n ou 0.
-         * @param pergunta Texto da pergunta.
-         * @param resposta Saida: true para S/s; false para N/n ou 0 (cancelar).
-         * @return true se obteve resposta; false se a entrada terminou (EOF).
+         * @brief Pergunta S/N ate ter uma resposta valida.
+         * @param resposta true para S; false para N ou 0.
+         * @return false se a entrada acabou (EOF).
          */
         static bool confirmar(const std::string& pergunta, bool& resposta);
 
         /**
-         * @brief Le um campo de dominio, repetindo ate o valor ser valido.
+         * @brief Le um campo de dominio, pedindo de novo ate o valor ser valido.
          *
-         * Funciona com qualquer dominio que tenha "setValor(std::string)":
-         * se setValor lancar std::invalid_argument, a mensagem da excecao e
-         * mostrada; se setValor retornar false (dominios que ainda retornam
-         * bool), mostra "<rotulo>: valor invalido". Em ambos os casos o campo
-         * e pedido de novo. Digitar CANCELAR mostra "Operacao cancelada".
-         * @param rotulo Nome do campo (ex.: "Email").
-         * @param dica Formato esperado, mostrado entre parenteses.
-         * @param dominio Saida: dominio preenchido (somente se retornar LIDO).
-         * @return LIDO, CANCELADO ou FIM.
+         * Serve para qualquer dominio com setValor(std::string), lance ele
+         * excecao ou retorne bool. A dica aparece entre parenteses.
+         * @param dominio So e preenchido quando o retorno e LIDO.
          */
         template<typename Dominio>
         static Leitura lerCampo(const std::string& rotulo, const std::string& dica, Dominio& dominio);
 
-        /**
-         * @brief Igual a lerCampo, para dominios cujo setValor recebe int
-         *        (ex.: Limite).
-         *
-         * Se o texto nao for um numero inteiro, mostra mensagem e pede de novo.
-         * @param rotulo Nome do campo (ex.: "Limite").
-         * @param dica Formato esperado, mostrado entre parenteses.
-         * @param dominio Saida: dominio preenchido (somente se retornar LIDO).
-         * @return LIDO, CANCELADO ou FIM.
-         */
+        /** @brief Igual a lerCampo, para dominios cujo setValor recebe int (ex.: Limite). */
         template<typename Dominio>
         static Leitura lerCampoInteiro(const std::string& rotulo, const std::string& dica, Dominio& dominio);
 
-        /**
-         * @brief Informa se a entrada padrao terminou (std::getline falhou).
-         * @return true se std::cin esta em estado de falha; false caso contrario.
-         */
+        /** @brief Diz se a entrada acabou (EOF). */
         static bool entradaEncerrada();
 
     private:
-        static const std::string LINHA_DUPLA;   ///< Linha usada nos titulos.
-        static const std::string LINHA_SIMPLES; ///< Linha usada nos separadores.
-        static const std::string MARGEM;        ///< Recuo do texto da tela.
+        static const std::string LINHA_DUPLA;
+        static const std::string LINHA_SIMPLES;
+        static const std::string MARGEM;
 
-        /**
-         * @brief Converte texto em numero inteiro positivo pequeno.
-         * @param texto Texto lido.
-         * @return Numero (1 a 99) ou -1 se o texto nao for numero nessa faixa.
-         */
+        // Retorna 1 a 99, ou -1 se o texto nao for numero nessa faixa.
         static int converterOpcao(const std::string& texto);
 
-        /**
-         * @brief Converte texto em int (somente digitos, '-' opcional no inicio).
-         * @param texto Texto lido.
-         * @param numero Saida: numero convertido (somente se retornar true).
-         * @return true se o texto e um inteiro de ate 9 digitos; false caso contrario.
-         */
         static bool converterInteiro(const std::string& texto, int& numero);
 
-        /**
-         * @brief Chama dominio.setValor(valor) e informa se o valor foi aceito.
-         *
-         * Escolhe, em tempo de compilacao, uma das duas versoes abaixo conforme
-         * o tipo de retorno de setValor (bool ou void).
-         *
-         * PROVISORIO: existe so porque Papel, Prioridade, Tamanho e Limite ainda
-         * retornam bool. Quando todos os dominios lancarem std::invalid_argument,
-         * remover atribuir e chamar dominio.setValor(valor) direto.
-         * @param dominio Dominio que recebe o valor.
-         * @param valor Valor a armazenar.
-         * @return true se aceito; false se setValor retornou false.
-         * @throw std::invalid_argument Repassada de setValor.
-         */
+        // Chama dominio.setValor(valor) e diz se o valor foi aceito, tanto para
+        // setValor que retorna bool quanto para o que lanca excecao.
+        // PROVISORIO: so existe porque Papel, Prioridade, Tamanho e Limite ainda
+        // retornam bool. Quando todos lancarem excecao, remover e chamar setValor direto.
         template<typename Dominio, typename Valor>
         static bool atribuir(Dominio& dominio, const Valor& valor);
 
-        /**
-         * @brief Versao de atribuir para setValor que retorna bool.
-         * @param dominio Dominio que recebe o valor.
-         * @param valor Valor a armazenar.
-         * @return Retorno de setValor.
-         */
+        // Versao para setValor que retorna bool.
         template<typename Dominio, typename Valor>
         static bool atribuir(Dominio& dominio, const Valor& valor, std::true_type);
 
-        /**
-         * @brief Versao de atribuir para setValor que retorna void (valor
-         *        invalido gera excecao).
-         * @param dominio Dominio que recebe o valor.
-         * @param valor Valor a armazenar.
-         * @return Sempre true.
-         * @throw std::invalid_argument Repassada de setValor.
-         */
+        // Versao para setValor que retorna void (valor invalido lanca excecao).
         template<typename Dominio, typename Valor>
         static bool atribuir(Dominio& dominio, const Valor& valor, std::false_type);
 };

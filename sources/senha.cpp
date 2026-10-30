@@ -2,10 +2,8 @@
 
 #include <stdexcept>
 
-// Percorre a senha uma unica vez, contando letras e digitos.
-// Usa comparacoes explicitas de faixa (e nao isalpha/isdigit), pois essas
-// funcoes dependem de locale e tem comportamento indefinido com char negativo
-// (bytes acima de 127, como letras acentuadas).
+// Compara faixas em vez de usar isalpha/isdigit: essas dependem de locale e
+// tem comportamento indefinido com char negativo (ex.: letra acentuada).
 void Senha::validar(std::string valor) {
     if (valor.size() != TAMANHO) {
         throw std::invalid_argument("Senha invalida: deve ter exatamente 5 caracteres.");

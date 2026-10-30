@@ -71,15 +71,14 @@ bool CntrServicoPessoa::atualizar(const Email& usuario, const Pessoa& pessoa) {
     std::string novoPapel = papel.getValor();
     Email email = pessoa.getEmail();
 
-    // Gestor de projeto precisa continuar GESTOR.
+    // Quem e gestor de projeto ou dev de cartao nao pode mudar de papel.
     if (novoPapel != "GESTOR" && this->containerProjeto->existeGestor(email)) {
         return false;
     }
-    // Desenvolvedor de cartao precisa continuar DESENVOLVEDOR.
     if (novoPapel != "DESENVOLVEDOR" && this->containerCartao->existeDesenvolvedor(email)) {
         return false;
     }
-    // Retorna false se a pessoa nao existe (nada e criado).
+    // O conteiner ja recusa pessoa inexistente.
     return this->containerPessoa->atualizar(pessoa);
 }
 
@@ -91,14 +90,14 @@ bool CntrServicoPessoa::excluir(const Email& usuario, const Email& email) {
         return false;
     }
 
-    // Sem cascata: recusa se a pessoa ainda possui vinculos.
+    // Sem cascata: recusa se a pessoa for gestora de projeto ou dev de cartao.
     if (this->containerProjeto->existeGestor(email)) {
         return false;
     }
     if (this->containerCartao->existeDesenvolvedor(email)) {
         return false;
     }
-    // Retorna false se a pessoa nao existe.
+    // O conteiner ja recusa pessoa inexistente.
     return this->containerPessoa->remover(email);
 }
 

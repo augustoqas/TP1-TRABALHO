@@ -1,15 +1,10 @@
 /**
  * @file main.cpp
- * @brief Programa principal do sistema Kanban: cria e conecta as camadas.
+ * @brief Monta o sistema Kanban e roda o menu.
  *
- * Ordem de montagem (injecao de dependencia por setters):
- * 1. Conteineres (armazenamento em memoria, unicos no programa).
- * 2. Controladoras de servico, que recebem os conteineres.
- * 3. Controladoras de apresentacao, que recebem os servicos.
- * 4. Controladora do menu (Controle), que recebe as apresentacoes e executa.
- *
- * Todos os objetos sao locais do main: vivem ate o fim do programa e nenhuma
- * controladora e dona dos objetos que recebe (nao ha new/delete).
+ * Ordem: conteineres -> servicos -> telas -> Controle, ligados por setters.
+ * Tudo vive no main ate o fim do programa; nenhuma controladora e dona do que
+ * recebe (nao ha new/delete).
  */
 
 #include "cntrapresentacaoautenticacao.hpp"
@@ -26,7 +21,7 @@ int main() {
     ContainerPessoa containerPessoa;
     ContainerProjeto containerProjeto;
     ContainerCartao containerCartao;
-    // COLEGAS: criar aqui os demais conteineres (ex.: ContainerQuadro).
+    // COLEGAS: criar aqui os outros conteineres (ex.: ContainerQuadro).
 
     // 2. Controladoras de servico.
     CntrServicoAutenticacao cntrServicoAutenticacao;
@@ -37,8 +32,8 @@ int main() {
     cntrServicoPessoa.setContainerProjeto(&containerProjeto);
     cntrServicoPessoa.setContainerCartao(&containerCartao);
 
-    // COLEGAS: criar aqui CntrServicoProjeto, CntrServicoQuadro e
-    // CntrServicoCartao e informar os conteineres com setContainer*(&...).
+    // COLEGAS: criar aqui os servicos de Projeto, Quadro e Cartao e passar os
+    // conteineres com setContainer*(&...).
 
     // 3. Controladoras de apresentacao.
     CntrApresentacaoAutenticacao cntrApresentacaoAutenticacao;
@@ -47,16 +42,16 @@ int main() {
     CntrApresentacaoPessoa cntrApresentacaoPessoa;
     cntrApresentacaoPessoa.setCntrServicoPessoa(&cntrServicoPessoa);
 
-    // COLEGAS: criar aqui CntrApresentacaoProjeto, CntrApresentacaoQuadro e
-    // CntrApresentacaoCartao e informar os servicos com setCntrServico*(&...).
+    // COLEGAS: criar aqui as telas de Projeto, Quadro e Cartao e passar os
+    // servicos com setCntrServico*(&...).
 
     // 4. Controle (menus inicial e principal).
     CntrApresentacaoControle cntrApresentacaoControle;
     cntrApresentacaoControle.setCntrApresentacaoAutenticacao(&cntrApresentacaoAutenticacao);
     cntrApresentacaoControle.setCntrApresentacaoPessoa(&cntrApresentacaoPessoa);
 
-    // COLEGAS: plugar aqui as apresentacoes de Projeto, Quadro e Cartao.
-    // Enquanto ficarem nulas, o menu mostra "Funcionalidade ainda nao disponivel".
+    // COLEGAS: trocar nullptr pelas telas de Projeto, Quadro e Cartao.
+    // Enquanto for nullptr, o menu mostra "Funcionalidade ainda nao disponivel".
     cntrApresentacaoControle.setCntrApresentacaoProjeto(nullptr);
     cntrApresentacaoControle.setCntrApresentacaoQuadro(nullptr);
     cntrApresentacaoControle.setCntrApresentacaoCartao(nullptr);

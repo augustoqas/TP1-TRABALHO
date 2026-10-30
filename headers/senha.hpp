@@ -5,40 +5,29 @@
 #include <string>
 
 /**
- * @brief Dominio que representa uma senha.
+ * @brief Dominio de senha.
  *
- * Regras de formato:
- * - Exatamente 5 caracteres.
- * - Cada caractere e letra (a-z ou A-Z) ou digito (0-9).
- * - Existe pelo menos uma letra e pelo menos um digito.
+ * Formato: exatamente 5 letras (a-z, A-Z) ou digitos (0-9), com ao menos
+ * 1 letra e 1 digito.
  *
- * Exemplos validos: "Abc12", "1a2b3". Exemplos invalidos: "abcde", "12345", "ab#12", "abc1".
+ * Ex.: Abc12.
  */
 class Senha {
     private:
-        static const std::string::size_type TAMANHO = 5;  ///< Quantidade exata de caracteres.
+        static const std::string::size_type TAMANHO = 5;
 
-        std::string valor;  ///< Senha armazenada.
+        std::string valor;
 
-        /**
-         * @brief Verifica se a senha e valida.
-         * @param valor Senha a ser verificada.
-         * @throw std::invalid_argument Se a senha for invalida.
-         */
         void validar(std::string valor);
 
     public:
         /**
-         * @brief Armazena a senha, se for valida.
-         * @param valor Texto com 5 letras/digitos, com pelo menos uma letra e um digito.
-         * @throw std::invalid_argument Se o valor for invalido. Nesse caso o valor anterior e mantido.
+         * @brief Guarda a senha.
+         * @throw std::invalid_argument Se o formato for invalido (o valor anterior fica).
          */
         void setValor(std::string valor);
 
-        /**
-         * @brief Retorna a senha armazenada.
-         * @return Senha armazenada.
-         */
+        /** @brief Retorna a senha. */
         std::string getValor() const;
 };
 

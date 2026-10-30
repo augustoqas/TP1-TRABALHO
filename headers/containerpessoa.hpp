@@ -9,74 +9,39 @@
 #include "pessoa.hpp"
 
 /**
- * @brief Conteiner (armazenamento em memoria) de pessoas.
+ * @brief Guarda as pessoas em memoria, indexadas pelo email.
  *
- * Guarda as pessoas em um std::map indexado pelo valor do email (chave
- * primaria). O conteiner apenas armazena: NAO verifica permissoes nem regras
- * de negocio (isso e papel das controladoras de servico). Os metodos retornam
- * bool para indicar registro encontrado ou duplicado.
- *
- * O objeto e criado uma unica vez (no main) e entregue as controladoras por
- * ponteiro (injecao de dependencia). Por isso a copia e proibida: uma copia
- * acidental criaria um segundo armazenamento e as controladoras deixariam de
- * enxergar os mesmos dados.
+ * So armazena; quem confere permissao e regra de negocio e o servico.
+ * A copia e proibida porque o main cria um unico conteiner e passa o ponteiro para
+ * as controladoras; uma copia criaria um segundo armazenamento e os dados divergiriam.
  */
 class ContainerPessoa {
     private:
-        std::map<std::string, Pessoa> pessoas;  ///< Pessoas indexadas pelo valor do email.
+        std::map<std::string, Pessoa> pessoas;
 
     public:
-        /**
-         * @brief Cria o conteiner vazio.
-         */
+        /** @brief Cria o conteiner vazio. */
         ContainerPessoa() = default;
 
-        /**
-         * @brief Copia proibida (o armazenamento deve ser unico).
-         */
+        /** @brief Copia proibida (ver a classe). */
         ContainerPessoa(const ContainerPessoa&) = delete;
 
-        /**
-         * @brief Atribuicao proibida (o armazenamento deve ser unico).
-         * @return Nao se aplica (metodo removido).
-         */
+        /** @brief Atribuicao proibida (ver a classe). */
         ContainerPessoa& operator=(const ContainerPessoa&) = delete;
 
-        /**
-         * @brief Inclui uma pessoa.
-         * @param pessoa Pessoa a incluir.
-         * @return true se incluiu; false se o email ja esta cadastrado.
-         */
+        /** @brief Guarda a pessoa. Retorna false se o email ja existir. */
         bool incluir(const Pessoa& pessoa);
 
-        /**
-         * @brief Pesquisa uma pessoa pelo email.
-         * @param email Email (chave primaria) da pessoa.
-         * @param pessoa Saida: dados da pessoa (preenchida somente se encontrou).
-         * @return true se encontrou; false caso contrario.
-         */
+        /** @brief Busca a pessoa pelo email. Retorna false se nao achar. */
         bool pesquisar(const Email& email, Pessoa& pessoa) const;
 
-        /**
-         * @brief Substitui os dados de uma pessoa ja cadastrada. A pessoa e
-         *        localizada pelo email contido em pessoa.
-         * @param pessoa Pessoa com o email (chave) e os novos dados.
-         * @return true se atualizou; false se o email nao esta cadastrado.
-         */
+        /** @brief Troca os dados da pessoa com o mesmo email. Retorna false se ela nao existir. */
         bool atualizar(const Pessoa& pessoa);
 
-        /**
-         * @brief Remove uma pessoa.
-         * @param email Email (chave primaria) da pessoa.
-         * @return true se removeu; false se o email nao esta cadastrado.
-         */
+        /** @brief Remove a pessoa. Retorna false se ela nao existir. */
         bool remover(const Email& email);
 
-        /**
-         * @brief Lista os emails de todas as pessoas cadastradas.
-         * @param lista Saida: o conteudo anterior e descartado e o vetor passa a
-         *        conter os emails cadastrados (vazio se nao ha pessoas).
-         */
+        /** @brief Substitui o conteudo de lista pelos emails cadastrados. */
         void listar(std::vector<Email>& lista) const;
 };
 

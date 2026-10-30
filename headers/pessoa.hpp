@@ -7,66 +7,41 @@
 #include "senha.hpp"
 
 /**
- * @brief Entidade que representa uma pessoa do sistema Kanban.
+ * @brief Entidade pessoa: email (chave primaria), nome, senha e papel.
  *
- * Atributos: email (chave primaria), nome, senha e papel. Cada atributo e
- * um dominio, que ja valida o proprio valor; por isso a entidade apenas
- * armazena e retorna copias dos dominios recebidos.
+ * Cada atributo e um dominio que ja se valida sozinho, entao a entidade so
+ * guarda e devolve copias deles.
  */
 class Pessoa {
     private:
-        Email email;  ///< Email da pessoa (chave primaria).
-        Nome nome;    ///< Nome da pessoa.
-        Senha senha;  ///< Senha da pessoa.
-        Papel papel;  ///< Papel da pessoa (GESTOR ou DESENVOLVEDOR).
+        Email email;
+        Nome nome;
+        Senha senha;
+        Papel papel;
 
     public:
-        /**
-         * @brief Armazena o email (chave primaria).
-         * @param email Email da pessoa.
-         */
+        /** @brief Guarda o email (chave primaria). */
         void setEmail(const Email& email);
 
-        /**
-         * @brief Retorna o email (chave primaria).
-         * @return Email da pessoa.
-         */
+        /** @brief Retorna o email. */
         Email getEmail() const;
 
-        /**
-         * @brief Armazena o nome.
-         * @param nome Nome da pessoa.
-         */
+        /** @brief Guarda o nome. */
         void setNome(const Nome& nome);
 
-        /**
-         * @brief Retorna o nome.
-         * @return Nome da pessoa.
-         */
+        /** @brief Retorna o nome. */
         Nome getNome() const;
 
-        /**
-         * @brief Armazena a senha.
-         * @param senha Senha da pessoa.
-         */
+        /** @brief Guarda a senha. */
         void setSenha(const Senha& senha);
 
-        /**
-         * @brief Retorna a senha.
-         * @return Senha da pessoa.
-         */
+        /** @brief Retorna a senha. */
         Senha getSenha() const;
 
-        /**
-         * @brief Armazena o papel.
-         * @param papel Papel da pessoa.
-         */
+        /** @brief Guarda o papel (GESTOR ou DESENVOLVEDOR). */
         void setPapel(const Papel& papel);
 
-        /**
-         * @brief Retorna o papel.
-         * @return Papel da pessoa.
-         */
+        /** @brief Retorna o papel. */
         Papel getPapel() const;
 };
 
