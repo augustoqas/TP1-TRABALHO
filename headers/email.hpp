@@ -18,8 +18,8 @@
  */
 class Email {
     private:
-        static const unsigned int MAXIMO_PARTE_LOCAL = 64;  ///< Tamanho maximo da parte local.
-        static const unsigned int MAXIMO_DOMINIO = 255;     ///< Tamanho maximo do dominio.
+        static const std::string::size_type MAXIMO_PARTE_LOCAL = 64;  ///< Tamanho maximo da parte local.
+        static const std::string::size_type MAXIMO_DOMINIO = 255;     ///< Tamanho maximo do dominio.
 
         std::string valor;  ///< Email armazenado.
 

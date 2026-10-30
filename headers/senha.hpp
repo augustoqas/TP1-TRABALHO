@@ -1,6 +1,7 @@
 #ifndef SENHA_HPP_INCLUDED
 #define SENHA_HPP_INCLUDED
 
+#include <stdexcept>
 #include <string>
 
 /**
@@ -15,9 +16,17 @@
  */
 class Senha {
     private:
-        static const std::string::size_type TAMANHO = 5;
-        std::string valor;
-        void validar(std::string);
+        static const std::string::size_type TAMANHO = 5;  ///< Quantidade exata de caracteres.
+
+        std::string valor;  ///< Senha armazenada.
+
+        /**
+         * @brief Verifica se a senha e valida.
+         * @param valor Senha a ser verificada.
+         * @throw std::invalid_argument Se a senha for invalida.
+         */
+        void validar(std::string valor);
+
     public:
         /**
          * @brief Armazena a senha, se for valida.
