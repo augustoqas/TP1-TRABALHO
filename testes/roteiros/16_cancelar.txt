@@ -1,0 +1,27 @@
+1
+ana@unb.br
+Ana Maria
+0
+2
+ana@unb.br
+0
+1
+ana@unb.br
+Ana Maria
+Pw123
+GESTOR
+2
+ana@unb.br
+Pw123
+1
+3
+ana@unb.br
+Ana Souza
+0
+2
+ana@unb.br
+4
+0
+6
+5
+3

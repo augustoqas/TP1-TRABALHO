@@ -1,0 +1,5 @@
+# Roteiros sao entrada byte a byte do programa: o git nao converte LF/CRLF
+# (preserva o espaco no fim de linha e o arquivo sem quebra final).
+roteiros/*.txt -text
+*.bat text eol=crlf
+*.sh text eol=lf
