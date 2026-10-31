@@ -12,9 +12,11 @@
  */
 
 #include "cntrapresentacaoautenticacao.hpp"
+#include "cntrapresentacaocartao.hpp"
 #include "cntrapresentacaocontrole.hpp"
 #include "cntrapresentacaopessoa.hpp"
 #include "cntrservicoautenticacao.hpp"
+#include "cntrservicocartao.hpp"
 #include "cntrservicopessoa.hpp"
 #include "containercartao.hpp"
 #include "containerpessoa.hpp"
@@ -47,9 +49,11 @@ int main() {
     identificadorCartao.setValor("CRT001");
     CartaoAtividade cartao;
     cartao.setIdentificador(identificadorCartao);
+    Identificador identificadorQuadro;
+    identificadorQuadro.setValor("QDR001");
     Email desenvolvedor;
     desenvolvedor.setValor("dev@unb.br");
-    containerCartao.incluir(cartao, desenvolvedor);
+    containerCartao.incluir(cartao, identificadorQuadro, desenvolvedor);
     // FIM DADOS DE TESTE
 
     // 2. Controladoras de servico.
@@ -61,7 +65,14 @@ int main() {
     cntrServicoPessoa.setContainerProjeto(&containerProjeto);
     cntrServicoPessoa.setContainerCartao(&containerCartao);
 
-    // COLEGAS: criar aqui os servicos de Projeto, Quadro e Cartao e passar os
+    CntrServicoCartao cntrServicoCartao;
+    cntrServicoCartao.setContainerCartao(&containerCartao);
+    cntrServicoCartao.setContainerPessoa(&containerPessoa);
+    // COLEGAS: trocar nullptr por &cntrServicoQuadro quando o servico de Quadro existir.
+    // Enquanto for nullptr, criar, listar, mover para FAZENDO, medias e WIP retornam false.
+    cntrServicoCartao.setCntrServicoQuadro(nullptr);
+
+    // COLEGAS: criar aqui os servicos de Projeto e Quadro e passar os
     // conteineres com setContainer*(&...).
 
     // 3. Controladoras de apresentacao.
@@ -71,7 +82,10 @@ int main() {
     CntrApresentacaoPessoa cntrApresentacaoPessoa;
     cntrApresentacaoPessoa.setCntrServicoPessoa(&cntrServicoPessoa);
 
-    // COLEGAS: criar aqui as telas de Projeto, Quadro e Cartao e passar os
+    CntrApresentacaoCartao cntrApresentacaoCartao;
+    cntrApresentacaoCartao.setCntrServicoCartao(&cntrServicoCartao);
+
+    // COLEGAS: criar aqui as telas de Projeto e Quadro e passar os
     // servicos com setCntrServico*(&...).
 
     // 4. Controle (menus inicial e principal).
@@ -79,11 +93,11 @@ int main() {
     cntrApresentacaoControle.setCntrApresentacaoAutenticacao(&cntrApresentacaoAutenticacao);
     cntrApresentacaoControle.setCntrApresentacaoPessoa(&cntrApresentacaoPessoa);
 
-    // COLEGAS: trocar nullptr pelas telas de Projeto, Quadro e Cartao.
+    // COLEGAS: trocar nullptr pelas telas de Projeto e Quadro.
     // Enquanto for nullptr, o menu mostra "Funcionalidade ainda nao disponivel".
     cntrApresentacaoControle.setCntrApresentacaoProjeto(nullptr);
     cntrApresentacaoControle.setCntrApresentacaoQuadro(nullptr);
-    cntrApresentacaoControle.setCntrApresentacaoCartao(nullptr);
+    cntrApresentacaoControle.setCntrApresentacaoCartao(&cntrApresentacaoCartao);
 
     cntrApresentacaoControle.executar();
     return 0;
