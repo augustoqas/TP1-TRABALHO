@@ -20,8 +20,6 @@ class CntrApresentacaoPessoa : public IApresentacaoPessoa {
 
         IServicoPessoa* cntrServicoPessoa = nullptr;
 
-        Tela::Leitura lerPapel(Papel& papel);
-
         // Le nome, senha e papel; o email da pessoa fica como esta.
         Tela::Leitura lerDadosAlteraveis(Pessoa& pessoa);
 

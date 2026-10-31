@@ -23,9 +23,8 @@ bool CntrServicoPessoa::usuarioCadastrado(const Email& usuario) const {
 }
 
 bool CntrServicoPessoa::pessoaCompleta(const Pessoa& pessoa) {
-    // Copia nao const: Papel::getValor() ainda nao e const.
-    Papel papel = pessoa.getPapel();
-    std::string valorPapel = papel.getValor();
+    // Papel vazio = dominio nao preenchido (o dominio ja recusa qualquer outro valor).
+    std::string valorPapel = pessoa.getPapel().getValor();
     if (valorPapel != "GESTOR" && valorPapel != "DESENVOLVEDOR") {
         return false;
     }
@@ -66,9 +65,7 @@ bool CntrServicoPessoa::atualizar(const Email& usuario, const Pessoa& pessoa) {
         return false;
     }
 
-    // Copia nao const: Papel::getValor() ainda nao e const.
-    Papel papel = pessoa.getPapel();
-    std::string novoPapel = papel.getValor();
+    std::string novoPapel = pessoa.getPapel().getValor();
     Email email = pessoa.getEmail();
 
     // Quem e gestor de projeto ou desenvolvedor de cartao nao pode mudar de papel.
