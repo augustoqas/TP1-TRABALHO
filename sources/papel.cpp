@@ -1,19 +1,17 @@
 #include "papel.hpp"
 
-const string Papel::GESTOR = "GESTOR";
-const string Papel::DESENVOLVEDOR = "DESENVOLVEDOR";
+#include <stdexcept>
 
-bool Papel::validar(string valor) {
-    if (valor == GESTOR || valor == DESENVOLVEDOR){
-        return true;
+const std::string Papel::GESTOR = "GESTOR";
+const std::string Papel::DESENVOLVEDOR = "DESENVOLVEDOR";
+
+void Papel::validar(std::string valor) {
+    if (valor != GESTOR && valor != DESENVOLVEDOR) {
+        throw std::invalid_argument("Papel invalido: deve ser GESTOR ou DESENVOLVEDOR.");
     }
-    return false;
 }
 
-bool Papel::setValor(string valor) {
-    if (!validar(valor)){
-        return false;
-    }
-    this -> valor = valor;
-    return true;
+void Papel::setValor(std::string valor) {
+    validar(valor);
+    this->valor = valor;
 }
