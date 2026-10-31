@@ -1,24 +1,40 @@
-#ifndef PRIORIDADE_H
-#define PRIORIDADE_H
+#ifndef PRIORIDADE_HPP_INCLUDED
+#define PRIORIDADE_HPP_INCLUDED
 
+#include <stdexcept>
 #include <string>
-using namespace std;
 
+/**
+ * @brief Dominio de prioridade de um cartao de atividade.
+ *
+ * Formato: ALTA, MEDIA ou BAIXA, em maiusculas e sem acento.
+ *
+ * Ex.: "MEDIA"
+ */
 class Prioridade {
     private:
-    static const string ALTA;
-    static const string MEDIA;
-    static const string BAIXA;
-    string valor;
-    bool validar(string);
+        static const std::string ALTA;
+        static const std::string MEDIA;
+        static const std::string BAIXA;
+
+        std::string valor;
+
+        void validar(std::string valor);
 
     public:
-    bool setValor(string);
-    string getValor();
+        /**
+         * @brief Guarda a prioridade.
+         * @param valor ALTA, MEDIA ou BAIXA.
+         * @throw std::invalid_argument Se o valor nao for uma das prioridades validas (o valor anterior fica).
+         */
+        void setValor(std::string valor);
+
+        /** @brief Retorna a prioridade. */
+        std::string getValor() const;
 };
 
-inline string Prioridade::getValor() {
+inline std::string Prioridade::getValor() const {
     return valor;
 }
 
-#endif
+#endif // PRIORIDADE_HPP_INCLUDED

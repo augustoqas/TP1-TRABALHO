@@ -1,20 +1,18 @@
 #include "tamanho.hpp"
 
-const string Tamanho::GRANDE = "GRANDE";
-const string Tamanho::MEDIO = "MEDIO";
-const string Tamanho::PEQUENO = "PEQUENO";
+#include <stdexcept>
 
-bool Tamanho::validar(string valor) {
-    if (valor == GRANDE || valor == MEDIO || valor == PEQUENO){
-        return true;
+const std::string Tamanho::GRANDE = "GRANDE";
+const std::string Tamanho::MEDIO = "MEDIO";
+const std::string Tamanho::PEQUENO = "PEQUENO";
+
+void Tamanho::validar(std::string valor) {
+    if (valor != GRANDE && valor != MEDIO && valor != PEQUENO) {
+        throw std::invalid_argument("Tamanho invalido: deve ser GRANDE, MEDIO ou PEQUENO.");
     }
-    return false;
 }
 
-bool Tamanho::setValor(string valor) {
-    if (!validar(valor)){
-        return false;
-    }
-    this -> valor = valor;
-    return true;
+void Tamanho::setValor(std::string valor) {
+    validar(valor);
+    this->valor = valor;
 }

@@ -1,16 +1,14 @@
 #include "limite.hpp"
 
-bool Limite::validar(int valor) {
-    if (valor < MINIMO || valor > MAXIMO){
-        return false;
+#include <stdexcept>
+
+void Limite::validar(int valor) {
+    if (valor < MINIMO || valor > MAXIMO) {
+        throw std::invalid_argument("Limite invalido: deve ser um inteiro de 1 a 25.");
     }
-    return true;
 }
 
-bool Limite::setValor(int valor) {
-    if (!validar(valor)){
-        return false;
-    }
-    this -> valor = valor;
-    return true;
+void Limite::setValor(int valor) {
+    validar(valor);
+    this->valor = valor;
 }
