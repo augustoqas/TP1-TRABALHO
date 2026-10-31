@@ -33,7 +33,7 @@ static void removerProjeto(const std::string& id) {
 static void cadastrarCartao(const std::string& id, const Email& desenvolvedor) {
     CartaoAtividade cartao;
     cartao.setIdentificador(identificador(id));
-    cartoes->incluir(cartao, desenvolvedor);
+    cartoes->incluir(cartao, identificador("QDR001"), desenvolvedor);
 }
 
 static void removerCartao(const std::string& id) {
