@@ -3,7 +3,6 @@
 
 #include <stdexcept>
 #include <string>
-#include <type_traits>
 #include <vector>
 
 /**
@@ -95,8 +94,8 @@ class Tela {
         /**
          * @brief Le um campo de dominio, pedindo de novo ate o valor ser valido.
          *
-         * Serve para qualquer dominio com setValor(std::string), lance ele
-         * excecao ou retorne bool. A dica aparece entre parenteses.
+         * Serve para qualquer dominio com setValor(std::string) que lanca
+         * std::invalid_argument para valor invalido. A dica aparece entre parenteses.
          * Se o usuario digitar 0, ja mostra "Operacao cancelada" e retorna CANCELADO.
          * @param dominio So e preenchido quando o retorno e LIDO.
          */
@@ -119,39 +118,7 @@ class Tela {
         static int converterOpcao(const std::string& texto);
 
         static bool converterInteiro(const std::string& texto, int& numero);
-
-        // Chama dominio.setValor(valor) e diz se o valor foi aceito, tanto para
-        // setValor que retorna bool quanto para o que lanca excecao.
-        // PROVISORIO: so existe porque Papel, Prioridade, Tamanho e Limite ainda
-        // retornam bool. Quando todos lancarem excecao, remover e chamar setValor direto.
-        template<typename Dominio, typename Valor>
-        static bool atribuir(Dominio& dominio, const Valor& valor);
-
-        // Versao para setValor que retorna bool.
-        template<typename Dominio, typename Valor>
-        static bool atribuir(Dominio& dominio, const Valor& valor, std::true_type);
-
-        // Versao para setValor que retorna void (valor invalido lanca excecao).
-        template<typename Dominio, typename Valor>
-        static bool atribuir(Dominio& dominio, const Valor& valor, std::false_type);
 };
-
-template<typename Dominio, typename Valor>
-bool Tela::atribuir(Dominio& dominio, const Valor& valor) {
-    typedef decltype(dominio.setValor(valor)) Retorno;
-    return atribuir(dominio, valor, std::is_same<Retorno, bool>());
-}
-
-template<typename Dominio, typename Valor>
-bool Tela::atribuir(Dominio& dominio, const Valor& valor, std::true_type) {
-    return dominio.setValor(valor);
-}
-
-template<typename Dominio, typename Valor>
-bool Tela::atribuir(Dominio& dominio, const Valor& valor, std::false_type) {
-    dominio.setValor(valor);
-    return true;
-}
 
 template<typename Dominio>
 Tela::Leitura Tela::lerCampo(const std::string& rotulo, const std::string& dica, Dominio& dominio) {
@@ -165,10 +132,8 @@ Tela::Leitura Tela::lerCampo(const std::string& rotulo, const std::string& dica,
             return Leitura::CANCELADO;
         }
         try {
-            if (atribuir(dominio, texto)) {
-                return Leitura::LIDO;
-            }
-            erro(rotulo + ": valor invalido. Tente novamente.");
+            dominio.setValor(texto);
+            return Leitura::LIDO;
         } catch (const std::invalid_argument& excecao) {
             erro(std::string(excecao.what()) + " Tente novamente.");
         }
@@ -192,10 +157,8 @@ Tela::Leitura Tela::lerCampoInteiro(const std::string& rotulo, const std::string
             continue;
         }
         try {
-            if (atribuir(dominio, numero)) {
-                return Leitura::LIDO;
-            }
-            erro(rotulo + ": valor invalido. Tente novamente.");
+            dominio.setValor(numero);
+            return Leitura::LIDO;
         } catch (const std::invalid_argument& excecao) {
             erro(std::string(excecao.what()) + " Tente novamente.");
         }

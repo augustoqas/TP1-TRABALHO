@@ -65,10 +65,8 @@ static Pessoa pessoa(const std::string& e, const std::string& n, const std::stri
     return pessoa;
 }
 
-// Funciona com o Papel atual (getValor nao const) e com o futuro (const).
 static std::string papelDe(const Pessoa& p) {
-    Papel papel = p.getPapel();
-    return papel.getValor();
+    return p.getPapel().getValor();
 }
 
 static bool contem(const std::vector<Email>& lista, const std::string& valor) {
@@ -94,8 +92,12 @@ static Pessoa incompleta(const std::string& e, const std::string& n, const std::
     if (!s.empty()) {
         pessoa.setSenha(senha(s));
     }
+    // Papel invalido (ex.: "CHEFE") e recusado pelo dominio; a pessoa fica sem papel.
     Papel papel;
-    papel.setValor(p);  // Papel atual retorna false e fica vazio se invalido
+    try {
+        papel.setValor(p);
+    } catch (const std::invalid_argument&) {
+    }
     pessoa.setPapel(papel);
     return pessoa;
 }

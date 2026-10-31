@@ -1,20 +1,18 @@
 #include "prioridade.hpp"
 
-const string Prioridade::ALTA = "ALTA";
-const string Prioridade::MEDIA = "MEDIA";
-const string Prioridade::BAIXA = "BAIXA";
+#include <stdexcept>
 
-bool Prioridade::validar(string valor) {
-    if (valor == ALTA || valor == MEDIA || valor == BAIXA){
-        return true;
+const std::string Prioridade::ALTA = "ALTA";
+const std::string Prioridade::MEDIA = "MEDIA";
+const std::string Prioridade::BAIXA = "BAIXA";
+
+void Prioridade::validar(std::string valor) {
+    if (valor != ALTA && valor != MEDIA && valor != BAIXA) {
+        throw std::invalid_argument("Prioridade invalida: deve ser ALTA, MEDIA ou BAIXA.");
     }
-    return false;
 }
 
-bool Prioridade::setValor(string valor) {
-    if (!validar(valor)){
-        return false;
-    }
-    this -> valor = valor;
-    return true;
+void Prioridade::setValor(std::string valor) {
+    validar(valor);
+    this->valor = valor;
 }
