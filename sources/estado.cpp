@@ -1,21 +1,18 @@
-#include "Estado.h"
+#include "estado.hpp"
 
-const string Estado::A_FAZER = "A FAZER"
-const string Estado::FAZENDO = "FAZENDO"
-const string Estado::FEITO = "FEITO"
+#include <stdexcept>
 
-bool Estado::validar(string valor) {
-    if (valor == A_FAZER || valor == FAZENDO || valor == FEITO){
-        return true;
+const std::string Estado::A_FAZER = "A FAZER";
+const std::string Estado::FAZENDO = "FAZENDO";
+const std::string Estado::FEITO = "FEITO";
+
+void Estado::validar(std::string valor) {
+    if (valor != A_FAZER && valor != FAZENDO && valor != FEITO) {
+        throw std::invalid_argument("Estado invalido: use A FAZER, FAZENDO ou FEITO.");
     }
-    return false;
-    
 }
 
-bool Estado::setValor(string valor) {
-    if (!validar){
-        return false;
-    }
-    this -> valor = valor;
-    return true;
+void Estado::setValor(std::string valor) {
+    validar(valor);
+    this->valor = valor;
 }

@@ -1,24 +1,40 @@
-#ifndef ESTADO_H
-#define ESTADO_H
+#ifndef ESTADO_HPP_INCLUDED
+#define ESTADO_HPP_INCLUDED
 
+#include <stdexcept>
 #include <string>
-using namespace std;
 
+/**
+ * @brief Dominio de estado (coluna) de um cartao de atividade.
+ *
+ * Formato: "A FAZER", "FAZENDO" ou "FEITO", exatamente assim.
+ *
+ * Ex.: "FAZENDO"
+ */
 class Estado {
     private:
-    static const string A_FAZER;
-    static const string FAZENDO;
-    static const string FEITO;
-    string valor;
-    bool validar(string);
+        std::string valor;
+
+        void validar(std::string valor);
 
     public:
-    bool setValor(string);
-    string getValor(string);
+        static const std::string A_FAZER;  ///< "A FAZER"
+        static const std::string FAZENDO;  ///< "FAZENDO"
+        static const std::string FEITO;    ///< "FEITO"
+
+        /**
+         * @brief Guarda o estado.
+         * @param valor "A FAZER", "FAZENDO" ou "FEITO".
+         * @throw std::invalid_argument Se o valor for invalido (o valor anterior fica).
+         */
+        void setValor(std::string valor);
+
+        /** @brief Retorna o estado. */
+        std::string getValor() const;
 };
 
-inline string getValor() {
+inline std::string Estado::getValor() const {
     return valor;
 }
 
-#endif
+#endif // ESTADO_HPP_INCLUDED
