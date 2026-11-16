@@ -3,6 +3,7 @@
 
 #include <map>
 #include <string>
+#include <vector>
 
 #include "email.hpp"
 #include "identificador.hpp"
@@ -11,8 +12,6 @@
 /**
  * @brief Guarda os projetos em memoria e o email do gestor de cada um.
  *
- * Versao minima: so o que o modulo de Pessoa usa. Quem fizer o modulo de Projeto
- * completa (pesquisar, atualizar, listar...) no mesmo padrao de ContainerPessoa.
  * O gestor fica aqui porque Projeto nao tem esse atributo. Nao confere regra de
  * negocio, e a copia e proibida pelo mesmo motivo de ContainerPessoa.
  */
@@ -36,8 +35,20 @@ class ContainerProjeto {
         /** @brief Guarda o projeto e o seu gestor. Retorna false se o identificador ja existir. */
         bool incluir(const Projeto& projeto, const Email& gestor);
 
+        /** @brief Busca o projeto pelo identificador. Retorna false se nao achar. */
+        bool pesquisar(const Identificador& identificador, Projeto& projeto) const;
+
+        /**
+         * @brief Troca os dados do projeto com o mesmo identificador; o gestor nao muda.
+         * Retorna false se ele nao existir.
+         */
+        bool atualizar(const Projeto& projeto);
+
         /** @brief Remove o projeto e o seu gestor. Retorna false se ele nao existir. */
         bool remover(const Identificador& identificador);
+
+        /** @brief Substitui o conteudo de lista pelos identificadores cadastrados. */
+        void listar(std::vector<Identificador>& lista) const;
 
         /** @brief Diz se a pessoa e gestora de algum projeto. */
         bool existeGestor(const Email& gestor) const;
