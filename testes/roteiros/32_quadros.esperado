@@ -1,0 +1,23 @@
+# Quadros: projeto inexistente recusado, limite invalido pedido de novo, listar, ler,
+# atualizar, projeto com quadro nao e excluido, excluir quadro.
+> Projeto criado com sucesso
+> MENU DE QUADROS
+> Nao foi possivel criar o quadro
+> projeto nao existe
+> Tente novamente
+> digite um numero inteiro
+> Quadro criado com sucesso
+> Quadros do projeto PRJ100 (1)
+> QDR100
+> Sprint um
+> Limite de WIP: 2
+> Quadro atualizado com sucesso
+> Sprint dois
+> Limite de WIP: 4
+> Nao foi possivel excluir
+> projeto tem quadros
+> Quadro excluido com sucesso
+> O projeto nao tem quadros
+> Nao foi possivel listar
+> Sessao encerrada
+> Sistema encerrado

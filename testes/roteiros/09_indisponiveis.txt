@@ -8,8 +8,6 @@ GESTOR
 2
 ana@unb.br
 Pw123
-2
-3
 9
 abc
 0
