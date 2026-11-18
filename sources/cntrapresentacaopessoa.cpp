@@ -13,31 +13,6 @@ const std::string CntrApresentacaoPessoa::DICA_PAPEL = "GESTOR ou DESENVOLVEDOR,
 
 // --- Leitura de campos ---
 
-// PROVISORIO (issue #9): Papel::setValor ainda nao lanca excecao em todas as
-// versoes, entao o texto e conferido antes. Quando lancar, usar Tela::lerCampo.
-Tela::Leitura CntrApresentacaoPessoa::lerPapel(Papel& papel) {
-    std::string texto;
-    while (true) {
-        if (!Tela::lerLinha("Papel (" + DICA_PAPEL + "):", texto)) {
-            return Tela::Leitura::FIM;
-        }
-        if (texto == Tela::CANCELAR) {
-            Tela::cancelado();
-            return Tela::Leitura::CANCELADO;
-        }
-        if (texto != "GESTOR" && texto != "DESENVOLVEDOR") {
-            Tela::erro("Papel invalido: digite GESTOR ou DESENVOLVEDOR. Tente novamente.");
-            continue;
-        }
-        try {
-            papel.setValor(texto);
-            return Tela::Leitura::LIDO;
-        } catch (const std::invalid_argument& excecao) {
-            Tela::erro(std::string(excecao.what()) + " Tente novamente.");
-        }
-    }
-}
-
 Tela::Leitura CntrApresentacaoPessoa::lerDadosAlteraveis(Pessoa& pessoa) {
     Nome nome;
     Tela::Leitura leitura = Tela::lerCampo("Nome", DICA_NOME, nome);
@@ -50,7 +25,7 @@ Tela::Leitura CntrApresentacaoPessoa::lerDadosAlteraveis(Pessoa& pessoa) {
         return leitura;
     }
     Papel papel;
-    leitura = lerPapel(papel);
+    leitura = Tela::lerCampo("Papel", DICA_PAPEL, papel);
     if (leitura != Tela::Leitura::LIDO) {
         return leitura;
     }
@@ -71,11 +46,10 @@ Tela::Leitura CntrApresentacaoPessoa::lerNovaPessoa(Pessoa& pessoa) {
 }
 
 void CntrApresentacaoPessoa::mostrarPessoa(const Pessoa& pessoa) {
-    Papel papel = pessoa.getPapel();  // Copia nao const: Papel::getValor() ainda nao e const.
     Tela::separador();
     Tela::campo("Email", pessoa.getEmail().getValor());
     Tela::campo("Nome", pessoa.getNome().getValor());
-    Tela::campo("Papel", papel.getValor());
+    Tela::campo("Papel", pessoa.getPapel().getValor());
     Tela::separador();
 }
 
