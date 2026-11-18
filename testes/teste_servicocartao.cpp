@@ -255,7 +255,7 @@ static void testarServico() {
     servico->criar(gestor, id("QDR002"), dev, cartao("CRT006"));
     servico->mover(dev, id("CRT004"));  // libera a vaga
     servico->mover(dev, id("CRT006"));
-    instanteAtual = "1-MAR-2028-01:00";
+    instanteAtual = "01-MAR-2028-01:00";
     servico->mover(dev, id("CRT006"));
     verificar(servico->lerTempoCiclo(dev, id("CRT006"), minutos) && minutos == 26 * 60, "ciclo atravessa 29 de fevereiro");
 
@@ -275,9 +275,9 @@ static void testarServico() {
 
 static void testarConversao() {
     Timestamp t;
-    t.setValor("1-JAN-2000-00:00");
+    t.setValor("01-JAN-2000-00:00");
     verificar(CntrServicoCartao::converterMinutos(t) == 0, "converter: 1-JAN-2000-00:00 = 0");
-    t.setValor("1-JAN-2001-00:00");
+    t.setValor("01-JAN-2001-00:00");
     verificar(CntrServicoCartao::converterMinutos(t) == 366L * 1440, "converter: 2000 e bissexto (366 dias)");
     t.setValor("31-DEZ-2099-23:59");
     verificar(CntrServicoCartao::converterMinutos(t) > 0, "converter: ultimo instante valido");

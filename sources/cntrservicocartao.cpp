@@ -65,7 +65,7 @@ Timestamp CntrServicoCartao::agora() const {
     std::time_t segundos = std::time(nullptr);
     std::tm* local = std::localtime(&segundos);
     char texto[32];
-    std::snprintf(texto, sizeof(texto), "%d-%s-%d-%02d:%02d", local->tm_mday, SIGLAS_MESES[local->tm_mon],
+    std::snprintf(texto, sizeof(texto), "%02d-%s-%04d-%02d:%02d", local->tm_mday, SIGLAS_MESES[local->tm_mon],
                   local->tm_year + 1900, local->tm_hour, local->tm_min);
     Timestamp instante;
     instante.setValor(texto);
