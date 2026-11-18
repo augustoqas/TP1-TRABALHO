@@ -273,20 +273,8 @@ static void testarServico() {
     verificar(semQuadro.ler(dev, id("CRT001"), lido), "sem servico de quadros: ler funciona");
 }
 
-static void testarConversao() {
-    Timestamp t;
-    t.setValor("01-JAN-2000-00:00");
-    verificar(CntrServicoCartao::converterMinutos(t) == 0, "converter: 1-JAN-2000-00:00 = 0");
-    t.setValor("01-JAN-2001-00:00");
-    verificar(CntrServicoCartao::converterMinutos(t) == 366L * 1440, "converter: 2000 e bissexto (366 dias)");
-    t.setValor("31-DEZ-2099-23:59");
-    verificar(CntrServicoCartao::converterMinutos(t) > 0, "converter: ultimo instante valido");
-    verificar(CntrServicoCartao::converterMinutos(Timestamp()) == -1, "converter: timestamp vazio = -1");
-}
-
 int main() {
     testarConteiner();
     testarServico();
-    testarConversao();
     return resultado();
 }

@@ -15,8 +15,9 @@
  *
  * O quadro e o desenvolvedor ficam aqui porque CartaoAtividade nao tem esses
  * atributos (sao associacoes do diagrama de classes). So armazena; quem confere
- * permissao e regra de negocio e o servico. A copia e proibida pelo mesmo motivo
- * de ContainerPessoa.
+ * permissao e regra de negocio e o servico. A copia e proibida porque o main
+ * cria um unico conteiner; uma copia criaria um segundo armazenamento, e os dados
+ * deixariam de bater.
  */
 class ContainerCartao {
     private:
@@ -30,10 +31,10 @@ class ContainerCartao {
         /** @brief Cria o conteiner vazio. */
         ContainerCartao() = default;
 
-        /** @brief Copia proibida (ver ContainerPessoa). */
+        /** @brief Copia proibida (ver a classe). */
         ContainerCartao(const ContainerCartao&) = delete;
 
-        /** @brief Atribuicao proibida (ver ContainerPessoa). */
+        /** @brief Atribuicao proibida (ver a classe). */
         ContainerCartao& operator=(const ContainerCartao&) = delete;
 
         /**

@@ -14,8 +14,9 @@
  *
  * Usa o conteiner de cartoes e o de pessoas (para conferir papeis), passados por
  * setter, e o servico de quadros (IServicoQuadro), para saber se um quadro existe
- * e qual e o seu limite de WIP. So guarda os ponteiros; o main mantem tudo vivo.
- * Se faltar alguma dessas dependencias, o metodo que precisa dela retorna false.
+ * e qual e o seu limite de WIP. So guarda os ponteiros; quem cria e guarda os
+ * objetos e o main. Se faltar alguma dessas dependencias, o metodo que precisa
+ * dela retorna false.
  *
  * Regras:
  * - Criar, atualizar e excluir: so usuario com papel GESTOR.
@@ -23,7 +24,8 @@
  * - Cartao novo entra em A FAZER com entrada = agora; estado e instantes so mudam por mover.
  * - Mover: A FAZER -> FAZENDO (grava inicio, respeita o limite de WIP) e
  *   FAZENDO -> FEITO (grava termino). Cartao em FEITO nao se move.
- * - Tempos em minutos: ciclo = termino - inicio; lead time = termino - entrada.
+ * - Tempos em minutos (Timestamp::getMinutos): ciclo = termino - inicio;
+ *   lead time = termino - entrada.
  */
 class CntrServicoCartao : public IServicoCartao {
     public:
@@ -47,13 +49,15 @@ class CntrServicoCartao : public IServicoCartao {
         // Quantos cartoes do quadro estao em FAZENDO.
         int contarFazendo(const Identificador& quadro) const;
 
-        // Media de ciclo (true) ou de lead time (false) dos cartoes em FEITO do quadro.
+        // Media dos cartoes em FEITO do quadro: se ciclo for true, do tempo de ciclo;
+        // se for false, do lead time.
         bool calcularMedia(const Email& usuario, const Identificador& quadro, bool ciclo, double& minutos);
 
+        // Instante atual: o do relogio de teste, se houver; senao, Timestamp::agora().
         Timestamp agora() const;
 
         // Confere identificador, nome, descricao, prioridade e tamanho preenchidos.
-        // Dominio nunca preenchido fica com valor vazio.
+        // Um dominio que nunca recebeu valor fica vazio; e isso que se confere.
         static bool cartaoCompleto(const CartaoAtividade& cartao);
 
     public:
@@ -73,13 +77,6 @@ class CntrServicoCartao : public IServicoCartao {
          * os testes simularem a passagem do tempo.
          */
         void setRelogio(Relogio relogio);
-
-        /**
-         * @brief Converte um instante valido em minutos desde 01-JAN-2000-00:00.
-         * @param instante Instante no formato DIA-MES-ANO-HH:MM.
-         * @return Minutos desde 01-JAN-2000-00:00, ou -1 se o instante estiver vazio.
-         */
-        static long converterMinutos(const Timestamp& instante);
 
         /** @brief Cria o cartao em A FAZER (servico 16). Ver IServicoCartao::criar. */
         bool criar(const Email& usuario, const Identificador& quadro, const Email& desenvolvedor,
