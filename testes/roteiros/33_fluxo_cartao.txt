@@ -1,0 +1,62 @@
+1
+dev@unb.br
+Dev Um
+Dv123
+DESENVOLVEDOR
+1
+ana@unb.br
+Ana Maria
+Pw123
+GESTOR
+2
+ana@unb.br
+Pw123
+2
+1
+PRJ100
+Sistema Kanban
+Trabalho de TP1.
+01-MAR-2026-08:00
+30-JUN-2026-18:00
+6
+3
+1
+PRJ100
+QDR100
+Sprint um
+1
+6
+4
+1
+QDR100
+CRT100
+Tela login
+Fazer a tela.
+ALTA
+MEDIO
+dev@unb.br
+1
+QDR100
+CRT101
+Tela menu
+Fazer o menu.
+BAIXA
+PEQUENO
+dev@unb.br
+5
+QDR100
+6
+CRT100
+6
+CRT101
+11
+QDR100
+12
+3
+3
+QDR100
+Sprint um
+0
+6
+5
+3

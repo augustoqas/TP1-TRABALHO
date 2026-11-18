@@ -1,0 +1,18 @@
+# Fluxo integrado: projeto e quadro criados pelo menu permitem criar cartao pelo menu;
+# o limite de WIP do quadro (1) barra o segundo cartao em FAZENDO.
+> Conta criada com sucesso
+> Conta criada com sucesso
+> Autenticado com sucesso
+> Projeto criado com sucesso
+> Quadro criado com sucesso
+> Cartao criado com sucesso
+> Cartao criado com sucesso
+> Cartoes do quadro QDR100 (2)
+> CRT100
+> CRT101
+> Cartao movido para FAZENDO
+> Nao foi possivel mover o cartao
+> WIP: 1
+> Operacao cancelada
+> Sessao encerrada
+> Sistema encerrado

@@ -1,0 +1,56 @@
+1
+ana@unb.br
+Ana Maria
+Pw123
+GESTOR
+2
+ana@unb.br
+Pw123
+2
+1
+PRJ100
+Sistema Kanban
+Trabalho de TP1.
+01-MAR-2026-08:00
+30-JUN-2026-18:00
+6
+3
+1
+PRJ999
+QDR100
+Sprint um
+2
+1
+PRJ100
+QDR100
+Sprint um
+30
+x
+2
+5
+PRJ100
+2
+QDR100
+3
+QDR100
+Sprint dois
+4
+2
+QDR100
+6
+2
+4
+PRJ100
+S
+6
+3
+4
+QDR100
+S
+5
+PRJ100
+5
+PRJ999
+6
+5
+3
