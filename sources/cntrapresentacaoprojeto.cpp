@@ -6,7 +6,7 @@
 const std::string CntrApresentacaoProjeto::DICA_IDENTIFICADOR = "3 letras e 3 digitos, ex.: PRJ001";
 const std::string CntrApresentacaoProjeto::DICA_NOME = "1 a 15 letras, espaco simples entre palavras";
 const std::string CntrApresentacaoProjeto::DICA_TEXTO = "ate 30 caracteres, comeca com maiuscula e termina com ponto";
-const std::string CntrApresentacaoProjeto::DICA_TIMESTAMP = "DD-MES-AAAA-HH:MM, ex.: 15-MAR-2026-14:30";
+const std::string CntrApresentacaoProjeto::DICA_TIMESTAMP = "DIA-MES-AAAA-HH:MM, dia de 1 a 31, ex.: 5-MAR-2026-14:30";
 
 // --- Auxiliares ---
 
