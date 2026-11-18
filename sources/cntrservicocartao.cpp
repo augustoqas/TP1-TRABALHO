@@ -1,75 +1,23 @@
 #include "cntrservicocartao.hpp"
 
-#include <cstdio>
-#include <ctime>
 #include <string>
 
 namespace {
-
-const char* const SIGLAS_MESES[12] = {"JAN", "FEV", "MAR", "ABR", "MAI", "JUN",
-                                      "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"};
 
 const std::string A_FAZER = "A FAZER";
 const std::string FAZENDO = "FAZENDO";
 const std::string FEITO = "FEITO";
 
-bool bissexto(int ano) {
-    return (ano % 4 == 0 && ano % 100 != 0) || ano % 400 == 0;
-}
-
-int diasNoMes(int mes, int ano) {
-    static const int DIAS[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-    return (mes == 2 && bissexto(ano)) ? 29 : DIAS[mes - 1];
-}
-
 }  // namespace
 
 // --- Tempo ---
 
-long CntrServicoCartao::converterMinutos(const Timestamp& instante) {
-    // O dominio ja garante o formato DIA-MES-ANO-HH:MM (dia com 1 ou 2 digitos).
-    std::string valor = instante.getValor();
-    if (valor.empty()) {
-        return -1;
-    }
-    std::string::size_type p1 = valor.find('-');
-    std::string::size_type p2 = valor.find('-', p1 + 1);
-    std::string::size_type p3 = valor.find('-', p2 + 1);
-
-    int dia = std::stoi(valor.substr(0, p1));
-    std::string sigla = valor.substr(p1 + 1, p2 - p1 - 1);
-    int ano = std::stoi(valor.substr(p2 + 1, p3 - p2 - 1));
-    int hora = std::stoi(valor.substr(p3 + 1, 2));
-    int minuto = std::stoi(valor.substr(p3 + 4, 2));
-
-    int mes = 1;
-    while (mes <= 12 && sigla != SIGLAS_MESES[mes - 1]) {
-        mes++;
-    }
-
-    long dias = 0;
-    for (int a = 2000; a < ano; a++) {
-        dias += bissexto(a) ? 366 : 365;
-    }
-    for (int m = 1; m < mes; m++) {
-        dias += diasNoMes(m, ano);
-    }
-    dias += dia - 1;
-    return dias * 24 * 60 + hora * 60 + minuto;
-}
-
 Timestamp CntrServicoCartao::agora() const {
+    // Nos testes, o relogio simulado; no sistema, a data e a hora do computador.
     if (this->relogio != nullptr) {
         return this->relogio();
     }
-    std::time_t segundos = std::time(nullptr);
-    std::tm* local = std::localtime(&segundos);
-    char texto[32];
-    std::snprintf(texto, sizeof(texto), "%02d-%s-%04d-%02d:%02d", local->tm_mday, SIGLAS_MESES[local->tm_mon],
-                  local->tm_year + 1900, local->tm_hour, local->tm_min);
-    Timestamp instante;
-    instante.setValor(texto);
-    return instante;
+    return Timestamp::agora();
 }
 
 // --- Auxiliares ---
@@ -255,7 +203,7 @@ bool CntrServicoCartao::lerTempoCiclo(const Email& usuario, const Identificador&
     if (!this->containerCartao->pesquisar(identificador, cartao) || cartao.getEstado().getValor() != FEITO) {
         return false;
     }
-    minutos = static_cast<double>(converterMinutos(cartao.getTermino()) - converterMinutos(cartao.getInicio()));
+    minutos = static_cast<double>(cartao.getTermino().getMinutos() - cartao.getInicio().getMinutos());
     return true;
 }
 
@@ -267,7 +215,7 @@ bool CntrServicoCartao::lerLeadTime(const Email& usuario, const Identificador& i
     if (!this->containerCartao->pesquisar(identificador, cartao) || cartao.getEstado().getValor() != FEITO) {
         return false;
     }
-    minutos = static_cast<double>(converterMinutos(cartao.getTermino()) - converterMinutos(cartao.getEntrada()));
+    minutos = static_cast<double>(cartao.getTermino().getMinutos() - cartao.getEntrada().getMinutos());
     return true;
 }
 
@@ -288,8 +236,8 @@ bool CntrServicoCartao::calcularMedia(const Email& usuario, const Identificador&
         if (cartoes[i].getEstado().getValor() != FEITO) {
             continue;
         }
-        long comeco = converterMinutos(ciclo ? cartoes[i].getInicio() : cartoes[i].getEntrada());
-        soma += converterMinutos(cartoes[i].getTermino()) - comeco;
+        long comeco = (ciclo ? cartoes[i].getInicio() : cartoes[i].getEntrada()).getMinutos();
+        soma += cartoes[i].getTermino().getMinutos() - comeco;
         concluidos++;
     }
     if (concluidos == 0) {
