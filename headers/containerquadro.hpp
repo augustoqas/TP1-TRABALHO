@@ -3,6 +3,7 @@
 
 #include <map>
 #include <string>
+#include <vector>
 
 #include "identificador.hpp"
 #include "quadro.hpp"
@@ -10,10 +11,9 @@
 /**
  * @brief Guarda os quadros em memoria e o identificador do projeto de cada um.
  *
- * Versao minima: so o que o modulo de Projeto usa. O modulo de Quadro completa
- * (pesquisar, atualizar, listar por projeto...) no mesmo padrao de ContainerProjeto.
- * O projeto fica aqui porque Quadro nao tem esse atributo. Nao confere regra de
- * negocio, e a copia e proibida pelo mesmo motivo de ContainerPessoa.
+ * O projeto fica aqui porque Quadro nao tem esse atributo; cada quadro pertence a
+ * exatamente um projeto, fixado na inclusao. Nao confere regra de negocio, e a
+ * copia e proibida pelo mesmo motivo de ContainerPessoa.
  */
 class ContainerQuadro {
     private:
@@ -35,8 +35,20 @@ class ContainerQuadro {
         /** @brief Guarda o quadro e o seu projeto. Retorna false se o identificador ja existir. */
         bool incluir(const Quadro& quadro, const Identificador& projeto);
 
+        /** @brief Busca o quadro pelo identificador. Retorna false se nao achar. */
+        bool pesquisar(const Identificador& identificador, Quadro& quadro) const;
+
+        /**
+         * @brief Troca os dados do quadro com o mesmo identificador; o projeto nao muda.
+         * Retorna false se ele nao existir.
+         */
+        bool atualizar(const Quadro& quadro);
+
         /** @brief Remove o quadro e o seu projeto. Retorna false se ele nao existir. */
         bool remover(const Identificador& identificador);
+
+        /** @brief Substitui o conteudo de lista pelos identificadores dos quadros do projeto. */
+        void listar(const Identificador& projeto, std::vector<Identificador>& lista) const;
 
         /** @brief Diz se o projeto tem algum quadro. */
         bool existeQuadroNoProjeto(const Identificador& projeto) const;
