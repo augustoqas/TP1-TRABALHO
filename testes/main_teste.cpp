@@ -18,9 +18,11 @@
 #include "cntrservicoautenticacao.hpp"
 #include "cntrservicocartao.hpp"
 #include "cntrservicopessoa.hpp"
+#include "cntrservicoquadro.hpp"
 #include "containercartao.hpp"
 #include "containerpessoa.hpp"
 #include "containerprojeto.hpp"
+#include "containerquadro.hpp"
 
 // INICIO DADOS DE TESTE
 #include "cartaoatividade.hpp"
@@ -33,8 +35,8 @@ int main() {
     // 1. Conteineres.
     ContainerPessoa containerPessoa;
     ContainerProjeto containerProjeto;
+    ContainerQuadro containerQuadro;
     ContainerCartao containerCartao;
-    // COLEGAS: criar aqui os outros conteineres (ex.: ContainerQuadro).
 
     // INICIO DADOS DE TESTE
     Identificador identificadorProjeto;
@@ -65,14 +67,18 @@ int main() {
     cntrServicoPessoa.setContainerProjeto(&containerProjeto);
     cntrServicoPessoa.setContainerCartao(&containerCartao);
 
+    CntrServicoQuadro cntrServicoQuadro;
+    cntrServicoQuadro.setContainerPessoa(&containerPessoa);
+    cntrServicoQuadro.setContainerProjeto(&containerProjeto);
+    cntrServicoQuadro.setContainerQuadro(&containerQuadro);
+    cntrServicoQuadro.setContainerCartao(&containerCartao);
+
     CntrServicoCartao cntrServicoCartao;
     cntrServicoCartao.setContainerCartao(&containerCartao);
     cntrServicoCartao.setContainerPessoa(&containerPessoa);
-    // COLEGAS: trocar nullptr por &cntrServicoQuadro quando o servico de Quadro existir.
-    // Enquanto for nullptr, criar, listar, mover para FAZENDO, medias e WIP retornam false.
-    cntrServicoCartao.setCntrServicoQuadro(nullptr);
+    cntrServicoCartao.setCntrServicoQuadro(&cntrServicoQuadro);
 
-    // COLEGAS: criar aqui os servicos de Projeto e Quadro e passar os
+    // COLEGAS: criar aqui o servico de Projeto e passar os
     // conteineres com setContainer*(&...).
 
     // 3. Controladoras de apresentacao.
