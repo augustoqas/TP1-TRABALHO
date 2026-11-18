@@ -150,7 +150,7 @@ void CntrApresentacaoProjeto::atualizar(const Email& usuario) {
         return;
     }
     if (!this->cntrServicoProjeto->atualizar(usuario, projeto)) {
-        Tela::falha("Nao foi possivel atualizar.", {"projeto nao encontrado", "usuario nao e GESTOR"});
+        Tela::falha("Nao foi possivel atualizar.", {"projeto nao encontrado", "voce nao e o gestor do projeto"});
         return;
     }
     Tela::sucesso("Projeto atualizado com sucesso.");
@@ -175,7 +175,7 @@ void CntrApresentacaoProjeto::excluir(const Email& usuario) {
     }
     if (!this->cntrServicoProjeto->excluir(usuario, identificador)) {
         Tela::falha("Nao foi possivel excluir.",
-                    {"projeto nao encontrado", "usuario nao e GESTOR", "projeto tem quadros (exclua-os antes)"});
+                    {"projeto nao encontrado", "voce nao e o gestor do projeto", "projeto tem quadros (exclua-os antes)"});
         return;
     }
     Tela::sucesso("Projeto excluido com sucesso.");

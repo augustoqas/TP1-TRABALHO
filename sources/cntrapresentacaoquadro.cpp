@@ -96,7 +96,7 @@ void CntrApresentacaoQuadro::criar(const Email& usuario) {
     }
     if (!this->cntrServicoQuadro->criar(usuario, projeto, quadro)) {
         Tela::falha("Nao foi possivel criar o quadro.",
-                    {"usuario nao e GESTOR", "projeto nao existe", "identificador ja existe"});
+                    {"voce nao e o gestor do projeto", "projeto nao existe", "identificador ja existe"});
         return;
     }
     Tela::sucesso("Quadro criado com sucesso.");
@@ -144,7 +144,7 @@ void CntrApresentacaoQuadro::atualizar(const Email& usuario) {
     }
     if (!this->cntrServicoQuadro->atualizar(usuario, quadro)) {
         Tela::falha("Nao foi possivel atualizar.",
-                    {"quadro nao encontrado", "usuario nao e GESTOR", "novo limite menor que o WIP atual"});
+                    {"quadro nao encontrado", "voce nao e o gestor do projeto", "novo limite menor que o WIP atual"});
         return;
     }
     Tela::sucesso("Quadro atualizado com sucesso.");
@@ -169,7 +169,7 @@ void CntrApresentacaoQuadro::excluir(const Email& usuario) {
     }
     if (!this->cntrServicoQuadro->excluir(usuario, identificador)) {
         Tela::falha("Nao foi possivel excluir.",
-                    {"quadro nao encontrado", "usuario nao e GESTOR", "quadro tem cartoes (exclua-os antes)"});
+                    {"quadro nao encontrado", "voce nao e o gestor do projeto", "quadro tem cartoes (exclua-os antes)"});
         return;
     }
     Tela::sucesso("Quadro excluido com sucesso.");

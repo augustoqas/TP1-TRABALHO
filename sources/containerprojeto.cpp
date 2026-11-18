@@ -45,6 +45,15 @@ void ContainerProjeto::listar(std::vector<Identificador>& lista) const {
     }
 }
 
+bool ContainerProjeto::pesquisarGestor(const Identificador& projeto, Email& gestor) const {
+    std::map<std::string, Email>::const_iterator it = this->gestores.find(projeto.getValor());
+    if (it == this->gestores.end()) {
+        return false;
+    }
+    gestor = it->second;
+    return true;
+}
+
 bool ContainerProjeto::existeGestor(const Email& gestor) const {
     std::map<std::string, Email>::const_iterator it;
     for (it = this->gestores.begin(); it != this->gestores.end(); it++) {

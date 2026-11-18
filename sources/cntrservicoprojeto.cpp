@@ -35,6 +35,17 @@ bool CntrServicoProjeto::usuarioGestor(const Email& usuario) const {
     return papel.getValor() == "GESTOR";
 }
 
+bool CntrServicoProjeto::gestorDoProjeto(const Email& usuario, const Identificador& projeto) const {
+    if (!this->usuarioGestor(usuario)) {
+        return false;
+    }
+    Email gestor;
+    if (!this->containerProjeto->pesquisarGestor(projeto, gestor)) {
+        return false;
+    }
+    return gestor.getValor() == usuario.getValor();
+}
+
 bool CntrServicoProjeto::projetoCompleto(const Projeto& projeto) {
     return !projeto.getIdentificador().getValor().empty() &&
            !projeto.getNome().getValor().empty() &&
@@ -62,7 +73,8 @@ bool CntrServicoProjeto::ler(const Email& usuario, const Identificador& identifi
 }
 
 bool CntrServicoProjeto::atualizar(const Email& usuario, const Projeto& projeto) {
-    if (!this->usuarioGestor(usuario)) {
+    // Tambem recusa projeto inexistente (sem gestor).
+    if (!this->gestorDoProjeto(usuario, projeto.getIdentificador())) {
         return false;
     }
     if (!projetoCompleto(projeto)) {
@@ -73,7 +85,7 @@ bool CntrServicoProjeto::atualizar(const Email& usuario, const Projeto& projeto)
 }
 
 bool CntrServicoProjeto::excluir(const Email& usuario, const Identificador& identificador) {
-    if (!this->usuarioGestor(usuario)) {
+    if (!this->gestorDoProjeto(usuario, identificador)) {
         return false;
     }
     if (this->containerQuadro == nullptr) {

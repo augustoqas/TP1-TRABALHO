@@ -6,20 +6,23 @@
 
 #include "containercartao.hpp"
 #include "containerpessoa.hpp"
+#include "containerprojeto.hpp"
+#include "containerquadro.hpp"
 #include "interfaces.hpp"
 
 /**
  * @brief Servico de cartoes (servicos 16 a 26): aplica as regras de cartao e
  *        calcula as metricas Kanban.
  *
- * Usa o conteiner de cartoes e o de pessoas (para conferir papeis), passados por
- * setter, e o servico de quadros (IServicoQuadro), para saber se um quadro existe
- * e qual e o seu limite de WIP. So guarda os ponteiros; quem cria e guarda os
- * objetos e o main. Se faltar alguma dessas dependencias, o metodo que precisa
- * dela retorna false.
+ * Usa, passados por setter, os conteineres de cartoes, de pessoas (para conferir
+ * papeis), de quadros e de projetos (para achar o gestor do projeto do quadro), e
+ * o servico de quadros (IServicoQuadro), para saber se um quadro existe e qual e o
+ * seu limite de WIP. So guarda os ponteiros; quem cria e guarda os objetos e o
+ * main. Se faltar alguma dessas dependencias, o metodo que precisa dela retorna
+ * false.
  *
  * Regras:
- * - Criar, atualizar e excluir: so usuario com papel GESTOR.
+ * - Criar, atualizar e excluir: so o gestor do projeto do quadro (quem criou o projeto).
  * - Ler, listar, mover e metricas: qualquer usuario cadastrado.
  * - Cartao novo entra em A FAZER com entrada = agora; estado e instantes so mudam por mover.
  * - Mover: A FAZER -> FAZENDO (grava inicio, respeita o limite de WIP) e
@@ -35,6 +38,8 @@ class CntrServicoCartao : public IServicoCartao {
     private:
         ContainerCartao* containerCartao = nullptr;
         ContainerPessoa* containerPessoa = nullptr;
+        ContainerQuadro* containerQuadro = nullptr;
+        ContainerProjeto* containerProjeto = nullptr;
         IServicoQuadro* cntrServicoQuadro = nullptr;
         Relogio relogio = nullptr;
 
@@ -42,6 +47,12 @@ class CntrServicoCartao : public IServicoCartao {
 
         // true se a pessoa existe e tem o papel informado ("GESTOR" ou "DESENVOLVEDOR").
         bool temPapel(const Email& email, const std::string& papel) const;
+
+        // true se o usuario e o gestor do projeto do quadro; false se o quadro nao existir.
+        bool gestorDoQuadro(const Email& usuario, const Identificador& quadro) const;
+
+        // true se o usuario e o gestor do projeto do quadro do cartao; false se o cartao nao existir.
+        bool gestorDoCartao(const Email& usuario, const Identificador& cartao) const;
 
         // Busca o quadro pelo servico de quadros. false se ele nao existir.
         bool lerQuadro(const Email& usuario, const Identificador& identificador, Quadro& quadro);
@@ -66,6 +77,12 @@ class CntrServicoCartao : public IServicoCartao {
 
         /** @brief Define o conteiner de pessoas (para conferir GESTOR e DESENVOLVEDOR). */
         void setContainerPessoa(ContainerPessoa* containerPessoa);
+
+        /** @brief Define o conteiner de quadros (projeto de cada quadro, para achar o gestor). */
+        void setContainerQuadro(ContainerQuadro* containerQuadro);
+
+        /** @brief Define o conteiner de projetos (gestor de cada projeto). */
+        void setContainerProjeto(ContainerProjeto* containerProjeto);
 
         /** @brief Define o servico de quadros (para conferir o quadro e ler o limite de WIP). */
         void setCntrServicoQuadro(IServicoQuadro* cntr);
@@ -119,6 +136,14 @@ inline void CntrServicoCartao::setContainerCartao(ContainerCartao* containerCart
 
 inline void CntrServicoCartao::setContainerPessoa(ContainerPessoa* containerPessoa) {
     this->containerPessoa = containerPessoa;
+}
+
+inline void CntrServicoCartao::setContainerQuadro(ContainerQuadro* containerQuadro) {
+    this->containerQuadro = containerQuadro;
+}
+
+inline void CntrServicoCartao::setContainerProjeto(ContainerProjeto* containerProjeto) {
+    this->containerProjeto = containerProjeto;
 }
 
 inline void CntrServicoCartao::setCntrServicoQuadro(IServicoQuadro* cntr) {

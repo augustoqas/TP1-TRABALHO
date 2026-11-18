@@ -29,7 +29,7 @@
  *     return;
  * }
  * if (!servico->criar(usuario, projeto, quadro)) {
- *     Tela::falha("Nao foi possivel criar o quadro.", {"usuario nao e GESTOR", "projeto nao existe", "identificador ja existe"});
+ *     Tela::falha("Nao foi possivel criar o quadro.", {"voce nao e o gestor do projeto", "projeto nao existe", "identificador ja existe"});
  * }
  * @endcode
  */

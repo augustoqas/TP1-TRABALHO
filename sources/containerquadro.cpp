@@ -47,6 +47,15 @@ void ContainerQuadro::listar(const Identificador& projeto, std::vector<Identific
     }
 }
 
+bool ContainerQuadro::pesquisarProjeto(const Identificador& quadro, Identificador& projeto) const {
+    std::map<std::string, Identificador>::const_iterator it = this->projetos.find(quadro.getValor());
+    if (it == this->projetos.end()) {
+        return false;
+    }
+    projeto = it->second;
+    return true;
+}
+
 bool ContainerQuadro::existeQuadroNoProjeto(const Identificador& projeto) const {
     std::map<std::string, Identificador>::const_iterator it;
     for (it = this->projetos.begin(); it != this->projetos.end(); it++) {

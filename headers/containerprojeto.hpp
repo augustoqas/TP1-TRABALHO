@@ -52,6 +52,12 @@ class ContainerProjeto {
 
         /** @brief Diz se a pessoa e gestora de algum projeto. */
         bool existeGestor(const Email& gestor) const;
+
+        /**
+         * @brief Informa o gestor do projeto (quem o criou).
+         * Retorna false se o projeto nao existir (gestor nao e alterado).
+         */
+        bool pesquisarGestor(const Identificador& projeto, Email& gestor) const;
 };
 
 #endif // CONTAINERPROJETO_HPP_INCLUDED
