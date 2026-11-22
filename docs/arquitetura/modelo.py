@@ -136,7 +136,9 @@ MODULOS = [
              "momento atual, atribuído a uma pessoa com papel DESENVOLVEDOR. `mover` faz "
              "A FAZER → FAZENDO (registra início) e FAZENDO → FEITO (registra término), "
              "respeitando o limite de WIP do quadro. Calcula tempo de ciclo (término − início), "
-             "lead time (término − entrada), as médias por quadro e o WIP."},
+             "lead time (término − entrada), as médias por quadro e o WIP. Consulta o quadro "
+             "(existência e limite de WIP) pela interface `IServicoQuadro`, sem acessar o "
+             "contêiner de quadros."},
 
     # ---------------- armazenamento (dentro da camada de servico) ----------------
     {"id": "arm_pessoas", "pacote": "armazenamento", "nivel": 3,
@@ -160,9 +162,12 @@ MODULOS = [
 # Frase comum a todo o armazenamento (aparece na secao de responsabilidades).
 ARMAZENAMENTO_COMUM = (
     "Cada contêiner guarda as entidades em memória, indexadas pela chave primária, e é "
-    "acessado somente pela camada de serviço: a apresentação nunca o acessa. A forma de "
-    "compartilhamento dos contêineres entre as controladoras de serviço será definida na "
-    "implementação."
+    "acessado somente pela camada de serviço: a apresentação nunca o acessa. O `main` cria um "
+    "único contêiner de cada tipo e o entrega por ponteiro (`setContainer*`) a cada controladora "
+    "de serviço que o usa; a cópia de contêineres é proibida, para que todas vejam os mesmos "
+    "dados. As associações ficam nos contêineres, ao lado da entidade: o de projetos guarda o "
+    "gestor de cada projeto, o de quadros o projeto de cada quadro e o de cartões o quadro e o "
+    "desenvolvedor de cada cartão."
 )
 
 # --------------------------------------------------------------------------
@@ -202,7 +207,7 @@ INTERFACES = [
          {"nome": "listar", "id": 10,
           "assinatura": "bool listar(const Email& usuario, std::vector<Identificador>& lista)"},
      ]},
-    {"nome": "IServicoQuadro", "provida_por": "srv_quadro", "requerida_por": ["apr_quadro"],
+    {"nome": "IServicoQuadro", "provida_por": "srv_quadro", "requerida_por": ["apr_quadro", "srv_cartao"],
      "metodos": [
          {"nome": "criar", "id": 11,
           "assinatura": "bool criar(const Email& usuario, const Identificador& projeto, const Quadro& quadro)"},
@@ -311,16 +316,15 @@ DEPENDENCIAS = [
      "motivo": "Recusar exclusão de quadro com cartões; exigir novo limite ≥ WIP atual."},
     {"de": "srv_cartao", "para": "arm_pessoas", "tipo": "secundaria",
      "motivo": "Conferir papel GESTOR do usuário; conferir se o desenvolvedor existe e tem papel DESENVOLVEDOR."},
-    {"de": "srv_cartao", "para": "arm_quadros", "tipo": "secundaria",
-     "motivo": "Conferir se o quadro existe; respeitar o limite de WIP ao mover para FAZENDO."},
 ]
 
 # Nota UML exibida no diagrama. {secao} e {tabela} sao preenchidos pelo gerador.
 NOTA_DIAGRAMA = {
     "pacote": "servico", "ancora": "armazenamento",
     "texto": "Dependências secundárias (consultas de consistência entre entidades, por exemplo "
-             "Serviço Cartão → Quadros para o limite de WIP) foram omitidas para não poluir o "
-             "diagrama. Estão documentadas na Seção {secao}, Tabela {tabela}.",
+             "Serviço Quadro → Cartões para o WIP) foram omitidas para não poluir o diagrama. "
+             "Estão documentadas na Seção {secao}, Tabela {tabela}. O uso de IServicoQuadro "
+             "pelo Serviço Cartão está na Tabela 3.",
 }
 
 # --------------------------------------------------------------------------
@@ -362,6 +366,8 @@ VISAO_GERAL = [
         "A camada de serviço **não conhece** a apresentação: nenhuma dependência aponta do "
         "serviço para a apresentação.",
         "O módulo Controle depende apenas das interfaces `IApresentacao*`.",
+        "Entre módulos de serviço há um único uso, também por interface: o Serviço Cartão "
+        "requer `IServicoQuadro` para conferir o quadro e o limite de WIP.",
         "O `main` monta as camadas: instancia as controladoras concretas, injeta cada "
         "controladora de serviço na apresentação correspondente com `setCntrServico*` e entrega "
         "as controladoras de apresentação ao Controle.",
@@ -374,8 +380,8 @@ VISAO_GERAL = [
         "O Controle chama `IApresentacaoCartao::executar(usuario)`.",
         "A apresentação de cartões lê o identificador, monta o domínio `Identificador` "
         "(validação) e chama `IServicoCartao::mover(usuario, identificador)`.",
-        "O serviço de cartões consulta o quadro (limite de WIP), atualiza estado e "
-        "timestamps no contêiner de cartões e retorna `true` ou `false`.",
+        "O serviço de cartões lê o quadro por `IServicoQuadro::ler` (limite de WIP), atualiza "
+        "estado e timestamps no contêiner de cartões e retorna `true` ou `false`.",
         "A apresentação exibe o resultado ou a mensagem de recusa.",
     ]),
 ]
