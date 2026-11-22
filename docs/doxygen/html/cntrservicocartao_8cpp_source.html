@@ -1,0 +1,465 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TP1 - Sistema Kanban: Código-Fonte de sources/cntrservicocartao.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TP1 - Sistema Kanban
+   </div>
+   <div id="projectbrief">Gestao de projetos pelo metodo Kanban, em camadas (C++11)</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Busca" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('cntrservicocartao_8cpp_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">cntrservicocartao.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;cntrservicocartao.hpp&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">namespace </span>{</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">const</span> std::string A_FAZER = <span class="stringliteral">&quot;A FAZER&quot;</span>;</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">const</span> std::string FAZENDO = <span class="stringliteral">&quot;FAZENDO&quot;</span>;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">const</span> std::string FEITO = <span class="stringliteral">&quot;FEITO&quot;</span>;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>}  <span class="comment">// namespace</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">// --- Tempo ---</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><a class="code hl_class" href="class_timestamp.html">Timestamp</a> CntrServicoCartao::agora()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="comment">// Nos testes, o relogio simulado; no sistema, a data e a hora do computador.</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordflow">if</span> (this-&gt;relogio != <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <span class="keywordflow">return</span> this-&gt;relogio();</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    }</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="class_timestamp.html#ab04f416af2ba7aba61fb6e5acc2b93b6">Timestamp::agora</a>();</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>}</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">// --- Auxiliares ---</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keywordtype">bool</span> CntrServicoCartao::usuarioCadastrado(<span class="keyword">const</span> <a class="code hl_class" href="class_email.html">Email</a>&amp; usuario)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordflow">if</span> (this-&gt;containerPessoa == <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    }</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    Pessoa pessoa;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordflow">return</span> this-&gt;containerPessoa-&gt;pesquisar(usuario, pessoa);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>}</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keywordtype">bool</span> CntrServicoCartao::temPapel(<span class="keyword">const</span> <a class="code hl_class" href="class_email.html">Email</a>&amp; email, <span class="keyword">const</span> std::string&amp; papel)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordflow">if</span> (this-&gt;containerPessoa == <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    }</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    Pessoa pessoa;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordflow">if</span> (!this-&gt;containerPessoa-&gt;pesquisar(email, pessoa)) {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    }</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordflow">return</span> pessoa.<a class="code hl_function" href="class_pessoa.html#a8c7e1938888e9e84b5c30ca977b98b9d">getPapel</a>().<a class="code hl_function" href="class_papel.html#a2f3d568dc6ddf7037c109f73f0726d72">getValor</a>() == papel;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>}</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keywordtype">bool</span> CntrServicoCartao::lerQuadro(<span class="keyword">const</span> <a class="code hl_class" href="class_email.html">Email</a>&amp; usuario, <span class="keyword">const</span> <a class="code hl_class" href="class_identificador.html">Identificador</a>&amp; identificador, <a class="code hl_class" href="class_quadro.html">Quadro</a>&amp; quadro) {</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordflow">if</span> (this-&gt;cntrServicoQuadro == <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    }</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordflow">return</span> this-&gt;cntrServicoQuadro-&gt;ler(usuario, identificador, quadro);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>}</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keywordtype">int</span> CntrServicoCartao::contarFazendo(<span class="keyword">const</span> <a class="code hl_class" href="class_identificador.html">Identificador</a>&amp; quadro)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    std::vector&lt;CartaoAtividade&gt; cartoes;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    this-&gt;containerCartao-&gt;listar(quadro, cartoes);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">int</span> quantidade = 0;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordflow">for</span> (std::vector&lt;CartaoAtividade&gt;::size_type i = 0; i &lt; cartoes.size(); i++) {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keywordflow">if</span> (cartoes[i].getEstado().getValor() == FAZENDO) {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            quantidade++;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        }</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    }</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordflow">return</span> quantidade;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>}</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keywordtype">bool</span> CntrServicoCartao::cartaoCompleto(<span class="keyword">const</span> <a class="code hl_class" href="class_cartao_atividade.html">CartaoAtividade</a>&amp; cartao) {</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordflow">return</span> !cartao.<a class="code hl_function" href="class_cartao_atividade.html#a4a3cfc240b735d432801331727ef68a7">getIdentificador</a>().<a class="code hl_function" href="class_identificador.html#ad1909a2fb657120ffe14f076ddc81531">getValor</a>().empty() &amp;&amp; !cartao.<a class="code hl_function" href="class_cartao_atividade.html#a1a05b2c596a6064a4cbe13b10791a69e">getNome</a>().<a class="code hl_function" href="class_nome.html#ae6eddd41a782357f0466a1c400156925">getValor</a>().empty() &amp;&amp;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>           !cartao.<a class="code hl_function" href="class_cartao_atividade.html#af3bc31936b2df05d05f4ba35317d57c3">getDescricao</a>().<a class="code hl_function" href="class_texto.html#a3e10c490166ff82e6559a502fe790b2c">getValor</a>().empty() &amp;&amp; !cartao.<a class="code hl_function" href="class_cartao_atividade.html#a5fdc8d9c57b351ae2abd79c531762516">getPrioridade</a>().<a class="code hl_function" href="class_prioridade.html#a0e8b94a8c528835653a59415ff437965">getValor</a>().empty() &amp;&amp;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>           !cartao.<a class="code hl_function" href="class_cartao_atividade.html#a3203e84615858f16a2cc938d3e1b0ebc">getTamanho</a>().<a class="code hl_function" href="class_tamanho.html#a861bee9a0a4206152fe4b3d4dcef378a">getValor</a>().empty();</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>}</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">// --- Servicos 16 a 20 ---</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="foldopen" id="foldopen00071" data-start="{" data-end="}">
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="class_cntr_servico_cartao.html#afd2f0d4f69abf1c67c4f6157324dda2b">   71</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_cntr_servico_cartao.html#afd2f0d4f69abf1c67c4f6157324dda2b">CntrServicoCartao::criar</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_email.html">Email</a>&amp; usuario, <span class="keyword">const</span> <a class="code hl_class" href="class_identificador.html">Identificador</a>&amp; quadro, <span class="keyword">const</span> <a class="code hl_class" href="class_email.html">Email</a>&amp; desenvolvedor,</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>                              <span class="keyword">const</span> <a class="code hl_class" href="class_cartao_atividade.html">CartaoAtividade</a>&amp; cartao) {</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordflow">if</span> (this-&gt;containerCartao == <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    }</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordflow">if</span> (!temPapel(usuario, <span class="stringliteral">&quot;GESTOR&quot;</span>)) {</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    }</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordflow">if</span> (!temPapel(desenvolvedor, <span class="stringliteral">&quot;DESENVOLVEDOR&quot;</span>)) {</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    }</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordflow">if</span> (!cartaoCompleto(cartao)) {</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    }</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <a class="code hl_class" href="class_quadro.html">Quadro</a> lido;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordflow">if</span> (!lerQuadro(usuario, quadro, lido)) {</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    }</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="comment">// Estado e instantes vindos em cartao sao ignorados: todo cartao novo entra em A FAZER agora.</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <a class="code hl_class" href="class_cartao_atividade.html">CartaoAtividade</a> novo;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    novo.<a class="code hl_function" href="class_cartao_atividade.html#a45e34645dd9d6e6046429e271905466b">setIdentificador</a>(cartao.<a class="code hl_function" href="class_cartao_atividade.html#a4a3cfc240b735d432801331727ef68a7">getIdentificador</a>());</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    novo.<a class="code hl_function" href="class_cartao_atividade.html#ab950682ca7bffcc7cb293c9f76327b73">setNome</a>(cartao.<a class="code hl_function" href="class_cartao_atividade.html#a1a05b2c596a6064a4cbe13b10791a69e">getNome</a>());</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    novo.<a class="code hl_function" href="class_cartao_atividade.html#a726a1a71491107e1c113454d415cd241">setDescricao</a>(cartao.<a class="code hl_function" href="class_cartao_atividade.html#af3bc31936b2df05d05f4ba35317d57c3">getDescricao</a>());</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    novo.<a class="code hl_function" href="class_cartao_atividade.html#a44f82ea3daf337e6745561667d768290">setPrioridade</a>(cartao.<a class="code hl_function" href="class_cartao_atividade.html#a5fdc8d9c57b351ae2abd79c531762516">getPrioridade</a>());</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    novo.<a class="code hl_function" href="class_cartao_atividade.html#a108359c6f853f1dc73ff5b7b3a14edb8">setTamanho</a>(cartao.<a class="code hl_function" href="class_cartao_atividade.html#a3203e84615858f16a2cc938d3e1b0ebc">getTamanho</a>());</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <a class="code hl_class" href="class_estado.html">Estado</a> estado;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    estado.<a class="code hl_function" href="class_estado.html#afb3cca25ed7660a287f1ea020827972e">setValor</a>(A_FAZER);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    novo.<a class="code hl_function" href="class_cartao_atividade.html#a2a9f80629fd5badfb2aa98305d3e6a62">setEstado</a>(estado);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    novo.<a class="code hl_function" href="class_cartao_atividade.html#a23f3b2a02c975e18d7d18afed8d81fe5">setEntrada</a>(agora());</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="comment">// O conteiner ja recusa identificador repetido.</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordflow">return</span> this-&gt;containerCartao-&gt;incluir(novo, quadro, desenvolvedor);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>}</div>
+</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="foldopen" id="foldopen00106" data-start="{" data-end="}">
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="class_cntr_servico_cartao.html#aea76b0841d9ee29d2aec0695b91a96e2">  106</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_cntr_servico_cartao.html#aea76b0841d9ee29d2aec0695b91a96e2">CntrServicoCartao::ler</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_email.html">Email</a>&amp; usuario, <span class="keyword">const</span> <a class="code hl_class" href="class_identificador.html">Identificador</a>&amp; identificador, <a class="code hl_class" href="class_cartao_atividade.html">CartaoAtividade</a>&amp; cartao) {</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keywordflow">if</span> (this-&gt;containerCartao == <span class="keyword">nullptr</span> || !usuarioCadastrado(usuario)) {</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    }</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keywordflow">return</span> this-&gt;containerCartao-&gt;pesquisar(identificador, cartao);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>}</div>
+</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="foldopen" id="foldopen00113" data-start="{" data-end="}">
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="class_cntr_servico_cartao.html#a49c8001b10f55446707b91059c17c622">  113</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_cntr_servico_cartao.html#a49c8001b10f55446707b91059c17c622">CntrServicoCartao::atualizar</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_email.html">Email</a>&amp; usuario, <span class="keyword">const</span> <a class="code hl_class" href="class_cartao_atividade.html">CartaoAtividade</a>&amp; cartao) {</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keywordflow">if</span> (this-&gt;containerCartao == <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    }</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordflow">if</span> (!temPapel(usuario, <span class="stringliteral">&quot;GESTOR&quot;</span>)) {</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    }</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="keywordflow">if</span> (!cartaoCompleto(cartao)) {</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    }</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <a class="code hl_class" href="class_cartao_atividade.html">CartaoAtividade</a> atual;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="keywordflow">if</span> (!this-&gt;containerCartao-&gt;pesquisar(cartao.<a class="code hl_function" href="class_cartao_atividade.html#a4a3cfc240b735d432801331727ef68a7">getIdentificador</a>(), atual)) {</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    }</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="comment">// Chave, estado e instantes ficam como estao; so mudam os dados editaveis.</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    atual.<a class="code hl_function" href="class_cartao_atividade.html#ab950682ca7bffcc7cb293c9f76327b73">setNome</a>(cartao.<a class="code hl_function" href="class_cartao_atividade.html#a1a05b2c596a6064a4cbe13b10791a69e">getNome</a>());</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    atual.<a class="code hl_function" href="class_cartao_atividade.html#a726a1a71491107e1c113454d415cd241">setDescricao</a>(cartao.<a class="code hl_function" href="class_cartao_atividade.html#af3bc31936b2df05d05f4ba35317d57c3">getDescricao</a>());</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    atual.<a class="code hl_function" href="class_cartao_atividade.html#a44f82ea3daf337e6745561667d768290">setPrioridade</a>(cartao.<a class="code hl_function" href="class_cartao_atividade.html#a5fdc8d9c57b351ae2abd79c531762516">getPrioridade</a>());</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    atual.<a class="code hl_function" href="class_cartao_atividade.html#a108359c6f853f1dc73ff5b7b3a14edb8">setTamanho</a>(cartao.<a class="code hl_function" href="class_cartao_atividade.html#a3203e84615858f16a2cc938d3e1b0ebc">getTamanho</a>());</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="keywordflow">return</span> this-&gt;containerCartao-&gt;atualizar(atual);</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>}</div>
+</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="foldopen" id="foldopen00135" data-start="{" data-end="}">
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="class_cntr_servico_cartao.html#adda2f94a6b251f76f360c71794499a8d">  135</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_cntr_servico_cartao.html#adda2f94a6b251f76f360c71794499a8d">CntrServicoCartao::excluir</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_email.html">Email</a>&amp; usuario, <span class="keyword">const</span> <a class="code hl_class" href="class_identificador.html">Identificador</a>&amp; identificador) {</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="keywordflow">if</span> (this-&gt;containerCartao == <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    }</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="keywordflow">if</span> (!temPapel(usuario, <span class="stringliteral">&quot;GESTOR&quot;</span>)) {</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    }</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <span class="comment">// O conteiner ja recusa cartao inexistente.</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <span class="keywordflow">return</span> this-&gt;containerCartao-&gt;remover(identificador);</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>}</div>
+</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="foldopen" id="foldopen00146" data-start="{" data-end="}">
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno"><a class="line" href="class_cntr_servico_cartao.html#a167c719ab8ff05793d987f1e89677bf1">  146</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_cntr_servico_cartao.html#a167c719ab8ff05793d987f1e89677bf1">CntrServicoCartao::listar</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_email.html">Email</a>&amp; usuario, <span class="keyword">const</span> <a class="code hl_class" href="class_identificador.html">Identificador</a>&amp; quadro, std::vector&lt;Identificador&gt;&amp; lista) {</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <span class="keywordflow">if</span> (this-&gt;containerCartao == <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    }</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <a class="code hl_class" href="class_quadro.html">Quadro</a> lido;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <span class="keywordflow">if</span> (!lerQuadro(usuario, quadro, lido)) {</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    }</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    std::vector&lt;CartaoAtividade&gt; cartoes;</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    this-&gt;containerCartao-&gt;listar(quadro, cartoes);</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    lista.clear();</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <span class="keywordflow">for</span> (std::vector&lt;CartaoAtividade&gt;::size_type i = 0; i &lt; cartoes.size(); i++) {</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        lista.push_back(cartoes[i].getIdentificador());</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    }</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>}</div>
+</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="comment">// --- Servicos 21 a 26 ---</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="foldopen" id="foldopen00165" data-start="{" data-end="}">
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="class_cntr_servico_cartao.html#aef679e7cc37c19af673418278efaefb7">  165</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_cntr_servico_cartao.html#aef679e7cc37c19af673418278efaefb7">CntrServicoCartao::mover</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_email.html">Email</a>&amp; usuario, <span class="keyword">const</span> <a class="code hl_class" href="class_identificador.html">Identificador</a>&amp; identificador) {</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <span class="keywordflow">if</span> (this-&gt;containerCartao == <span class="keyword">nullptr</span> || !usuarioCadastrado(usuario)) {</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    }</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <a class="code hl_class" href="class_cartao_atividade.html">CartaoAtividade</a> cartao;</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    <span class="keywordflow">if</span> (!this-&gt;containerCartao-&gt;pesquisar(identificador, cartao)) {</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    }</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    std::string estadoAtual = cartao.<a class="code hl_function" href="class_cartao_atividade.html#a16a069e11ad3e379d14353a08b643b54">getEstado</a>().<a class="code hl_function" href="class_estado.html#a5bd675fc2714dd7973602ead64895038">getValor</a>();</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <a class="code hl_class" href="class_estado.html">Estado</a> novoEstado;</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <span class="keywordflow">if</span> (estadoAtual == A_FAZER) {</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        <span class="comment">// Entrar em FAZENDO nao pode estourar o limite de WIP do quadro.</span></div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        <a class="code hl_class" href="class_identificador.html">Identificador</a> idQuadro;</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        <a class="code hl_class" href="class_quadro.html">Quadro</a> quadro;</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        <span class="keywordflow">if</span> (!this-&gt;containerCartao-&gt;getQuadro(identificador, idQuadro) || !lerQuadro(usuario, idQuadro, quadro)) {</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        }</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        <span class="keywordflow">if</span> (contarFazendo(idQuadro) &gt;= quadro.<a class="code hl_function" href="class_quadro.html#a7799b0eea6c85113d94d4f231108c354">getLimite</a>().<a class="code hl_function" href="class_limite.html#ae3513251940018c33b8a072f91343f00">getValor</a>()) {</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>        }</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        novoEstado.<a class="code hl_function" href="class_estado.html#afb3cca25ed7660a287f1ea020827972e">setValor</a>(FAZENDO);</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>        cartao.<a class="code hl_function" href="class_cartao_atividade.html#a8ee8641fe1db6c87caed205d386be512">setInicio</a>(agora());</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (estadoAtual == FAZENDO) {</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        novoEstado.<a class="code hl_function" href="class_estado.html#afb3cca25ed7660a287f1ea020827972e">setValor</a>(FEITO);</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        cartao.<a class="code hl_function" href="class_cartao_atividade.html#acd42a53c9d2cdfbb7d2ed9edbb49c8e6">setTermino</a>(agora());</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;  <span class="comment">// Ja esta em FEITO.</span></div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    }</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    cartao.<a class="code hl_function" href="class_cartao_atividade.html#a2a9f80629fd5badfb2aa98305d3e6a62">setEstado</a>(novoEstado);</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    <span class="keywordflow">return</span> this-&gt;containerCartao-&gt;atualizar(cartao);</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>}</div>
+</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="foldopen" id="foldopen00198" data-start="{" data-end="}">
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno"><a class="line" href="class_cntr_servico_cartao.html#a69e1825d80f041d36ac3188811558f72">  198</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_cntr_servico_cartao.html#a69e1825d80f041d36ac3188811558f72">CntrServicoCartao::lerTempoCiclo</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_email.html">Email</a>&amp; usuario, <span class="keyword">const</span> <a class="code hl_class" href="class_identificador.html">Identificador</a>&amp; identificador, <span class="keywordtype">double</span>&amp; minutos) {</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    <span class="keywordflow">if</span> (this-&gt;containerCartao == <span class="keyword">nullptr</span> || !usuarioCadastrado(usuario)) {</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    }</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    <a class="code hl_class" href="class_cartao_atividade.html">CartaoAtividade</a> cartao;</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    <span class="keywordflow">if</span> (!this-&gt;containerCartao-&gt;pesquisar(identificador, cartao) || cartao.<a class="code hl_function" href="class_cartao_atividade.html#a16a069e11ad3e379d14353a08b643b54">getEstado</a>().<a class="code hl_function" href="class_estado.html#a5bd675fc2714dd7973602ead64895038">getValor</a>() != FEITO) {</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    }</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    minutos = <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(cartao.<a class="code hl_function" href="class_cartao_atividade.html#ab3b33fde234c63ff72518e005e04f0fb">getTermino</a>().getMinutos() - cartao.<a class="code hl_function" href="class_cartao_atividade.html#acd8075ddf874f39e2489fe9a7f759515">getInicio</a>().<a class="code hl_function" href="class_timestamp.html#a4541bdd35f8aa651d91d4762f6022e35">getMinutos</a>());</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>}</div>
+</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
+<div class="foldopen" id="foldopen00210" data-start="{" data-end="}">
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno"><a class="line" href="class_cntr_servico_cartao.html#ad49d5c84733b4113d3f12d188c9d19e7">  210</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_cntr_servico_cartao.html#ad49d5c84733b4113d3f12d188c9d19e7">CntrServicoCartao::lerLeadTime</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_email.html">Email</a>&amp; usuario, <span class="keyword">const</span> <a class="code hl_class" href="class_identificador.html">Identificador</a>&amp; identificador, <span class="keywordtype">double</span>&amp; minutos) {</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    <span class="keywordflow">if</span> (this-&gt;containerCartao == <span class="keyword">nullptr</span> || !usuarioCadastrado(usuario)) {</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    }</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    <a class="code hl_class" href="class_cartao_atividade.html">CartaoAtividade</a> cartao;</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    <span class="keywordflow">if</span> (!this-&gt;containerCartao-&gt;pesquisar(identificador, cartao) || cartao.<a class="code hl_function" href="class_cartao_atividade.html#a16a069e11ad3e379d14353a08b643b54">getEstado</a>().<a class="code hl_function" href="class_estado.html#a5bd675fc2714dd7973602ead64895038">getValor</a>() != FEITO) {</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    }</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    minutos = <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(cartao.<a class="code hl_function" href="class_cartao_atividade.html#ab3b33fde234c63ff72518e005e04f0fb">getTermino</a>().getMinutos() - cartao.<a class="code hl_function" href="class_cartao_atividade.html#a59f6c9ccad5e9a5da88c25a2c67d724d">getEntrada</a>().<a class="code hl_function" href="class_timestamp.html#a4541bdd35f8aa651d91d4762f6022e35">getMinutos</a>());</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>}</div>
+</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span> </div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span><span class="keywordtype">bool</span> CntrServicoCartao::calcularMedia(<span class="keyword">const</span> <a class="code hl_class" href="class_email.html">Email</a>&amp; usuario, <span class="keyword">const</span> <a class="code hl_class" href="class_identificador.html">Identificador</a>&amp; quadro, <span class="keywordtype">bool</span> ciclo, <span class="keywordtype">double</span>&amp; minutos) {</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    <span class="keywordflow">if</span> (this-&gt;containerCartao == <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    }</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    Quadro lido;</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    <span class="keywordflow">if</span> (!lerQuadro(usuario, quadro, lido)) {</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    }</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    std::vector&lt;CartaoAtividade&gt; cartoes;</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    this-&gt;containerCartao-&gt;listar(quadro, cartoes);</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    <span class="keywordtype">long</span> soma = 0;</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    <span class="keywordtype">int</span> concluidos = 0;</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <span class="keywordflow">for</span> (std::vector&lt;CartaoAtividade&gt;::size_type i = 0; i &lt; cartoes.size(); i++) {</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        <span class="keywordflow">if</span> (cartoes[i].getEstado().getValor() != FEITO) {</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>            <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        }</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>        <span class="keywordtype">long</span> comeco = (ciclo ? cartoes[i].getInicio() : cartoes[i].getEntrada()).getMinutos();</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>        soma += cartoes[i].getTermino().getMinutos() - comeco;</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>        concluidos++;</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    }</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    <span class="keywordflow">if</span> (concluidos == 0) {</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    }</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    minutos = <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(soma) / concluidos;</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>}</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span> </div>
+<div class="foldopen" id="foldopen00250" data-start="{" data-end="}">
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno"><a class="line" href="class_cntr_servico_cartao.html#af4c3f3f0cfee24c4843d228f9bf5accd">  250</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_cntr_servico_cartao.html#af4c3f3f0cfee24c4843d228f9bf5accd">CntrServicoCartao::lerTempoCicloMedio</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_email.html">Email</a>&amp; usuario, <span class="keyword">const</span> <a class="code hl_class" href="class_identificador.html">Identificador</a>&amp; quadro, <span class="keywordtype">double</span>&amp; minutos) {</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    <span class="keywordflow">return</span> calcularMedia(usuario, quadro, <span class="keyword">true</span>, minutos);</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>}</div>
+</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
+<div class="foldopen" id="foldopen00254" data-start="{" data-end="}">
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno"><a class="line" href="class_cntr_servico_cartao.html#a9981d49d198f81de25464481d397aa99">  254</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_cntr_servico_cartao.html#a9981d49d198f81de25464481d397aa99">CntrServicoCartao::lerLeadTimeMedio</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_email.html">Email</a>&amp; usuario, <span class="keyword">const</span> <a class="code hl_class" href="class_identificador.html">Identificador</a>&amp; quadro, <span class="keywordtype">double</span>&amp; minutos) {</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    <span class="keywordflow">return</span> calcularMedia(usuario, quadro, <span class="keyword">false</span>, minutos);</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>}</div>
+</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
+<div class="foldopen" id="foldopen00258" data-start="{" data-end="}">
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno"><a class="line" href="class_cntr_servico_cartao.html#aad2e10aec52dcdfd5af7b0b850a0f7cf">  258</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_cntr_servico_cartao.html#aad2e10aec52dcdfd5af7b0b850a0f7cf">CntrServicoCartao::lerWIP</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_email.html">Email</a>&amp; usuario, <span class="keyword">const</span> <a class="code hl_class" href="class_identificador.html">Identificador</a>&amp; quadro, <span class="keywordtype">int</span>&amp; wip) {</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    <span class="keywordflow">if</span> (this-&gt;containerCartao == <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    }</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>    <a class="code hl_class" href="class_quadro.html">Quadro</a> lido;</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    <span class="keywordflow">if</span> (!lerQuadro(usuario, quadro, lido)) {</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    }</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>    wip = contarFazendo(quadro);</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>}</div>
+</div>
+<div class="ttc" id="aclass_cartao_atividade_html"><div class="ttname"><a href="class_cartao_atividade.html">CartaoAtividade</a></div><div class="ttdoc">Entidade cartao de atividade: identificador (chave primaria), nome, descricao, prioridade,...</div><div class="ttdef"><b>Definição</b> <a href="cartaoatividade_8hpp_source.html#l00026">cartaoatividade.hpp:26</a></div></div>
+<div class="ttc" id="aclass_cartao_atividade_html_a108359c6f853f1dc73ff5b7b3a14edb8"><div class="ttname"><a href="class_cartao_atividade.html#a108359c6f853f1dc73ff5b7b3a14edb8">CartaoAtividade::setTamanho</a></div><div class="ttdeci">void setTamanho(const Tamanho &amp;tamanho)</div><div class="ttdoc">Guarda o tamanho (GRANDE, MEDIO ou PEQUENO).</div><div class="ttdef"><b>Definição</b> <a href="cartaoatividade_8cpp_source.html#l00043">cartaoatividade.cpp:43</a></div></div>
+<div class="ttc" id="aclass_cartao_atividade_html_a16a069e11ad3e379d14353a08b643b54"><div class="ttname"><a href="class_cartao_atividade.html#a16a069e11ad3e379d14353a08b643b54">CartaoAtividade::getEstado</a></div><div class="ttdeci">Estado getEstado() const</div><div class="ttdoc">Retorna o estado (coluna atual).</div><div class="ttdef"><b>Definição</b> <a href="cartaoatividade_8cpp_source.html#l00039">cartaoatividade.cpp:39</a></div></div>
+<div class="ttc" id="aclass_cartao_atividade_html_a1a05b2c596a6064a4cbe13b10791a69e"><div class="ttname"><a href="class_cartao_atividade.html#a1a05b2c596a6064a4cbe13b10791a69e">CartaoAtividade::getNome</a></div><div class="ttdeci">Nome getNome() const</div><div class="ttdoc">Retorna o nome da atividade.</div><div class="ttdef"><b>Definição</b> <a href="cartaoatividade_8cpp_source.html#l00015">cartaoatividade.cpp:15</a></div></div>
+<div class="ttc" id="aclass_cartao_atividade_html_a23f3b2a02c975e18d7d18afed8d81fe5"><div class="ttname"><a href="class_cartao_atividade.html#a23f3b2a02c975e18d7d18afed8d81fe5">CartaoAtividade::setEntrada</a></div><div class="ttdeci">void setEntrada(const Timestamp &amp;entrada)</div><div class="ttdoc">Guarda o instante em que o cartao entrou em A FAZER.</div><div class="ttdef"><b>Definição</b> <a href="cartaoatividade_8cpp_source.html#l00051">cartaoatividade.cpp:51</a></div></div>
+<div class="ttc" id="aclass_cartao_atividade_html_a2a9f80629fd5badfb2aa98305d3e6a62"><div class="ttname"><a href="class_cartao_atividade.html#a2a9f80629fd5badfb2aa98305d3e6a62">CartaoAtividade::setEstado</a></div><div class="ttdeci">void setEstado(const Estado &amp;estado)</div><div class="ttdoc">Guarda o estado, ou seja, a coluna atual (A FAZER, FAZENDO ou FEITO).</div><div class="ttdef"><b>Definição</b> <a href="cartaoatividade_8cpp_source.html#l00035">cartaoatividade.cpp:35</a></div></div>
+<div class="ttc" id="aclass_cartao_atividade_html_a3203e84615858f16a2cc938d3e1b0ebc"><div class="ttname"><a href="class_cartao_atividade.html#a3203e84615858f16a2cc938d3e1b0ebc">CartaoAtividade::getTamanho</a></div><div class="ttdeci">Tamanho getTamanho() const</div><div class="ttdoc">Retorna o tamanho.</div><div class="ttdef"><b>Definição</b> <a href="cartaoatividade_8cpp_source.html#l00047">cartaoatividade.cpp:47</a></div></div>
+<div class="ttc" id="aclass_cartao_atividade_html_a44f82ea3daf337e6745561667d768290"><div class="ttname"><a href="class_cartao_atividade.html#a44f82ea3daf337e6745561667d768290">CartaoAtividade::setPrioridade</a></div><div class="ttdeci">void setPrioridade(const Prioridade &amp;prioridade)</div><div class="ttdoc">Guarda a prioridade (ALTA, MEDIA ou BAIXA).</div><div class="ttdef"><b>Definição</b> <a href="cartaoatividade_8cpp_source.html#l00027">cartaoatividade.cpp:27</a></div></div>
+<div class="ttc" id="aclass_cartao_atividade_html_a45e34645dd9d6e6046429e271905466b"><div class="ttname"><a href="class_cartao_atividade.html#a45e34645dd9d6e6046429e271905466b">CartaoAtividade::setIdentificador</a></div><div class="ttdeci">void setIdentificador(const Identificador &amp;identificador)</div><div class="ttdoc">Guarda o identificador (chave primaria).</div><div class="ttdef"><b>Definição</b> <a href="cartaoatividade_8cpp_source.html#l00003">cartaoatividade.cpp:3</a></div></div>
+<div class="ttc" id="aclass_cartao_atividade_html_a4a3cfc240b735d432801331727ef68a7"><div class="ttname"><a href="class_cartao_atividade.html#a4a3cfc240b735d432801331727ef68a7">CartaoAtividade::getIdentificador</a></div><div class="ttdeci">Identificador getIdentificador() const</div><div class="ttdoc">Retorna o identificador.</div><div class="ttdef"><b>Definição</b> <a href="cartaoatividade_8cpp_source.html#l00007">cartaoatividade.cpp:7</a></div></div>
+<div class="ttc" id="aclass_cartao_atividade_html_a59f6c9ccad5e9a5da88c25a2c67d724d"><div class="ttname"><a href="class_cartao_atividade.html#a59f6c9ccad5e9a5da88c25a2c67d724d">CartaoAtividade::getEntrada</a></div><div class="ttdeci">Timestamp getEntrada() const</div><div class="ttdoc">Retorna o instante de entrada em A FAZER.</div><div class="ttdef"><b>Definição</b> <a href="cartaoatividade_8cpp_source.html#l00055">cartaoatividade.cpp:55</a></div></div>
+<div class="ttc" id="aclass_cartao_atividade_html_a5fdc8d9c57b351ae2abd79c531762516"><div class="ttname"><a href="class_cartao_atividade.html#a5fdc8d9c57b351ae2abd79c531762516">CartaoAtividade::getPrioridade</a></div><div class="ttdeci">Prioridade getPrioridade() const</div><div class="ttdoc">Retorna a prioridade.</div><div class="ttdef"><b>Definição</b> <a href="cartaoatividade_8cpp_source.html#l00031">cartaoatividade.cpp:31</a></div></div>
+<div class="ttc" id="aclass_cartao_atividade_html_a726a1a71491107e1c113454d415cd241"><div class="ttname"><a href="class_cartao_atividade.html#a726a1a71491107e1c113454d415cd241">CartaoAtividade::setDescricao</a></div><div class="ttdeci">void setDescricao(const Texto &amp;descricao)</div><div class="ttdoc">Guarda a descricao da atividade.</div><div class="ttdef"><b>Definição</b> <a href="cartaoatividade_8cpp_source.html#l00019">cartaoatividade.cpp:19</a></div></div>
+<div class="ttc" id="aclass_cartao_atividade_html_a8ee8641fe1db6c87caed205d386be512"><div class="ttname"><a href="class_cartao_atividade.html#a8ee8641fe1db6c87caed205d386be512">CartaoAtividade::setInicio</a></div><div class="ttdeci">void setInicio(const Timestamp &amp;inicio)</div><div class="ttdoc">Guarda o instante em que o cartao entrou em FAZENDO.</div><div class="ttdef"><b>Definição</b> <a href="cartaoatividade_8cpp_source.html#l00059">cartaoatividade.cpp:59</a></div></div>
+<div class="ttc" id="aclass_cartao_atividade_html_ab3b33fde234c63ff72518e005e04f0fb"><div class="ttname"><a href="class_cartao_atividade.html#ab3b33fde234c63ff72518e005e04f0fb">CartaoAtividade::getTermino</a></div><div class="ttdeci">Timestamp getTermino() const</div><div class="ttdoc">Retorna o instante de chegada em FEITO (vazio se ainda nao chegou).</div><div class="ttdef"><b>Definição</b> <a href="cartaoatividade_8cpp_source.html#l00071">cartaoatividade.cpp:71</a></div></div>
+<div class="ttc" id="aclass_cartao_atividade_html_ab950682ca7bffcc7cb293c9f76327b73"><div class="ttname"><a href="class_cartao_atividade.html#ab950682ca7bffcc7cb293c9f76327b73">CartaoAtividade::setNome</a></div><div class="ttdeci">void setNome(const Nome &amp;nome)</div><div class="ttdoc">Guarda o nome da atividade.</div><div class="ttdef"><b>Definição</b> <a href="cartaoatividade_8cpp_source.html#l00011">cartaoatividade.cpp:11</a></div></div>
+<div class="ttc" id="aclass_cartao_atividade_html_acd42a53c9d2cdfbb7d2ed9edbb49c8e6"><div class="ttname"><a href="class_cartao_atividade.html#acd42a53c9d2cdfbb7d2ed9edbb49c8e6">CartaoAtividade::setTermino</a></div><div class="ttdeci">void setTermino(const Timestamp &amp;termino)</div><div class="ttdoc">Guarda o instante em que o cartao chegou em FEITO.</div><div class="ttdef"><b>Definição</b> <a href="cartaoatividade_8cpp_source.html#l00067">cartaoatividade.cpp:67</a></div></div>
+<div class="ttc" id="aclass_cartao_atividade_html_acd8075ddf874f39e2489fe9a7f759515"><div class="ttname"><a href="class_cartao_atividade.html#acd8075ddf874f39e2489fe9a7f759515">CartaoAtividade::getInicio</a></div><div class="ttdeci">Timestamp getInicio() const</div><div class="ttdoc">Retorna o instante de entrada em FAZENDO (vazio se ainda nao entrou).</div><div class="ttdef"><b>Definição</b> <a href="cartaoatividade_8cpp_source.html#l00063">cartaoatividade.cpp:63</a></div></div>
+<div class="ttc" id="aclass_cartao_atividade_html_af3bc31936b2df05d05f4ba35317d57c3"><div class="ttname"><a href="class_cartao_atividade.html#af3bc31936b2df05d05f4ba35317d57c3">CartaoAtividade::getDescricao</a></div><div class="ttdeci">Texto getDescricao() const</div><div class="ttdoc">Retorna a descricao da atividade.</div><div class="ttdef"><b>Definição</b> <a href="cartaoatividade_8cpp_source.html#l00023">cartaoatividade.cpp:23</a></div></div>
+<div class="ttc" id="aclass_cntr_servico_cartao_html_a167c719ab8ff05793d987f1e89677bf1"><div class="ttname"><a href="class_cntr_servico_cartao.html#a167c719ab8ff05793d987f1e89677bf1">CntrServicoCartao::listar</a></div><div class="ttdeci">bool listar(const Email &amp;usuario, const Identificador &amp;quadro, std::vector&lt; Identificador &gt; &amp;lista) override</div><div class="ttdoc">Lista os cartoes do quadro (servico 20). Ver IServicoCartao::listar.</div><div class="ttdef"><b>Definição</b> <a href="#l00146">cntrservicocartao.cpp:146</a></div></div>
+<div class="ttc" id="aclass_cntr_servico_cartao_html_a49c8001b10f55446707b91059c17c622"><div class="ttname"><a href="class_cntr_servico_cartao.html#a49c8001b10f55446707b91059c17c622">CntrServicoCartao::atualizar</a></div><div class="ttdeci">bool atualizar(const Email &amp;usuario, const CartaoAtividade &amp;cartao) override</div><div class="ttdoc">Atualiza nome, descricao, prioridade e tamanho (servico 18). Ver IServicoCartao::atualizar.</div><div class="ttdef"><b>Definição</b> <a href="#l00113">cntrservicocartao.cpp:113</a></div></div>
+<div class="ttc" id="aclass_cntr_servico_cartao_html_a69e1825d80f041d36ac3188811558f72"><div class="ttname"><a href="class_cntr_servico_cartao.html#a69e1825d80f041d36ac3188811558f72">CntrServicoCartao::lerTempoCiclo</a></div><div class="ttdeci">bool lerTempoCiclo(const Email &amp;usuario, const Identificador &amp;identificador, double &amp;minutos) override</div><div class="ttdoc">Tempo de ciclo do cartao (servico 22). Ver IServicoCartao::lerTempoCiclo.</div><div class="ttdef"><b>Definição</b> <a href="#l00198">cntrservicocartao.cpp:198</a></div></div>
+<div class="ttc" id="aclass_cntr_servico_cartao_html_a9981d49d198f81de25464481d397aa99"><div class="ttname"><a href="class_cntr_servico_cartao.html#a9981d49d198f81de25464481d397aa99">CntrServicoCartao::lerLeadTimeMedio</a></div><div class="ttdeci">bool lerLeadTimeMedio(const Email &amp;usuario, const Identificador &amp;quadro, double &amp;minutos) override</div><div class="ttdoc">Lead time medio do quadro (servico 25). Ver IServicoCartao::lerLeadTimeMedio.</div><div class="ttdef"><b>Definição</b> <a href="#l00254">cntrservicocartao.cpp:254</a></div></div>
+<div class="ttc" id="aclass_cntr_servico_cartao_html_aad2e10aec52dcdfd5af7b0b850a0f7cf"><div class="ttname"><a href="class_cntr_servico_cartao.html#aad2e10aec52dcdfd5af7b0b850a0f7cf">CntrServicoCartao::lerWIP</a></div><div class="ttdeci">bool lerWIP(const Email &amp;usuario, const Identificador &amp;quadro, int &amp;wip) override</div><div class="ttdoc">Cartoes do quadro em FAZENDO (servico 26). Ver IServicoCartao::lerWIP.</div><div class="ttdef"><b>Definição</b> <a href="#l00258">cntrservicocartao.cpp:258</a></div></div>
+<div class="ttc" id="aclass_cntr_servico_cartao_html_ad49d5c84733b4113d3f12d188c9d19e7"><div class="ttname"><a href="class_cntr_servico_cartao.html#ad49d5c84733b4113d3f12d188c9d19e7">CntrServicoCartao::lerLeadTime</a></div><div class="ttdeci">bool lerLeadTime(const Email &amp;usuario, const Identificador &amp;identificador, double &amp;minutos) override</div><div class="ttdoc">Lead time do cartao (servico 24). Ver IServicoCartao::lerLeadTime.</div><div class="ttdef"><b>Definição</b> <a href="#l00210">cntrservicocartao.cpp:210</a></div></div>
+<div class="ttc" id="aclass_cntr_servico_cartao_html_adda2f94a6b251f76f360c71794499a8d"><div class="ttname"><a href="class_cntr_servico_cartao.html#adda2f94a6b251f76f360c71794499a8d">CntrServicoCartao::excluir</a></div><div class="ttdeci">bool excluir(const Email &amp;usuario, const Identificador &amp;identificador) override</div><div class="ttdoc">Exclui o cartao (servico 19). Ver IServicoCartao::excluir.</div><div class="ttdef"><b>Definição</b> <a href="#l00135">cntrservicocartao.cpp:135</a></div></div>
+<div class="ttc" id="aclass_cntr_servico_cartao_html_aea76b0841d9ee29d2aec0695b91a96e2"><div class="ttname"><a href="class_cntr_servico_cartao.html#aea76b0841d9ee29d2aec0695b91a96e2">CntrServicoCartao::ler</a></div><div class="ttdeci">bool ler(const Email &amp;usuario, const Identificador &amp;identificador, CartaoAtividade &amp;cartao) override</div><div class="ttdoc">Le um cartao (servico 17). Ver IServicoCartao::ler.</div><div class="ttdef"><b>Definição</b> <a href="#l00106">cntrservicocartao.cpp:106</a></div></div>
+<div class="ttc" id="aclass_cntr_servico_cartao_html_aef679e7cc37c19af673418278efaefb7"><div class="ttname"><a href="class_cntr_servico_cartao.html#aef679e7cc37c19af673418278efaefb7">CntrServicoCartao::mover</a></div><div class="ttdeci">bool mover(const Email &amp;usuario, const Identificador &amp;identificador) override</div><div class="ttdoc">Passa o cartao para a proxima coluna (servico 21). Ver IServicoCartao::mover.</div><div class="ttdef"><b>Definição</b> <a href="#l00165">cntrservicocartao.cpp:165</a></div></div>
+<div class="ttc" id="aclass_cntr_servico_cartao_html_af4c3f3f0cfee24c4843d228f9bf5accd"><div class="ttname"><a href="class_cntr_servico_cartao.html#af4c3f3f0cfee24c4843d228f9bf5accd">CntrServicoCartao::lerTempoCicloMedio</a></div><div class="ttdeci">bool lerTempoCicloMedio(const Email &amp;usuario, const Identificador &amp;quadro, double &amp;minutos) override</div><div class="ttdoc">Tempo de ciclo medio do quadro (servico 23). Ver IServicoCartao::lerTempoCicloMedio.</div><div class="ttdef"><b>Definição</b> <a href="#l00250">cntrservicocartao.cpp:250</a></div></div>
+<div class="ttc" id="aclass_cntr_servico_cartao_html_afd2f0d4f69abf1c67c4f6157324dda2b"><div class="ttname"><a href="class_cntr_servico_cartao.html#afd2f0d4f69abf1c67c4f6157324dda2b">CntrServicoCartao::criar</a></div><div class="ttdeci">bool criar(const Email &amp;usuario, const Identificador &amp;quadro, const Email &amp;desenvolvedor, const CartaoAtividade &amp;cartao) override</div><div class="ttdoc">Cria o cartao em A FAZER (servico 16). Ver IServicoCartao::criar.</div><div class="ttdef"><b>Definição</b> <a href="#l00071">cntrservicocartao.cpp:71</a></div></div>
+<div class="ttc" id="aclass_email_html"><div class="ttname"><a href="class_email.html">Email</a></div><div class="ttdoc">Dominio de email, no formato parte-local@dominio.</div><div class="ttdef"><b>Definição</b> <a href="email_8hpp_source.html#l00019">email.hpp:19</a></div></div>
+<div class="ttc" id="aclass_estado_html"><div class="ttname"><a href="class_estado.html">Estado</a></div><div class="ttdoc">Dominio de estado (coluna) de um cartao de atividade.</div><div class="ttdef"><b>Definição</b> <a href="estado_8hpp_source.html#l00014">estado.hpp:14</a></div></div>
+<div class="ttc" id="aclass_estado_html_a5bd675fc2714dd7973602ead64895038"><div class="ttname"><a href="class_estado.html#a5bd675fc2714dd7973602ead64895038">Estado::getValor</a></div><div class="ttdeci">std::string getValor() const</div><div class="ttdoc">Retorna o estado.</div><div class="ttdef"><b>Definição</b> <a href="estado_8hpp_source.html#l00036">estado.hpp:36</a></div></div>
+<div class="ttc" id="aclass_estado_html_afb3cca25ed7660a287f1ea020827972e"><div class="ttname"><a href="class_estado.html#afb3cca25ed7660a287f1ea020827972e">Estado::setValor</a></div><div class="ttdeci">void setValor(std::string valor)</div><div class="ttdoc">Guarda o estado.</div><div class="ttdef"><b>Definição</b> <a href="estado_8cpp_source.html#l00015">estado.cpp:15</a></div></div>
+<div class="ttc" id="aclass_identificador_html"><div class="ttname"><a href="class_identificador.html">Identificador</a></div><div class="ttdoc">Dominio de identificador (chave de Projeto, Quadro e Cartao).</div><div class="ttdef"><b>Definição</b> <a href="identificador_8hpp_source.html#l00015">identificador.hpp:15</a></div></div>
+<div class="ttc" id="aclass_identificador_html_ad1909a2fb657120ffe14f076ddc81531"><div class="ttname"><a href="class_identificador.html#ad1909a2fb657120ffe14f076ddc81531">Identificador::getValor</a></div><div class="ttdeci">std::string getValor() const</div><div class="ttdoc">Retorna o identificador.</div><div class="ttdef"><b>Definição</b> <a href="identificador_8hpp_source.html#l00036">identificador.hpp:36</a></div></div>
+<div class="ttc" id="aclass_limite_html_ae3513251940018c33b8a072f91343f00"><div class="ttname"><a href="class_limite.html#ae3513251940018c33b8a072f91343f00">Limite::getValor</a></div><div class="ttdeci">int getValor() const</div><div class="ttdoc">Retorna o limite (0 se ainda nao foi definido).</div><div class="ttdef"><b>Definição</b> <a href="limite_8hpp_source.html#l00037">limite.hpp:37</a></div></div>
+<div class="ttc" id="aclass_nome_html_ae6eddd41a782357f0466a1c400156925"><div class="ttname"><a href="class_nome.html#ae6eddd41a782357f0466a1c400156925">Nome::getValor</a></div><div class="ttdeci">std::string getValor() const</div><div class="ttdoc">Retorna o nome.</div><div class="ttdef"><b>Definição</b> <a href="nome_8hpp_source.html#l00035">nome.hpp:35</a></div></div>
+<div class="ttc" id="aclass_papel_html_a2f3d568dc6ddf7037c109f73f0726d72"><div class="ttname"><a href="class_papel.html#a2f3d568dc6ddf7037c109f73f0726d72">Papel::getValor</a></div><div class="ttdeci">std::string getValor() const</div><div class="ttdoc">Retorna o papel.</div><div class="ttdef"><b>Definição</b> <a href="papel_8hpp_source.html#l00035">papel.hpp:35</a></div></div>
+<div class="ttc" id="aclass_pessoa_html_a8c7e1938888e9e84b5c30ca977b98b9d"><div class="ttname"><a href="class_pessoa.html#a8c7e1938888e9e84b5c30ca977b98b9d">Pessoa::getPapel</a></div><div class="ttdeci">Papel getPapel() const</div><div class="ttdoc">Retorna o papel.</div><div class="ttdef"><b>Definição</b> <a href="pessoa_8cpp_source.html#l00031">pessoa.cpp:31</a></div></div>
+<div class="ttc" id="aclass_prioridade_html_a0e8b94a8c528835653a59415ff437965"><div class="ttname"><a href="class_prioridade.html#a0e8b94a8c528835653a59415ff437965">Prioridade::getValor</a></div><div class="ttdeci">std::string getValor() const</div><div class="ttdoc">Retorna a prioridade.</div><div class="ttdef"><b>Definição</b> <a href="prioridade_8hpp_source.html#l00036">prioridade.hpp:36</a></div></div>
+<div class="ttc" id="aclass_quadro_html"><div class="ttname"><a href="class_quadro.html">Quadro</a></div><div class="ttdoc">Entidade quadro: identificador (chave primaria), nome e limite de WIP.</div><div class="ttdef"><b>Definição</b> <a href="quadro_8hpp_source.html#l00014">quadro.hpp:14</a></div></div>
+<div class="ttc" id="aclass_quadro_html_a7799b0eea6c85113d94d4f231108c354"><div class="ttname"><a href="class_quadro.html#a7799b0eea6c85113d94d4f231108c354">Quadro::getLimite</a></div><div class="ttdeci">Limite getLimite() const</div><div class="ttdoc">Retorna o limite de cartoes em FAZENDO (WIP).</div><div class="ttdef"><b>Definição</b> <a href="quadro_8cpp_source.html#l00023">quadro.cpp:23</a></div></div>
+<div class="ttc" id="aclass_tamanho_html_a861bee9a0a4206152fe4b3d4dcef378a"><div class="ttname"><a href="class_tamanho.html#a861bee9a0a4206152fe4b3d4dcef378a">Tamanho::getValor</a></div><div class="ttdeci">std::string getValor() const</div><div class="ttdoc">Retorna o tamanho.</div><div class="ttdef"><b>Definição</b> <a href="tamanho_8hpp_source.html#l00036">tamanho.hpp:36</a></div></div>
+<div class="ttc" id="aclass_texto_html_a3e10c490166ff82e6559a502fe790b2c"><div class="ttname"><a href="class_texto.html#a3e10c490166ff82e6559a502fe790b2c">Texto::getValor</a></div><div class="ttdeci">std::string getValor() const</div><div class="ttdoc">Retorna o texto.</div><div class="ttdef"><b>Definição</b> <a href="texto_8hpp_source.html#l00037">texto.hpp:37</a></div></div>
+<div class="ttc" id="aclass_timestamp_html"><div class="ttname"><a href="class_timestamp.html">Timestamp</a></div><div class="ttdoc">Dominio de data e hora (inicio e termino de Projeto; entrada, inicio e termino de Cartao).</div><div class="ttdef"><b>Definição</b> <a href="timestamp_8hpp_source.html#l00017">timestamp.hpp:17</a></div></div>
+<div class="ttc" id="aclass_timestamp_html_a4541bdd35f8aa651d91d4762f6022e35"><div class="ttname"><a href="class_timestamp.html#a4541bdd35f8aa651d91d4762f6022e35">Timestamp::getMinutos</a></div><div class="ttdeci">long getMinutos() const</div><div class="ttdoc">Minutos desde 01-JAN-2000-00:00 (0 se nada foi guardado).</div><div class="ttdef"><b>Definição</b> <a href="timestamp_8hpp_source.html#l00067">timestamp.hpp:67</a></div></div>
+<div class="ttc" id="aclass_timestamp_html_ab04f416af2ba7aba61fb6e5acc2b93b6"><div class="ttname"><a href="class_timestamp.html#ab04f416af2ba7aba61fb6e5acc2b93b6">Timestamp::agora</a></div><div class="ttdeci">static Timestamp agora()</div><div class="ttdoc">Cria um timestamp com a data e a hora atuais do computador.</div><div class="ttdef"><b>Definição</b> <a href="timestamp_8cpp_source.html#l00090">timestamp.cpp:90</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>sources</b></li><li class="navelem"><b>cntrservicocartao.cpp</b></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

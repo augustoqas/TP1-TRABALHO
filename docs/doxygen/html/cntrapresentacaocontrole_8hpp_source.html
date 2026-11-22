@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TP1 - Sistema Kanban: Código-Fonte de headers/cntrapresentacaocontrole.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TP1 - Sistema Kanban
+   </div>
+   <div id="projectbrief">Gestao de projetos pelo metodo Kanban, em camadas (C++11)</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Busca" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('cntrapresentacaocontrole_8hpp_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">cntrapresentacaocontrole.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef CNTRAPRESENTACAOCONTROLE_HPP_INCLUDED</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define CNTRAPRESENTACAOCONTROLE_HPP_INCLUDED</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;email.hpp&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="interfaces_8hpp.html">interfaces.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span></div>
+<div class="foldopen" id="foldopen00015" data-start="{" data-end="};">
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="class_cntr_apresentacao_controle.html">   15</a></span><span class="keyword">class </span><a class="code hl_class" href="class_cntr_apresentacao_controle.html">CntrApresentacaoControle</a> {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <a class="code hl_class" href="class_i_apresentacao_autenticacao.html">IApresentacaoAutenticacao</a>* cntrApresentacaoAutenticacao = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <a class="code hl_class" href="class_i_apresentacao_pessoa.html">IApresentacaoPessoa</a>* cntrApresentacaoPessoa = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <a class="code hl_class" href="class_i_apresentacao_projeto.html">IApresentacaoProjeto</a>* cntrApresentacaoProjeto = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <a class="code hl_class" href="class_i_apresentacao_quadro.html">IApresentacaoQuadro</a>* cntrApresentacaoQuadro = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <a class="code hl_class" href="class_i_apresentacao_cartao.html">IApresentacaoCartao</a>* cntrApresentacaoCartao = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <span class="keywordtype">void</span> executarMenuPrincipal(<span class="keyword">const</span> <a class="code hl_class" href="class_email.html">Email</a>&amp; usuario);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="comment">// Retorna false se a sessao acabou (a pessoa excluiu a propria conta).</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keywordtype">bool</span> executarPessoas(<span class="keyword">const</span> <a class="code hl_class" href="class_email.html">Email</a>&amp; usuario);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> mostrarIndisponivel();</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> mostrarFimEntrada();</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_cntr_apresentacao_controle.html#a19883bf22f10c8ff2cb8c2108828ffbf">setCntrApresentacaoAutenticacao</a>(<a class="code hl_class" href="class_i_apresentacao_autenticacao.html">IApresentacaoAutenticacao</a>* cntr);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_cntr_apresentacao_controle.html#aa38a6973317c70fa83cbec72dd23b6b2">setCntrApresentacaoPessoa</a>(<a class="code hl_class" href="class_i_apresentacao_pessoa.html">IApresentacaoPessoa</a>* cntr);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_cntr_apresentacao_controle.html#ac21295177bb624d84b163a17b3605ded">setCntrApresentacaoProjeto</a>(<a class="code hl_class" href="class_i_apresentacao_projeto.html">IApresentacaoProjeto</a>* cntr);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_cntr_apresentacao_controle.html#a4aaf6a82da40935139fc75860d8b20c3">setCntrApresentacaoQuadro</a>(<a class="code hl_class" href="class_i_apresentacao_quadro.html">IApresentacaoQuadro</a>* cntr);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_cntr_apresentacao_controle.html#ad8ba526fea93d521309f68f041538bfc">setCntrApresentacaoCartao</a>(<a class="code hl_class" href="class_i_apresentacao_cartao.html">IApresentacaoCartao</a>* cntr);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_cntr_apresentacao_controle.html#a64342a5ad4beacb5cde9c37c73176bb5">executar</a>();</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>};</div>
+</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="foldopen" id="foldopen00052" data-start="{" data-end="}">
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="class_cntr_apresentacao_controle.html#a19883bf22f10c8ff2cb8c2108828ffbf">   52</a></span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_cntr_apresentacao_controle.html#a19883bf22f10c8ff2cb8c2108828ffbf">CntrApresentacaoControle::setCntrApresentacaoAutenticacao</a>(<a class="code hl_class" href="class_i_apresentacao_autenticacao.html">IApresentacaoAutenticacao</a>* cntr) {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    this-&gt;cntrApresentacaoAutenticacao = cntr;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>}</div>
+</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="foldopen" id="foldopen00056" data-start="{" data-end="}">
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="class_cntr_apresentacao_controle.html#aa38a6973317c70fa83cbec72dd23b6b2">   56</a></span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_cntr_apresentacao_controle.html#aa38a6973317c70fa83cbec72dd23b6b2">CntrApresentacaoControle::setCntrApresentacaoPessoa</a>(<a class="code hl_class" href="class_i_apresentacao_pessoa.html">IApresentacaoPessoa</a>* cntr) {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    this-&gt;cntrApresentacaoPessoa = cntr;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>}</div>
+</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="foldopen" id="foldopen00060" data-start="{" data-end="}">
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="class_cntr_apresentacao_controle.html#ac21295177bb624d84b163a17b3605ded">   60</a></span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_cntr_apresentacao_controle.html#ac21295177bb624d84b163a17b3605ded">CntrApresentacaoControle::setCntrApresentacaoProjeto</a>(<a class="code hl_class" href="class_i_apresentacao_projeto.html">IApresentacaoProjeto</a>* cntr) {</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    this-&gt;cntrApresentacaoProjeto = cntr;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>}</div>
+</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="foldopen" id="foldopen00064" data-start="{" data-end="}">
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="class_cntr_apresentacao_controle.html#a4aaf6a82da40935139fc75860d8b20c3">   64</a></span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_cntr_apresentacao_controle.html#a4aaf6a82da40935139fc75860d8b20c3">CntrApresentacaoControle::setCntrApresentacaoQuadro</a>(<a class="code hl_class" href="class_i_apresentacao_quadro.html">IApresentacaoQuadro</a>* cntr) {</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    this-&gt;cntrApresentacaoQuadro = cntr;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>}</div>
+</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="foldopen" id="foldopen00068" data-start="{" data-end="}">
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="class_cntr_apresentacao_controle.html#ad8ba526fea93d521309f68f041538bfc">   68</a></span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_cntr_apresentacao_controle.html#ad8ba526fea93d521309f68f041538bfc">CntrApresentacaoControle::setCntrApresentacaoCartao</a>(<a class="code hl_class" href="class_i_apresentacao_cartao.html">IApresentacaoCartao</a>* cntr) {</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    this-&gt;cntrApresentacaoCartao = cntr;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>}</div>
+</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="preprocessor">#endif </span><span class="comment">// CNTRAPRESENTACAOCONTROLE_HPP_INCLUDED</span></div>
+<div class="ttc" id="aclass_cntr_apresentacao_controle_html"><div class="ttname"><a href="class_cntr_apresentacao_controle.html">CntrApresentacaoControle</a></div><div class="ttdoc">Menus do programa: o inicial (criar conta, entrar, sair) e o principal, de quem esta logado.</div><div class="ttdef"><b>Definição</b> <a href="#l00015">cntrapresentacaocontrole.hpp:15</a></div></div>
+<div class="ttc" id="aclass_cntr_apresentacao_controle_html_a19883bf22f10c8ff2cb8c2108828ffbf"><div class="ttname"><a href="class_cntr_apresentacao_controle.html#a19883bf22f10c8ff2cb8c2108828ffbf">CntrApresentacaoControle::setCntrApresentacaoAutenticacao</a></div><div class="ttdeci">void setCntrApresentacaoAutenticacao(IApresentacaoAutenticacao *cntr)</div><div class="ttdoc">Define a tela de autenticacao (Entrar).</div><div class="ttdef"><b>Definição</b> <a href="#l00052">cntrapresentacaocontrole.hpp:52</a></div></div>
+<div class="ttc" id="aclass_cntr_apresentacao_controle_html_a4aaf6a82da40935139fc75860d8b20c3"><div class="ttname"><a href="class_cntr_apresentacao_controle.html#a4aaf6a82da40935139fc75860d8b20c3">CntrApresentacaoControle::setCntrApresentacaoQuadro</a></div><div class="ttdeci">void setCntrApresentacaoQuadro(IApresentacaoQuadro *cntr)</div><div class="ttdoc">Define a tela de quadros (pode ser nula).</div><div class="ttdef"><b>Definição</b> <a href="#l00064">cntrapresentacaocontrole.hpp:64</a></div></div>
+<div class="ttc" id="aclass_cntr_apresentacao_controle_html_a64342a5ad4beacb5cde9c37c73176bb5"><div class="ttname"><a href="class_cntr_apresentacao_controle.html#a64342a5ad4beacb5cde9c37c73176bb5">CntrApresentacaoControle::executar</a></div><div class="ttdeci">void executar()</div><div class="ttdoc">Roda o menu inicial ate o usuario escolher Sair ou a entrada acabar.</div><div class="ttdef"><b>Definição</b> <a href="cntrapresentacaocontrole_8cpp_source.html#l00014">cntrapresentacaocontrole.cpp:14</a></div></div>
+<div class="ttc" id="aclass_cntr_apresentacao_controle_html_aa38a6973317c70fa83cbec72dd23b6b2"><div class="ttname"><a href="class_cntr_apresentacao_controle.html#aa38a6973317c70fa83cbec72dd23b6b2">CntrApresentacaoControle::setCntrApresentacaoPessoa</a></div><div class="ttdeci">void setCntrApresentacaoPessoa(IApresentacaoPessoa *cntr)</div><div class="ttdoc">Define a tela de pessoas.</div><div class="ttdef"><b>Definição</b> <a href="#l00056">cntrapresentacaocontrole.hpp:56</a></div></div>
+<div class="ttc" id="aclass_cntr_apresentacao_controle_html_ac21295177bb624d84b163a17b3605ded"><div class="ttname"><a href="class_cntr_apresentacao_controle.html#ac21295177bb624d84b163a17b3605ded">CntrApresentacaoControle::setCntrApresentacaoProjeto</a></div><div class="ttdeci">void setCntrApresentacaoProjeto(IApresentacaoProjeto *cntr)</div><div class="ttdoc">Define a tela de projetos (pode ser nula).</div><div class="ttdef"><b>Definição</b> <a href="#l00060">cntrapresentacaocontrole.hpp:60</a></div></div>
+<div class="ttc" id="aclass_cntr_apresentacao_controle_html_ad8ba526fea93d521309f68f041538bfc"><div class="ttname"><a href="class_cntr_apresentacao_controle.html#ad8ba526fea93d521309f68f041538bfc">CntrApresentacaoControle::setCntrApresentacaoCartao</a></div><div class="ttdeci">void setCntrApresentacaoCartao(IApresentacaoCartao *cntr)</div><div class="ttdoc">Define a tela de cartoes (pode ser nula).</div><div class="ttdef"><b>Definição</b> <a href="#l00068">cntrapresentacaocontrole.hpp:68</a></div></div>
+<div class="ttc" id="aclass_email_html"><div class="ttname"><a href="class_email.html">Email</a></div><div class="ttdoc">Dominio de email, no formato parte-local@dominio.</div><div class="ttdef"><b>Definição</b> <a href="email_8hpp_source.html#l00019">email.hpp:19</a></div></div>
+<div class="ttc" id="aclass_i_apresentacao_autenticacao_html"><div class="ttname"><a href="class_i_apresentacao_autenticacao.html">IApresentacaoAutenticacao</a></div><div class="ttdoc">Tela de login.</div><div class="ttdef"><b>Definição</b> <a href="interfaces_8hpp_source.html#l00219">interfaces.hpp:219</a></div></div>
+<div class="ttc" id="aclass_i_apresentacao_cartao_html"><div class="ttname"><a href="class_i_apresentacao_cartao.html">IApresentacaoCartao</a></div><div class="ttdoc">Telas de cartoes (servicos 16 a 26).</div><div class="ttdef"><b>Definição</b> <a href="interfaces_8hpp_source.html#l00278">interfaces.hpp:278</a></div></div>
+<div class="ttc" id="aclass_i_apresentacao_pessoa_html"><div class="ttname"><a href="class_i_apresentacao_pessoa.html">IApresentacaoPessoa</a></div><div class="ttdoc">Telas de pessoas (servicos 1 a 5).</div><div class="ttdef"><b>Definição</b> <a href="interfaces_8hpp_source.html#l00232">interfaces.hpp:232</a></div></div>
+<div class="ttc" id="aclass_i_apresentacao_projeto_html"><div class="ttname"><a href="class_i_apresentacao_projeto.html">IApresentacaoProjeto</a></div><div class="ttdoc">Telas de projetos (servicos 6 a 10).</div><div class="ttdef"><b>Definição</b> <a href="interfaces_8hpp_source.html#l00252">interfaces.hpp:252</a></div></div>
+<div class="ttc" id="aclass_i_apresentacao_quadro_html"><div class="ttname"><a href="class_i_apresentacao_quadro.html">IApresentacaoQuadro</a></div><div class="ttdoc">Telas de quadros (servicos 11 a 15).</div><div class="ttdef"><b>Definição</b> <a href="interfaces_8hpp_source.html#l00265">interfaces.hpp:265</a></div></div>
+<div class="ttc" id="ainterfaces_8hpp_html"><div class="ttname"><a href="interfaces_8hpp.html">interfaces.hpp</a></div><div class="ttdoc">Interfaces entre a apresentacao e o servico.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>headers</b></li><li class="navelem"><b>cntrapresentacaocontrole.hpp</b></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

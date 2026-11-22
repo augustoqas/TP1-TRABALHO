@@ -1,0 +1,623 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TP1 - Sistema Kanban: Referência da Classe IServicoCartao</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TP1 - Sistema Kanban
+   </div>
+   <div id="projectbrief">Gestao de projetos pelo metodo Kanban, em camadas (C++11)</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Busca" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_i_servico_cartao.html','','class_i_servico_cartao-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Referência da Classe IServicoCartao<span class="mlabels"><span class="mlabel abstract">abstract</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Servico de cartoes (servicos 16 a 26). Criar, atualizar e excluir: so GESTOR.  
+ <a href="#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="interfaces_8hpp_source.html">interfaces.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de hierarquia da classe IServicoCartao:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_i_servico_cartao.png" usemap="#IServicoCartao_map" alt=""/>
+  <map id="IServicoCartao_map" name="IServicoCartao_map">
+<area href="class_cntr_servico_cartao.html" title="Servico de cartoes (servicos 16 a 26): aplica as regras de cartao e calcula as metricas Kanban." alt="CntrServicoCartao" shape="rect" coords="0,56,118,80"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Membros Públicos</h2></td></tr>
+<tr class="memitem:aa0c11d6839a91e6ecfb02301cca6b606" id="r_aa0c11d6839a91e6ecfb02301cca6b606"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#aa0c11d6839a91e6ecfb02301cca6b606">criar</a> (const <a class="el" href="class_email.html">Email</a> &amp;usuario, const <a class="el" href="class_identificador.html">Identificador</a> &amp;quadro, const <a class="el" href="class_email.html">Email</a> &amp;desenvolvedor, const <a class="el" href="class_cartao_atividade.html">CartaoAtividade</a> &amp;cartao)=0</td></tr>
+<tr class="memdesc:aa0c11d6839a91e6ecfb02301cca6b606"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria o cartao no quadro, ja em A FAZER e com entrada = agora (servico 16). <a class="el" href="class_estado.html" title="Dominio de estado (coluna) de um cartao de atividade.">Estado</a> e timestamps vindos em cartao sao ignorados. Retorna false se o usuario nao for GESTOR, o quadro nao existir, o desenvolvedor nao existir ou nao for DESENVOLVEDOR, ou o identificador ja existir.  <br /></td></tr>
+<tr class="memitem:a19f3b29561a65f27cdbbe8317d1e0d14" id="r_a19f3b29561a65f27cdbbe8317d1e0d14"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#a19f3b29561a65f27cdbbe8317d1e0d14">ler</a> (const <a class="el" href="class_email.html">Email</a> &amp;usuario, const <a class="el" href="class_identificador.html">Identificador</a> &amp;identificador, <a class="el" href="class_cartao_atividade.html">CartaoAtividade</a> &amp;cartao)=0</td></tr>
+<tr class="memdesc:a19f3b29561a65f27cdbbe8317d1e0d14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Le um cartao (servico 17). Retorna false se ele nao existir.  <br /></td></tr>
+<tr class="memitem:a9712acf349df2d71ece9c87fea80b227" id="r_a9712acf349df2d71ece9c87fea80b227"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#a9712acf349df2d71ece9c87fea80b227">atualizar</a> (const <a class="el" href="class_email.html">Email</a> &amp;usuario, const <a class="el" href="class_cartao_atividade.html">CartaoAtividade</a> &amp;cartao)=0</td></tr>
+<tr class="memdesc:a9712acf349df2d71ece9c87fea80b227"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza nome, descricao, prioridade e tamanho (servico 18). <a class="el" href="class_estado.html" title="Dominio de estado (coluna) de um cartao de atividade.">Estado</a> e timestamps so mudam por mover. Retorna false se o cartao nao existir ou o usuario nao for GESTOR.  <br /></td></tr>
+<tr class="memitem:a5a81bba16399aba6dcb750c0af30c2a5" id="r_a5a81bba16399aba6dcb750c0af30c2a5"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#a5a81bba16399aba6dcb750c0af30c2a5">excluir</a> (const <a class="el" href="class_email.html">Email</a> &amp;usuario, const <a class="el" href="class_identificador.html">Identificador</a> &amp;identificador)=0</td></tr>
+<tr class="memdesc:a5a81bba16399aba6dcb750c0af30c2a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exclui o cartao (servico 19). Retorna false se ele nao existir ou o usuario nao for GESTOR.  <br /></td></tr>
+<tr class="memitem:af46a2d8d82732def3bd78912827cbd14" id="r_af46a2d8d82732def3bd78912827cbd14"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#af46a2d8d82732def3bd78912827cbd14">listar</a> (const <a class="el" href="class_email.html">Email</a> &amp;usuario, const <a class="el" href="class_identificador.html">Identificador</a> &amp;quadro, std::vector&lt; <a class="el" href="class_identificador.html">Identificador</a> &gt; &amp;lista)=0</td></tr>
+<tr class="memdesc:af46a2d8d82732def3bd78912827cbd14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lista os cartoes do quadro (servico 20). Retorna false se o quadro nao existir.  <br /></td></tr>
+<tr class="memitem:a488b8c4ca931452feeb94e869c5acade" id="r_a488b8c4ca931452feeb94e869c5acade"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#a488b8c4ca931452feeb94e869c5acade">mover</a> (const <a class="el" href="class_email.html">Email</a> &amp;usuario, const <a class="el" href="class_identificador.html">Identificador</a> &amp;identificador)=0</td></tr>
+<tr class="memdesc:a488b8c4ca931452feeb94e869c5acade"><td class="mdescLeft">&#160;</td><td class="mdescRight">Passa o cartao para a proxima coluna (servico 21). A FAZER -&gt; FAZENDO grava o inicio; FAZENDO -&gt; FEITO grava o termino. Retorna false se o cartao nao existir, ja estiver em FEITO ou o limite do quadro for estourar.  <br /></td></tr>
+<tr class="memitem:a2fb24e9fbf3727ad42ac84e91bd2092b" id="r_a2fb24e9fbf3727ad42ac84e91bd2092b"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#a2fb24e9fbf3727ad42ac84e91bd2092b">lerTempoCiclo</a> (const <a class="el" href="class_email.html">Email</a> &amp;usuario, const <a class="el" href="class_identificador.html">Identificador</a> &amp;identificador, double &amp;minutos)=0</td></tr>
+<tr class="memdesc:a2fb24e9fbf3727ad42ac84e91bd2092b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tempo de ciclo do cartao (servico 22). Retorna false se o cartao nao existir ou nao estiver em FEITO.  <br /></td></tr>
+<tr class="memitem:ae9c49e060c777501059984a89f0b6f61" id="r_ae9c49e060c777501059984a89f0b6f61"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#ae9c49e060c777501059984a89f0b6f61">lerTempoCicloMedio</a> (const <a class="el" href="class_email.html">Email</a> &amp;usuario, const <a class="el" href="class_identificador.html">Identificador</a> &amp;quadro, double &amp;minutos)=0</td></tr>
+<tr class="memdesc:ae9c49e060c777501059984a89f0b6f61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tempo de ciclo medio dos cartoes em FEITO do quadro (servico 23). Retorna false se o quadro nao existir ou nao tiver cartao em FEITO.  <br /></td></tr>
+<tr class="memitem:a3722c4fb02c2865181dd649a6e96ed7f" id="r_a3722c4fb02c2865181dd649a6e96ed7f"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#a3722c4fb02c2865181dd649a6e96ed7f">lerLeadTime</a> (const <a class="el" href="class_email.html">Email</a> &amp;usuario, const <a class="el" href="class_identificador.html">Identificador</a> &amp;identificador, double &amp;minutos)=0</td></tr>
+<tr class="memdesc:a3722c4fb02c2865181dd649a6e96ed7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lead time do cartao (servico 24). Retorna false se o cartao nao existir ou nao estiver em FEITO.  <br /></td></tr>
+<tr class="memitem:ae777a212628b857bfff1bb25a086e7b4" id="r_ae777a212628b857bfff1bb25a086e7b4"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#ae777a212628b857bfff1bb25a086e7b4">lerLeadTimeMedio</a> (const <a class="el" href="class_email.html">Email</a> &amp;usuario, const <a class="el" href="class_identificador.html">Identificador</a> &amp;quadro, double &amp;minutos)=0</td></tr>
+<tr class="memdesc:ae777a212628b857bfff1bb25a086e7b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lead time medio dos cartoes em FEITO do quadro (servico 25). Retorna false se o quadro nao existir ou nao tiver cartao em FEITO.  <br /></td></tr>
+<tr class="memitem:a84c65712ceff84daa56fc4df0c6dae19" id="r_a84c65712ceff84daa56fc4df0c6dae19"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#a84c65712ceff84daa56fc4df0c6dae19">lerWIP</a> (const <a class="el" href="class_email.html">Email</a> &amp;usuario, const <a class="el" href="class_identificador.html">Identificador</a> &amp;quadro, int &amp;wip)=0</td></tr>
+<tr class="memdesc:a84c65712ceff84daa56fc4df0c6dae19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quantos cartoes do quadro estao em FAZENDO (servico 26); pode ser 0. Retorna false se o quadro nao existir.  <br /></td></tr>
+<tr class="memitem:a5041436e1a00fca7f2ed184e9de3ab77" id="r_a5041436e1a00fca7f2ed184e9de3ab77"><td class="memItemLeft">virtual&#160;</td><td class="memItemRight"><a class="el" href="#a5041436e1a00fca7f2ed184e9de3ab77">~IServicoCartao</a> ()=0</td></tr>
+<tr class="memdesc:a5041436e1a00fca7f2ed184e9de3ab77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrutor virtual puro.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Servico de cartoes (servicos 16 a 26). Criar, atualizar e excluir: so GESTOR. </p>
+<p>Tempo de ciclo = termino - inicio (FAZENDO ate FEITO). Lead time = termino - entrada (A FAZER ate FEITO). </p>
+
+<p class="definition">Definição na linha <a class="el" href="interfaces_8hpp_source.html#l00145">145</a> do arquivo <a class="el" href="interfaces_8hpp_source.html">interfaces.hpp</a>.</p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Construtores e Destrutores</h2>
+<a id="a5041436e1a00fca7f2ed184e9de3ab77" name="a5041436e1a00fca7f2ed184e9de3ab77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5041436e1a00fca7f2ed184e9de3ab77">&#9670;&#160;</a></span>~IServicoCartao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IServicoCartao::~IServicoCartao </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destrutor virtual puro. </p>
+
+<p class="definition">Definição na linha <a class="el" href="interfaces_8hpp_source.html#l00297">297</a> do arquivo <a class="el" href="interfaces_8hpp_source.html">interfaces.hpp</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentação das funções</h2>
+<a id="a9712acf349df2d71ece9c87fea80b227" name="a9712acf349df2d71ece9c87fea80b227"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9712acf349df2d71ece9c87fea80b227">&#9670;&#160;</a></span>atualizar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoCartao::atualizar </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_email.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>usuario</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_cartao_atividade.html">CartaoAtividade</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cartao</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Atualiza nome, descricao, prioridade e tamanho (servico 18). <a class="el" href="class_estado.html" title="Dominio de estado (coluna) de um cartao de atividade.">Estado</a> e timestamps so mudam por mover. Retorna false se o cartao nao existir ou o usuario nao for GESTOR. </p>
+
+<p>Implementado por <a class="el" href="class_cntr_servico_cartao.html#a49c8001b10f55446707b91059c17c622">CntrServicoCartao</a>.</p>
+
+</div>
+</div>
+<a id="aa0c11d6839a91e6ecfb02301cca6b606" name="aa0c11d6839a91e6ecfb02301cca6b606"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0c11d6839a91e6ecfb02301cca6b606">&#9670;&#160;</a></span>criar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoCartao::criar </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_email.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>usuario</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_identificador.html">Identificador</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>quadro</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_email.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>desenvolvedor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_cartao_atividade.html">CartaoAtividade</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cartao</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Cria o cartao no quadro, ja em A FAZER e com entrada = agora (servico 16). <a class="el" href="class_estado.html" title="Dominio de estado (coluna) de um cartao de atividade.">Estado</a> e timestamps vindos em cartao sao ignorados. Retorna false se o usuario nao for GESTOR, o quadro nao existir, o desenvolvedor nao existir ou nao for DESENVOLVEDOR, ou o identificador ja existir. </p>
+
+<p>Implementado por <a class="el" href="class_cntr_servico_cartao.html#afd2f0d4f69abf1c67c4f6157324dda2b">CntrServicoCartao</a>.</p>
+
+</div>
+</div>
+<a id="a5a81bba16399aba6dcb750c0af30c2a5" name="a5a81bba16399aba6dcb750c0af30c2a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a81bba16399aba6dcb750c0af30c2a5">&#9670;&#160;</a></span>excluir()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoCartao::excluir </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_email.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>usuario</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_identificador.html">Identificador</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>identificador</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Exclui o cartao (servico 19). Retorna false se ele nao existir ou o usuario nao for GESTOR. </p>
+
+<p>Implementado por <a class="el" href="class_cntr_servico_cartao.html#adda2f94a6b251f76f360c71794499a8d">CntrServicoCartao</a>.</p>
+
+</div>
+</div>
+<a id="a19f3b29561a65f27cdbbe8317d1e0d14" name="a19f3b29561a65f27cdbbe8317d1e0d14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19f3b29561a65f27cdbbe8317d1e0d14">&#9670;&#160;</a></span>ler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoCartao::ler </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_email.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>usuario</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_identificador.html">Identificador</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>identificador</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_cartao_atividade.html">CartaoAtividade</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cartao</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Le um cartao (servico 17). Retorna false se ele nao existir. </p>
+
+<p>Implementado por <a class="el" href="class_cntr_servico_cartao.html#aea76b0841d9ee29d2aec0695b91a96e2">CntrServicoCartao</a>.</p>
+
+</div>
+</div>
+<a id="a3722c4fb02c2865181dd649a6e96ed7f" name="a3722c4fb02c2865181dd649a6e96ed7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3722c4fb02c2865181dd649a6e96ed7f">&#9670;&#160;</a></span>lerLeadTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoCartao::lerLeadTime </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_email.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>usuario</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_identificador.html">Identificador</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>identificador</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>minutos</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lead time do cartao (servico 24). Retorna false se o cartao nao existir ou nao estiver em FEITO. </p>
+
+<p>Implementado por <a class="el" href="class_cntr_servico_cartao.html#ad49d5c84733b4113d3f12d188c9d19e7">CntrServicoCartao</a>.</p>
+
+</div>
+</div>
+<a id="ae777a212628b857bfff1bb25a086e7b4" name="ae777a212628b857bfff1bb25a086e7b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae777a212628b857bfff1bb25a086e7b4">&#9670;&#160;</a></span>lerLeadTimeMedio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoCartao::lerLeadTimeMedio </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_email.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>usuario</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_identificador.html">Identificador</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>quadro</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>minutos</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lead time medio dos cartoes em FEITO do quadro (servico 25). Retorna false se o quadro nao existir ou nao tiver cartao em FEITO. </p>
+
+<p>Implementado por <a class="el" href="class_cntr_servico_cartao.html#a9981d49d198f81de25464481d397aa99">CntrServicoCartao</a>.</p>
+
+</div>
+</div>
+<a id="a2fb24e9fbf3727ad42ac84e91bd2092b" name="a2fb24e9fbf3727ad42ac84e91bd2092b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fb24e9fbf3727ad42ac84e91bd2092b">&#9670;&#160;</a></span>lerTempoCiclo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoCartao::lerTempoCiclo </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_email.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>usuario</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_identificador.html">Identificador</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>identificador</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>minutos</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tempo de ciclo do cartao (servico 22). Retorna false se o cartao nao existir ou nao estiver em FEITO. </p>
+
+<p>Implementado por <a class="el" href="class_cntr_servico_cartao.html#a69e1825d80f041d36ac3188811558f72">CntrServicoCartao</a>.</p>
+
+</div>
+</div>
+<a id="ae9c49e060c777501059984a89f0b6f61" name="ae9c49e060c777501059984a89f0b6f61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9c49e060c777501059984a89f0b6f61">&#9670;&#160;</a></span>lerTempoCicloMedio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoCartao::lerTempoCicloMedio </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_email.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>usuario</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_identificador.html">Identificador</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>quadro</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>minutos</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tempo de ciclo medio dos cartoes em FEITO do quadro (servico 23). Retorna false se o quadro nao existir ou nao tiver cartao em FEITO. </p>
+
+<p>Implementado por <a class="el" href="class_cntr_servico_cartao.html#af4c3f3f0cfee24c4843d228f9bf5accd">CntrServicoCartao</a>.</p>
+
+</div>
+</div>
+<a id="a84c65712ceff84daa56fc4df0c6dae19" name="a84c65712ceff84daa56fc4df0c6dae19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84c65712ceff84daa56fc4df0c6dae19">&#9670;&#160;</a></span>lerWIP()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoCartao::lerWIP </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_email.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>usuario</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_identificador.html">Identificador</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>quadro</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;</td>          <td class="paramname"><span class="paramname"><em>wip</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Quantos cartoes do quadro estao em FAZENDO (servico 26); pode ser 0. Retorna false se o quadro nao existir. </p>
+
+<p>Implementado por <a class="el" href="class_cntr_servico_cartao.html#aad2e10aec52dcdfd5af7b0b850a0f7cf">CntrServicoCartao</a>.</p>
+
+</div>
+</div>
+<a id="af46a2d8d82732def3bd78912827cbd14" name="af46a2d8d82732def3bd78912827cbd14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af46a2d8d82732def3bd78912827cbd14">&#9670;&#160;</a></span>listar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoCartao::listar </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_email.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>usuario</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_identificador.html">Identificador</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>quadro</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_identificador.html">Identificador</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>lista</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lista os cartoes do quadro (servico 20). Retorna false se o quadro nao existir. </p>
+
+<p>Implementado por <a class="el" href="class_cntr_servico_cartao.html#a167c719ab8ff05793d987f1e89677bf1">CntrServicoCartao</a>.</p>
+
+</div>
+</div>
+<a id="a488b8c4ca931452feeb94e869c5acade" name="a488b8c4ca931452feeb94e869c5acade"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a488b8c4ca931452feeb94e869c5acade">&#9670;&#160;</a></span>mover()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoCartao::mover </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_email.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>usuario</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_identificador.html">Identificador</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>identificador</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Passa o cartao para a proxima coluna (servico 21). A FAZER -&gt; FAZENDO grava o inicio; FAZENDO -&gt; FEITO grava o termino. Retorna false se o cartao nao existir, ja estiver em FEITO ou o limite do quadro for estourar. </p>
+
+<p>Implementado por <a class="el" href="class_cntr_servico_cartao.html#aef679e7cc37c19af673418278efaefb7">CntrServicoCartao</a>.</p>
+
+</div>
+</div>
+<hr/>A documentação para essa classe foi gerada a partir do seguinte arquivo:<ul>
+<li>headers/<a class="el" href="interfaces_8hpp_source.html">interfaces.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_i_servico_cartao.html">IServicoCartao</a></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>
