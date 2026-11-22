@@ -5,7 +5,7 @@
 #include <string>
 
 /**
- * @brief Dominio de email, no formato parte-local@dominio.
+ * @brief Dominio de email, no formato parte-local\@dominio.
  *
  * Formato:
  * - Exatamente um '@'.
