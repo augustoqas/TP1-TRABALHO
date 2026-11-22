@@ -10,7 +10,7 @@ Trabalho prático de **Técnicas de Programação 1 (CIC0197)** · Universidade 
 ![Code::Blocks](https://img.shields.io/badge/IDE-Code%3A%3ABlocks-41AD48?style=for-the-badge)
 ![MinGW](https://img.shields.io/badge/compilador-MinGW%20GCC-555555?style=for-the-badge)
 ![Doxygen](https://img.shields.io/badge/docs-Doxygen-2C4AA8?style=for-the-badge)
-![Status](https://img.shields.io/badge/status-em%20desenvolvimento-F2A900?style=for-the-badge)
+![Status](https://img.shields.io/badge/status-vers%C3%A3o%20de%20entrega-2EA44F?style=for-the-badge)
 
 [Sobre](#-sobre) ·
 [Funcionalidades](#-funcionalidades) ·
@@ -168,12 +168,12 @@ Cada atributo é uma **classe domínio**. O `setValor` lança `std::invalid_argu
 ## 🚀 Como executar
 
 > [!NOTE]
-> O sistema ainda está em desenvolvimento. Os passos abaixo valem para a versão integrada. O andamento pode ser acompanhado nas [milestones](https://github.com/augustoqas/TP1-TRABALHO/milestones).
+> Esta é a **versão de entrega** do trabalho: criar conta, autenticar e os 26 serviços estão implementados e cobertos pelos testes automatizados.
 
 ### Pré-requisitos
 
 - [Code::Blocks](https://www.codeblocks.org/downloads/) com MinGW, ou qualquer `g++` com suporte a **C++11**
-- [Doxygen](https://www.doxygen.nl/) (opcional, para gerar a documentação)
+- [Doxygen](https://www.doxygen.nl/) (opcional, só para gerar a documentação de novo)
 
 ### Opção 1 · Code::Blocks
 
@@ -181,23 +181,41 @@ Cada atributo é uma **classe domínio**. O `setValor` lança `std::invalid_argu
    ```bash
    git clone https://github.com/augustoqas/TP1-TRABALHO.git
    ```
-2. Abra o arquivo de projeto `.cbp` no Code::Blocks.
+2. Abra o arquivo de projeto `TP1-Kanban.cbp` no Code::Blocks.
 3. Clique em **Build and run** (`F9`).
+
+O projeto já vem configurado com `-std=c++11` e com as bibliotecas do MinGW embutidas no executável (`-static-libgcc -static-libstdc++`), então o `.exe` gerado roda em um PC sem MinGW instalado.
 
 ### Opção 2 · Linha de comando
 
+Equivalente ao build do Code::Blocks, a partir da raiz do repositório:
+
 ```bash
-g++ -std=c++11 -Wall -Wextra -Iheaders main.cpp sources/*.cpp -o kanban
+g++ -std=c++11 -Wall -Wextra -Iheaders main.cpp sources/*.cpp -static-libgcc -static-libstdc++ -o kanban
 ./kanban
 ```
 
+No `cmd` do Windows, rode `kanban` em vez de `./kanban`.
+
+### Testes
+
+```bat
+testes\rodar.bat
+```
+
+Compila e roda os testes de unidade, os roteiros de tela e o build real do sistema. A última linha deve ser `TUDO PASSOU`. Detalhes em [`testes/README.md`](testes/README.md).
+
 ### Documentação
+
+A documentação Doxygen já gerada está no repositório: abra [`docs/doxygen/html/index.html`](docs/doxygen/html/index.html) no navegador. Ela é gerada a partir dos comentários das classes (`headers/`, `sources/` e `main.cpp`), com a página principal em [`docs/principal.md`](docs/principal.md).
+
+Para gerar de novo, depois de mudar a documentação do código, rode na raiz do repositório:
 
 ```bash
 doxygen Doxyfile
 ```
 
-A documentação é gerada em HTML a partir dos comentários das classes, em `docs/doxygen/html/index.html`. A versão gerada já está no repositório; ao mudar a documentação do código, gere de novo e faça commit da pasta. Membros sem documentação aparecem em `docs/doxygen/avisos.txt`, que deve ficar vazio.
+e faça commit da pasta `docs/doxygen/`. Membros sem documentação aparecem em `docs/doxygen/avisos.txt`, que deve ficar vazio.
 
 ---
 
@@ -211,7 +229,18 @@ TP1-TRABALHO/
 │   └── <entidade>.hpp  #   Classes entidade (Pessoa, Projeto, ...)
 ├── sources/            # Implementações (.cpp)
 ├── testes/             # Testes automatizados (ver testes/README.md)
+│   ├── rodar.bat       #   Roda todos os testes
+│   ├── teste_*.cpp     #   Testes de unidade
+│   └── roteiros/       #   Roteiros de tela, incluindo o teste fumaça (91_fumaca)
+├── docs/
+│   ├── arquitetura/    #   Modelo de arquitetura (PDF, diagrama UML e gerador)
+│   ├── doxygen/html/   #   Documentação Doxygen gerada (abra index.html)
+│   ├── principal.md    #   Página principal da documentação Doxygen
+│   └── teste_fumaca.md #   Guia do vídeo do teste fumaça
 ├── main.cpp            # Ponto de entrada: monta as camadas e inicia o menu
+├── TP1-Kanban.cbp      # Projeto Code::Blocks
+├── Doxyfile            # Configuração do Doxygen
+├── MEMBROS.md          # Membros da equipe e artefatos de cada um
 └── README.md
 ```
 
@@ -243,21 +272,21 @@ As tarefas e os responsáveis estão nas [issues](https://github.com/augustoqas/
         <img src="https://github.com/augustoqas.png" width="96" alt="Augusto Queiroz"/><br/>
         <b>Augusto Queiroz</b>
       </a><br/>
-      <sub>Projeto · Quadro · Timestamp<br/>Doxygen · Teste fumaça</sub>
+      <sub>Projeto · Quadro · Timestamp<br/>Doxygen · Roteiro do teste fumaça</sub>
     </td>
     <td align="center" width="220">
       <a href="https://github.com/flavio-dematos">
         <img src="https://github.com/flavio-dematos.png" width="96" alt="Flávio de Matos"/><br/>
         <b>Flávio de Matos</b>
       </a><br/>
-      <sub>Cartão de atividade · Métricas<br/>Projeto Code::Blocks</sub>
+      <sub>Cartão de atividade · Métricas<br/>Limite · Papel · Prioridade · Tamanho</sub>
     </td>
     <td align="center" width="220">
       <a href="https://github.com/pedrobamaral">
         <img src="https://github.com/pedrobamaral.png" width="96" alt="Pedro Amaral"/><br/>
         <b>Pedro Amaral</b>
       </a><br/>
-      <sub>Pessoa · Autenticação · Interfaces<br/>Arquitetura · Integração</sub>
+      <sub>Pessoa · Autenticação · Interfaces<br/>Arquitetura · Integração · Projeto Code::Blocks</sub>
     </td>
   </tr>
 </table>
