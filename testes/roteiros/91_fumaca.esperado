@@ -1,0 +1,44 @@
+# Teste fumaca: 1 caso de SUCESSO para cada funcionalidade (criar conta, autenticar e os
+# servicos 1 a 26), na ordem do video. Guia passo a passo em docs/teste_fumaca.md.
+> Conta criada com sucesso
+> Conta criada com sucesso
+> Autenticado com sucesso
+> Pessoa criada com sucesso
+> Nome: Bruno Lima
+> Pessoa atualizada com sucesso
+> Pessoas cadastradas
+> carla@unb.br
+> Projeto criado com sucesso
+> Projeto criado com sucesso
+> Nome: Sistema Kanban
+> Projeto atualizado com sucesso
+> Projetos cadastrados
+> PRJ200
+> Quadro criado com sucesso
+> Quadro criado com sucesso
+> Limite de WIP: 3
+> Quadro atualizado com sucesso
+> Quadros do projeto PRJ100 (2)
+> Cartao criado com sucesso
+> Cartao criado com sucesso
+> Prioridade: ALTA
+> Cartao atualizado com sucesso
+> Cartoes do quadro QDR100 (2)
+> Cartao movido para FAZENDO
+> Cartao movido para FEITO
+> Cartao movido para FAZENDO
+> Tempo de ciclo:
+> Tempo de ciclo medio:
+> Lead time:
+> Lead time medio:
+> WIP: 1
+> Cartao excluido com sucesso
+> Quadro excluido com sucesso
+> Projeto excluido com sucesso
+> Pessoa excluida com sucesso
+> Sessao encerrada
+> Sistema encerrado
+# Num teste de sucesso nada pode ser recusado nem pedido de novo.
+! [FALHA]
+! Tente novamente
+! Pw123

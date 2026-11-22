@@ -1,0 +1,135 @@
+1
+ana@unb.br
+Ana Maria
+Pw123
+GESTOR
+1
+bruno@unb.br
+Bruno Lima
+Br456
+DESENVOLVEDOR
+2
+ana@unb.br
+Pw123
+1
+1
+carla@unb.br
+Carla Dias
+Cd333
+DESENVOLVEDOR
+2
+bruno@unb.br
+3
+carla@unb.br
+Carla Souza
+Cd999
+DESENVOLVEDOR
+5
+6
+2
+1
+PRJ100
+Sistema Kanban
+Trabalho de TP1.
+01-MAR-2026-08:00
+30-JUN-2026-18:00
+1
+PRJ200
+Projeto Extra
+Sera excluido.
+01-MAR-2026-08:00
+30-ABR-2026-18:00
+2
+PRJ100
+3
+PRJ100
+Kanban Final
+Versao final.
+01-MAR-2026-08:00
+31-JUL-2026-18:00
+5
+6
+3
+1
+PRJ100
+QDR100
+Sprint um
+3
+1
+PRJ100
+QDR200
+Quadro extra
+2
+2
+QDR100
+3
+QDR100
+Sprint final
+5
+5
+PRJ100
+6
+4
+1
+QDR100
+CRT100
+Tela login
+Fazer a tela.
+ALTA
+MEDIO
+bruno@unb.br
+1
+QDR100
+CRT200
+Tela menu
+Fazer o menu.
+BAIXA
+PEQUENO
+bruno@unb.br
+2
+CRT100
+3
+CRT100
+Tela de login
+Tela com senha.
+MEDIA
+GRANDE
+5
+QDR100
+6
+CRT100
+6
+CRT100
+6
+CRT200
+7
+CRT100
+8
+QDR100
+9
+CRT100
+10
+QDR100
+11
+QDR100
+4
+CRT200
+S
+12
+3
+4
+QDR200
+S
+6
+2
+4
+PRJ200
+S
+6
+1
+4
+carla@unb.br
+S
+6
+5
+3
