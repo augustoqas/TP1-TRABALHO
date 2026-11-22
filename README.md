@@ -67,7 +67,7 @@ O sistema oferece **26 serviços**, além de criar conta e autenticar:
 <summary><b>📐 Regras de negócio</b></summary>
 <br>
 
-- O **gestor de um projeto é quem o criou** (qualquer pessoa com papel GESTOR pode criar projetos). Só ele atualiza ou exclui o projeto e cria, atualiza ou exclui os quadros do projeto e os cartões desses quadros. Ler, listar, mover cartões e consultar métricas continuam abertos a qualquer usuário autenticado, gestor ou desenvolvedor.
+- O **gestor de um projeto é quem o criou** (qualquer pessoa com papel GESTOR pode criar projetos). Só ele atualiza ou exclui o projeto e cria, atualiza ou exclui os quadros do projeto e os cartões desses quadros. Ler, listar, mover cartões e consultar métricas ficam abertos a qualquer usuário autenticado, gestor ou desenvolvedor.
 - Um cartão só se move de **A FAZER → FAZENDO** e de **FAZENDO → FEITO**, respeitando o limite de WIP do quadro.
 - A **chave primária** de uma entidade (email ou identificador) não pode ser editada.
 - As **multiplicidades** do diagrama de classes são sempre respeitadas.

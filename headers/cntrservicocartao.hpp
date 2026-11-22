@@ -19,7 +19,8 @@
  * o servico de quadros (IServicoQuadro), para saber se um quadro existe e qual e o
  * seu limite de WIP. So guarda os ponteiros; quem cria e guarda os objetos e o
  * main. Se faltar alguma dessas dependencias, o metodo que precisa dela retorna
- * false.
+ * false. O conteiner de quadros e o IServicoQuadro precisam apontar para os mesmos
+ * dados (no main, o servico de quadros usa esse mesmo conteiner).
  *
  * Regras:
  * - Criar, atualizar e excluir: so o gestor do projeto do quadro (quem criou o projeto).

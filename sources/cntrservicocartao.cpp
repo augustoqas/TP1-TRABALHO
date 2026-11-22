@@ -56,6 +56,9 @@ bool CntrServicoCartao::gestorDoQuadro(const Email& usuario, const Identificador
 }
 
 bool CntrServicoCartao::gestorDoCartao(const Email& usuario, const Identificador& cartao) const {
+    if (this->containerCartao == nullptr) {
+        return false;
+    }
     Identificador quadro;
     if (!this->containerCartao->getQuadro(cartao, quadro)) {
         return false;
