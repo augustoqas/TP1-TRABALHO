@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TP1 - Sistema Kanban: Código-Fonte de sources/projeto.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TP1 - Sistema Kanban
+   </div>
+   <div id="projectbrief">Gestao de projetos pelo metodo Kanban, em camadas (C++11)</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Busca" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('projeto_8cpp_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">projeto.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;projeto.hpp&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="foldopen" id="foldopen00003" data-start="{" data-end="}">
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno"><a class="line" href="class_projeto.html#a664b76220e0444b3a74d73211781f1b2">    3</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_projeto.html#a664b76220e0444b3a74d73211781f1b2">Projeto::setIdentificador</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_identificador.html">Identificador</a>&amp; identificador) {</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span>    this-&gt;identificador = identificador;</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>}</div>
+</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="foldopen" id="foldopen00007" data-start="{" data-end="}">
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="class_projeto.html#a73c48a33c8a22c6fea1349184829eaae">    7</a></span><a class="code hl_class" href="class_identificador.html">Identificador</a> <a class="code hl_function" href="class_projeto.html#a73c48a33c8a22c6fea1349184829eaae">Projeto::getIdentificador</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <span class="keywordflow">return</span> identificador;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>}</div>
+</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="foldopen" id="foldopen00011" data-start="{" data-end="}">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="class_projeto.html#a653d8397857e75322e84fb346f150e37">   11</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_projeto.html#a653d8397857e75322e84fb346f150e37">Projeto::setNome</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_nome.html">Nome</a>&amp; nome) {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    this-&gt;nome = nome;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>}</div>
+</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="foldopen" id="foldopen00015" data-start="{" data-end="}">
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="class_projeto.html#a1eb1c0d356d0f662ac6fda75ff766004">   15</a></span><a class="code hl_class" href="class_nome.html">Nome</a> <a class="code hl_function" href="class_projeto.html#a1eb1c0d356d0f662ac6fda75ff766004">Projeto::getNome</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordflow">return</span> nome;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>}</div>
+</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="}">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="class_projeto.html#a80646ddf5e0a1da8267bbfb965f88ff6">   19</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_projeto.html#a80646ddf5e0a1da8267bbfb965f88ff6">Projeto::setDescricao</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_texto.html">Texto</a>&amp; descricao) {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    this-&gt;descricao = descricao;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>}</div>
+</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="foldopen" id="foldopen00023" data-start="{" data-end="}">
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="class_projeto.html#a600487ea6215134c7035454139cfd348">   23</a></span><a class="code hl_class" href="class_texto.html">Texto</a> <a class="code hl_function" href="class_projeto.html#a600487ea6215134c7035454139cfd348">Projeto::getDescricao</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordflow">return</span> descricao;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>}</div>
+</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="}">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="class_projeto.html#ad33275a0ef457bd4e45c7e1b1ebff2a5">   27</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_projeto.html#ad33275a0ef457bd4e45c7e1b1ebff2a5">Projeto::setInicio</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_timestamp.html">Timestamp</a>&amp; inicio) {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    this-&gt;inicio = inicio;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>}</div>
+</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="foldopen" id="foldopen00031" data-start="{" data-end="}">
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="class_projeto.html#a4644b46ebb4291e2993a6d811df50dd8">   31</a></span><a class="code hl_class" href="class_timestamp.html">Timestamp</a> <a class="code hl_function" href="class_projeto.html#a4644b46ebb4291e2993a6d811df50dd8">Projeto::getInicio</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordflow">return</span> inicio;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>}</div>
+</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="foldopen" id="foldopen00035" data-start="{" data-end="}">
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="class_projeto.html#a0d5e9175c1732860b1dc2a7561341a5b">   35</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_projeto.html#a0d5e9175c1732860b1dc2a7561341a5b">Projeto::setTermino</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_timestamp.html">Timestamp</a>&amp; termino) {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    this-&gt;termino = termino;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>}</div>
+</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="foldopen" id="foldopen00039" data-start="{" data-end="}">
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="class_projeto.html#a3278bde27423f1ab0027acb3e557cfe7">   39</a></span><a class="code hl_class" href="class_timestamp.html">Timestamp</a> <a class="code hl_function" href="class_projeto.html#a3278bde27423f1ab0027acb3e557cfe7">Projeto::getTermino</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordflow">return</span> termino;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>}</div>
+</div>
+<div class="ttc" id="aclass_identificador_html"><div class="ttname"><a href="class_identificador.html">Identificador</a></div><div class="ttdoc">Dominio de identificador (chave de Projeto, Quadro e Cartao).</div><div class="ttdef"><b>Definição</b> <a href="identificador_8hpp_source.html#l00015">identificador.hpp:15</a></div></div>
+<div class="ttc" id="aclass_nome_html"><div class="ttname"><a href="class_nome.html">Nome</a></div><div class="ttdoc">Dominio de nome, usado em Pessoa, Projeto, Quadro e Cartao.</div><div class="ttdef"><b>Definição</b> <a href="nome_8hpp_source.html#l00015">nome.hpp:15</a></div></div>
+<div class="ttc" id="aclass_projeto_html_a0d5e9175c1732860b1dc2a7561341a5b"><div class="ttname"><a href="class_projeto.html#a0d5e9175c1732860b1dc2a7561341a5b">Projeto::setTermino</a></div><div class="ttdeci">void setTermino(const Timestamp &amp;termino)</div><div class="ttdoc">Guarda a data e hora de termino.</div><div class="ttdef"><b>Definição</b> <a href="#l00035">projeto.cpp:35</a></div></div>
+<div class="ttc" id="aclass_projeto_html_a1eb1c0d356d0f662ac6fda75ff766004"><div class="ttname"><a href="class_projeto.html#a1eb1c0d356d0f662ac6fda75ff766004">Projeto::getNome</a></div><div class="ttdeci">Nome getNome() const</div><div class="ttdoc">Retorna o nome.</div><div class="ttdef"><b>Definição</b> <a href="#l00015">projeto.cpp:15</a></div></div>
+<div class="ttc" id="aclass_projeto_html_a3278bde27423f1ab0027acb3e557cfe7"><div class="ttname"><a href="class_projeto.html#a3278bde27423f1ab0027acb3e557cfe7">Projeto::getTermino</a></div><div class="ttdeci">Timestamp getTermino() const</div><div class="ttdoc">Retorna a data e hora de termino.</div><div class="ttdef"><b>Definição</b> <a href="#l00039">projeto.cpp:39</a></div></div>
+<div class="ttc" id="aclass_projeto_html_a4644b46ebb4291e2993a6d811df50dd8"><div class="ttname"><a href="class_projeto.html#a4644b46ebb4291e2993a6d811df50dd8">Projeto::getInicio</a></div><div class="ttdeci">Timestamp getInicio() const</div><div class="ttdoc">Retorna a data e hora de inicio.</div><div class="ttdef"><b>Definição</b> <a href="#l00031">projeto.cpp:31</a></div></div>
+<div class="ttc" id="aclass_projeto_html_a600487ea6215134c7035454139cfd348"><div class="ttname"><a href="class_projeto.html#a600487ea6215134c7035454139cfd348">Projeto::getDescricao</a></div><div class="ttdeci">Texto getDescricao() const</div><div class="ttdoc">Retorna a descricao.</div><div class="ttdef"><b>Definição</b> <a href="#l00023">projeto.cpp:23</a></div></div>
+<div class="ttc" id="aclass_projeto_html_a653d8397857e75322e84fb346f150e37"><div class="ttname"><a href="class_projeto.html#a653d8397857e75322e84fb346f150e37">Projeto::setNome</a></div><div class="ttdeci">void setNome(const Nome &amp;nome)</div><div class="ttdoc">Guarda o nome.</div><div class="ttdef"><b>Definição</b> <a href="#l00011">projeto.cpp:11</a></div></div>
+<div class="ttc" id="aclass_projeto_html_a664b76220e0444b3a74d73211781f1b2"><div class="ttname"><a href="class_projeto.html#a664b76220e0444b3a74d73211781f1b2">Projeto::setIdentificador</a></div><div class="ttdeci">void setIdentificador(const Identificador &amp;identificador)</div><div class="ttdoc">Guarda o identificador (chave primaria).</div><div class="ttdef"><b>Definição</b> <a href="#l00003">projeto.cpp:3</a></div></div>
+<div class="ttc" id="aclass_projeto_html_a73c48a33c8a22c6fea1349184829eaae"><div class="ttname"><a href="class_projeto.html#a73c48a33c8a22c6fea1349184829eaae">Projeto::getIdentificador</a></div><div class="ttdeci">Identificador getIdentificador() const</div><div class="ttdoc">Retorna o identificador.</div><div class="ttdef"><b>Definição</b> <a href="#l00007">projeto.cpp:7</a></div></div>
+<div class="ttc" id="aclass_projeto_html_a80646ddf5e0a1da8267bbfb965f88ff6"><div class="ttname"><a href="class_projeto.html#a80646ddf5e0a1da8267bbfb965f88ff6">Projeto::setDescricao</a></div><div class="ttdeci">void setDescricao(const Texto &amp;descricao)</div><div class="ttdoc">Guarda a descricao.</div><div class="ttdef"><b>Definição</b> <a href="#l00019">projeto.cpp:19</a></div></div>
+<div class="ttc" id="aclass_projeto_html_ad33275a0ef457bd4e45c7e1b1ebff2a5"><div class="ttname"><a href="class_projeto.html#ad33275a0ef457bd4e45c7e1b1ebff2a5">Projeto::setInicio</a></div><div class="ttdeci">void setInicio(const Timestamp &amp;inicio)</div><div class="ttdoc">Guarda a data e hora de inicio.</div><div class="ttdef"><b>Definição</b> <a href="#l00027">projeto.cpp:27</a></div></div>
+<div class="ttc" id="aclass_texto_html"><div class="ttname"><a href="class_texto.html">Texto</a></div><div class="ttdoc">Dominio de texto (descricao de Projeto e de Cartao).</div><div class="ttdef"><b>Definição</b> <a href="texto_8hpp_source.html#l00016">texto.hpp:16</a></div></div>
+<div class="ttc" id="aclass_timestamp_html"><div class="ttname"><a href="class_timestamp.html">Timestamp</a></div><div class="ttdoc">Dominio de data e hora (inicio e termino de Projeto; entrada, inicio e termino de Cartao).</div><div class="ttdef"><b>Definição</b> <a href="timestamp_8hpp_source.html#l00017">timestamp.hpp:17</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>sources</b></li><li class="navelem"><b>projeto.cpp</b></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

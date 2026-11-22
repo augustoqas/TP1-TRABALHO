@@ -195,7 +195,7 @@ g++ -std=c++11 -Wall -Wextra -Iheaders main.cpp sources/*.cpp -o kanban
 doxygen Doxyfile
 ```
 
-A documentação é gerada em HTML a partir dos comentários das classes, em `docs/doxygen/html/index.html` (a pasta não vai para o git). Membros sem documentação aparecem em `docs/doxygen/avisos.txt`, que deve ficar vazio.
+A documentação é gerada em HTML a partir dos comentários das classes, em `docs/doxygen/html/index.html`. A versão gerada já está no repositório; ao mudar a documentação do código, gere de novo e faça commit da pasta. Membros sem documentação aparecem em `docs/doxygen/avisos.txt`, que deve ficar vazio.
 
 ---
 

@@ -1,0 +1,777 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TP1 - Sistema Kanban: Referência da Classe Tela</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TP1 - Sistema Kanban
+   </div>
+   <div id="projectbrief">Gestao de projetos pelo metodo Kanban, em camadas (C++11)</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Busca" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_tela.html','','class_tela-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Referência da Classe Tela</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Funcoes de tela em modo texto usadas por todas as controladoras de apresentacao, para que todas as telas tenham a mesma cara.  
+ <a href="#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="tela_8hpp_source.html">tela.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Tipos Públicos</h2></td></tr>
+<tr class="memitem:afaf545d56dc508a28c945e7b42f9d366" id="r_afaf545d56dc508a28c945e7b42f9d366"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#afaf545d56dc508a28c945e7b42f9d366">Leitura</a> { <a class="el" href="#afaf545d56dc508a28c945e7b42f9d366a87f3261bc1c0536a2f996ee8ad58d9ba">LIDO</a>
+, <a class="el" href="#afaf545d56dc508a28c945e7b42f9d366af2af27b0fea4e60a6adab45a438f6310">CANCELADO</a>
+, <a class="el" href="#afaf545d56dc508a28c945e7b42f9d366a9289f22d8258cabeb052c43e3284ac84">FIM</a>
+ }</td></tr>
+<tr class="memdesc:afaf545d56dc508a28c945e7b42f9d366"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resultado de lerCampo e lerCampoInteiro.  <a href="#afaf545d56dc508a28c945e7b42f9d366">Mais...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Membros públicos estáticos</h2></td></tr>
+<tr class="memitem:ad7d9ff8495f32354a6baee636453cc4c" id="r_ad7d9ff8495f32354a6baee636453cc4c"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#ad7d9ff8495f32354a6baee636453cc4c">titulo</a> (const std::string &amp;texto)</td></tr>
+<tr class="memdesc:ad7d9ff8495f32354a6baee636453cc4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mostra um titulo entre linhas duplas.  <br /></td></tr>
+<tr class="memitem:a0d5a1c2bdd6ad1f7bece31053623889a" id="r_a0d5a1c2bdd6ad1f7bece31053623889a"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a0d5a1c2bdd6ad1f7bece31053623889a">separador</a> ()</td></tr>
+<tr class="memdesc:a0d5a1c2bdd6ad1f7bece31053623889a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mostra uma linha separadora.  <br /></td></tr>
+<tr class="memitem:a58aecb971f65c18e0f386018d3763f92" id="r_a58aecb971f65c18e0f386018d3763f92"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a58aecb971f65c18e0f386018d3763f92">info</a> (const std::string &amp;texto)</td></tr>
+<tr class="memdesc:a58aecb971f65c18e0f386018d3763f92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mostra uma linha de texto comum.  <br /></td></tr>
+<tr class="memitem:abe7d8a0a097b8129b960902b662f74cb" id="r_abe7d8a0a097b8129b960902b662f74cb"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#abe7d8a0a097b8129b960902b662f74cb">campo</a> (const std::string &amp;rotulo, const std::string &amp;valor)</td></tr>
+<tr class="memdesc:abe7d8a0a097b8129b960902b662f74cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mostra um dado como "rotulo: valor".  <br /></td></tr>
+<tr class="memitem:a8018ee407c17277e7f2b71db0a47e44a" id="r_a8018ee407c17277e7f2b71db0a47e44a"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a8018ee407c17277e7f2b71db0a47e44a">sucesso</a> (const std::string &amp;texto)</td></tr>
+<tr class="memdesc:a8018ee407c17277e7f2b71db0a47e44a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mostra "[OK] texto".  <br /></td></tr>
+<tr class="memitem:afd3511ebc7be48862a54efc786a882ee" id="r_afd3511ebc7be48862a54efc786a882ee"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#afd3511ebc7be48862a54efc786a882ee">falha</a> (const std::string &amp;texto, const std::vector&lt; std::string &gt; &amp;motivos=std::vector&lt; std::string &gt;())</td></tr>
+<tr class="memdesc:afd3511ebc7be48862a54efc786a882ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mostra "[FALHA] texto" e, se houver, a lista de motivos possiveis.  <br /></td></tr>
+<tr class="memitem:a447245e995f030f0074cebd4e5fa6e93" id="r_a447245e995f030f0074cebd4e5fa6e93"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a447245e995f030f0074cebd4e5fa6e93">erro</a> (const std::string &amp;texto)</td></tr>
+<tr class="memdesc:a447245e995f030f0074cebd4e5fa6e93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mostra "[ERRO] texto" para um campo digitado errado (sem linha em branco).  <br /></td></tr>
+<tr class="memitem:a98628cd5a04e5b675669d85cc27b1cc5" id="r_a98628cd5a04e5b675669d85cc27b1cc5"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a98628cd5a04e5b675669d85cc27b1cc5">aviso</a> (const std::string &amp;texto)</td></tr>
+<tr class="memdesc:a98628cd5a04e5b675669d85cc27b1cc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mostra "[AVISO] texto".  <br /></td></tr>
+<tr class="memitem:a0d3d008fc0a8ca61c40d4b68bef42509" id="r_a0d3d008fc0a8ca61c40d4b68bef42509"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a0d3d008fc0a8ca61c40d4b68bef42509">cancelado</a> ()</td></tr>
+<tr class="memdesc:a0d3d008fc0a8ca61c40d4b68bef42509"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mostra o aviso padrao de operacao cancelada.  <br /></td></tr>
+<tr class="memitem:af349d4a8a81bb03f26839c45d274c8d0" id="r_af349d4a8a81bb03f26839c45d274c8d0"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#af349d4a8a81bb03f26839c45d274c8d0">lerLinha</a> (const std::string &amp;pergunta, std::string &amp;linha)</td></tr>
+<tr class="memdesc:af349d4a8a81bb03f26839c45d274c8d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mostra a pergunta e le uma linha, sem '\r' nem espacos no fim.  <br /></td></tr>
+<tr class="memitem:acc044e9cc676245bbb620b4bc91d0870" id="r_acc044e9cc676245bbb620b4bc91d0870"><td class="memItemLeft">static int&#160;</td><td class="memItemRight"><a class="el" href="#acc044e9cc676245bbb620b4bc91d0870">lerOpcao</a> (const std::string &amp;tituloMenu, const std::vector&lt; std::string &gt; &amp;opcoes)</td></tr>
+<tr class="memdesc:acc044e9cc676245bbb620b4bc91d0870"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mostra um menu numerado a partir de 1 e le a opcao; repete o menu se a opcao for invalida.  <br /></td></tr>
+<tr class="memitem:a81390ce578a454de8fcbe5a58835298e" id="r_a81390ce578a454de8fcbe5a58835298e"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a81390ce578a454de8fcbe5a58835298e">confirmar</a> (const std::string &amp;pergunta, bool &amp;resposta)</td></tr>
+<tr class="memdesc:a81390ce578a454de8fcbe5a58835298e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pergunta S/N ate ter uma resposta valida.  <br /></td></tr>
+<tr class="memitem:a5cf0588cf0981e46fbb5eb4cb83d9cca" id="r_a5cf0588cf0981e46fbb5eb4cb83d9cca"><td class="memTemplParams" colspan="2">template&lt;typename Dominio&gt; </td></tr>
+<tr class="memitem:a5cf0588cf0981e46fbb5eb4cb83d9cca template"><td class="memItemLeft">static <a class="el" href="#afaf545d56dc508a28c945e7b42f9d366">Leitura</a>&#160;</td><td class="memItemRight"><a class="el" href="#a5cf0588cf0981e46fbb5eb4cb83d9cca">lerCampo</a> (const std::string &amp;rotulo, const std::string &amp;dica, Dominio &amp;dominio)</td></tr>
+<tr class="memdesc:a5cf0588cf0981e46fbb5eb4cb83d9cca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Le um campo de dominio, pedindo de novo ate o valor ser valido.  <br /></td></tr>
+<tr class="memitem:a9c605a1fab5a11378baa0a36c4d02674" id="r_a9c605a1fab5a11378baa0a36c4d02674"><td class="memTemplParams" colspan="2">template&lt;typename Dominio&gt; </td></tr>
+<tr class="memitem:a9c605a1fab5a11378baa0a36c4d02674 template"><td class="memItemLeft">static <a class="el" href="#afaf545d56dc508a28c945e7b42f9d366">Leitura</a>&#160;</td><td class="memItemRight"><a class="el" href="#a9c605a1fab5a11378baa0a36c4d02674">lerCampoInteiro</a> (const std::string &amp;rotulo, const std::string &amp;dica, Dominio &amp;dominio)</td></tr>
+<tr class="memdesc:a9c605a1fab5a11378baa0a36c4d02674"><td class="mdescLeft">&#160;</td><td class="mdescRight">Igual a lerCampo, para dominios cujo setValor recebe int (ex.: <a class="el" href="class_limite.html" title="Dominio de limite de WIP de um quadro.">Limite</a>).  <br /></td></tr>
+<tr class="memitem:a89d58c73f277532428bc8dbd575632a9" id="r_a89d58c73f277532428bc8dbd575632a9"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a89d58c73f277532428bc8dbd575632a9">entradaEncerrada</a> ()</td></tr>
+<tr class="memdesc:a89d58c73f277532428bc8dbd575632a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Diz se a entrada acabou (EOF).  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Atributos Públicos Estáticos</h2></td></tr>
+<tr class="memitem:ad5b4a9cf113540242d3a2e44a6193027" id="r_ad5b4a9cf113540242d3a2e44a6193027"><td class="memItemLeft">static const std::string&#160;</td><td class="memItemRight"><a class="el" href="#ad5b4a9cf113540242d3a2e44a6193027">CANCELAR</a> = &quot;0&quot;</td></tr>
+<tr class="memdesc:ad5b4a9cf113540242d3a2e44a6193027"><td class="mdescLeft">&#160;</td><td class="mdescRight">O que o usuario digita para cancelar ("0").  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Funcoes de tela em modo texto usadas por todas as controladoras de apresentacao, para que todas as telas tenham a mesma cara. </p>
+<p>Tudo e estatico. Cada pergunta sai numa linha propria e nada digitado e repetido na tela (a senha nunca aparece). Digitar 0 em um campo cancela; nenhum dominio aceita "0", entao nao ha conflito.</p>
+<p>Exemplo (tela de quadros): </p><div class="fragment"><div class="line"><span class="keywordtype">int</span> opcao = <a class="code hl_function" href="#acc044e9cc676245bbb620b4bc91d0870">Tela::lerOpcao</a>(<span class="stringliteral">&quot;MENU DE QUADROS&quot;</span>, {<span class="stringliteral">&quot;Criar quadro&quot;</span>, <span class="stringliteral">&quot;Voltar&quot;</span>});</div>
+<div class="line"><span class="keywordflow">if</span> (opcao == 0) {</div>
+<div class="line">    <span class="keywordflow">return</span>;  <span class="comment">// a entrada acabou</span></div>
+<div class="line">}</div>
+<div class="line"><a class="code hl_function" href="#ad7d9ff8495f32354a6baee636453cc4c">Tela::titulo</a>(<span class="stringliteral">&quot;CRIAR QUADRO&quot;</span>);</div>
+<div class="line">Identificador identificador;</div>
+<div class="line"><span class="keywordflow">if</span> (<a class="code hl_function" href="#a5cf0588cf0981e46fbb5eb4cb83d9cca">Tela::lerCampo</a>(<span class="stringliteral">&quot;Identificador&quot;</span>, <span class="stringliteral">&quot;3 letras e 3 digitos&quot;</span>, identificador) != <a class="code hl_enumvalue" href="#afaf545d56dc508a28c945e7b42f9d366a87f3261bc1c0536a2f996ee8ad58d9ba">Tela::Leitura::LIDO</a>) {</div>
+<div class="line">    <span class="keywordflow">return</span>;  <span class="comment">// cancelou ou a entrada acabou</span></div>
+<div class="line">}</div>
+<div class="line">Limite limite;  <span class="comment">// setValor recebe int</span></div>
+<div class="line"><span class="keywordflow">if</span> (<a class="code hl_function" href="#a9c605a1fab5a11378baa0a36c4d02674">Tela::lerCampoInteiro</a>(<span class="stringliteral">&quot;Limite&quot;</span>, <span class="stringliteral">&quot;1 a 25&quot;</span>, limite) != <a class="code hl_enumvalue" href="#afaf545d56dc508a28c945e7b42f9d366a87f3261bc1c0536a2f996ee8ad58d9ba">Tela::Leitura::LIDO</a>) {</div>
+<div class="line">    <span class="keywordflow">return</span>;</div>
+<div class="line">}</div>
+<div class="line"><span class="keywordflow">if</span> (!servico-&gt;criar(usuario, projeto, quadro)) {</div>
+<div class="line">    <a class="code hl_function" href="#afd3511ebc7be48862a54efc786a882ee">Tela::falha</a>(<span class="stringliteral">&quot;Nao foi possivel criar o quadro.&quot;</span>, {<span class="stringliteral">&quot;usuario nao e GESTOR&quot;</span>, <span class="stringliteral">&quot;projeto nao existe&quot;</span>, <span class="stringliteral">&quot;identificador ja existe&quot;</span>});</div>
+<div class="line">}</div>
+<div class="ttc" id="aclass_tela_html_a5cf0588cf0981e46fbb5eb4cb83d9cca"><div class="ttname"><a href="#a5cf0588cf0981e46fbb5eb4cb83d9cca">Tela::lerCampo</a></div><div class="ttdeci">static Leitura lerCampo(const std::string &amp;rotulo, const std::string &amp;dica, Dominio &amp;dominio)</div><div class="ttdoc">Le um campo de dominio, pedindo de novo ate o valor ser valido.</div><div class="ttdef"><b>Definição</b> <a href="tela_8hpp_source.html#l00127">tela.hpp:127</a></div></div>
+<div class="ttc" id="aclass_tela_html_a9c605a1fab5a11378baa0a36c4d02674"><div class="ttname"><a href="#a9c605a1fab5a11378baa0a36c4d02674">Tela::lerCampoInteiro</a></div><div class="ttdeci">static Leitura lerCampoInteiro(const std::string &amp;rotulo, const std::string &amp;dica, Dominio &amp;dominio)</div><div class="ttdoc">Igual a lerCampo, para dominios cujo setValor recebe int (ex.: Limite).</div><div class="ttdef"><b>Definição</b> <a href="tela_8hpp_source.html#l00147">tela.hpp:147</a></div></div>
+<div class="ttc" id="aclass_tela_html_acc044e9cc676245bbb620b4bc91d0870"><div class="ttname"><a href="#acc044e9cc676245bbb620b4bc91d0870">Tela::lerOpcao</a></div><div class="ttdeci">static int lerOpcao(const std::string &amp;tituloMenu, const std::vector&lt; std::string &gt; &amp;opcoes)</div><div class="ttdoc">Mostra um menu numerado a partir de 1 e le a opcao; repete o menu se a opcao for invalida.</div><div class="ttdef"><b>Definição</b> <a href="tela_8cpp_source.html#l00105">tela.cpp:105</a></div></div>
+<div class="ttc" id="aclass_tela_html_ad7d9ff8495f32354a6baee636453cc4c"><div class="ttname"><a href="#ad7d9ff8495f32354a6baee636453cc4c">Tela::titulo</a></div><div class="ttdeci">static void titulo(const std::string &amp;texto)</div><div class="ttdoc">Mostra um titulo entre linhas duplas.</div><div class="ttdef"><b>Definição</b> <a href="tela_8cpp_source.html#l00011">tela.cpp:11</a></div></div>
+<div class="ttc" id="aclass_tela_html_afaf545d56dc508a28c945e7b42f9d366a87f3261bc1c0536a2f996ee8ad58d9ba"><div class="ttname"><a href="#afaf545d56dc508a28c945e7b42f9d366a87f3261bc1c0536a2f996ee8ad58d9ba">Tela::Leitura::LIDO</a></div><div class="ttdeci">@ LIDO</div><div class="ttdoc">Valor valido, ja guardado no dominio.</div><div class="ttdef"><b>Definição</b> <a href="tela_8hpp_source.html#l00040">tela.hpp:40</a></div></div>
+<div class="ttc" id="aclass_tela_html_afd3511ebc7be48862a54efc786a882ee"><div class="ttname"><a href="#afd3511ebc7be48862a54efc786a882ee">Tela::falha</a></div><div class="ttdeci">static void falha(const std::string &amp;texto, const std::vector&lt; std::string &gt; &amp;motivos=std::vector&lt; std::string &gt;())</div><div class="ttdoc">Mostra &quot;[FALHA] texto&quot; e, se houver, a lista de motivos possiveis.</div><div class="ttdef"><b>Definição</b> <a href="tela_8cpp_source.html#l00034">tela.cpp:34</a></div></div>
+</div><!-- fragment --> 
+<p class="definition">Definição na linha <a class="el" href="tela_8hpp_source.html#l00036">36</a> do arquivo <a class="el" href="tela_8hpp_source.html">tela.hpp</a>.</p>
+</div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Documentação das enumerações</h2>
+<a id="afaf545d56dc508a28c945e7b42f9d366" name="afaf545d56dc508a28c945e7b42f9d366"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afaf545d56dc508a28c945e7b42f9d366">&#9670;&#160;</a></span>Leitura</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#afaf545d56dc508a28c945e7b42f9d366">Tela::Leitura</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Resultado de lerCampo e lerCampoInteiro. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumeradores</th></tr><tr><td class="fieldname"><a id="afaf545d56dc508a28c945e7b42f9d366a87f3261bc1c0536a2f996ee8ad58d9ba" name="afaf545d56dc508a28c945e7b42f9d366a87f3261bc1c0536a2f996ee8ad58d9ba"></a>LIDO&#160;</td><td class="fielddoc"><p>Valor valido, ja guardado no dominio. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afaf545d56dc508a28c945e7b42f9d366af2af27b0fea4e60a6adab45a438f6310" name="afaf545d56dc508a28c945e7b42f9d366af2af27b0fea4e60a6adab45a438f6310"></a>CANCELADO&#160;</td><td class="fielddoc"><p>O usuario digitou 0 (o aviso ja foi mostrado); abandone a operacao. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afaf545d56dc508a28c945e7b42f9d366a9289f22d8258cabeb052c43e3284ac84" name="afaf545d56dc508a28c945e7b42f9d366a9289f22d8258cabeb052c43e3284ac84"></a>FIM&#160;</td><td class="fielddoc"><p>A entrada acabou (EOF); volte sem fazer mais nada. </p>
+</td></tr>
+</table>
+
+<p class="definition">Definição na linha <a class="el" href="tela_8hpp_source.html#l00039">39</a> do arquivo <a class="el" href="tela_8hpp_source.html">tela.hpp</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentação das funções</h2>
+<a id="a98628cd5a04e5b675669d85cc27b1cc5" name="a98628cd5a04e5b675669d85cc27b1cc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98628cd5a04e5b675669d85cc27b1cc5">&#9670;&#160;</a></span>aviso()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Tela::aviso </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>texto</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Mostra "[AVISO] texto". </p>
+
+<p class="definition">Definição na linha <a class="el" href="tela_8cpp_source.html#l00048">48</a> do arquivo <a class="el" href="tela_8cpp_source.html">tela.cpp</a>.</p>
+
+</div>
+</div>
+<a id="abe7d8a0a097b8129b960902b662f74cb" name="abe7d8a0a097b8129b960902b662f74cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe7d8a0a097b8129b960902b662f74cb">&#9670;&#160;</a></span>campo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Tela::campo </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>rotulo</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>valor</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Mostra um dado como "rotulo: valor". </p>
+
+<p class="definition">Definição na linha <a class="el" href="tela_8cpp_source.html#l00025">25</a> do arquivo <a class="el" href="tela_8cpp_source.html">tela.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a0d3d008fc0a8ca61c40d4b68bef42509" name="a0d3d008fc0a8ca61c40d4b68bef42509"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d3d008fc0a8ca61c40d4b68bef42509">&#9670;&#160;</a></span>cancelado()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Tela::cancelado </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Mostra o aviso padrao de operacao cancelada. </p>
+
+<p class="definition">Definição na linha <a class="el" href="tela_8cpp_source.html#l00052">52</a> do arquivo <a class="el" href="tela_8cpp_source.html">tela.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a81390ce578a454de8fcbe5a58835298e" name="a81390ce578a454de8fcbe5a58835298e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81390ce578a454de8fcbe5a58835298e">&#9670;&#160;</a></span>confirmar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Tela::confirmar </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>pergunta</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &amp;</td>          <td class="paramname"><span class="paramname"><em>resposta</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pergunta S/N ate ter uma resposta valida. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pergunta</td><td><a class="el" href="class_texto.html" title="Dominio de texto (descricao de Projeto e de Cartao).">Texto</a> da pergunta. </td></tr>
+    <tr><td class="paramname">resposta</td><td>true para S/s; false para N/n ou 0. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>false se a entrada acabou (EOF). </dd></dl>
+
+<p class="definition">Definição na linha <a class="el" href="tela_8cpp_source.html#l00127">127</a> do arquivo <a class="el" href="tela_8cpp_source.html">tela.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a89d58c73f277532428bc8dbd575632a9" name="a89d58c73f277532428bc8dbd575632a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89d58c73f277532428bc8dbd575632a9">&#9670;&#160;</a></span>entradaEncerrada()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Tela::entradaEncerrada </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Diz se a entrada acabou (EOF). </p>
+
+<p class="definition">Definição na linha <a class="el" href="tela_8cpp_source.html#l00145">145</a> do arquivo <a class="el" href="tela_8cpp_source.html">tela.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a447245e995f030f0074cebd4e5fa6e93" name="a447245e995f030f0074cebd4e5fa6e93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a447245e995f030f0074cebd4e5fa6e93">&#9670;&#160;</a></span>erro()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Tela::erro </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>texto</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Mostra "[ERRO] texto" para um campo digitado errado (sem linha em branco). </p>
+
+<p class="definition">Definição na linha <a class="el" href="tela_8cpp_source.html#l00044">44</a> do arquivo <a class="el" href="tela_8cpp_source.html">tela.cpp</a>.</p>
+
+</div>
+</div>
+<a id="afd3511ebc7be48862a54efc786a882ee" name="afd3511ebc7be48862a54efc786a882ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd3511ebc7be48862a54efc786a882ee">&#9670;&#160;</a></span>falha()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Tela::falha </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>texto</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>motivos</em></span><span class="paramdefsep"> = </span><span class="paramdefval">std::vector&lt;std::string&gt;()</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Mostra "[FALHA] texto" e, se houver, a lista de motivos possiveis. </p>
+
+<p class="definition">Definição na linha <a class="el" href="tela_8cpp_source.html#l00034">34</a> do arquivo <a class="el" href="tela_8cpp_source.html">tela.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a58aecb971f65c18e0f386018d3763f92" name="a58aecb971f65c18e0f386018d3763f92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58aecb971f65c18e0f386018d3763f92">&#9670;&#160;</a></span>info()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Tela::info </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>texto</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Mostra uma linha de texto comum. </p>
+
+<p class="definition">Definição na linha <a class="el" href="tela_8cpp_source.html#l00021">21</a> do arquivo <a class="el" href="tela_8cpp_source.html">tela.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a5cf0588cf0981e46fbb5eb4cb83d9cca" name="a5cf0588cf0981e46fbb5eb4cb83d9cca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cf0588cf0981e46fbb5eb4cb83d9cca">&#9670;&#160;</a></span>lerCampo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Dominio&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#afaf545d56dc508a28c945e7b42f9d366">Tela::Leitura</a> Tela::lerCampo </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>rotulo</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>dica</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Dominio &amp;</td>          <td class="paramname"><span class="paramname"><em>dominio</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Le um campo de dominio, pedindo de novo ate o valor ser valido. </p>
+<p>Serve para qualquer dominio com setValor(std::string) que lanca std::invalid_argument para valor invalido. A dica aparece entre parenteses. Se o usuario digitar 0, ja mostra "Operacao cancelada" e retorna CANCELADO. </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rotulo</td><td><a class="el" href="class_nome.html" title="Dominio de nome, usado em Pessoa, Projeto, Quadro e Cartao.">Nome</a> do campo mostrado na pergunta. </td></tr>
+    <tr><td class="paramname">dica</td><td>Formato esperado, mostrado entre parenteses. </td></tr>
+    <tr><td class="paramname">dominio</td><td>So e preenchido quando o retorno e LIDO. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definição na linha <a class="el" href="tela_8hpp_source.html#l00127">127</a> do arquivo <a class="el" href="tela_8hpp_source.html">tela.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a9c605a1fab5a11378baa0a36c4d02674" name="a9c605a1fab5a11378baa0a36c4d02674"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c605a1fab5a11378baa0a36c4d02674">&#9670;&#160;</a></span>lerCampoInteiro()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Dominio&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#afaf545d56dc508a28c945e7b42f9d366">Tela::Leitura</a> Tela::lerCampoInteiro </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>rotulo</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>dica</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Dominio &amp;</td>          <td class="paramname"><span class="paramname"><em>dominio</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Igual a lerCampo, para dominios cujo setValor recebe int (ex.: <a class="el" href="class_limite.html" title="Dominio de limite de WIP de um quadro.">Limite</a>). </p>
+
+<p class="definition">Definição na linha <a class="el" href="tela_8hpp_source.html#l00147">147</a> do arquivo <a class="el" href="tela_8hpp_source.html">tela.hpp</a>.</p>
+
+</div>
+</div>
+<a id="af349d4a8a81bb03f26839c45d274c8d0" name="af349d4a8a81bb03f26839c45d274c8d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af349d4a8a81bb03f26839c45d274c8d0">&#9670;&#160;</a></span>lerLinha()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Tela::lerLinha </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>pergunta</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>linha</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Mostra a pergunta e le uma linha, sem '\r' nem espacos no fim. </p>
+<dl class="section return"><dt>Retorna</dt><dd>false se a entrada acabou (EOF). </dd></dl>
+
+<p class="definition">Definição na linha <a class="el" href="tela_8cpp_source.html#l00056">56</a> do arquivo <a class="el" href="tela_8cpp_source.html">tela.cpp</a>.</p>
+
+</div>
+</div>
+<a id="acc044e9cc676245bbb620b4bc91d0870" name="acc044e9cc676245bbb620b4bc91d0870"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc044e9cc676245bbb620b4bc91d0870">&#9670;&#160;</a></span>lerOpcao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Tela::lerOpcao </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>tituloMenu</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>opcoes</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Mostra um menu numerado a partir de 1 e le a opcao; repete o menu se a opcao for invalida. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Opcao escolhida, ou 0 se a entrada acabou. </dd></dl>
+
+<p class="definition">Definição na linha <a class="el" href="tela_8cpp_source.html#l00105">105</a> do arquivo <a class="el" href="tela_8cpp_source.html">tela.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a0d5a1c2bdd6ad1f7bece31053623889a" name="a0d5a1c2bdd6ad1f7bece31053623889a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d5a1c2bdd6ad1f7bece31053623889a">&#9670;&#160;</a></span>separador()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Tela::separador </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Mostra uma linha separadora. </p>
+
+<p class="definition">Definição na linha <a class="el" href="tela_8cpp_source.html#l00017">17</a> do arquivo <a class="el" href="tela_8cpp_source.html">tela.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a8018ee407c17277e7f2b71db0a47e44a" name="a8018ee407c17277e7f2b71db0a47e44a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8018ee407c17277e7f2b71db0a47e44a">&#9670;&#160;</a></span>sucesso()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Tela::sucesso </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>texto</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Mostra "[OK] texto". </p>
+
+<p class="definition">Definição na linha <a class="el" href="tela_8cpp_source.html#l00030">30</a> do arquivo <a class="el" href="tela_8cpp_source.html">tela.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ad7d9ff8495f32354a6baee636453cc4c" name="ad7d9ff8495f32354a6baee636453cc4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7d9ff8495f32354a6baee636453cc4c">&#9670;&#160;</a></span>titulo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Tela::titulo </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>texto</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Mostra um titulo entre linhas duplas. </p>
+
+<p class="definition">Definição na linha <a class="el" href="tela_8cpp_source.html#l00011">11</a> do arquivo <a class="el" href="tela_8cpp_source.html">tela.cpp</a>.</p>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Atributos</h2>
+<a id="ad5b4a9cf113540242d3a2e44a6193027" name="ad5b4a9cf113540242d3a2e44a6193027"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5b4a9cf113540242d3a2e44a6193027">&#9670;&#160;</a></span>CANCELAR</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string Tela::CANCELAR = &quot;0&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>O que o usuario digita para cancelar ("0"). </p>
+
+<p class="definition">Definição na linha <a class="el" href="tela_8hpp_source.html#l00045">45</a> do arquivo <a class="el" href="tela_8hpp_source.html">tela.hpp</a>.</p>
+
+</div>
+</div>
+<hr/>A documentação para essa classe foi gerada a partir dos seguintes arquivos:<ul>
+<li>headers/<a class="el" href="tela_8hpp_source.html">tela.hpp</a></li>
+<li>sources/<a class="el" href="tela_8cpp_source.html">tela.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_tela.html">Tela</a></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

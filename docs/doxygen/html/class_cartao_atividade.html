@@ -1,0 +1,572 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TP1 - Sistema Kanban: Referência da Classe CartaoAtividade</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TP1 - Sistema Kanban
+   </div>
+   <div id="projectbrief">Gestao de projetos pelo metodo Kanban, em camadas (C++11)</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Busca" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_cartao_atividade.html','','class_cartao_atividade-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Referência da Classe CartaoAtividade</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Entidade cartao de atividade: identificador (chave primaria), nome, descricao, prioridade, estado, tamanho e os instantes de entrada, inicio e termino.  
+ <a href="#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="cartaoatividade_8hpp_source.html">cartaoatividade.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Membros Públicos</h2></td></tr>
+<tr class="memitem:a45e34645dd9d6e6046429e271905466b" id="r_a45e34645dd9d6e6046429e271905466b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a45e34645dd9d6e6046429e271905466b">setIdentificador</a> (const <a class="el" href="class_identificador.html">Identificador</a> &amp;identificador)</td></tr>
+<tr class="memdesc:a45e34645dd9d6e6046429e271905466b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Guarda o identificador (chave primaria).  <br /></td></tr>
+<tr class="memitem:a4a3cfc240b735d432801331727ef68a7" id="r_a4a3cfc240b735d432801331727ef68a7"><td class="memItemLeft"><a class="el" href="class_identificador.html">Identificador</a>&#160;</td><td class="memItemRight"><a class="el" href="#a4a3cfc240b735d432801331727ef68a7">getIdentificador</a> () const</td></tr>
+<tr class="memdesc:a4a3cfc240b735d432801331727ef68a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o identificador.  <br /></td></tr>
+<tr class="memitem:ab950682ca7bffcc7cb293c9f76327b73" id="r_ab950682ca7bffcc7cb293c9f76327b73"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab950682ca7bffcc7cb293c9f76327b73">setNome</a> (const <a class="el" href="class_nome.html">Nome</a> &amp;nome)</td></tr>
+<tr class="memdesc:ab950682ca7bffcc7cb293c9f76327b73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Guarda o nome da atividade.  <br /></td></tr>
+<tr class="memitem:a1a05b2c596a6064a4cbe13b10791a69e" id="r_a1a05b2c596a6064a4cbe13b10791a69e"><td class="memItemLeft"><a class="el" href="class_nome.html">Nome</a>&#160;</td><td class="memItemRight"><a class="el" href="#a1a05b2c596a6064a4cbe13b10791a69e">getNome</a> () const</td></tr>
+<tr class="memdesc:a1a05b2c596a6064a4cbe13b10791a69e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o nome da atividade.  <br /></td></tr>
+<tr class="memitem:a726a1a71491107e1c113454d415cd241" id="r_a726a1a71491107e1c113454d415cd241"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a726a1a71491107e1c113454d415cd241">setDescricao</a> (const <a class="el" href="class_texto.html">Texto</a> &amp;descricao)</td></tr>
+<tr class="memdesc:a726a1a71491107e1c113454d415cd241"><td class="mdescLeft">&#160;</td><td class="mdescRight">Guarda a descricao da atividade.  <br /></td></tr>
+<tr class="memitem:af3bc31936b2df05d05f4ba35317d57c3" id="r_af3bc31936b2df05d05f4ba35317d57c3"><td class="memItemLeft"><a class="el" href="class_texto.html">Texto</a>&#160;</td><td class="memItemRight"><a class="el" href="#af3bc31936b2df05d05f4ba35317d57c3">getDescricao</a> () const</td></tr>
+<tr class="memdesc:af3bc31936b2df05d05f4ba35317d57c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna a descricao da atividade.  <br /></td></tr>
+<tr class="memitem:a44f82ea3daf337e6745561667d768290" id="r_a44f82ea3daf337e6745561667d768290"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a44f82ea3daf337e6745561667d768290">setPrioridade</a> (const <a class="el" href="class_prioridade.html">Prioridade</a> &amp;prioridade)</td></tr>
+<tr class="memdesc:a44f82ea3daf337e6745561667d768290"><td class="mdescLeft">&#160;</td><td class="mdescRight">Guarda a prioridade (ALTA, MEDIA ou BAIXA).  <br /></td></tr>
+<tr class="memitem:a5fdc8d9c57b351ae2abd79c531762516" id="r_a5fdc8d9c57b351ae2abd79c531762516"><td class="memItemLeft"><a class="el" href="class_prioridade.html">Prioridade</a>&#160;</td><td class="memItemRight"><a class="el" href="#a5fdc8d9c57b351ae2abd79c531762516">getPrioridade</a> () const</td></tr>
+<tr class="memdesc:a5fdc8d9c57b351ae2abd79c531762516"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna a prioridade.  <br /></td></tr>
+<tr class="memitem:a2a9f80629fd5badfb2aa98305d3e6a62" id="r_a2a9f80629fd5badfb2aa98305d3e6a62"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a2a9f80629fd5badfb2aa98305d3e6a62">setEstado</a> (const <a class="el" href="class_estado.html">Estado</a> &amp;estado)</td></tr>
+<tr class="memdesc:a2a9f80629fd5badfb2aa98305d3e6a62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Guarda o estado, ou seja, a coluna atual (A FAZER, FAZENDO ou FEITO).  <br /></td></tr>
+<tr class="memitem:a16a069e11ad3e379d14353a08b643b54" id="r_a16a069e11ad3e379d14353a08b643b54"><td class="memItemLeft"><a class="el" href="class_estado.html">Estado</a>&#160;</td><td class="memItemRight"><a class="el" href="#a16a069e11ad3e379d14353a08b643b54">getEstado</a> () const</td></tr>
+<tr class="memdesc:a16a069e11ad3e379d14353a08b643b54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o estado (coluna atual).  <br /></td></tr>
+<tr class="memitem:a108359c6f853f1dc73ff5b7b3a14edb8" id="r_a108359c6f853f1dc73ff5b7b3a14edb8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a108359c6f853f1dc73ff5b7b3a14edb8">setTamanho</a> (const <a class="el" href="class_tamanho.html">Tamanho</a> &amp;tamanho)</td></tr>
+<tr class="memdesc:a108359c6f853f1dc73ff5b7b3a14edb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Guarda o tamanho (GRANDE, MEDIO ou PEQUENO).  <br /></td></tr>
+<tr class="memitem:a3203e84615858f16a2cc938d3e1b0ebc" id="r_a3203e84615858f16a2cc938d3e1b0ebc"><td class="memItemLeft"><a class="el" href="class_tamanho.html">Tamanho</a>&#160;</td><td class="memItemRight"><a class="el" href="#a3203e84615858f16a2cc938d3e1b0ebc">getTamanho</a> () const</td></tr>
+<tr class="memdesc:a3203e84615858f16a2cc938d3e1b0ebc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o tamanho.  <br /></td></tr>
+<tr class="memitem:a23f3b2a02c975e18d7d18afed8d81fe5" id="r_a23f3b2a02c975e18d7d18afed8d81fe5"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a23f3b2a02c975e18d7d18afed8d81fe5">setEntrada</a> (const <a class="el" href="class_timestamp.html">Timestamp</a> &amp;entrada)</td></tr>
+<tr class="memdesc:a23f3b2a02c975e18d7d18afed8d81fe5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Guarda o instante em que o cartao entrou em A FAZER.  <br /></td></tr>
+<tr class="memitem:a59f6c9ccad5e9a5da88c25a2c67d724d" id="r_a59f6c9ccad5e9a5da88c25a2c67d724d"><td class="memItemLeft"><a class="el" href="class_timestamp.html">Timestamp</a>&#160;</td><td class="memItemRight"><a class="el" href="#a59f6c9ccad5e9a5da88c25a2c67d724d">getEntrada</a> () const</td></tr>
+<tr class="memdesc:a59f6c9ccad5e9a5da88c25a2c67d724d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o instante de entrada em A FAZER.  <br /></td></tr>
+<tr class="memitem:a8ee8641fe1db6c87caed205d386be512" id="r_a8ee8641fe1db6c87caed205d386be512"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a8ee8641fe1db6c87caed205d386be512">setInicio</a> (const <a class="el" href="class_timestamp.html">Timestamp</a> &amp;inicio)</td></tr>
+<tr class="memdesc:a8ee8641fe1db6c87caed205d386be512"><td class="mdescLeft">&#160;</td><td class="mdescRight">Guarda o instante em que o cartao entrou em FAZENDO.  <br /></td></tr>
+<tr class="memitem:acd8075ddf874f39e2489fe9a7f759515" id="r_acd8075ddf874f39e2489fe9a7f759515"><td class="memItemLeft"><a class="el" href="class_timestamp.html">Timestamp</a>&#160;</td><td class="memItemRight"><a class="el" href="#acd8075ddf874f39e2489fe9a7f759515">getInicio</a> () const</td></tr>
+<tr class="memdesc:acd8075ddf874f39e2489fe9a7f759515"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o instante de entrada em FAZENDO (vazio se ainda nao entrou).  <br /></td></tr>
+<tr class="memitem:acd42a53c9d2cdfbb7d2ed9edbb49c8e6" id="r_acd42a53c9d2cdfbb7d2ed9edbb49c8e6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acd42a53c9d2cdfbb7d2ed9edbb49c8e6">setTermino</a> (const <a class="el" href="class_timestamp.html">Timestamp</a> &amp;termino)</td></tr>
+<tr class="memdesc:acd42a53c9d2cdfbb7d2ed9edbb49c8e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Guarda o instante em que o cartao chegou em FEITO.  <br /></td></tr>
+<tr class="memitem:ab3b33fde234c63ff72518e005e04f0fb" id="r_ab3b33fde234c63ff72518e005e04f0fb"><td class="memItemLeft"><a class="el" href="class_timestamp.html">Timestamp</a>&#160;</td><td class="memItemRight"><a class="el" href="#ab3b33fde234c63ff72518e005e04f0fb">getTermino</a> () const</td></tr>
+<tr class="memdesc:ab3b33fde234c63ff72518e005e04f0fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o instante de chegada em FEITO (vazio se ainda nao chegou).  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Entidade cartao de atividade: identificador (chave primaria), nome, descricao, prioridade, estado, tamanho e os instantes de entrada, inicio e termino. </p>
+<p>Os instantes registram a passagem pelas colunas do quadro:</p><ul>
+<li>entrada: quando o cartao entrou em A FAZER;</li>
+<li>inicio: quando entrou em FAZENDO (vazio enquanto nao entrar);</li>
+<li>termino: quando chegou em FEITO (vazio enquanto nao chegar).</li>
+</ul>
+<p>Cada atributo e um dominio que ja se valida sozinho, entao a entidade so guarda e devolve copias deles. O quadro e o desenvolvedor do cartao ficam no <a class="el" href="class_container_cartao.html" title="Guarda os cartoes em memoria, indexados pelo identificador, junto com o quadro e o email do desenvolv...">ContainerCartao</a>, porque nao sao atributos do cartao no diagrama de classes. </p>
+
+<p class="definition">Definição na linha <a class="el" href="cartaoatividade_8hpp_source.html#l00026">26</a> do arquivo <a class="el" href="cartaoatividade_8hpp_source.html">cartaoatividade.hpp</a>.</p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentação das funções</h2>
+<a id="af3bc31936b2df05d05f4ba35317d57c3" name="af3bc31936b2df05d05f4ba35317d57c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3bc31936b2df05d05f4ba35317d57c3">&#9670;&#160;</a></span>getDescricao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_texto.html">Texto</a> CartaoAtividade::getDescricao </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna a descricao da atividade. </p>
+
+<p class="definition">Definição na linha <a class="el" href="cartaoatividade_8cpp_source.html#l00023">23</a> do arquivo <a class="el" href="cartaoatividade_8cpp_source.html">cartaoatividade.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a59f6c9ccad5e9a5da88c25a2c67d724d" name="a59f6c9ccad5e9a5da88c25a2c67d724d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59f6c9ccad5e9a5da88c25a2c67d724d">&#9670;&#160;</a></span>getEntrada()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_timestamp.html">Timestamp</a> CartaoAtividade::getEntrada </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna o instante de entrada em A FAZER. </p>
+
+<p class="definition">Definição na linha <a class="el" href="cartaoatividade_8cpp_source.html#l00055">55</a> do arquivo <a class="el" href="cartaoatividade_8cpp_source.html">cartaoatividade.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a16a069e11ad3e379d14353a08b643b54" name="a16a069e11ad3e379d14353a08b643b54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16a069e11ad3e379d14353a08b643b54">&#9670;&#160;</a></span>getEstado()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_estado.html">Estado</a> CartaoAtividade::getEstado </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna o estado (coluna atual). </p>
+
+<p class="definition">Definição na linha <a class="el" href="cartaoatividade_8cpp_source.html#l00039">39</a> do arquivo <a class="el" href="cartaoatividade_8cpp_source.html">cartaoatividade.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a4a3cfc240b735d432801331727ef68a7" name="a4a3cfc240b735d432801331727ef68a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a3cfc240b735d432801331727ef68a7">&#9670;&#160;</a></span>getIdentificador()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_identificador.html">Identificador</a> CartaoAtividade::getIdentificador </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna o identificador. </p>
+
+<p class="definition">Definição na linha <a class="el" href="cartaoatividade_8cpp_source.html#l00007">7</a> do arquivo <a class="el" href="cartaoatividade_8cpp_source.html">cartaoatividade.cpp</a>.</p>
+
+</div>
+</div>
+<a id="acd8075ddf874f39e2489fe9a7f759515" name="acd8075ddf874f39e2489fe9a7f759515"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd8075ddf874f39e2489fe9a7f759515">&#9670;&#160;</a></span>getInicio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_timestamp.html">Timestamp</a> CartaoAtividade::getInicio </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna o instante de entrada em FAZENDO (vazio se ainda nao entrou). </p>
+
+<p class="definition">Definição na linha <a class="el" href="cartaoatividade_8cpp_source.html#l00063">63</a> do arquivo <a class="el" href="cartaoatividade_8cpp_source.html">cartaoatividade.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a1a05b2c596a6064a4cbe13b10791a69e" name="a1a05b2c596a6064a4cbe13b10791a69e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a05b2c596a6064a4cbe13b10791a69e">&#9670;&#160;</a></span>getNome()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_nome.html">Nome</a> CartaoAtividade::getNome </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna o nome da atividade. </p>
+
+<p class="definition">Definição na linha <a class="el" href="cartaoatividade_8cpp_source.html#l00015">15</a> do arquivo <a class="el" href="cartaoatividade_8cpp_source.html">cartaoatividade.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a5fdc8d9c57b351ae2abd79c531762516" name="a5fdc8d9c57b351ae2abd79c531762516"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fdc8d9c57b351ae2abd79c531762516">&#9670;&#160;</a></span>getPrioridade()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_prioridade.html">Prioridade</a> CartaoAtividade::getPrioridade </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna a prioridade. </p>
+
+<p class="definition">Definição na linha <a class="el" href="cartaoatividade_8cpp_source.html#l00031">31</a> do arquivo <a class="el" href="cartaoatividade_8cpp_source.html">cartaoatividade.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a3203e84615858f16a2cc938d3e1b0ebc" name="a3203e84615858f16a2cc938d3e1b0ebc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3203e84615858f16a2cc938d3e1b0ebc">&#9670;&#160;</a></span>getTamanho()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_tamanho.html">Tamanho</a> CartaoAtividade::getTamanho </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna o tamanho. </p>
+
+<p class="definition">Definição na linha <a class="el" href="cartaoatividade_8cpp_source.html#l00047">47</a> do arquivo <a class="el" href="cartaoatividade_8cpp_source.html">cartaoatividade.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ab3b33fde234c63ff72518e005e04f0fb" name="ab3b33fde234c63ff72518e005e04f0fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3b33fde234c63ff72518e005e04f0fb">&#9670;&#160;</a></span>getTermino()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_timestamp.html">Timestamp</a> CartaoAtividade::getTermino </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna o instante de chegada em FEITO (vazio se ainda nao chegou). </p>
+
+<p class="definition">Definição na linha <a class="el" href="cartaoatividade_8cpp_source.html#l00071">71</a> do arquivo <a class="el" href="cartaoatividade_8cpp_source.html">cartaoatividade.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a726a1a71491107e1c113454d415cd241" name="a726a1a71491107e1c113454d415cd241"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a726a1a71491107e1c113454d415cd241">&#9670;&#160;</a></span>setDescricao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CartaoAtividade::setDescricao </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_texto.html">Texto</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>descricao</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Guarda a descricao da atividade. </p>
+
+<p class="definition">Definição na linha <a class="el" href="cartaoatividade_8cpp_source.html#l00019">19</a> do arquivo <a class="el" href="cartaoatividade_8cpp_source.html">cartaoatividade.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a23f3b2a02c975e18d7d18afed8d81fe5" name="a23f3b2a02c975e18d7d18afed8d81fe5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23f3b2a02c975e18d7d18afed8d81fe5">&#9670;&#160;</a></span>setEntrada()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CartaoAtividade::setEntrada </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_timestamp.html">Timestamp</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>entrada</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Guarda o instante em que o cartao entrou em A FAZER. </p>
+
+<p class="definition">Definição na linha <a class="el" href="cartaoatividade_8cpp_source.html#l00051">51</a> do arquivo <a class="el" href="cartaoatividade_8cpp_source.html">cartaoatividade.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a2a9f80629fd5badfb2aa98305d3e6a62" name="a2a9f80629fd5badfb2aa98305d3e6a62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a9f80629fd5badfb2aa98305d3e6a62">&#9670;&#160;</a></span>setEstado()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CartaoAtividade::setEstado </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_estado.html">Estado</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>estado</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Guarda o estado, ou seja, a coluna atual (A FAZER, FAZENDO ou FEITO). </p>
+
+<p class="definition">Definição na linha <a class="el" href="cartaoatividade_8cpp_source.html#l00035">35</a> do arquivo <a class="el" href="cartaoatividade_8cpp_source.html">cartaoatividade.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a45e34645dd9d6e6046429e271905466b" name="a45e34645dd9d6e6046429e271905466b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45e34645dd9d6e6046429e271905466b">&#9670;&#160;</a></span>setIdentificador()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CartaoAtividade::setIdentificador </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_identificador.html">Identificador</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>identificador</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Guarda o identificador (chave primaria). </p>
+
+<p class="definition">Definição na linha <a class="el" href="cartaoatividade_8cpp_source.html#l00003">3</a> do arquivo <a class="el" href="cartaoatividade_8cpp_source.html">cartaoatividade.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a8ee8641fe1db6c87caed205d386be512" name="a8ee8641fe1db6c87caed205d386be512"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ee8641fe1db6c87caed205d386be512">&#9670;&#160;</a></span>setInicio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CartaoAtividade::setInicio </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_timestamp.html">Timestamp</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>inicio</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Guarda o instante em que o cartao entrou em FAZENDO. </p>
+
+<p class="definition">Definição na linha <a class="el" href="cartaoatividade_8cpp_source.html#l00059">59</a> do arquivo <a class="el" href="cartaoatividade_8cpp_source.html">cartaoatividade.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ab950682ca7bffcc7cb293c9f76327b73" name="ab950682ca7bffcc7cb293c9f76327b73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab950682ca7bffcc7cb293c9f76327b73">&#9670;&#160;</a></span>setNome()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CartaoAtividade::setNome </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_nome.html">Nome</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>nome</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Guarda o nome da atividade. </p>
+
+<p class="definition">Definição na linha <a class="el" href="cartaoatividade_8cpp_source.html#l00011">11</a> do arquivo <a class="el" href="cartaoatividade_8cpp_source.html">cartaoatividade.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a44f82ea3daf337e6745561667d768290" name="a44f82ea3daf337e6745561667d768290"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44f82ea3daf337e6745561667d768290">&#9670;&#160;</a></span>setPrioridade()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CartaoAtividade::setPrioridade </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_prioridade.html">Prioridade</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>prioridade</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Guarda a prioridade (ALTA, MEDIA ou BAIXA). </p>
+
+<p class="definition">Definição na linha <a class="el" href="cartaoatividade_8cpp_source.html#l00027">27</a> do arquivo <a class="el" href="cartaoatividade_8cpp_source.html">cartaoatividade.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a108359c6f853f1dc73ff5b7b3a14edb8" name="a108359c6f853f1dc73ff5b7b3a14edb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a108359c6f853f1dc73ff5b7b3a14edb8">&#9670;&#160;</a></span>setTamanho()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CartaoAtividade::setTamanho </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_tamanho.html">Tamanho</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tamanho</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Guarda o tamanho (GRANDE, MEDIO ou PEQUENO). </p>
+
+<p class="definition">Definição na linha <a class="el" href="cartaoatividade_8cpp_source.html#l00043">43</a> do arquivo <a class="el" href="cartaoatividade_8cpp_source.html">cartaoatividade.cpp</a>.</p>
+
+</div>
+</div>
+<a id="acd42a53c9d2cdfbb7d2ed9edbb49c8e6" name="acd42a53c9d2cdfbb7d2ed9edbb49c8e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd42a53c9d2cdfbb7d2ed9edbb49c8e6">&#9670;&#160;</a></span>setTermino()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CartaoAtividade::setTermino </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_timestamp.html">Timestamp</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>termino</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Guarda o instante em que o cartao chegou em FEITO. </p>
+
+<p class="definition">Definição na linha <a class="el" href="cartaoatividade_8cpp_source.html#l00067">67</a> do arquivo <a class="el" href="cartaoatividade_8cpp_source.html">cartaoatividade.cpp</a>.</p>
+
+</div>
+</div>
+<hr/>A documentação para essa classe foi gerada a partir dos seguintes arquivos:<ul>
+<li>headers/<a class="el" href="cartaoatividade_8hpp_source.html">cartaoatividade.hpp</a></li>
+<li>sources/<a class="el" href="cartaoatividade_8cpp_source.html">cartaoatividade.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_cartao_atividade.html">CartaoAtividade</a></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>
