@@ -30,7 +30,6 @@ bool CntrServicoProjeto::usuarioGestor(const Email& usuario) const {
     if (!this->containerPessoa->pesquisar(usuario, pessoa)) {
         return false;
     }
-    // Copia nao const: Papel::getValor() ainda nao e const.
     Papel papel = pessoa.getPapel();
     return papel.getValor() == "GESTOR";
 }

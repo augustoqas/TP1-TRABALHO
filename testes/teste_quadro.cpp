@@ -25,7 +25,7 @@ int main() {
     Nome nome;
     nome.setValor("Sprint um");
     Limite limite;
-    limite.setValor(5);  // Limite atual retorna bool; o futuro, void.
+    limite.setValor(5);
 
     quadro.setIdentificador(identificador);
     quadro.setNome(nome);
