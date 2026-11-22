@@ -8,7 +8,7 @@
 /**
  * @brief Tela "Entrar": pede email e senha e autentica.
  *
- * Digitar 0 cancela. A senha nunca aparece na tela.
+ * Digitar 0 cancela. O programa nunca exibe a senha.
  */
 class CntrApresentacaoAutenticacao : public IApresentacaoAutenticacao {
     private:

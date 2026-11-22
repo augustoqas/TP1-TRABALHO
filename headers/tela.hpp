@@ -9,9 +9,9 @@
  * @brief Funcoes de tela em modo texto usadas por todas as controladoras de
  *        apresentacao, para que todas as telas tenham a mesma cara.
  *
- * Tudo e estatico. Cada pergunta sai numa linha propria e nada digitado e
- * repetido na tela (a senha nunca aparece). Digitar 0 em um campo cancela;
- * nenhum dominio aceita "0", entao nao ha conflito.
+ * Tudo e estatico. Cada pergunta sai numa linha propria e o que foi digitado
+ * nao e repetido: o programa nunca exibe a senha. Digitar 0 em um campo
+ * cancela; nenhum dominio aceita "0", entao nao ha conflito.
  *
  * Exemplo (tela de quadros):
  * @code
