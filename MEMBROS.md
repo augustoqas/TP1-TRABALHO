@@ -8,7 +8,7 @@ Trabalho prático de **Técnicas de Programação 1 (CIC0197)** — Universidade
 | Augusto Queiroz | 232024302 | [augustoqas](https://github.com/augustoqas) |
 | Flavio dos Santos Barros de Matos | 252033452 | [flavio-dematos](https://github.com/flavio-dematos) |
 
-A autoria abaixo vem do histórico do repositório (`git blame`). Cada arquivo `.hpp` tem o seu `.cpp` correspondente em `sources/`.
+A autoria abaixo vem do histórico do repositório (`git blame`). Cada arquivo `.hpp` tem o seu `.cpp` correspondente em `sources/`, exceto `interfaces.hpp`, que só declara classes abstratas.
 
 ## Pedro Barreto Cavalcante do Amaral (232038433)
 
@@ -30,7 +30,8 @@ A autoria abaixo vem do histórico do repositório (`git blame`). Cada arquivo `
   - testes de Email, Senha, Nome, Pessoa, serviço de Pessoa e Tela;
   - testes das regras da issue #43 (Timestamp e serviços de Projeto, Quadro e Cartão) e roteiro `34_gestor_do_projeto`;
   - teste da formatação das métricas na tela de Cartão (`teste_formatarminutos.cpp`);
-  - roteiros de Pessoa e do login.
+  - roteiros de Pessoa, login, fim de entrada, cancelamento e a demonstração `90_demo`.
+- **Vídeo do teste fumaça** (issue #25), seguindo o guia `docs/teste_fumaca.md`.
 - **Documentação:** `README.md` e este arquivo.
 - **Organização:** planejamento e divisão das tarefas nas issues do GitHub.
 
@@ -46,7 +47,7 @@ A autoria abaixo vem do histórico do repositório (`git blame`). Cada arquivo `
   - testes de Identificador, Texto, Timestamp, Estado, Projeto, Quadro e dos serviços de Projeto e Quadro;
   - roteiros de Projeto, Quadro e do fluxo completo de um cartão.
 - **Documentação Doxygen** (issue #24): `Doxyfile`, documentação HTML gerada em `docs/doxygen/` e página principal `docs/principal.md`.
-- **Teste fumaça** (issue #25): roteiro `testes/roteiros/91_fumaca`, guia `docs/teste_fumaca.md` e vídeo.
+- **Teste fumaça** (issue #25): roteiro `testes/roteiros/91_fumaca` e guia `docs/teste_fumaca.md`.
 - **Modelo de arquitetura:** atualização de `docs/arquitetura/` conforme a implementação.
 
 ## Flavio dos Santos Barros de Matos (252033452)

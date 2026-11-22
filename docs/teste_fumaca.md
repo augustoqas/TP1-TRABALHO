@@ -19,7 +19,7 @@ Para o vídeo, digite as entradas da tabela abaixo, na ordem. Para rodar tudo de
 `kanban < testes\roteiros\91_fumaca.txt`.
 
 > **Métricas:** tempo de ciclo e lead time são medidos em minutos reais. Se tudo for feito no
-> mesmo minuto, o resultado é 0 (ainda é sucesso). No vídeo, espere 1 ou 2 minutos antes do
+> mesmo minuto, o resultado é `0.0 minutos` (ainda é sucesso). No vídeo, espere 1 ou 2 minutos antes do
 > passo 23 (mover para FAZENDO) e de novo antes do passo 24 (mover para FEITO): assim o tempo de
 > ciclo (23 → 24) e o lead time (18 → 24) aparecem diferentes de zero.
 

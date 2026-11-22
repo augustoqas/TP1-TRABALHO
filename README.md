@@ -188,10 +188,10 @@ O projeto já vem configurado com `-std=c++11` e com as bibliotecas do MinGW emb
 
 ### Opção 2 · Linha de comando
 
-Equivalente ao build do Code::Blocks, a partir da raiz do repositório:
+Equivalente ao build Release do Code::Blocks, a partir da raiz do repositório:
 
 ```bash
-g++ -std=c++11 -Wall -Wextra -Iheaders main.cpp sources/*.cpp -static-libgcc -static-libstdc++ -o kanban
+g++ -std=c++11 -Wall -Wextra -O2 -Iheaders main.cpp sources/*.cpp -static-libgcc -static-libstdc++ -s -o kanban
 ./kanban
 ```
 
