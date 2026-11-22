@@ -29,9 +29,6 @@ class CntrApresentacaoCartao : public IApresentacaoCartao {
 
         void mostrarCartao(const CartaoAtividade& cartao);
 
-        // Mostra "N minutos (D d H h M min)".
-        static std::string formatarMinutos(double minutos);
-
         void criar(const Email& usuario);
         void ler(const Email& usuario);
         void atualizar(const Email& usuario);
@@ -45,6 +42,18 @@ class CntrApresentacaoCartao : public IApresentacaoCartao {
         void lerWIP(const Email& usuario);
 
     public:
+        /**
+         * @brief Formata uma metrica do quadro como "N minutos (D d H h M min)".
+         *
+         * Arredonda uma unica vez para 1 casa decimal (0.05 sobe) e monta o numero e a
+         * forma "d h min" a partir desse mesmo valor, entao as duas partes sempre
+         * concordam: 0.5 sai "0.5 minutos (0 d 0 h 0.5 min)", nunca "1 min". Usa
+         * notacao fixa, sem notacao cientifica. "minuto" no singular so para 1.0.
+         * @param minutos Tempo em minutos (nao negativo).
+         * @return Texto pronto para a tela, ex.: "1530.5 minutos (1 d 1 h 30.5 min)".
+         */
+        static std::string formatarMinutos(double minutos);
+
         /** @brief Roda o menu de cartoes ate o usuario voltar ou a entrada acabar. */
         void executar(const Email& usuario) override;
 

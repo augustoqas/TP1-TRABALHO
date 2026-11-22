@@ -1,5 +1,7 @@
 #include "cntrapresentacaocartao.hpp"
 
+#include <cmath>
+#include <iomanip>
 #include <sstream>
 #include <vector>
 
@@ -57,9 +59,13 @@ void CntrApresentacaoCartao::mostrarCartao(const CartaoAtividade& cartao) {
 }
 
 std::string CntrApresentacaoCartao::formatarMinutos(double minutos) {
-    long total = static_cast<long>(minutos + 0.5);
+    // Arredonda uma vez, em decimos de minuto; daqui em diante so se usa esse valor.
+    long long decimos = static_cast<long long>(std::floor(minutos * 10 + 0.5));
+    long long inteiros = decimos / 10;
     std::ostringstream texto;
-    texto << minutos << " minutos (" << total / 1440 << " d " << (total % 1440) / 60 << " h " << total % 60 << " min)";
+    texto << std::fixed << std::setprecision(1);
+    texto << decimos / 10.0 << (decimos == 10 ? " minuto (" : " minutos (")
+          << inteiros / 1440 << " d " << (inteiros % 1440) / 60 << " h " << (decimos % 600) / 10.0 << " min)";
     return texto.str();
 }
 
