@@ -5,6 +5,8 @@
 > Autenticado com sucesso
 > Projeto criado com sucesso
 > Quadro criado com sucesso
+# A tela de cartoes pede o quadro com a dica de quadro, nao a de cartao.
+> Identificador do quadro (3 letras e 3 digitos, ex.: QDR001)
 > Cartao criado com sucesso
 > Cartao criado com sucesso
 > Cartoes do quadro QDR100 (2)
@@ -16,3 +18,4 @@
 > Operacao cancelada
 > Sessao encerrada
 > Sistema encerrado
+! Identificador do quadro (3 letras e 3 digitos, ex.: CRT001)

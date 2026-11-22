@@ -15,7 +15,8 @@
  */
 class CntrApresentacaoCartao : public IApresentacaoCartao {
     private:
-        static const std::string DICA_IDENTIFICADOR;
+        static const std::string DICA_IDENTIFICADOR_CARTAO;
+        static const std::string DICA_IDENTIFICADOR_QUADRO;
         static const std::string DICA_EMAIL;
         static const std::string DICA_NOME;
         static const std::string DICA_TEXTO;

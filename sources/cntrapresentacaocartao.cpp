@@ -5,7 +5,8 @@
 #include <sstream>
 #include <vector>
 
-const std::string CntrApresentacaoCartao::DICA_IDENTIFICADOR = "3 letras e 3 digitos, ex.: CRT001";
+const std::string CntrApresentacaoCartao::DICA_IDENTIFICADOR_CARTAO = "3 letras e 3 digitos, ex.: CRT001";
+const std::string CntrApresentacaoCartao::DICA_IDENTIFICADOR_QUADRO = "3 letras e 3 digitos, ex.: QDR001";
 const std::string CntrApresentacaoCartao::DICA_EMAIL = "formato nome@dominio, letras minusculas";
 const std::string CntrApresentacaoCartao::DICA_NOME = "1 a 15 letras, espaco simples entre palavras";
 const std::string CntrApresentacaoCartao::DICA_TEXTO = "ate 30 caracteres, comeca com maiuscula e termina com ponto";
@@ -135,11 +136,11 @@ void CntrApresentacaoCartao::criar(const Email& usuario) {
     Tela::separador();
 
     Identificador quadro;
-    if (Tela::lerCampo("Identificador do quadro", DICA_IDENTIFICADOR, quadro) != Tela::Leitura::LIDO) {
+    if (Tela::lerCampo("Identificador do quadro", DICA_IDENTIFICADOR_QUADRO, quadro) != Tela::Leitura::LIDO) {
         return;
     }
     Identificador identificador;
-    if (Tela::lerCampo("Identificador do cartao", DICA_IDENTIFICADOR, identificador) != Tela::Leitura::LIDO) {
+    if (Tela::lerCampo("Identificador do cartao", DICA_IDENTIFICADOR_CARTAO, identificador) != Tela::Leitura::LIDO) {
         return;
     }
     CartaoAtividade cartao;
@@ -166,7 +167,7 @@ void CntrApresentacaoCartao::ler(const Email& usuario) {
     Tela::separador();
 
     Identificador identificador;
-    if (Tela::lerCampo("Identificador do cartao", DICA_IDENTIFICADOR, identificador) != Tela::Leitura::LIDO) {
+    if (Tela::lerCampo("Identificador do cartao", DICA_IDENTIFICADOR_CARTAO, identificador) != Tela::Leitura::LIDO) {
         return;
     }
     CartaoAtividade cartao;
@@ -184,7 +185,7 @@ void CntrApresentacaoCartao::atualizar(const Email& usuario) {
     Tela::separador();
 
     Identificador identificador;
-    if (Tela::lerCampo("Identificador do cartao", DICA_IDENTIFICADOR, identificador) != Tela::Leitura::LIDO) {
+    if (Tela::lerCampo("Identificador do cartao", DICA_IDENTIFICADOR_CARTAO, identificador) != Tela::Leitura::LIDO) {
         return;
     }
     CartaoAtividade cartao;
@@ -213,7 +214,7 @@ void CntrApresentacaoCartao::excluir(const Email& usuario) {
     Tela::separador();
 
     Identificador identificador;
-    if (Tela::lerCampo("Identificador do cartao", DICA_IDENTIFICADOR, identificador) != Tela::Leitura::LIDO) {
+    if (Tela::lerCampo("Identificador do cartao", DICA_IDENTIFICADOR_CARTAO, identificador) != Tela::Leitura::LIDO) {
         return;
     }
     bool confirmou = false;
@@ -237,7 +238,7 @@ void CntrApresentacaoCartao::listar(const Email& usuario) {
     Tela::separador();
 
     Identificador quadro;
-    if (Tela::lerCampo("Identificador do quadro", DICA_IDENTIFICADOR, quadro) != Tela::Leitura::LIDO) {
+    if (Tela::lerCampo("Identificador do quadro", DICA_IDENTIFICADOR_QUADRO, quadro) != Tela::Leitura::LIDO) {
         return;
     }
     std::vector<Identificador> lista;
@@ -267,7 +268,7 @@ void CntrApresentacaoCartao::mover(const Email& usuario) {
     Tela::separador();
 
     Identificador identificador;
-    if (Tela::lerCampo("Identificador do cartao", DICA_IDENTIFICADOR, identificador) != Tela::Leitura::LIDO) {
+    if (Tela::lerCampo("Identificador do cartao", DICA_IDENTIFICADOR_CARTAO, identificador) != Tela::Leitura::LIDO) {
         return;
     }
     if (!this->cntrServicoCartao->mover(usuario, identificador)) {
@@ -286,7 +287,7 @@ void CntrApresentacaoCartao::lerTempoCiclo(const Email& usuario) {
     Tela::separador();
 
     Identificador identificador;
-    if (Tela::lerCampo("Identificador do cartao", DICA_IDENTIFICADOR, identificador) != Tela::Leitura::LIDO) {
+    if (Tela::lerCampo("Identificador do cartao", DICA_IDENTIFICADOR_CARTAO, identificador) != Tela::Leitura::LIDO) {
         return;
     }
     double minutos = 0;
@@ -303,7 +304,7 @@ void CntrApresentacaoCartao::lerTempoCicloMedio(const Email& usuario) {
     Tela::separador();
 
     Identificador quadro;
-    if (Tela::lerCampo("Identificador do quadro", DICA_IDENTIFICADOR, quadro) != Tela::Leitura::LIDO) {
+    if (Tela::lerCampo("Identificador do quadro", DICA_IDENTIFICADOR_QUADRO, quadro) != Tela::Leitura::LIDO) {
         return;
     }
     double minutos = 0;
@@ -320,7 +321,7 @@ void CntrApresentacaoCartao::lerLeadTime(const Email& usuario) {
     Tela::separador();
 
     Identificador identificador;
-    if (Tela::lerCampo("Identificador do cartao", DICA_IDENTIFICADOR, identificador) != Tela::Leitura::LIDO) {
+    if (Tela::lerCampo("Identificador do cartao", DICA_IDENTIFICADOR_CARTAO, identificador) != Tela::Leitura::LIDO) {
         return;
     }
     double minutos = 0;
@@ -337,7 +338,7 @@ void CntrApresentacaoCartao::lerLeadTimeMedio(const Email& usuario) {
     Tela::separador();
 
     Identificador quadro;
-    if (Tela::lerCampo("Identificador do quadro", DICA_IDENTIFICADOR, quadro) != Tela::Leitura::LIDO) {
+    if (Tela::lerCampo("Identificador do quadro", DICA_IDENTIFICADOR_QUADRO, quadro) != Tela::Leitura::LIDO) {
         return;
     }
     double minutos = 0;
@@ -354,7 +355,7 @@ void CntrApresentacaoCartao::lerWIP(const Email& usuario) {
     Tela::separador();
 
     Identificador quadro;
-    if (Tela::lerCampo("Identificador do quadro", DICA_IDENTIFICADOR, quadro) != Tela::Leitura::LIDO) {
+    if (Tela::lerCampo("Identificador do quadro", DICA_IDENTIFICADOR_QUADRO, quadro) != Tela::Leitura::LIDO) {
         return;
     }
     int wip = 0;
