@@ -24,9 +24,12 @@ A autoria abaixo vem do histórico do repositório (`git blame`). Cada arquivo `
   - exceção `ExcecaoSessaoEncerrada`.
 - **Integração:** `main.cpp` e o projeto Code::Blocks `TP1-Kanban.cbp`.
 - **Modelo de arquitetura:** `docs/arquitetura/` (PDF, diagrama UML e o gerador).
+- **Regras do enunciado** (issue #43): o gestor de um projeto é quem o criou (só ele altera o projeto e cria, altera ou exclui seus quadros e cartões) e o dia do `Timestamp` pode ter 1 ou 2 dígitos.
 - **Testes automatizados:**
   - estrutura em `testes/` (`rodar.bat`, `rodar.cpp`, `teste.hpp`, `README.md`);
   - testes de Email, Senha, Nome, Pessoa, serviço de Pessoa e Tela;
+  - testes das regras da issue #43 (Timestamp e serviços de Projeto, Quadro e Cartão) e roteiro `34_gestor_do_projeto`;
+  - teste da formatação das métricas na tela de Cartão (`teste_formatarminutos.cpp`);
   - roteiros de Pessoa e do login.
 - **Documentação:** `README.md` e este arquivo.
 - **Organização:** planejamento e divisão das tarefas nas issues do GitHub.
@@ -42,8 +45,9 @@ A autoria abaixo vem do histórico do repositório (`git blame`). Cada arquivo `
 - **Testes automatizados:**
   - testes de Identificador, Texto, Timestamp, Estado, Projeto, Quadro e dos serviços de Projeto e Quadro;
   - roteiros de Projeto, Quadro e do fluxo completo de um cartão.
-- **Documentação Doxygen em HTML** (issue #24).
-- **Vídeo do teste fumaça** (issue #25).
+- **Documentação Doxygen** (issue #24): `Doxyfile`, documentação HTML gerada em `docs/doxygen/` e página principal `docs/principal.md`.
+- **Teste fumaça** (issue #25): roteiro `testes/roteiros/91_fumaca`, guia `docs/teste_fumaca.md` e vídeo.
+- **Modelo de arquitetura:** atualização de `docs/arquitetura/` conforme a implementação.
 
 ## Flavio dos Santos Barros de Matos (252033452)
 
