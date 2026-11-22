@@ -190,7 +190,7 @@ void CntrApresentacaoQuadro::listar(const Email& usuario) {
         return;
     }
     if (lista.empty()) {
-        Tela::info("O projeto nao tem quadros.");
+        Tela::info("Nenhum quadro cadastrado no projeto " + projeto.getValor() + ".");
         return;
     }
     std::ostringstream cabecalho;

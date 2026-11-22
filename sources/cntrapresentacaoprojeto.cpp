@@ -186,11 +186,11 @@ void CntrApresentacaoProjeto::listar(const Email& usuario) {
 
     std::vector<Identificador> lista;
     if (!this->cntrServicoProjeto->listar(usuario, lista)) {
-        Tela::falha("Nao foi possivel listar.");
+        Tela::falha("Nao foi possivel listar.", {"usuario da sessao nao esta mais cadastrado"});
         return;
     }
     if (lista.empty()) {
-        Tela::info("Nao ha projetos cadastrados.");
+        Tela::info("Nenhum projeto cadastrado.");
         return;
     }
     std::ostringstream cabecalho;

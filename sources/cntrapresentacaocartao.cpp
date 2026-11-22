@@ -247,7 +247,7 @@ void CntrApresentacaoCartao::listar(const Email& usuario) {
         return;
     }
     if (lista.empty()) {
-        Tela::info("O quadro nao tem cartoes.");
+        Tela::info("Nenhum cartao cadastrado no quadro " + quadro.getValor() + ".");
         return;
     }
     std::ostringstream cabecalho;
