@@ -29,7 +29,7 @@
  *     return;
  * }
  * if (!servico->criar(usuario, projeto, quadro)) {
- *     Tela::falha("Nao foi possivel criar o quadro.", {"usuario nao e GESTOR", "projeto nao existe", "identificador ja existe"});
+ *     Tela::falha("Nao foi possivel criar o quadro.", {"voce nao e o gestor do projeto", "projeto nao existe", "identificador ja existe"});
  * }
  * @endcode
  */
@@ -86,6 +86,7 @@ class Tela {
 
         /**
          * @brief Pergunta S/N ate ter uma resposta valida.
+         * @param pergunta Texto da pergunta.
          * @param resposta true para S/s; false para N/n ou 0.
          * @return false se a entrada acabou (EOF).
          */
@@ -97,6 +98,8 @@ class Tela {
          * Serve para qualquer dominio com setValor(std::string) que lanca
          * std::invalid_argument para valor invalido. A dica aparece entre parenteses.
          * Se o usuario digitar 0, ja mostra "Operacao cancelada" e retorna CANCELADO.
+         * @param rotulo Nome do campo mostrado na pergunta.
+         * @param dica Formato esperado, mostrado entre parenteses.
          * @param dominio So e preenchido quando o retorno e LIDO.
          */
         template<typename Dominio>

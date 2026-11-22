@@ -41,6 +41,31 @@ bool CntrServicoCartao::temPapel(const Email& email, const std::string& papel) c
     return pessoa.getPapel().getValor() == papel;
 }
 
+bool CntrServicoCartao::gestorDoQuadro(const Email& usuario, const Identificador& quadro) const {
+    if (this->containerQuadro == nullptr || this->containerProjeto == nullptr || !temPapel(usuario, "GESTOR")) {
+        return false;
+    }
+    // Quadro -> projeto -> gestor (quem criou o projeto).
+    Identificador projeto;
+    Email gestor;
+    if (!this->containerQuadro->pesquisarProjeto(quadro, projeto) ||
+        !this->containerProjeto->pesquisarGestor(projeto, gestor)) {
+        return false;
+    }
+    return gestor.getValor() == usuario.getValor();
+}
+
+bool CntrServicoCartao::gestorDoCartao(const Email& usuario, const Identificador& cartao) const {
+    if (this->containerCartao == nullptr) {
+        return false;
+    }
+    Identificador quadro;
+    if (!this->containerCartao->getQuadro(cartao, quadro)) {
+        return false;
+    }
+    return gestorDoQuadro(usuario, quadro);
+}
+
 bool CntrServicoCartao::lerQuadro(const Email& usuario, const Identificador& identificador, Quadro& quadro) {
     if (this->cntrServicoQuadro == nullptr) {
         return false;
@@ -73,7 +98,7 @@ bool CntrServicoCartao::criar(const Email& usuario, const Identificador& quadro,
     if (this->containerCartao == nullptr) {
         return false;
     }
-    if (!temPapel(usuario, "GESTOR")) {
+    if (!gestorDoQuadro(usuario, quadro)) {
         return false;
     }
     if (!temPapel(desenvolvedor, "DESENVOLVEDOR")) {
@@ -114,7 +139,8 @@ bool CntrServicoCartao::atualizar(const Email& usuario, const CartaoAtividade& c
     if (this->containerCartao == nullptr) {
         return false;
     }
-    if (!temPapel(usuario, "GESTOR")) {
+    // Tambem recusa cartao inexistente (sem quadro).
+    if (!gestorDoCartao(usuario, cartao.getIdentificador())) {
         return false;
     }
     if (!cartaoCompleto(cartao)) {
@@ -136,7 +162,7 @@ bool CntrServicoCartao::excluir(const Email& usuario, const Identificador& ident
     if (this->containerCartao == nullptr) {
         return false;
     }
-    if (!temPapel(usuario, "GESTOR")) {
+    if (!gestorDoCartao(usuario, identificador)) {
         return false;
     }
     // O conteiner ja recusa cartao inexistente.

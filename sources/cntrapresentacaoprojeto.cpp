@@ -6,7 +6,7 @@
 const std::string CntrApresentacaoProjeto::DICA_IDENTIFICADOR = "3 letras e 3 digitos, ex.: PRJ001";
 const std::string CntrApresentacaoProjeto::DICA_NOME = "1 a 15 letras, espaco simples entre palavras";
 const std::string CntrApresentacaoProjeto::DICA_TEXTO = "ate 30 caracteres, comeca com maiuscula e termina com ponto";
-const std::string CntrApresentacaoProjeto::DICA_TIMESTAMP = "DD-MES-AAAA-HH:MM, ex.: 15-MAR-2026-14:30";
+const std::string CntrApresentacaoProjeto::DICA_TIMESTAMP = "DIA-MES-AAAA-HH:MM, dia de 1 a 31, ex.: 5-MAR-2026-14:30";
 
 // --- Auxiliares ---
 
@@ -150,7 +150,7 @@ void CntrApresentacaoProjeto::atualizar(const Email& usuario) {
         return;
     }
     if (!this->cntrServicoProjeto->atualizar(usuario, projeto)) {
-        Tela::falha("Nao foi possivel atualizar.", {"projeto nao encontrado", "usuario nao e GESTOR"});
+        Tela::falha("Nao foi possivel atualizar.", {"projeto nao encontrado", "voce nao e o gestor do projeto"});
         return;
     }
     Tela::sucesso("Projeto atualizado com sucesso.");
@@ -175,7 +175,7 @@ void CntrApresentacaoProjeto::excluir(const Email& usuario) {
     }
     if (!this->cntrServicoProjeto->excluir(usuario, identificador)) {
         Tela::falha("Nao foi possivel excluir.",
-                    {"projeto nao encontrado", "usuario nao e GESTOR", "projeto tem quadros (exclua-os antes)"});
+                    {"projeto nao encontrado", "voce nao e o gestor do projeto", "projeto tem quadros (exclua-os antes)"});
         return;
     }
     Tela::sucesso("Projeto excluido com sucesso.");

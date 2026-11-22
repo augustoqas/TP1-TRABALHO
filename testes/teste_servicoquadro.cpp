@@ -1,6 +1,8 @@
 // Testes da camada de servico de Quadro (issue #17).
 // Conversa com o servico so pela interface; pessoas, projetos e cartoes sao incluidos
-// direto nos conteineres para simular cadastro e vinculos.
+// direto nos conteineres para simular cadastro e vinculos. Dois gestores: G1 (gestor)
+// e gestor de PRJ001 e PRJ002, G2 (outroGestor) de PRJ003; so o gestor do projeto
+// cria, atualiza e exclui os quadros dele.
 #include <string>
 #include <vector>
 
@@ -80,8 +82,10 @@ int main() {
     ContainerCartao cartoes;
 
     pessoas.incluir(pessoa("gestor@unb.br", "GESTOR"));
+    pessoas.incluir(pessoa("outro.gestor@unb.br", "GESTOR"));
     pessoas.incluir(pessoa("dev@unb.br", "DESENVOLVEDOR"));
     Email gestor = email("gestor@unb.br");
+    Email outroGestor = email("outro.gestor@unb.br");
     Email dev = email("dev@unb.br");
     Email estranho = email("ninguem@unb.br");
 
@@ -91,8 +95,12 @@ int main() {
     Projeto outroProjeto;
     outroProjeto.setIdentificador(identificador("PRJ002"));
     projetos.incluir(outroProjeto, gestor);
+    Projeto projetoDoOutro;
+    projetoDoOutro.setIdentificador(identificador("PRJ003"));
+    projetos.incluir(projetoDoOutro, outroGestor);
     Identificador prj1 = identificador("PRJ001");
     Identificador prj2 = identificador("PRJ002");
+    Identificador prj3 = identificador("PRJ003");
     Identificador prjInexistente = identificador("PRJ999");
 
     CntrServicoQuadro cntr;
@@ -117,6 +125,10 @@ int main() {
     verificar(!servico->criar(gestor, prjInexistente, quadro("QDR002", "Sprint dois", 3)), "projeto inexistente recusado");
     verificar(!servico->criar(dev, prj1, quadro("QDR002", "Sprint dois", 3)), "desenvolvedor nao cria quadro");
     verificar(!servico->criar(estranho, prj1, quadro("QDR002", "Sprint dois", 3)), "usuario nao cadastrado nao cria");
+    verificar(!servico->criar(outroGestor, prj1, quadro("QDR002", "Sprint dois", 3)),
+              "outro gestor nao cria quadro em projeto que nao e dele");
+    verificar(!servico->ler(gestor, identificador("QDR002"), lido), "criacao recusada nao cria o quadro");
+    verificar(servico->criar(outroGestor, prj3, quadro("QDR030", "Do outro", 2)), "outro gestor cria quadro no seu projeto");
     Quadro semLimite;
     semLimite.setIdentificador(identificador("QDR003"));
     Nome nome;
@@ -127,7 +139,16 @@ int main() {
     verificar(servico->criar(gestor, prj1, quadro("QDR002", "Sprint dois", 3)), "segundo quadro no mesmo projeto");
     verificar(servico->criar(gestor, prj2, quadro("QDR010", "Outro projeto", 5)), "quadro em outro projeto");
 
+    // Conteiner: projeto de cada quadro.
+    Identificador projetoLido;
+    verificar(quadros.pesquisarProjeto(identificador("QDR030"), projetoLido) && projetoLido.getValor() == "PRJ003",
+              "conteiner: pesquisarProjeto devolve o projeto do quadro");
+    Identificador projetoIntacto = identificador("XYZ999");
+    verificar(!quadros.pesquisarProjeto(identificador("QDR999"), projetoIntacto) && projetoIntacto.getValor() == "XYZ999",
+              "conteiner: quadro inexistente nao tem projeto (saida intacta)");
+
     // 12. Ler.
+    verificar(servico->ler(outroGestor, identificador("QDR001"), lido), "outro gestor le quadro de projeto alheio");
     verificar(servico->ler(dev, identificador("QDR001"), lido), "desenvolvedor le quadro");
     verificar(resumo(lido) == "QDR001|Sprint um|2", "ler devolve todos os dados");
     Quadro intacto = quadro("XYZ999", "Intacto", 9);
@@ -142,6 +163,7 @@ int main() {
               "listar devolve so os quadros do projeto");
     verificar(servico->listar(dev, prj2, lista) && lista.size() == 1 && contem(lista, "QDR010"),
               "listar de outro projeto");
+    verificar(servico->listar(outroGestor, prj1, lista) && lista.size() == 2, "outro gestor lista quadros de projeto alheio");
     verificar(!servico->listar(gestor, prjInexistente, lista), "listar de projeto inexistente recusado");
     verificar(!servico->listar(estranho, prj1, lista), "usuario nao cadastrado nao lista");
 
@@ -149,7 +171,12 @@ int main() {
     verificar(!servico->atualizar(gestor, quadro("QDR001", "Novo nome", 4)), "sem conteiner de cartoes: atualizar recusado");
     cntr.setContainerCartao(&cartoes);
     verificar(!servico->atualizar(dev, quadro("QDR001", "Novo nome", 4)), "desenvolvedor nao atualiza");
-    verificar(servico->atualizar(gestor, quadro("QDR001", "Novo nome", 4)), "gestor atualiza nome e limite");
+    verificar(!servico->atualizar(outroGestor, quadro("QDR001", "Novo nome", 4)),
+              "outro gestor nao atualiza quadro de projeto que nao e dele");
+    verificar(servico->ler(gestor, identificador("QDR001"), lido) && resumo(lido) == "QDR001|Sprint um|2",
+              "atualizacao do outro gestor nao muda nada");
+    verificar(servico->atualizar(outroGestor, quadro("QDR030", "Do outro novo", 3)), "outro gestor atualiza quadro do seu projeto");
+    verificar(servico->atualizar(gestor, quadro("QDR001", "Novo nome", 4)), "gestor do projeto atualiza nome e limite");
     verificar(servico->ler(gestor, identificador("QDR001"), lido) && resumo(lido) == "QDR001|Novo nome|4",
               "atualizar troca nome e limite");
     verificar(!servico->atualizar(gestor, quadro("QDR999", "Nada", 4)), "atualizar quadro inexistente recusado");
@@ -171,6 +198,10 @@ int main() {
     verificar(servico->ler(gestor, identificador("QDR001"), lido), "quadro recusado continua existindo");
     verificar(!servico->excluir(dev, identificador("QDR010")), "desenvolvedor nao exclui");
     verificar(!servico->excluir(gestor, identificador("QDR999")), "excluir quadro inexistente recusado");
+    verificar(!servico->excluir(outroGestor, identificador("QDR010")), "outro gestor nao exclui quadro de projeto que nao e dele");
+    verificar(servico->ler(gestor, identificador("QDR010"), lido), "quadro continua depois da exclusao recusada");
+    verificar(!servico->excluir(gestor, identificador("QDR030")), "gestor nao exclui quadro do projeto do outro gestor");
+    verificar(servico->excluir(outroGestor, identificador("QDR030")), "outro gestor exclui quadro do seu projeto");
     verificar(servico->excluir(gestor, identificador("QDR010")), "quadro sem cartoes e excluido");
     verificar(!servico->ler(gestor, identificador("QDR010"), lido), "quadro excluido nao existe mais");
     verificar(servico->listar(gestor, prj2, lista) && lista.empty(), "projeto fica sem quadros");

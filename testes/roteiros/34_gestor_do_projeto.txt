@@ -1,0 +1,116 @@
+1
+dev@unb.br
+Dev Um
+Dv123
+DESENVOLVEDOR
+1
+ana@unb.br
+Ana Maria
+Pw123
+GESTOR
+1
+bia@unb.br
+Bia Lima
+Bb123
+GESTOR
+2
+ana@unb.br
+Pw123
+2
+1
+PRJ100
+Sistema Kanban
+Trabalho de TP1.
+1-MAR-2026-08:00
+30-JUN-2026-18:00
+6
+3
+1
+PRJ100
+QDR100
+Sprint um
+2
+1
+PRJ100
+QDR101
+Sprint dois
+2
+6
+4
+1
+QDR100
+CRT100
+Tela login
+Fazer a tela.
+ALTA
+MEDIO
+dev@unb.br
+12
+5
+2
+bia@unb.br
+Bb123
+2
+1
+PRJ200
+Projeto Bia
+Da Bia.
+01-ABR-2026-08:00
+30-JUN-2026-18:00
+3
+PRJ100
+Outro nome
+Outra.
+01-MAR-2026-08:00
+30-JUN-2026-18:00
+4
+PRJ100
+S
+2
+PRJ100
+6
+3
+1
+PRJ100
+QDR102
+Sprint tres
+2
+3
+QDR100
+Outro nome
+3
+4
+QDR101
+S
+5
+PRJ100
+6
+4
+1
+QDR100
+CRT101
+Tela menu
+Fazer o menu.
+BAIXA
+PEQUENO
+dev@unb.br
+5
+QDR100
+3
+CRT100
+Outro nome
+Outra.
+BAIXA
+PEQUENO
+4
+CRT100
+S
+6
+CRT100
+11
+QDR100
+2
+CRT100
+12
+5
+3

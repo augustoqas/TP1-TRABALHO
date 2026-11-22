@@ -14,8 +14,8 @@
  * Usa tres conteineres passados por setter: pessoas (para saber se o usuario esta
  * cadastrado e qual o papel dele), projetos e quadros (para recusar excluir projeto
  * com quadros). So guarda os ponteiros; o main mantem os conteineres vivos.
- * Qualquer usuario cadastrado pode ler e listar; criar, atualizar e excluir exigem
- * papel GESTOR. Quem cria vira o gestor do projeto.
+ * Qualquer usuario cadastrado pode ler e listar; criar exige papel GESTOR, e quem
+ * cria vira o gestor do projeto. Atualizar e excluir: so o gestor do projeto.
  * Se faltar um conteiner necessario, o metodo retorna false: ler e listar precisam
  * dos de pessoas e projetos; excluir precisa tambem do de quadros.
  */
@@ -30,6 +30,9 @@ class CntrServicoProjeto : public IServicoProjeto {
 
         // Diz se o usuario esta cadastrado com papel GESTOR.
         bool usuarioGestor(const Email& usuario) const;
+
+        // Diz se o usuario e o gestor (quem criou) do projeto; false se o projeto nao existir.
+        bool gestorDoProjeto(const Email& usuario, const Identificador& projeto) const;
 
         // Confere identificador, nome, descricao, inicio e termino preenchidos.
         // Dominio nunca preenchido fica com valor vazio.
@@ -61,14 +64,14 @@ class CntrServicoProjeto : public IServicoProjeto {
         /**
          * @brief Atualiza nome, descricao, inicio e termino (servico 8).
          * O projeto e achado pelo identificador, que nunca muda; o gestor tambem nao.
-         * Retorna false se o usuario nao for GESTOR cadastrado, se o projeto estiver
+         * Retorna false se o usuario nao for o gestor do projeto, se o projeto estiver
          * incompleto ou nao existir.
          */
         bool atualizar(const Email& usuario, const Projeto& projeto) override;
 
         /**
          * @brief Exclui o projeto (servico 9), sem cascata.
-         * Retorna false se o usuario nao for GESTOR cadastrado, se o projeto nao
+         * Retorna false se o usuario nao for o gestor do projeto, se o projeto nao
          * existir ou se ele tiver quadros.
          */
         bool excluir(const Email& usuario, const Identificador& identificador) override;

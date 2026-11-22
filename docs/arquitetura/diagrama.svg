@@ -208,8 +208,8 @@ text{font-family:"Segoe UI",Calibri,Arial,sans-serif;fill:#1e252b}
 <path class="d-nota" d="M 618 566 H 1167 L 1178 577 V 625 H 618 Z"/>
 <path class="d-nota-dobra" d="M 1167 566 V 577 H 1178"/>
 <text class="d-nota-t" x="630" y="585">Dependências secundárias (consultas de consistência entre entidades, por exemplo Serviço</text>
-<text class="d-nota-t" x="630" y="600">Cartão → Quadros para o limite de WIP) foram omitidas para não poluir o diagrama. Estão</text>
-<text class="d-nota-t" x="630" y="615">documentadas na Seção 3.4, Tabela 2.</text>
+<text class="d-nota-t" x="630" y="600">Quadro → Cartões para o WIP) foram omitidas para não poluir o diagrama. Estão documentadas na</text>
+<text class="d-nota-t" x="630" y="615">Seção 3.4, Tabela 2. O uso de IServicoQuadro pelo Serviço Cartão está na Tabela 3.</text>
 <line class="d-ancora" x1="898" y1="544" x2="898" y2="566"/>
 <rect class="d-leg-caixa" x="10" y="653" width="1180" height="62"/>
 <rect class="d-comp" x="106.6" y="660.5" width="40" height="20"/>

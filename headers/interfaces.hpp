@@ -15,6 +15,8 @@
  * - Atualizar acha o registro pela chave e nunca muda a chave.
  * - Tempos sao double, em minutos.
  * - Excluir e recusado se deixar algo orfao (nao ha cascata).
+ * - O gestor de um projeto e quem o criou. Onde a tabela do enunciado diz GESTOR
+ *   (alterar projeto, quadro ou cartao), so o gestor daquele projeto pode.
  * - Destrutores sao virtuais puros, definidos vazios no fim do arquivo.
  */
 
@@ -69,7 +71,12 @@ class IServicoPessoa {
         virtual ~IServicoPessoa() = 0;
 };
 
-/** @brief Servico de projetos (servicos 6 a 10). Criar, atualizar e excluir: so GESTOR. */
+/**
+ * @brief Servico de projetos (servicos 6 a 10).
+ *
+ * Criar: so usuario com papel GESTOR, que vira o gestor do projeto. Atualizar e
+ * excluir: so o gestor do projeto. Ler e listar: qualquer usuario cadastrado.
+ */
 class IServicoProjeto {
     public:
         /**
@@ -83,13 +90,14 @@ class IServicoProjeto {
 
         /**
          * @brief Atualiza nome, descricao, inicio e termino (servico 8).
-         * Retorna false se o projeto nao existir ou o usuario nao for GESTOR.
+         * Retorna false se o projeto nao existir ou o usuario nao for o gestor do projeto.
          */
         virtual bool atualizar(const Email& usuario, const Projeto& projeto) = 0;
 
         /**
          * @brief Exclui o projeto (servico 9).
-         * Retorna false se ele nao existir, o usuario nao for GESTOR ou o projeto tiver quadros.
+         * Retorna false se ele nao existir, o usuario nao for o gestor do projeto ou o
+         * projeto tiver quadros.
          */
         virtual bool excluir(const Email& usuario, const Identificador& identificador) = 0;
 
@@ -103,13 +111,18 @@ class IServicoProjeto {
         virtual ~IServicoProjeto() = 0;
 };
 
-/** @brief Servico de quadros (servicos 11 a 15). Criar, atualizar e excluir: so GESTOR. */
+/**
+ * @brief Servico de quadros (servicos 11 a 15).
+ *
+ * Criar, atualizar e excluir: so o gestor do projeto do quadro. Ler e listar:
+ * qualquer usuario cadastrado.
+ */
 class IServicoQuadro {
     public:
         /**
          * @brief Cria um quadro dentro do projeto (servico 11).
-         * Retorna false se o usuario nao for GESTOR, o projeto nao existir ou o
-         * identificador do quadro ja existir.
+         * Retorna false se o usuario nao for o gestor do projeto, o projeto nao existir
+         * ou o identificador do quadro ja existir.
          */
         virtual bool criar(const Email& usuario, const Identificador& projeto, const Quadro& quadro) = 0;
 
@@ -118,14 +131,15 @@ class IServicoQuadro {
 
         /**
          * @brief Atualiza nome e limite (servico 13).
-         * Retorna false se o quadro nao existir, o usuario nao for GESTOR ou o novo
-         * limite for menor que o WIP atual.
+         * Retorna false se o quadro nao existir, o usuario nao for o gestor do projeto
+         * do quadro ou o novo limite for menor que o WIP atual.
          */
         virtual bool atualizar(const Email& usuario, const Quadro& quadro) = 0;
 
         /**
          * @brief Exclui o quadro (servico 14).
-         * Retorna false se ele nao existir, o usuario nao for GESTOR ou o quadro tiver cartoes.
+         * Retorna false se ele nao existir, o usuario nao for o gestor do projeto do
+         * quadro ou o quadro tiver cartoes.
          */
         virtual bool excluir(const Email& usuario, const Identificador& identificador) = 0;
 
@@ -137,7 +151,10 @@ class IServicoQuadro {
 };
 
 /**
- * @brief Servico de cartoes (servicos 16 a 26). Criar, atualizar e excluir: so GESTOR.
+ * @brief Servico de cartoes (servicos 16 a 26).
+ *
+ * Criar, atualizar e excluir: so o gestor do projeto do quadro do cartao. Ler,
+ * listar, mover e metricas: qualquer usuario cadastrado.
  *
  * Tempo de ciclo = termino - inicio (FAZENDO ate FEITO).
  * Lead time = termino - entrada (A FAZER ate FEITO).
@@ -147,8 +164,8 @@ class IServicoCartao {
         /**
          * @brief Cria o cartao no quadro, ja em A FAZER e com entrada = agora (servico 16).
          * Estado e timestamps vindos em cartao sao ignorados. Retorna false se o usuario
-         * nao for GESTOR, o quadro nao existir, o desenvolvedor nao existir ou nao for
-         * DESENVOLVEDOR, ou o identificador ja existir.
+         * nao for o gestor do projeto do quadro, o quadro nao existir, o desenvolvedor
+         * nao existir ou nao for DESENVOLVEDOR, ou o identificador ja existir.
          */
         virtual bool criar(const Email& usuario, const Identificador& quadro, const Email& desenvolvedor, const CartaoAtividade& cartao) = 0;
 
@@ -158,13 +175,13 @@ class IServicoCartao {
         /**
          * @brief Atualiza nome, descricao, prioridade e tamanho (servico 18).
          * Estado e timestamps so mudam por mover. Retorna false se o cartao nao existir
-         * ou o usuario nao for GESTOR.
+         * ou o usuario nao for o gestor do projeto do cartao.
          */
         virtual bool atualizar(const Email& usuario, const CartaoAtividade& cartao) = 0;
 
         /**
          * @brief Exclui o cartao (servico 19).
-         * Retorna false se ele nao existir ou o usuario nao for GESTOR.
+         * Retorna false se ele nao existir ou o usuario nao for o gestor do projeto do cartao.
          */
         virtual bool excluir(const Email& usuario, const Identificador& identificador) = 0;
 

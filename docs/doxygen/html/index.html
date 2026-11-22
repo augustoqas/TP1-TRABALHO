@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TP1 - Sistema Kanban: TP1 - Sistema Kanban</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TP1 - Sistema Kanban
+   </div>
+   <div id="projectbrief">Gestao de projetos pelo metodo Kanban, em camadas (C++11)</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Busca" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('index.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">TP1 - Sistema Kanban </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="md_docs_2principal"></a></p>
+<p>Sistema de gestao de projetos pelo metodo Kanban, feito para a disciplina Tecnicas de Programacao 1 (CIC0197) da Universidade de Brasilia.</p>
+<p>Cada projeto tem quadros, e cada quadro organiza cartoes de atividade nas colunas A FAZER, FAZENDO e FEITO. O limite de WIP do quadro e o numero maximo de cartoes em FAZENDO ao mesmo tempo.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
+Camadas</h1>
+<p>O software segue o estilo em camadas. Os modulos so se comunicam pelas classes abstratas declaradas em <a class="el" href="interfaces_8hpp.html" title="Interfaces entre a apresentacao e o servico.">interfaces.hpp</a>.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Camada  </th><th class="markdownTableHeadNone">Classes  </th><th class="markdownTableHeadNone"><a class="el" href="class_papel.html" title="Dominio de papel de um membro do projeto.">Papel</a>  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Apresentacao  </td><td class="markdownTableBodyNone"><a class="el" href="class_cntr_apresentacao_controle.html" title="Menus do programa: o inicial (criar conta, entrar, sair) e o principal, de quem esta logado.">CntrApresentacaoControle</a>, <a class="el" href="class_cntr_apresentacao_autenticacao.html" title="Tela &quot;Entrar&quot;: pede email e senha e autentica.">CntrApresentacaoAutenticacao</a>, <a class="el" href="class_cntr_apresentacao_pessoa.html" title="Telas de pessoas: criar conta e o menu de pessoas.">CntrApresentacaoPessoa</a>, <a class="el" href="class_cntr_apresentacao_projeto.html" title="Telas de projetos (servicos 6 a 10): criar, ler, atualizar, excluir e listar projetos.">CntrApresentacaoProjeto</a>, <a class="el" href="class_cntr_apresentacao_quadro.html" title="Telas de quadros (servicos 11 a 15): criar, ler, atualizar, excluir e listar os quadros de um projeto...">CntrApresentacaoQuadro</a>, <a class="el" href="class_cntr_apresentacao_cartao.html" title="Telas de cartoes de atividade (servicos 16 a 26): criar, ler, atualizar, excluir, listar e mover cart...">CntrApresentacaoCartao</a>  </td><td class="markdownTableBodyNone">Menus em modo texto e validacao da entrada pelos dominios (helpers em <a class="el" href="class_tela.html" title="Funcoes de tela em modo texto usadas por todas as controladoras de apresentacao, para que todas as te...">Tela</a>)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Servico  </td><td class="markdownTableBodyNone"><a class="el" href="class_cntr_servico_autenticacao.html" title="Servico de autenticacao: confere email e senha no ContainerPessoa.">CntrServicoAutenticacao</a>, <a class="el" href="class_cntr_servico_pessoa.html" title="Servico de pessoas (servicos 1 a 5): aplica as regras de Pessoa.">CntrServicoPessoa</a>, <a class="el" href="class_cntr_servico_projeto.html" title="Servico de projetos (servicos 6 a 10): aplica as regras de Projeto.">CntrServicoProjeto</a>, <a class="el" href="class_cntr_servico_quadro.html" title="Servico de quadros (servicos 11 a 15): aplica as regras de Quadro.">CntrServicoQuadro</a>, <a class="el" href="class_cntr_servico_cartao.html" title="Servico de cartoes (servicos 16 a 26): aplica as regras de cartao e calcula as metricas Kanban.">CntrServicoCartao</a>  </td><td class="markdownTableBodyNone">Regras de negocio e permissoes (GESTOR e DESENVOLVEDOR)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Armazenamento  </td><td class="markdownTableBodyNone"><a class="el" href="class_container_pessoa.html" title="Guarda as pessoas em memoria, indexadas pelo email.">ContainerPessoa</a>, <a class="el" href="class_container_projeto.html" title="Guarda os projetos em memoria e o email do gestor de cada um.">ContainerProjeto</a>, <a class="el" href="class_container_quadro.html" title="Guarda os quadros em memoria e o identificador do projeto de cada um.">ContainerQuadro</a>, <a class="el" href="class_container_cartao.html" title="Guarda os cartoes em memoria, indexados pelo identificador, junto com o quadro e o email do desenvolv...">ContainerCartao</a>  </td><td class="markdownTableBodyNone">Dados em memoria (std::map)  </td></tr>
+</table>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
+Dominios e entidades</h1>
+<ul>
+<li><b>Dominios</b> validam o proprio formato: <a class="el" href="class_email.html" title="Dominio de email, no formato parte-local@dominio.">Email</a>, <a class="el" href="class_nome.html" title="Dominio de nome, usado em Pessoa, Projeto, Quadro e Cartao.">Nome</a>, <a class="el" href="class_senha.html" title="Dominio de senha.">Senha</a>, <a class="el" href="class_papel.html" title="Dominio de papel de um membro do projeto.">Papel</a>, <a class="el" href="class_identificador.html" title="Dominio de identificador (chave de Projeto, Quadro e Cartao).">Identificador</a>, <a class="el" href="class_texto.html" title="Dominio de texto (descricao de Projeto e de Cartao).">Texto</a>, <a class="el" href="class_timestamp.html" title="Dominio de data e hora (inicio e termino de Projeto; entrada, inicio e termino de Cartao).">Timestamp</a>, <a class="el" href="class_limite.html" title="Dominio de limite de WIP de um quadro.">Limite</a>, <a class="el" href="class_prioridade.html" title="Dominio de prioridade de um cartao de atividade.">Prioridade</a>, <a class="el" href="class_estado.html" title="Dominio de estado (coluna) de um cartao de atividade.">Estado</a> e <a class="el" href="class_tamanho.html" title="Dominio de tamanho (esforco estimado) de um cartao de atividade.">Tamanho</a>. O setValor lanca std::invalid_argument quando o valor e invalido.</li>
+<li><b>Entidades</b> sao compostas por dominios: <a class="el" href="class_pessoa.html" title="Entidade pessoa: email (chave primaria), nome, senha e papel.">Pessoa</a>, <a class="el" href="class_projeto.html" title="Entidade projeto: identificador (chave primaria), nome, descricao, inicio e termino.">Projeto</a>, <a class="el" href="class_quadro.html" title="Entidade quadro: identificador (chave primaria), nome e limite de WIP.">Quadro</a> e <a class="el" href="class_cartao_atividade.html" title="Entidade cartao de atividade: identificador (chave primaria), nome, descricao, prioridade,...">CartaoAtividade</a>.</li>
+</ul>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
+Servicos</h1>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Entidade  </th><th class="markdownTableHeadNone">Servicos  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a class="el" href="class_pessoa.html" title="Entidade pessoa: email (chave primaria), nome, senha e papel.">Pessoa</a>  </td><td class="markdownTableBodyNone">1 a 5: criar, ler, atualizar, excluir e listar  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a class="el" href="class_projeto.html" title="Entidade projeto: identificador (chave primaria), nome, descricao, inicio e termino.">Projeto</a>  </td><td class="markdownTableBodyNone">6 a 10: criar, ler, atualizar, excluir e listar  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a class="el" href="class_quadro.html" title="Entidade quadro: identificador (chave primaria), nome e limite de WIP.">Quadro</a>  </td><td class="markdownTableBodyNone">11 a 15: criar, ler, atualizar, excluir e listar  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Cartao de atividade  </td><td class="markdownTableBodyNone">16 a 26: criar, ler, atualizar, excluir, listar, mover, tempo de ciclo (e medio), lead time (e medio) e WIP  </td></tr>
+</table>
+<p>A montagem do sistema (conteineres, servicos, telas e menu) fica em <a class="el" href="main_8cpp.html" title="Monta o sistema Kanban e roda o menu.">main.cpp</a>. </p>
+</div></div><!-- PageDoc -->
+<a href="doxygen_crawl.html"></a>
+</div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

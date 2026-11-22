@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TP1 - Sistema Kanban: Código-Fonte de main.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TP1 - Sistema Kanban
+   </div>
+   <div id="projectbrief">Gestao de projetos pelo metodo Kanban, em camadas (C++11)</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Busca" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('main_8cpp_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">main.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="main_8cpp.html">Ir para a documentação desse arquivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;cntrapresentacaoautenticacao.hpp&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;cntrapresentacaocartao.hpp&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;cntrapresentacaocontrole.hpp&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;cntrapresentacaopessoa.hpp&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;cntrapresentacaoprojeto.hpp&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;cntrapresentacaoquadro.hpp&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;cntrservicoautenticacao.hpp&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;cntrservicocartao.hpp&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;cntrservicopessoa.hpp&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;cntrservicoprojeto.hpp&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;cntrservicoquadro.hpp&quot;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;containercartao.hpp&quot;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;containerpessoa.hpp&quot;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;containerprojeto.hpp&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;containerquadro.hpp&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span></div>
+<div class="foldopen" id="foldopen00030" data-start="{" data-end="}">
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">   30</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>() {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="comment">// 1. Conteineres.</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_class" href="class_container_pessoa.html">ContainerPessoa</a> containerPessoa;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_class" href="class_container_projeto.html">ContainerProjeto</a> containerProjeto;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <a class="code hl_class" href="class_container_quadro.html">ContainerQuadro</a> containerQuadro;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <a class="code hl_class" href="class_container_cartao.html">ContainerCartao</a> containerCartao;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="comment">// 2. Controladoras de servico.</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_class" href="class_cntr_servico_autenticacao.html">CntrServicoAutenticacao</a> cntrServicoAutenticacao;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    cntrServicoAutenticacao.<a class="code hl_function" href="class_cntr_servico_autenticacao.html#a19a749c62caf872969acab12cd7cbe2c">setContainerPessoa</a>(&amp;containerPessoa);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_class" href="class_cntr_servico_pessoa.html">CntrServicoPessoa</a> cntrServicoPessoa;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    cntrServicoPessoa.<a class="code hl_function" href="class_cntr_servico_pessoa.html#a7749506a27e18317c8f516ac9d502fb0">setContainerPessoa</a>(&amp;containerPessoa);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    cntrServicoPessoa.<a class="code hl_function" href="class_cntr_servico_pessoa.html#adb5b2484f9c81afeaf6d27bc4f3380cb">setContainerProjeto</a>(&amp;containerProjeto);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    cntrServicoPessoa.<a class="code hl_function" href="class_cntr_servico_pessoa.html#adb63609ccfc40748910bacfac59bf2fa">setContainerCartao</a>(&amp;containerCartao);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <a class="code hl_class" href="class_cntr_servico_projeto.html">CntrServicoProjeto</a> cntrServicoProjeto;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    cntrServicoProjeto.<a class="code hl_function" href="class_cntr_servico_projeto.html#a15817a41de090776eedeccc64fcda3b4">setContainerPessoa</a>(&amp;containerPessoa);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    cntrServicoProjeto.<a class="code hl_function" href="class_cntr_servico_projeto.html#a2c5e6fd76582661d17b0d4217ca7aa0b">setContainerProjeto</a>(&amp;containerProjeto);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    cntrServicoProjeto.<a class="code hl_function" href="class_cntr_servico_projeto.html#a6eb940cb3de0ccdb9a136f042f1911d8">setContainerQuadro</a>(&amp;containerQuadro);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_class" href="class_cntr_servico_quadro.html">CntrServicoQuadro</a> cntrServicoQuadro;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    cntrServicoQuadro.<a class="code hl_function" href="class_cntr_servico_quadro.html#a4a5c77d7c8aabefa33fc7059f330e567">setContainerPessoa</a>(&amp;containerPessoa);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    cntrServicoQuadro.<a class="code hl_function" href="class_cntr_servico_quadro.html#ac1aeb97e8fe307c89aafaa89785fb6b2">setContainerProjeto</a>(&amp;containerProjeto);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    cntrServicoQuadro.<a class="code hl_function" href="class_cntr_servico_quadro.html#ad1faad145b59b81c094f99f47f1b128a">setContainerQuadro</a>(&amp;containerQuadro);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    cntrServicoQuadro.<a class="code hl_function" href="class_cntr_servico_quadro.html#a84e5a6fe063d17dbbac1ba1689222701">setContainerCartao</a>(&amp;containerCartao);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <a class="code hl_class" href="class_cntr_servico_cartao.html">CntrServicoCartao</a> cntrServicoCartao;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    cntrServicoCartao.<a class="code hl_function" href="class_cntr_servico_cartao.html#a1c3acabdb994117c9f341f63dbad448b">setContainerCartao</a>(&amp;containerCartao);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    cntrServicoCartao.<a class="code hl_function" href="class_cntr_servico_cartao.html#a3d7e6eee148bc8be7b4a09172689be68">setContainerPessoa</a>(&amp;containerPessoa);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    cntrServicoCartao.<a class="code hl_function" href="class_cntr_servico_cartao.html#a3e8d80f38e73afba2a11fb0688fedb02">setCntrServicoQuadro</a>(&amp;cntrServicoQuadro);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="comment">// 3. Controladoras de apresentacao.</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <a class="code hl_class" href="class_cntr_apresentacao_autenticacao.html">CntrApresentacaoAutenticacao</a> cntrApresentacaoAutenticacao;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    cntrApresentacaoAutenticacao.<a class="code hl_function" href="class_cntr_apresentacao_autenticacao.html#a73e3ca17a6b8972865a9887bbdb3cd20">setCntrServicoAutenticacao</a>(&amp;cntrServicoAutenticacao);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <a class="code hl_class" href="class_cntr_apresentacao_pessoa.html">CntrApresentacaoPessoa</a> cntrApresentacaoPessoa;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    cntrApresentacaoPessoa.<a class="code hl_function" href="class_cntr_apresentacao_pessoa.html#adebee8a0b51aa2b33b926817dc8913ee">setCntrServicoPessoa</a>(&amp;cntrServicoPessoa);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <a class="code hl_class" href="class_cntr_apresentacao_projeto.html">CntrApresentacaoProjeto</a> cntrApresentacaoProjeto;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    cntrApresentacaoProjeto.<a class="code hl_function" href="class_cntr_apresentacao_projeto.html#afecdfa58d13ce3fedc88297f7a6acc61">setCntrServicoProjeto</a>(&amp;cntrServicoProjeto);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <a class="code hl_class" href="class_cntr_apresentacao_quadro.html">CntrApresentacaoQuadro</a> cntrApresentacaoQuadro;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    cntrApresentacaoQuadro.<a class="code hl_function" href="class_cntr_apresentacao_quadro.html#a09cc0292b5420c862a67d0444f618a26">setCntrServicoQuadro</a>(&amp;cntrServicoQuadro);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <a class="code hl_class" href="class_cntr_apresentacao_cartao.html">CntrApresentacaoCartao</a> cntrApresentacaoCartao;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    cntrApresentacaoCartao.<a class="code hl_function" href="class_cntr_apresentacao_cartao.html#a208e6f0ce0caa34394a4a2bc093c4fd8">setCntrServicoCartao</a>(&amp;cntrServicoCartao);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="comment">// 4. Controle (menus inicial e principal).</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <a class="code hl_class" href="class_cntr_apresentacao_controle.html">CntrApresentacaoControle</a> cntrApresentacaoControle;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    cntrApresentacaoControle.<a class="code hl_function" href="class_cntr_apresentacao_controle.html#a19883bf22f10c8ff2cb8c2108828ffbf">setCntrApresentacaoAutenticacao</a>(&amp;cntrApresentacaoAutenticacao);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    cntrApresentacaoControle.<a class="code hl_function" href="class_cntr_apresentacao_controle.html#aa38a6973317c70fa83cbec72dd23b6b2">setCntrApresentacaoPessoa</a>(&amp;cntrApresentacaoPessoa);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    cntrApresentacaoControle.<a class="code hl_function" href="class_cntr_apresentacao_controle.html#ac21295177bb624d84b163a17b3605ded">setCntrApresentacaoProjeto</a>(&amp;cntrApresentacaoProjeto);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    cntrApresentacaoControle.<a class="code hl_function" href="class_cntr_apresentacao_controle.html#a4aaf6a82da40935139fc75860d8b20c3">setCntrApresentacaoQuadro</a>(&amp;cntrApresentacaoQuadro);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    cntrApresentacaoControle.<a class="code hl_function" href="class_cntr_apresentacao_controle.html#ad8ba526fea93d521309f68f041538bfc">setCntrApresentacaoCartao</a>(&amp;cntrApresentacaoCartao);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    cntrApresentacaoControle.<a class="code hl_function" href="class_cntr_apresentacao_controle.html#a64342a5ad4beacb5cde9c37c73176bb5">executar</a>();</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>}</div>
+</div>
+<div class="ttc" id="aclass_cntr_apresentacao_autenticacao_html"><div class="ttname"><a href="class_cntr_apresentacao_autenticacao.html">CntrApresentacaoAutenticacao</a></div><div class="ttdoc">Tela &quot;Entrar&quot;: pede email e senha e autentica.</div><div class="ttdef"><b>Definição</b> <a href="cntrapresentacaoautenticacao_8hpp_source.html#l00013">cntrapresentacaoautenticacao.hpp:13</a></div></div>
+<div class="ttc" id="aclass_cntr_apresentacao_autenticacao_html_a73e3ca17a6b8972865a9887bbdb3cd20"><div class="ttname"><a href="class_cntr_apresentacao_autenticacao.html#a73e3ca17a6b8972865a9887bbdb3cd20">CntrApresentacaoAutenticacao::setCntrServicoAutenticacao</a></div><div class="ttdeci">void setCntrServicoAutenticacao(IServicoAutenticacao *cntr) override</div><div class="ttdoc">Define o servico de autenticacao.</div><div class="ttdef"><b>Definição</b> <a href="cntrapresentacaoautenticacao_8hpp_source.html#l00033">cntrapresentacaoautenticacao.hpp:33</a></div></div>
+<div class="ttc" id="aclass_cntr_apresentacao_cartao_html"><div class="ttname"><a href="class_cntr_apresentacao_cartao.html">CntrApresentacaoCartao</a></div><div class="ttdoc">Telas de cartoes de atividade (servicos 16 a 26): criar, ler, atualizar, excluir, listar e mover cart...</div><div class="ttdef"><b>Definição</b> <a href="cntrapresentacaocartao_8hpp_source.html#l00016">cntrapresentacaocartao.hpp:16</a></div></div>
+<div class="ttc" id="aclass_cntr_apresentacao_cartao_html_a208e6f0ce0caa34394a4a2bc093c4fd8"><div class="ttname"><a href="class_cntr_apresentacao_cartao.html#a208e6f0ce0caa34394a4a2bc093c4fd8">CntrApresentacaoCartao::setCntrServicoCartao</a></div><div class="ttdeci">void setCntrServicoCartao(IServicoCartao *cntr) override</div><div class="ttdoc">Define o servico de cartoes.</div><div class="ttdef"><b>Definição</b> <a href="cntrapresentacaocartao_8hpp_source.html#l00055">cntrapresentacaocartao.hpp:55</a></div></div>
+<div class="ttc" id="aclass_cntr_apresentacao_controle_html"><div class="ttname"><a href="class_cntr_apresentacao_controle.html">CntrApresentacaoControle</a></div><div class="ttdoc">Menus do programa: o inicial (criar conta, entrar, sair) e o principal, de quem esta logado.</div><div class="ttdef"><b>Definição</b> <a href="cntrapresentacaocontrole_8hpp_source.html#l00015">cntrapresentacaocontrole.hpp:15</a></div></div>
+<div class="ttc" id="aclass_cntr_apresentacao_controle_html_a19883bf22f10c8ff2cb8c2108828ffbf"><div class="ttname"><a href="class_cntr_apresentacao_controle.html#a19883bf22f10c8ff2cb8c2108828ffbf">CntrApresentacaoControle::setCntrApresentacaoAutenticacao</a></div><div class="ttdeci">void setCntrApresentacaoAutenticacao(IApresentacaoAutenticacao *cntr)</div><div class="ttdoc">Define a tela de autenticacao (Entrar).</div><div class="ttdef"><b>Definição</b> <a href="cntrapresentacaocontrole_8hpp_source.html#l00052">cntrapresentacaocontrole.hpp:52</a></div></div>
+<div class="ttc" id="aclass_cntr_apresentacao_controle_html_a4aaf6a82da40935139fc75860d8b20c3"><div class="ttname"><a href="class_cntr_apresentacao_controle.html#a4aaf6a82da40935139fc75860d8b20c3">CntrApresentacaoControle::setCntrApresentacaoQuadro</a></div><div class="ttdeci">void setCntrApresentacaoQuadro(IApresentacaoQuadro *cntr)</div><div class="ttdoc">Define a tela de quadros (pode ser nula).</div><div class="ttdef"><b>Definição</b> <a href="cntrapresentacaocontrole_8hpp_source.html#l00064">cntrapresentacaocontrole.hpp:64</a></div></div>
+<div class="ttc" id="aclass_cntr_apresentacao_controle_html_a64342a5ad4beacb5cde9c37c73176bb5"><div class="ttname"><a href="class_cntr_apresentacao_controle.html#a64342a5ad4beacb5cde9c37c73176bb5">CntrApresentacaoControle::executar</a></div><div class="ttdeci">void executar()</div><div class="ttdoc">Roda o menu inicial ate o usuario escolher Sair ou a entrada acabar.</div><div class="ttdef"><b>Definição</b> <a href="cntrapresentacaocontrole_8cpp_source.html#l00014">cntrapresentacaocontrole.cpp:14</a></div></div>
+<div class="ttc" id="aclass_cntr_apresentacao_controle_html_aa38a6973317c70fa83cbec72dd23b6b2"><div class="ttname"><a href="class_cntr_apresentacao_controle.html#aa38a6973317c70fa83cbec72dd23b6b2">CntrApresentacaoControle::setCntrApresentacaoPessoa</a></div><div class="ttdeci">void setCntrApresentacaoPessoa(IApresentacaoPessoa *cntr)</div><div class="ttdoc">Define a tela de pessoas.</div><div class="ttdef"><b>Definição</b> <a href="cntrapresentacaocontrole_8hpp_source.html#l00056">cntrapresentacaocontrole.hpp:56</a></div></div>
+<div class="ttc" id="aclass_cntr_apresentacao_controle_html_ac21295177bb624d84b163a17b3605ded"><div class="ttname"><a href="class_cntr_apresentacao_controle.html#ac21295177bb624d84b163a17b3605ded">CntrApresentacaoControle::setCntrApresentacaoProjeto</a></div><div class="ttdeci">void setCntrApresentacaoProjeto(IApresentacaoProjeto *cntr)</div><div class="ttdoc">Define a tela de projetos (pode ser nula).</div><div class="ttdef"><b>Definição</b> <a href="cntrapresentacaocontrole_8hpp_source.html#l00060">cntrapresentacaocontrole.hpp:60</a></div></div>
+<div class="ttc" id="aclass_cntr_apresentacao_controle_html_ad8ba526fea93d521309f68f041538bfc"><div class="ttname"><a href="class_cntr_apresentacao_controle.html#ad8ba526fea93d521309f68f041538bfc">CntrApresentacaoControle::setCntrApresentacaoCartao</a></div><div class="ttdeci">void setCntrApresentacaoCartao(IApresentacaoCartao *cntr)</div><div class="ttdoc">Define a tela de cartoes (pode ser nula).</div><div class="ttdef"><b>Definição</b> <a href="cntrapresentacaocontrole_8hpp_source.html#l00068">cntrapresentacaocontrole.hpp:68</a></div></div>
+<div class="ttc" id="aclass_cntr_apresentacao_pessoa_html"><div class="ttname"><a href="class_cntr_apresentacao_pessoa.html">CntrApresentacaoPessoa</a></div><div class="ttdoc">Telas de pessoas: criar conta e o menu de pessoas.</div><div class="ttdef"><b>Definição</b> <a href="cntrapresentacaopessoa_8hpp_source.html#l00014">cntrapresentacaopessoa.hpp:14</a></div></div>
+<div class="ttc" id="aclass_cntr_apresentacao_pessoa_html_adebee8a0b51aa2b33b926817dc8913ee"><div class="ttname"><a href="class_cntr_apresentacao_pessoa.html#adebee8a0b51aa2b33b926817dc8913ee">CntrApresentacaoPessoa::setCntrServicoPessoa</a></div><div class="ttdeci">void setCntrServicoPessoa(IServicoPessoa *cntr) override</div><div class="ttdoc">Define o servico de pessoas.</div><div class="ttdef"><b>Definição</b> <a href="cntrapresentacaopessoa_8hpp_source.html#l00061">cntrapresentacaopessoa.hpp:61</a></div></div>
+<div class="ttc" id="aclass_cntr_apresentacao_projeto_html"><div class="ttname"><a href="class_cntr_apresentacao_projeto.html">CntrApresentacaoProjeto</a></div><div class="ttdoc">Telas de projetos (servicos 6 a 10): criar, ler, atualizar, excluir e listar projetos.</div><div class="ttdef"><b>Definição</b> <a href="cntrapresentacaoprojeto_8hpp_source.html#l00016">cntrapresentacaoprojeto.hpp:16</a></div></div>
+<div class="ttc" id="aclass_cntr_apresentacao_projeto_html_afecdfa58d13ce3fedc88297f7a6acc61"><div class="ttname"><a href="class_cntr_apresentacao_projeto.html#afecdfa58d13ce3fedc88297f7a6acc61">CntrApresentacaoProjeto::setCntrServicoProjeto</a></div><div class="ttdeci">void setCntrServicoProjeto(IServicoProjeto *cntr) override</div><div class="ttdoc">Define o servico de projetos.</div><div class="ttdef"><b>Definição</b> <a href="cntrapresentacaoprojeto_8hpp_source.html#l00044">cntrapresentacaoprojeto.hpp:44</a></div></div>
+<div class="ttc" id="aclass_cntr_apresentacao_quadro_html"><div class="ttname"><a href="class_cntr_apresentacao_quadro.html">CntrApresentacaoQuadro</a></div><div class="ttdoc">Telas de quadros (servicos 11 a 15): criar, ler, atualizar, excluir e listar os quadros de um projeto...</div><div class="ttdef"><b>Definição</b> <a href="cntrapresentacaoquadro_8hpp_source.html#l00016">cntrapresentacaoquadro.hpp:16</a></div></div>
+<div class="ttc" id="aclass_cntr_apresentacao_quadro_html_a09cc0292b5420c862a67d0444f618a26"><div class="ttname"><a href="class_cntr_apresentacao_quadro.html#a09cc0292b5420c862a67d0444f618a26">CntrApresentacaoQuadro::setCntrServicoQuadro</a></div><div class="ttdeci">void setCntrServicoQuadro(IServicoQuadro *cntr) override</div><div class="ttdoc">Define o servico de quadros.</div><div class="ttdef"><b>Definição</b> <a href="cntrapresentacaoquadro_8hpp_source.html#l00044">cntrapresentacaoquadro.hpp:44</a></div></div>
+<div class="ttc" id="aclass_cntr_servico_autenticacao_html"><div class="ttname"><a href="class_cntr_servico_autenticacao.html">CntrServicoAutenticacao</a></div><div class="ttdoc">Servico de autenticacao: confere email e senha no ContainerPessoa.</div><div class="ttdef"><b>Definição</b> <a href="cntrservicoautenticacao_8hpp_source.html#l00012">cntrservicoautenticacao.hpp:12</a></div></div>
+<div class="ttc" id="aclass_cntr_servico_autenticacao_html_a19a749c62caf872969acab12cd7cbe2c"><div class="ttname"><a href="class_cntr_servico_autenticacao.html#a19a749c62caf872969acab12cd7cbe2c">CntrServicoAutenticacao::setContainerPessoa</a></div><div class="ttdeci">void setContainerPessoa(ContainerPessoa *containerPessoa)</div><div class="ttdoc">Define o conteiner de pessoas consultado.</div><div class="ttdef"><b>Definição</b> <a href="cntrservicoautenticacao_8cpp_source.html#l00003">cntrservicoautenticacao.cpp:3</a></div></div>
+<div class="ttc" id="aclass_cntr_servico_cartao_html"><div class="ttname"><a href="class_cntr_servico_cartao.html">CntrServicoCartao</a></div><div class="ttdoc">Servico de cartoes (servicos 16 a 26): aplica as regras de cartao e calcula as metricas Kanban.</div><div class="ttdef"><b>Definição</b> <a href="cntrservicocartao_8hpp_source.html#l00030">cntrservicocartao.hpp:30</a></div></div>
+<div class="ttc" id="aclass_cntr_servico_cartao_html_a1c3acabdb994117c9f341f63dbad448b"><div class="ttname"><a href="class_cntr_servico_cartao.html#a1c3acabdb994117c9f341f63dbad448b">CntrServicoCartao::setContainerCartao</a></div><div class="ttdeci">void setContainerCartao(ContainerCartao *containerCartao)</div><div class="ttdoc">Define o conteiner de cartoes.</div><div class="ttdef"><b>Definição</b> <a href="cntrservicocartao_8hpp_source.html#l00116">cntrservicocartao.hpp:116</a></div></div>
+<div class="ttc" id="aclass_cntr_servico_cartao_html_a3d7e6eee148bc8be7b4a09172689be68"><div class="ttname"><a href="class_cntr_servico_cartao.html#a3d7e6eee148bc8be7b4a09172689be68">CntrServicoCartao::setContainerPessoa</a></div><div class="ttdeci">void setContainerPessoa(ContainerPessoa *containerPessoa)</div><div class="ttdoc">Define o conteiner de pessoas (para conferir GESTOR e DESENVOLVEDOR).</div><div class="ttdef"><b>Definição</b> <a href="cntrservicocartao_8hpp_source.html#l00120">cntrservicocartao.hpp:120</a></div></div>
+<div class="ttc" id="aclass_cntr_servico_cartao_html_a3e8d80f38e73afba2a11fb0688fedb02"><div class="ttname"><a href="class_cntr_servico_cartao.html#a3e8d80f38e73afba2a11fb0688fedb02">CntrServicoCartao::setCntrServicoQuadro</a></div><div class="ttdeci">void setCntrServicoQuadro(IServicoQuadro *cntr)</div><div class="ttdoc">Define o servico de quadros (para conferir o quadro e ler o limite de WIP).</div><div class="ttdef"><b>Definição</b> <a href="cntrservicocartao_8hpp_source.html#l00124">cntrservicocartao.hpp:124</a></div></div>
+<div class="ttc" id="aclass_cntr_servico_pessoa_html"><div class="ttname"><a href="class_cntr_servico_pessoa.html">CntrServicoPessoa</a></div><div class="ttdoc">Servico de pessoas (servicos 1 a 5): aplica as regras de Pessoa.</div><div class="ttdef"><b>Definição</b> <a href="cntrservicopessoa_8hpp_source.html#l00021">cntrservicopessoa.hpp:21</a></div></div>
+<div class="ttc" id="aclass_cntr_servico_pessoa_html_a7749506a27e18317c8f516ac9d502fb0"><div class="ttname"><a href="class_cntr_servico_pessoa.html#a7749506a27e18317c8f516ac9d502fb0">CntrServicoPessoa::setContainerPessoa</a></div><div class="ttdeci">void setContainerPessoa(ContainerPessoa *containerPessoa)</div><div class="ttdoc">Define o conteiner de pessoas.</div><div class="ttdef"><b>Definição</b> <a href="cntrservicopessoa_8cpp_source.html#l00005">cntrservicopessoa.cpp:5</a></div></div>
+<div class="ttc" id="aclass_cntr_servico_pessoa_html_adb5b2484f9c81afeaf6d27bc4f3380cb"><div class="ttname"><a href="class_cntr_servico_pessoa.html#adb5b2484f9c81afeaf6d27bc4f3380cb">CntrServicoPessoa::setContainerProjeto</a></div><div class="ttdeci">void setContainerProjeto(ContainerProjeto *containerProjeto)</div><div class="ttdoc">Define o conteiner de projetos (para saber quem e gestor).</div><div class="ttdef"><b>Definição</b> <a href="cntrservicopessoa_8cpp_source.html#l00009">cntrservicopessoa.cpp:9</a></div></div>
+<div class="ttc" id="aclass_cntr_servico_pessoa_html_adb63609ccfc40748910bacfac59bf2fa"><div class="ttname"><a href="class_cntr_servico_pessoa.html#adb63609ccfc40748910bacfac59bf2fa">CntrServicoPessoa::setContainerCartao</a></div><div class="ttdeci">void setContainerCartao(ContainerCartao *containerCartao)</div><div class="ttdoc">Define o conteiner de cartoes (para saber quem e desenvolvedor).</div><div class="ttdef"><b>Definição</b> <a href="cntrservicopessoa_8cpp_source.html#l00013">cntrservicopessoa.cpp:13</a></div></div>
+<div class="ttc" id="aclass_cntr_servico_projeto_html"><div class="ttname"><a href="class_cntr_servico_projeto.html">CntrServicoProjeto</a></div><div class="ttdoc">Servico de projetos (servicos 6 a 10): aplica as regras de Projeto.</div><div class="ttdef"><b>Definição</b> <a href="cntrservicoprojeto_8hpp_source.html#l00022">cntrservicoprojeto.hpp:22</a></div></div>
+<div class="ttc" id="aclass_cntr_servico_projeto_html_a15817a41de090776eedeccc64fcda3b4"><div class="ttname"><a href="class_cntr_servico_projeto.html#a15817a41de090776eedeccc64fcda3b4">CntrServicoProjeto::setContainerPessoa</a></div><div class="ttdeci">void setContainerPessoa(ContainerPessoa *containerPessoa)</div><div class="ttdoc">Define o conteiner de pessoas (cadastro e papel do usuario).</div><div class="ttdef"><b>Definição</b> <a href="cntrservicoprojeto_8cpp_source.html#l00005">cntrservicoprojeto.cpp:5</a></div></div>
+<div class="ttc" id="aclass_cntr_servico_projeto_html_a2c5e6fd76582661d17b0d4217ca7aa0b"><div class="ttname"><a href="class_cntr_servico_projeto.html#a2c5e6fd76582661d17b0d4217ca7aa0b">CntrServicoProjeto::setContainerProjeto</a></div><div class="ttdeci">void setContainerProjeto(ContainerProjeto *containerProjeto)</div><div class="ttdoc">Define o conteiner de projetos.</div><div class="ttdef"><b>Definição</b> <a href="cntrservicoprojeto_8cpp_source.html#l00009">cntrservicoprojeto.cpp:9</a></div></div>
+<div class="ttc" id="aclass_cntr_servico_projeto_html_a6eb940cb3de0ccdb9a136f042f1911d8"><div class="ttname"><a href="class_cntr_servico_projeto.html#a6eb940cb3de0ccdb9a136f042f1911d8">CntrServicoProjeto::setContainerQuadro</a></div><div class="ttdeci">void setContainerQuadro(ContainerQuadro *containerQuadro)</div><div class="ttdoc">Define o conteiner de quadros (para recusar excluir projeto com quadros).</div><div class="ttdef"><b>Definição</b> <a href="cntrservicoprojeto_8cpp_source.html#l00013">cntrservicoprojeto.cpp:13</a></div></div>
+<div class="ttc" id="aclass_cntr_servico_quadro_html"><div class="ttname"><a href="class_cntr_servico_quadro.html">CntrServicoQuadro</a></div><div class="ttdoc">Servico de quadros (servicos 11 a 15): aplica as regras de Quadro.</div><div class="ttdef"><b>Definição</b> <a href="cntrservicoquadro_8hpp_source.html#l00023">cntrservicoquadro.hpp:23</a></div></div>
+<div class="ttc" id="aclass_cntr_servico_quadro_html_a4a5c77d7c8aabefa33fc7059f330e567"><div class="ttname"><a href="class_cntr_servico_quadro.html#a4a5c77d7c8aabefa33fc7059f330e567">CntrServicoQuadro::setContainerPessoa</a></div><div class="ttdeci">void setContainerPessoa(ContainerPessoa *containerPessoa)</div><div class="ttdoc">Define o conteiner de pessoas (cadastro e papel do usuario).</div><div class="ttdef"><b>Definição</b> <a href="cntrservicoquadro_8cpp_source.html#l00005">cntrservicoquadro.cpp:5</a></div></div>
+<div class="ttc" id="aclass_cntr_servico_quadro_html_a84e5a6fe063d17dbbac1ba1689222701"><div class="ttname"><a href="class_cntr_servico_quadro.html#a84e5a6fe063d17dbbac1ba1689222701">CntrServicoQuadro::setContainerCartao</a></div><div class="ttdeci">void setContainerCartao(ContainerCartao *containerCartao)</div><div class="ttdoc">Define o conteiner de cartoes (WIP e exclusao sem orfaos).</div><div class="ttdef"><b>Definição</b> <a href="cntrservicoquadro_8cpp_source.html#l00017">cntrservicoquadro.cpp:17</a></div></div>
+<div class="ttc" id="aclass_cntr_servico_quadro_html_ac1aeb97e8fe307c89aafaa89785fb6b2"><div class="ttname"><a href="class_cntr_servico_quadro.html#ac1aeb97e8fe307c89aafaa89785fb6b2">CntrServicoQuadro::setContainerProjeto</a></div><div class="ttdeci">void setContainerProjeto(ContainerProjeto *containerProjeto)</div><div class="ttdoc">Define o conteiner de projetos (para conferir se o projeto existe).</div><div class="ttdef"><b>Definição</b> <a href="cntrservicoquadro_8cpp_source.html#l00009">cntrservicoquadro.cpp:9</a></div></div>
+<div class="ttc" id="aclass_cntr_servico_quadro_html_ad1faad145b59b81c094f99f47f1b128a"><div class="ttname"><a href="class_cntr_servico_quadro.html#ad1faad145b59b81c094f99f47f1b128a">CntrServicoQuadro::setContainerQuadro</a></div><div class="ttdeci">void setContainerQuadro(ContainerQuadro *containerQuadro)</div><div class="ttdoc">Define o conteiner de quadros.</div><div class="ttdef"><b>Definição</b> <a href="cntrservicoquadro_8cpp_source.html#l00013">cntrservicoquadro.cpp:13</a></div></div>
+<div class="ttc" id="aclass_container_cartao_html"><div class="ttname"><a href="class_container_cartao.html">ContainerCartao</a></div><div class="ttdoc">Guarda os cartoes em memoria, indexados pelo identificador, junto com o quadro e o email do desenvolv...</div><div class="ttdef"><b>Definição</b> <a href="containercartao_8hpp_source.html#l00022">containercartao.hpp:22</a></div></div>
+<div class="ttc" id="aclass_container_pessoa_html"><div class="ttname"><a href="class_container_pessoa.html">ContainerPessoa</a></div><div class="ttdoc">Guarda as pessoas em memoria, indexadas pelo email.</div><div class="ttdef"><b>Definição</b> <a href="containerpessoa_8hpp_source.html#l00018">containerpessoa.hpp:18</a></div></div>
+<div class="ttc" id="aclass_container_projeto_html"><div class="ttname"><a href="class_container_projeto.html">ContainerProjeto</a></div><div class="ttdoc">Guarda os projetos em memoria e o email do gestor de cada um.</div><div class="ttdef"><b>Definição</b> <a href="containerprojeto_8hpp_source.html#l00018">containerprojeto.hpp:18</a></div></div>
+<div class="ttc" id="aclass_container_quadro_html"><div class="ttname"><a href="class_container_quadro.html">ContainerQuadro</a></div><div class="ttdoc">Guarda os quadros em memoria e o identificador do projeto de cada um.</div><div class="ttdef"><b>Definição</b> <a href="containerquadro_8hpp_source.html#l00018">containerquadro.hpp:18</a></div></div>
+<div class="ttc" id="amain_8cpp_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdoc">Monta as camadas e roda o menu ate o usuario sair.</div><div class="ttdef"><b>Definição</b> <a href="#l00030">main.cpp:30</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="main_8cpp.html">main.cpp</a></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

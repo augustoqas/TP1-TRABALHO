@@ -94,7 +94,8 @@ MODULOS = [
      "nome": "Projeto", "classe": "CntrApresentacaoProjeto",
      "resp": "Menu de projetos (serviços 6 a 10). Lê e valida identificador, nome, descrição, "
              "início e término, chama `IServicoProjeto` e apresenta o resultado; quando o "
-             "serviço recusa (por exemplo, usuário que não é GESTOR ou projeto com quadros), "
+             "serviço recusa (por exemplo, usuário que não é o gestor do projeto ou projeto "
+             "com quadros), "
              "exibe mensagem ao usuário."},
     {"id": "apr_quadro", "pacote": "apresentacao", "nivel": 1, "coluna": "quadro",
      "nome": "Quadro", "classe": "CntrApresentacaoQuadro",
@@ -122,21 +123,28 @@ MODULOS = [
              "projeto sem GESTOR ou um cartão sem DESENVOLVEDOR."},
     {"id": "srv_projeto", "pacote": "servico", "nivel": 2, "coluna": "projeto",
      "nome": "Projeto", "classe": "CntrServicoProjeto",
-     "resp": "Mantém os projetos (serviços 6 a 10). Somente GESTOR cria, atualiza e exclui; "
-             "o gestor do projeto é o usuário autenticado que o criou. Garante a unicidade do "
-             "Identificador e recusa excluir projeto que possui quadros (sem cascata)."},
+     "resp": "Mantém os projetos (serviços 6 a 10). Somente GESTOR cria; o gestor do "
+             "projeto é o usuário autenticado que o criou, e só ele atualiza e exclui o "
+             "projeto. Garante a unicidade do Identificador e recusa excluir projeto que "
+             "possui quadros (sem cascata)."},
     {"id": "srv_quadro", "pacote": "servico", "nivel": 2, "coluna": "quadro",
      "nome": "Quadro", "classe": "CntrServicoQuadro",
      "resp": "Mantém os quadros (serviços 11 a 15), sempre vinculados a um projeto existente. "
-             "Somente GESTOR cria, atualiza e exclui. Recusa novo limite menor que o WIP atual "
+             "Somente o gestor do projeto cria, atualiza e exclui os quadros dele. Recusa novo "
+             "limite menor que o WIP atual "
              "e recusa excluir quadro que possui cartões; lista os quadros de um projeto."},
     {"id": "srv_cartao", "pacote": "servico", "nivel": 2, "coluna": "cartao",
      "nome": "Cartão", "classe": "CntrServicoCartao",
-     "resp": "Mantém os cartões (serviços 16 a 26). Cria o cartão em A FAZER com entrada = "
+     "resp": "Mantém os cartões (serviços 16 a 26). Somente o gestor do projeto do quadro "
+             "cria, atualiza e exclui cartões; ler, listar, mover e métricas ficam abertos a "
+             "qualquer usuário autenticado. Cria o cartão em A FAZER com entrada = "
              "momento atual, atribuído a uma pessoa com papel DESENVOLVEDOR. `mover` faz "
              "A FAZER → FAZENDO (registra início) e FAZENDO → FEITO (registra término), "
              "respeitando o limite de WIP do quadro. Calcula tempo de ciclo (término − início), "
-             "lead time (término − entrada), as médias por quadro e o WIP."},
+             "lead time (término − entrada), as médias por quadro e o WIP. Consulta o quadro "
+             "(existência e limite de WIP) pela interface `IServicoQuadro`; para saber quem é o "
+             "gestor, lê o projeto do quadro no contêiner de quadros e o gestor no contêiner de "
+             "projetos."},
 
     # ---------------- armazenamento (dentro da camada de servico) ----------------
     {"id": "arm_pessoas", "pacote": "armazenamento", "nivel": 3,
@@ -160,9 +168,12 @@ MODULOS = [
 # Frase comum a todo o armazenamento (aparece na secao de responsabilidades).
 ARMAZENAMENTO_COMUM = (
     "Cada contêiner guarda as entidades em memória, indexadas pela chave primária, e é "
-    "acessado somente pela camada de serviço: a apresentação nunca o acessa. A forma de "
-    "compartilhamento dos contêineres entre as controladoras de serviço será definida na "
-    "implementação."
+    "acessado somente pela camada de serviço: a apresentação nunca o acessa. O `main` cria um "
+    "único contêiner de cada tipo e o entrega por ponteiro (`setContainer*`) a cada controladora "
+    "de serviço que o usa; a cópia de contêineres é proibida, para que todas vejam os mesmos "
+    "dados. As associações ficam nos contêineres, ao lado da entidade: o de projetos guarda o "
+    "gestor de cada projeto, o de quadros o projeto de cada quadro e o de cartões o quadro e o "
+    "desenvolvedor de cada cartão."
 )
 
 # --------------------------------------------------------------------------
@@ -202,7 +213,7 @@ INTERFACES = [
          {"nome": "listar", "id": 10,
           "assinatura": "bool listar(const Email& usuario, std::vector<Identificador>& lista)"},
      ]},
-    {"nome": "IServicoQuadro", "provida_por": "srv_quadro", "requerida_por": ["apr_quadro"],
+    {"nome": "IServicoQuadro", "provida_por": "srv_quadro", "requerida_por": ["apr_quadro", "srv_cartao"],
      "metodos": [
          {"nome": "criar", "id": 11,
           "assinatura": "bool criar(const Email& usuario, const Identificador& projeto, const Quadro& quadro)"},
@@ -304,23 +315,28 @@ DEPENDENCIAS = [
     {"de": "srv_projeto", "para": "arm_quadros", "tipo": "secundaria",
      "motivo": "Recusar exclusão de projeto que possui quadros."},
     {"de": "srv_quadro", "para": "arm_pessoas", "tipo": "secundaria",
-     "motivo": "Conferir o papel do usuário (somente GESTOR altera)."},
+     "motivo": "Conferir se o usuário está cadastrado e tem papel GESTOR."},
     {"de": "srv_quadro", "para": "arm_projetos", "tipo": "secundaria",
-     "motivo": "Conferir se o projeto do quadro existe."},
+     "motivo": "Conferir se o projeto do quadro existe e se o usuário é o gestor dele "
+               "(criar, atualizar, excluir)."},
     {"de": "srv_quadro", "para": "arm_cartoes", "tipo": "secundaria",
      "motivo": "Recusar exclusão de quadro com cartões; exigir novo limite ≥ WIP atual."},
     {"de": "srv_cartao", "para": "arm_pessoas", "tipo": "secundaria",
      "motivo": "Conferir papel GESTOR do usuário; conferir se o desenvolvedor existe e tem papel DESENVOLVEDOR."},
     {"de": "srv_cartao", "para": "arm_quadros", "tipo": "secundaria",
-     "motivo": "Conferir se o quadro existe; respeitar o limite de WIP ao mover para FAZENDO."},
+     "motivo": "Saber a qual projeto o quadro pertence, para conferir o gestor (criar, atualizar, "
+               "excluir). Existência e limite de WIP vêm por IServicoQuadro."},
+    {"de": "srv_cartao", "para": "arm_projetos", "tipo": "secundaria",
+     "motivo": "Conferir se o usuário é o gestor do projeto do quadro (criar, atualizar, excluir)."},
 ]
 
 # Nota UML exibida no diagrama. {secao} e {tabela} sao preenchidos pelo gerador.
 NOTA_DIAGRAMA = {
     "pacote": "servico", "ancora": "armazenamento",
     "texto": "Dependências secundárias (consultas de consistência entre entidades, por exemplo "
-             "Serviço Cartão → Quadros para o limite de WIP) foram omitidas para não poluir o "
-             "diagrama. Estão documentadas na Seção {secao}, Tabela {tabela}.",
+             "Serviço Quadro → Cartões para o WIP) foram omitidas para não poluir o diagrama. "
+             "Estão documentadas na Seção {secao}, Tabela {tabela}. O uso de IServicoQuadro "
+             "pelo Serviço Cartão está na Tabela 3.",
 }
 
 # --------------------------------------------------------------------------
@@ -362,6 +378,8 @@ VISAO_GERAL = [
         "A camada de serviço **não conhece** a apresentação: nenhuma dependência aponta do "
         "serviço para a apresentação.",
         "O módulo Controle depende apenas das interfaces `IApresentacao*`.",
+        "Entre módulos de serviço há um único uso, também por interface: o Serviço Cartão "
+        "requer `IServicoQuadro` para conferir o quadro e o limite de WIP.",
         "O `main` monta as camadas: instancia as controladoras concretas, injeta cada "
         "controladora de serviço na apresentação correspondente com `setCntrServico*` e entrega "
         "as controladoras de apresentação ao Controle.",
@@ -374,8 +392,8 @@ VISAO_GERAL = [
         "O Controle chama `IApresentacaoCartao::executar(usuario)`.",
         "A apresentação de cartões lê o identificador, monta o domínio `Identificador` "
         "(validação) e chama `IServicoCartao::mover(usuario, identificador)`.",
-        "O serviço de cartões consulta o quadro (limite de WIP), atualiza estado e "
-        "timestamps no contêiner de cartões e retorna `true` ou `false`.",
+        "O serviço de cartões lê o quadro por `IServicoQuadro::ler` (limite de WIP), atualiza "
+        "estado e timestamps no contêiner de cartões e retorna `true` ou `false`.",
         "A apresentação exibe o resultado ou a mensagem de recusa.",
     ]),
 ]
@@ -392,8 +410,9 @@ CONVENCOES = [
      "domínios com `setValor`."),
     ("Usuário autenticado",
      "Todo método que exige sessão recebe, como **primeiro parâmetro**, o `Email` do usuário "
-     "autenticado (`usuario`), usado para consultar o papel (GESTOR ou DESENVOLVEDOR) e para "
-     "definir o gestor de um projeto. Exceções: `IServicoAutenticacao::autenticar` e "
+     "autenticado (`usuario`), usado para consultar o papel (GESTOR ou DESENVOLVEDOR), para "
+     "definir o gestor de um projeto (quem o criou) e para conferir se o usuário é o gestor "
+     "do projeto ao alterar projeto, quadro ou cartão. Exceções: `IServicoAutenticacao::autenticar` e "
      "`IServicoPessoa::criar`, que funcionam sem sessão (criação de conta)."),
     ("Entrada",
      "Parâmetros de entrada são referências constantes (`const &`). Associações são informadas "

@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TP1 - Sistema Kanban: Código-Fonte de headers/timestamp.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TP1 - Sistema Kanban
+   </div>
+   <div id="projectbrief">Gestao de projetos pelo metodo Kanban, em camadas (C++11)</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Busca" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('timestamp_8hpp_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">timestamp.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef TIMESTAMP_HPP_INCLUDED</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define TIMESTAMP_HPP_INCLUDED</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span></div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="};">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="class_timestamp.html">   17</a></span><span class="keyword">class </span><a class="code hl_class" href="class_timestamp.html">Timestamp</a> {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="keyword">static</span> <span class="keyword">const</span> std::string::size_type TAMANHO = 17;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> ANO_MINIMO = 2000;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> ANO_MAXIMO = 2099;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <span class="keyword">const</span> MESES[12];</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        std::string valor;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keywordtype">long</span> minutos = 0;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keyword">static</span> <span class="keywordtype">bool</span> ehBissexto(<span class="keywordtype">int</span> ano);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keyword">static</span> <span class="keywordtype">int</span> diasNoMes(<span class="keywordtype">int</span> mes, <span class="keywordtype">int</span> ano);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="keyword">static</span> <span class="keywordtype">bool</span> lerNumero(<span class="keyword">const</span> std::string&amp; texto, std::string::size_type inicio,</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>                              std::string::size_type tamanho, <span class="keywordtype">int</span>&amp; numero);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="comment">// Valida o formato e devolve os minutos desde 01-JAN-2000-00:00.</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keyword">static</span> <span class="keywordtype">long</span> validar(std::string valor);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_timestamp.html#a3bb127c1aebbdfdf09e1ebb39ff447bb">setValor</a>(std::string valor);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        std::string <a class="code hl_function" href="class_timestamp.html#ab4a4fd3678fa2f793e58e4cbf9739c69">getValor</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordtype">long</span> <a class="code hl_function" href="class_timestamp.html#a4541bdd35f8aa651d91d4762f6022e35">getMinutos</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keyword">static</span> <a class="code hl_class" href="class_timestamp.html">Timestamp</a> <a class="code hl_function" href="class_timestamp.html#ab04f416af2ba7aba61fb6e5acc2b93b6">agora</a>();</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>};</div>
+</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="foldopen" id="foldopen00063" data-start="{" data-end="}">
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="class_timestamp.html#ab4a4fd3678fa2f793e58e4cbf9739c69">   63</a></span><span class="keyword">inline</span> std::string <a class="code hl_function" href="class_timestamp.html#ab4a4fd3678fa2f793e58e4cbf9739c69">Timestamp::getValor</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordflow">return</span> valor;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>}</div>
+</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="foldopen" id="foldopen00067" data-start="{" data-end="}">
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="class_timestamp.html#a4541bdd35f8aa651d91d4762f6022e35">   67</a></span><span class="keyword">inline</span> <span class="keywordtype">long</span> <a class="code hl_function" href="class_timestamp.html#a4541bdd35f8aa651d91d4762f6022e35">Timestamp::getMinutos</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordflow">return</span> minutos;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>}</div>
+</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">#endif </span><span class="comment">// TIMESTAMP_HPP_INCLUDED</span></div>
+<div class="ttc" id="aclass_timestamp_html"><div class="ttname"><a href="class_timestamp.html">Timestamp</a></div><div class="ttdoc">Dominio de data e hora (inicio e termino de Projeto; entrada, inicio e termino de Cartao).</div><div class="ttdef"><b>Definição</b> <a href="#l00017">timestamp.hpp:17</a></div></div>
+<div class="ttc" id="aclass_timestamp_html_a3bb127c1aebbdfdf09e1ebb39ff447bb"><div class="ttname"><a href="class_timestamp.html#a3bb127c1aebbdfdf09e1ebb39ff447bb">Timestamp::setValor</a></div><div class="ttdeci">void setValor(std::string valor)</div><div class="ttdoc">Guarda o timestamp.</div><div class="ttdef"><b>Definição</b> <a href="timestamp_8cpp_source.html#l00084">timestamp.cpp:84</a></div></div>
+<div class="ttc" id="aclass_timestamp_html_a4541bdd35f8aa651d91d4762f6022e35"><div class="ttname"><a href="class_timestamp.html#a4541bdd35f8aa651d91d4762f6022e35">Timestamp::getMinutos</a></div><div class="ttdeci">long getMinutos() const</div><div class="ttdoc">Minutos desde 01-JAN-2000-00:00 (0 se nada foi guardado).</div><div class="ttdef"><b>Definição</b> <a href="#l00067">timestamp.hpp:67</a></div></div>
+<div class="ttc" id="aclass_timestamp_html_ab04f416af2ba7aba61fb6e5acc2b93b6"><div class="ttname"><a href="class_timestamp.html#ab04f416af2ba7aba61fb6e5acc2b93b6">Timestamp::agora</a></div><div class="ttdeci">static Timestamp agora()</div><div class="ttdoc">Cria um timestamp com a data e a hora atuais do computador.</div><div class="ttdef"><b>Definição</b> <a href="timestamp_8cpp_source.html#l00090">timestamp.cpp:90</a></div></div>
+<div class="ttc" id="aclass_timestamp_html_ab4a4fd3678fa2f793e58e4cbf9739c69"><div class="ttname"><a href="class_timestamp.html#ab4a4fd3678fa2f793e58e4cbf9739c69">Timestamp::getValor</a></div><div class="ttdeci">std::string getValor() const</div><div class="ttdoc">Retorna o timestamp no formato &quot;DD-MES-AAAA-HH:MM&quot;.</div><div class="ttdef"><b>Definição</b> <a href="#l00063">timestamp.hpp:63</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>headers</b></li><li class="navelem"><b>timestamp.hpp</b></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -157,8 +157,11 @@ roteiro que ainda tenha `@apenas_teste` vira `FAIL`, para a marca não ficar esq
 
 ### Demonstração para o vídeo
 
-O roteiro `90_demo` é o passo a passo da demonstração. Depois de uma rodada do rodar, dá para
-repeti-lo à mão (da raiz do repositório, no cmd):
+O teste fumaça da entrega é o roteiro `91_fumaca`: um caso de sucesso para cada funcionalidade
+(criar conta, autenticar e os serviços 1 a 26), com o guia passo a passo do vídeo em
+[`docs/teste_fumaca.md`](../docs/teste_fumaca.md). O `90_demo` é uma demonstração curta.
+
+Depois de uma rodada do rodar, dá para repetir um roteiro à mão (da raiz do repositório, no cmd):
 
 ```
 testes\bin\kanban.exe < testes\roteiros\90_demo.txt

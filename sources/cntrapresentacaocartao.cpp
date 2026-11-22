@@ -147,7 +147,7 @@ void CntrApresentacaoCartao::criar(const Email& usuario) {
     }
     if (!this->cntrServicoCartao->criar(usuario, quadro, desenvolvedor, cartao)) {
         Tela::falha("Nao foi possivel criar o cartao.",
-                    {"usuario nao e GESTOR", "quadro nao existe",
+                    {"voce nao e o gestor do projeto", "quadro nao existe",
                      "desenvolvedor nao existe ou nao tem papel DESENVOLVEDOR", "identificador ja existe"});
         return;
     }
@@ -195,7 +195,7 @@ void CntrApresentacaoCartao::atualizar(const Email& usuario) {
         return;
     }
     if (!this->cntrServicoCartao->atualizar(usuario, cartao)) {
-        Tela::falha("Nao foi possivel atualizar.", {"cartao nao encontrado", "usuario nao e GESTOR"});
+        Tela::falha("Nao foi possivel atualizar.", {"cartao nao encontrado", "voce nao e o gestor do projeto"});
         return;
     }
     Tela::sucesso("Cartao atualizado com sucesso.");
@@ -219,7 +219,7 @@ void CntrApresentacaoCartao::excluir(const Email& usuario) {
         return;
     }
     if (!this->cntrServicoCartao->excluir(usuario, identificador)) {
-        Tela::falha("Nao foi possivel excluir.", {"cartao nao encontrado", "usuario nao e GESTOR"});
+        Tela::falha("Nao foi possivel excluir.", {"cartao nao encontrado", "voce nao e o gestor do projeto"});
         return;
     }
     Tela::sucesso("Cartao excluido com sucesso.");

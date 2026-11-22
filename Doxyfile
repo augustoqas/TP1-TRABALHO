@@ -1,0 +1,35 @@
+# Configuracao do Doxygen do TP1 (so o que muda em relacao ao padrao).
+# Gerar, da raiz do repositorio:  doxygen Doxyfile
+# Abrir:                          docs/doxygen/html/index.html
+# Avisos (membro sem documentacao, @param errado...): docs/doxygen/avisos.txt
+
+PROJECT_NAME           = "TP1 - Sistema Kanban"
+PROJECT_BRIEF          = "Gestao de projetos pelo metodo Kanban, em camadas (C++11)"
+OUTPUT_DIRECTORY       = docs/doxygen
+OUTPUT_LANGUAGE        = Brazilian
+
+INPUT                  = docs/principal.md headers sources main.cpp
+FILE_PATTERNS          = *.hpp *.cpp *.md
+INPUT_ENCODING         = UTF-8
+USE_MDFILE_AS_MAINPAGE = docs/principal.md
+
+# So o que esta documentado entra; o que faltar vira aviso em avisos.txt.
+EXTRACT_ALL            = NO
+EXTRACT_PRIVATE        = NO
+EXTRACT_STATIC         = NO
+WARN_IF_UNDOCUMENTED   = YES
+WARN_IF_DOC_ERROR      = YES
+WARN_NO_PARAMDOC       = NO
+WARN_LOGFILE           = docs/doxygen/avisos.txt
+QUIET                  = YES
+
+# Codigo-fonte navegavel a partir da documentacao.
+SOURCE_BROWSER         = YES
+INLINE_SOURCES         = NO
+
+# So HTML; diagramas de classe sem Graphviz.
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+GENERATE_TREEVIEW      = YES
+HAVE_DOT               = NO
+CLASS_GRAPH            = YES

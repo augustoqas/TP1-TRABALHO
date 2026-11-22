@@ -13,11 +13,12 @@
  * @brief Servico de quadros (servicos 11 a 15): aplica as regras de Quadro.
  *
  * Usa quatro conteineres passados por setter: pessoas (cadastro e papel do
- * usuario), projetos (o quadro so e criado em projeto existente), quadros e
+ * usuario), projetos (o projeto existe e quem e o gestor dele), quadros e
  * cartoes (para o WIP e para recusar excluir quadro com cartoes). So guarda os
  * ponteiros; o main mantem os conteineres vivos.
- * Qualquer usuario cadastrado pode ler e listar; criar, atualizar e excluir exigem
- * papel GESTOR. Cada quadro pertence a exatamente um projeto, fixado ao criar.
+ * Qualquer usuario cadastrado pode ler e listar; criar, atualizar e excluir: so o
+ * gestor do projeto do quadro. Cada quadro pertence a exatamente um projeto,
+ * fixado ao criar.
  * Se faltar um conteiner necessario, o metodo retorna false.
  */
 class CntrServicoQuadro : public IServicoQuadro {
@@ -33,6 +34,12 @@ class CntrServicoQuadro : public IServicoQuadro {
         // Diz se o usuario esta cadastrado com papel GESTOR.
         bool usuarioGestor(const Email& usuario) const;
 
+        // Diz se o usuario e o gestor (quem criou) do projeto; false se o projeto nao existir.
+        bool gestorDoProjeto(const Email& usuario, const Identificador& projeto) const;
+
+        // Diz se o usuario e o gestor do projeto do quadro; false se o quadro nao existir.
+        bool gestorDoQuadro(const Email& usuario, const Identificador& quadro) const;
+
         // Quantos cartoes do quadro estao em FAZENDO.
         int contarFazendo(const Identificador& quadro) const;
 
@@ -44,7 +51,7 @@ class CntrServicoQuadro : public IServicoQuadro {
         /** @brief Define o conteiner de pessoas (cadastro e papel do usuario). */
         void setContainerPessoa(ContainerPessoa* containerPessoa);
 
-        /** @brief Define o conteiner de projetos (para conferir se o projeto existe). */
+        /** @brief Define o conteiner de projetos (projeto existe e quem e o gestor dele). */
         void setContainerProjeto(ContainerProjeto* containerProjeto);
 
         /** @brief Define o conteiner de quadros. */
@@ -55,7 +62,7 @@ class CntrServicoQuadro : public IServicoQuadro {
 
         /**
          * @brief Cria o quadro dentro do projeto (servico 11).
-         * Retorna false se o usuario nao for GESTOR cadastrado, se o projeto nao
+         * Retorna false se o usuario nao for o gestor do projeto, se o projeto nao
          * existir, se o quadro estiver incompleto ou se o identificador ja existir.
          */
         bool criar(const Email& usuario, const Identificador& projeto, const Quadro& quadro) override;
@@ -69,15 +76,16 @@ class CntrServicoQuadro : public IServicoQuadro {
         /**
          * @brief Atualiza nome e limite (servico 13).
          * O quadro e achado pelo identificador, que nunca muda; o projeto tambem nao.
-         * Retorna false se o usuario nao for GESTOR cadastrado, se o quadro estiver
-         * incompleto ou nao existir, ou se o novo limite for menor que o WIP atual.
+         * Retorna false se o usuario nao for o gestor do projeto do quadro, se o
+         * quadro estiver incompleto ou nao existir, ou se o novo limite for menor que
+         * o WIP atual.
          */
         bool atualizar(const Email& usuario, const Quadro& quadro) override;
 
         /**
          * @brief Exclui o quadro (servico 14), sem cascata.
-         * Retorna false se o usuario nao for GESTOR cadastrado, se o quadro nao
-         * existir ou se ele tiver cartoes.
+         * Retorna false se o usuario nao for o gestor do projeto do quadro, se o
+         * quadro nao existir ou se ele tiver cartoes.
          */
         bool excluir(const Email& usuario, const Identificador& identificador) override;
 
