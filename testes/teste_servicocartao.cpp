@@ -1,8 +1,9 @@
 // Testes do conteiner e do servico de cartoes (servicos 16 a 26).
 // O servico de quadros e simulado por ServicoQuadroFalso (so ler funciona), e o
 // relogio e controlado pelo teste para as metricas terem tempos conhecidos.
-// QDR001 e QDR002 sao do projeto PRJ001, cujo gestor e gestor@unb.br (G1); o outro
-// GESTOR (G2, outro@unb.br) nao cria, atualiza nem exclui cartoes nesses quadros.
+// QDR001 e QDR002 sao do projeto PRJ001, cujo gestor e gestor@unb.br (G1); QDR003 e do
+// PRJ002, cujo gestor e outro@unb.br (G2). Cada um so cria, atualiza e exclui cartoes
+// nos quadros do proprio projeto.
 #include <string>
 #include <vector>
 
@@ -23,7 +24,7 @@ static Timestamp relogioDeTeste() {
     return t;
 }
 
-// --- Servico de quadros falso: QDR001 (limite 2) e QDR002 (limite 1) ---
+// --- Servico de quadros falso: QDR001 (limite 2), QDR002 (limite 1) e QDR003 (limite 3) ---
 
 class ServicoQuadroFalso : public IServicoQuadro {
     public:
@@ -38,6 +39,8 @@ class ServicoQuadroFalso : public IServicoQuadro {
                 limite = 2;
             } else if (identificador.getValor() == "QDR002") {
                 limite = 1;
+            } else if (identificador.getValor() == "QDR003") {
+                limite = 3;
             } else {
                 return false;
             }
@@ -154,17 +157,24 @@ static void testarServico() {
     Email estranho = email("ninguem@unb.br");
 
     // Associacoes quadro -> projeto -> gestor, usadas para saber quem e o gestor do projeto.
+    // Os dois GESTORes sao gestores de algum projeto: so ser gestor de um projeto nao basta.
     ContainerProjeto containerProjeto;
     ContainerQuadro containerQuadro;
     Projeto projeto;
     projeto.setIdentificador(id("PRJ001"));
     containerProjeto.incluir(projeto, gestor);
+    Projeto projetoDoOutro;
+    projetoDoOutro.setIdentificador(id("PRJ002"));
+    containerProjeto.incluir(projetoDoOutro, outro);
     Quadro quadro1;
     quadro1.setIdentificador(id("QDR001"));
     containerQuadro.incluir(quadro1, id("PRJ001"));
     Quadro quadro2;
     quadro2.setIdentificador(id("QDR002"));
     containerQuadro.incluir(quadro2, id("PRJ001"));
+    Quadro quadro3;
+    quadro3.setIdentificador(id("QDR003"));
+    containerQuadro.incluir(quadro3, id("PRJ002"));
 
     CntrServicoCartao cntr;
     cntr.setContainerCartao(&cartoes);
@@ -301,6 +311,28 @@ static void testarServico() {
     verificar(servico->excluir(gestor, id("CRT003")), "excluir: gestor do projeto exclui");
     verificar(!servico->excluir(gestor, id("CRT003")), "excluir: cartao ja excluido e recusado");
     verificar(!cartoes.existeQuadro(id("QDR999")), "excluir: nao cria vinculo fantasma");
+
+    // Cada gestor so altera cartoes do proprio projeto (G2 e gestor do PRJ002, dono do QDR003).
+    instanteAtual = "24-OUT-2026-08:00";
+    verificar(servico->criar(outro, id("QDR003"), dev, cartao("CRT020", "Do outro")),
+              "outro gestor cria cartao no quadro do seu projeto");
+    verificar(!servico->criar(gestor, id("QDR003"), dev, cartao("CRT021")),
+              "gestor do PRJ001 nao cria cartao no quadro do PRJ002");
+    verificar(!cartoes.pesquisar(id("CRT021"), naoCriado), "criacao recusada nao inclui o cartao");
+    verificar(!servico->atualizar(gestor, cartao("CRT020", "Outro nome", "BAIXA")),
+              "gestor do PRJ001 nao atualiza cartao do PRJ002");
+    verificar(servico->ler(dev, id("CRT020"), lido) && lido.getNome().getValor() == "Do outro" &&
+              lido.getPrioridade().getValor() == "ALTA", "atualizacao recusada nao muda o cartao do PRJ002");
+    verificar(!servico->excluir(gestor, id("CRT020")), "gestor do PRJ001 nao exclui cartao do PRJ002");
+    verificar(servico->ler(dev, id("CRT020"), lido), "exclusao recusada mantem o cartao do PRJ002");
+    verificar(!servico->criar(outro, id("QDR001"), dev, cartao("CRT022")),
+              "gestor do PRJ002 continua sem criar cartao no QDR001");
+    verificar(!cartoes.pesquisar(id("CRT022"), naoCriado), "criacao recusada no QDR001 nao inclui o cartao");
+    verificar(!servico->atualizar(outro, cartao("CRT002", "Outro nome")), "gestor do PRJ002 nao atualiza cartao do PRJ001");
+    verificar(!servico->excluir(outro, id("CRT001")), "gestor do PRJ002 nao exclui cartao do PRJ001");
+    verificar(servico->ler(dev, id("CRT001"), lido), "cartao do PRJ001 continua existindo");
+    verificar(servico->atualizar(outro, cartao("CRT020", "Do outro novo")), "gestor do PRJ002 atualiza o seu cartao");
+    verificar(servico->excluir(outro, id("CRT020")), "gestor do PRJ002 exclui o seu cartao");
 
     // Sem servico de quadros: o que depende do quadro e recusado, o resto funciona.
     CntrServicoCartao semQuadro;

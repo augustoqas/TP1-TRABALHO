@@ -1,5 +1,6 @@
 # Gestor do projeto e quem o criou: ana cria PRJ100, QDR100, QDR101 e CRT100; bia
-# (tambem GESTOR) nao altera nada disso, mas le, lista, move e ve o WIP.
+# (tambem GESTOR e gestora do seu PRJ200) nao altera nada do PRJ100, mas le, lista,
+# move e ve o WIP.
 # Inicio do projeto com dia de 1 digito (1-MAR-2026-08:00).
 > Projeto criado com sucesso
 > Quadro criado com sucesso
@@ -7,6 +8,7 @@
 > Cartao criado com sucesso
 > Sessao encerrada
 > MENU PRINCIPAL  (usuario: bia@unb.br)
+> Projeto criado com sucesso
 > Nao foi possivel atualizar
 > voce nao e o gestor do projeto
 > Nao foi possivel excluir
@@ -23,6 +25,9 @@
 > QDR101
 > Nao foi possivel criar o cartao
 > voce nao e o gestor do projeto
+# A criacao recusada nao incluiu o CRT101: o quadro continua so com o CRT100.
+> Cartoes do quadro QDR100 (1)
+> CRT100
 > Nao foi possivel atualizar
 > voce nao e o gestor do projeto
 > Nao foi possivel excluir
