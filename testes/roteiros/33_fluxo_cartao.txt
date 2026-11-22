@@ -27,6 +27,8 @@ Sprint um
 1
 6
 4
+5
+QDR100
 1
 QDR100
 CRT100

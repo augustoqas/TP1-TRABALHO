@@ -1,5 +1,5 @@
-// Testes de Tela::lerCampo / Tela::lerCampoInteiro com dominios REAIS: Nome (lanca
-// excecao), Papel/Prioridade (bool setValor(string)) e Limite (bool setValor(int)).
+// Testes de Tela::lerCampo / Tela::lerCampoInteiro com dominios REAIS: Nome, Papel e
+// Prioridade (setValor(string)) e Limite (setValor(int)), que lancam excecao se invalido.
 // A entrada vem de uma string; o que a tela escreve e descartado.
 #include <iostream>
 #include <sstream>
@@ -42,7 +42,7 @@ int main() {
         Prioridade prioridade;
         Tela::Leitura r = Tela::lerCampo("Prioridade", "dica", prioridade);
         conferir(r == Tela::Leitura::LIDO && prioridade.getValor() == "ALTA",
-                 "Prioridade (bool setValor): false -> pede de novo");
+                 "Prioridade: excecao -> pede de novo");
     }
     {
         std::istringstream fonte("gestor\nGESTOR\n");
@@ -50,7 +50,7 @@ int main() {
         Papel papel;
         Tela::Leitura r = Tela::lerCampo("Papel", "dica", papel);
         conferir(r == Tela::Leitura::LIDO && papel.getValor() == "GESTOR",
-                 "Papel (bool setValor): false -> pede de novo");
+                 "Papel: excecao -> pede de novo");
     }
     {
         std::istringstream fonte("abc\n30\n5\n");
@@ -58,7 +58,7 @@ int main() {
         Limite limite;
         Tela::Leitura r = Tela::lerCampoInteiro("Limite", "dica", limite);
         conferir(r == Tela::Leitura::LIDO && limite.getValor() == 5,
-                 "Limite (bool setValor(int)): texto e fora da faixa -> pede de novo");
+                 "Limite (setValor(int)): texto e fora da faixa -> pede de novo");
     }
     {
         std::istringstream fonte("0\n");

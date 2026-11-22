@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="TP1-Kanban" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/TP1-Kanban" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/TP1-Kanban" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-std=c++11" />
+			<Add option="-Wall" />
+			<Add option="-Wextra" />
+			<Add directory="headers" />
+		</Compiler>
+		<Linker>
+			<Add option="-static-libgcc" />
+			<Add option="-static-libstdc++" />
+		</Linker>
+		<Unit filename="headers/cartaoatividade.hpp" />
+		<Unit filename="headers/cntrapresentacaoautenticacao.hpp" />
+		<Unit filename="headers/cntrapresentacaocartao.hpp" />
+		<Unit filename="headers/cntrapresentacaocontrole.hpp" />
+		<Unit filename="headers/cntrapresentacaopessoa.hpp" />
+		<Unit filename="headers/cntrapresentacaoprojeto.hpp" />
+		<Unit filename="headers/cntrapresentacaoquadro.hpp" />
+		<Unit filename="headers/cntrservicoautenticacao.hpp" />
+		<Unit filename="headers/cntrservicocartao.hpp" />
+		<Unit filename="headers/cntrservicopessoa.hpp" />
+		<Unit filename="headers/cntrservicoprojeto.hpp" />
+		<Unit filename="headers/cntrservicoquadro.hpp" />
+		<Unit filename="headers/containercartao.hpp" />
+		<Unit filename="headers/containerpessoa.hpp" />
+		<Unit filename="headers/containerprojeto.hpp" />
+		<Unit filename="headers/containerquadro.hpp" />
+		<Unit filename="headers/email.hpp" />
+		<Unit filename="headers/estado.hpp" />
+		<Unit filename="headers/excecaosessaoencerrada.hpp" />
+		<Unit filename="headers/identificador.hpp" />
+		<Unit filename="headers/interfaces.hpp" />
+		<Unit filename="headers/limite.hpp" />
+		<Unit filename="headers/nome.hpp" />
+		<Unit filename="headers/papel.hpp" />
+		<Unit filename="headers/pessoa.hpp" />
+		<Unit filename="headers/prioridade.hpp" />
+		<Unit filename="headers/projeto.hpp" />
+		<Unit filename="headers/quadro.hpp" />
+		<Unit filename="headers/senha.hpp" />
+		<Unit filename="headers/tamanho.hpp" />
+		<Unit filename="headers/tela.hpp" />
+		<Unit filename="headers/texto.hpp" />
+		<Unit filename="headers/timestamp.hpp" />
+		<Unit filename="main.cpp" />
+		<Unit filename="sources/cartaoatividade.cpp" />
+		<Unit filename="sources/cntrapresentacaoautenticacao.cpp" />
+		<Unit filename="sources/cntrapresentacaocartao.cpp" />
+		<Unit filename="sources/cntrapresentacaocontrole.cpp" />
+		<Unit filename="sources/cntrapresentacaopessoa.cpp" />
+		<Unit filename="sources/cntrapresentacaoprojeto.cpp" />
+		<Unit filename="sources/cntrapresentacaoquadro.cpp" />
+		<Unit filename="sources/cntrservicoautenticacao.cpp" />
+		<Unit filename="sources/cntrservicocartao.cpp" />
+		<Unit filename="sources/cntrservicopessoa.cpp" />
+		<Unit filename="sources/cntrservicoprojeto.cpp" />
+		<Unit filename="sources/cntrservicoquadro.cpp" />
+		<Unit filename="sources/containercartao.cpp" />
+		<Unit filename="sources/containerpessoa.cpp" />
+		<Unit filename="sources/containerprojeto.cpp" />
+		<Unit filename="sources/containerquadro.cpp" />
+		<Unit filename="sources/email.cpp" />
+		<Unit filename="sources/estado.cpp" />
+		<Unit filename="sources/excecaosessaoencerrada.cpp" />
+		<Unit filename="sources/identificador.cpp" />
+		<Unit filename="sources/limite.cpp" />
+		<Unit filename="sources/nome.cpp" />
+		<Unit filename="sources/papel.cpp" />
+		<Unit filename="sources/pessoa.cpp" />
+		<Unit filename="sources/prioridade.cpp" />
+		<Unit filename="sources/projeto.cpp" />
+		<Unit filename="sources/quadro.cpp" />
+		<Unit filename="sources/senha.cpp" />
+		<Unit filename="sources/tamanho.cpp" />
+		<Unit filename="sources/tela.cpp" />
+		<Unit filename="sources/texto.cpp" />
+		<Unit filename="sources/timestamp.cpp" />
+		<Extensions />
+	</Project>
+</CodeBlocks_project_file>

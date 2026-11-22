@@ -25,7 +25,7 @@ int main() {
     Senha senha;
     senha.setValor("Abc12");
     Papel papel;
-    papel.setValor("GESTOR");  // Papel atual retorna bool; o futuro, void.
+    papel.setValor("GESTOR");
 
     // 3. Setters da entidade.
     pessoa.setEmail(email);

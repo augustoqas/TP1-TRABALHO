@@ -3,7 +3,7 @@
 // (ex.: "rodar senha", "rodar Senha" ou "rodar teste_senha.cpp" rodam so testes/teste_senha.cpp;
 // "rodar roteiros" roda so os roteiros).
 //
-// 1. Stubs: testes/stubs/X.hpp e copiado para testes/bin/stubs enquanto headers/X.hpp nao
+// 1. Stubs (opcional, hoje sem uso): testes/stubs/X.hpp e copiado para testes/bin/stubs enquanto headers/X.hpp nao
 //    existe ou esta em branco. Se headers/X.hpp tem qualquer conteudo, o stub sai de cena.
 // 2. Producao: compila cada sources/*.cpp (quem nao compila vira AVISO) e junta
 //    tudo em testes/bin/tp1.a. Cada teste usa so o que precisa dessa biblioteca.
