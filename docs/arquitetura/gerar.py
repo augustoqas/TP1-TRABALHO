@@ -255,6 +255,8 @@ def conexoes(span):
                         "pos": (a + b + 1) / 2.0, "nivel_sup": MOD[p]["nivel"] - 1})
         for c in cons:
             nc, np_ = MOD[c]["nivel"], MOD[p]["nivel"]
+            if nc == np_:
+                continue  # mesma linha do diagrama: aparece so nas tabelas (ver NOTA_DIAGRAMA)
             if abs(nc - np_) != 1:
                 sys.exit(f"{c} requer {i['nome']} de {p}, mas não estão em níveis vizinhos.")
             con.append({"tipo": "bola_soquete", "intf": i["nome"], "prov": p, "cons": c,

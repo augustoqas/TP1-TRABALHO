@@ -23,6 +23,10 @@
 #include "containerprojeto.hpp"
 #include "containerquadro.hpp"
 
+/**
+ * @brief Monta as camadas e roda o menu ate o usuario sair.
+ * @return 0 ao encerrar.
+ */
 int main() {
     // 1. Conteineres.
     ContainerPessoa containerPessoa;
