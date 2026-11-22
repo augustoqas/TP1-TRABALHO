@@ -57,6 +57,8 @@ int main() {
     CntrServicoCartao cntrServicoCartao;
     cntrServicoCartao.setContainerCartao(&containerCartao);
     cntrServicoCartao.setContainerPessoa(&containerPessoa);
+    cntrServicoCartao.setContainerQuadro(&containerQuadro);
+    cntrServicoCartao.setContainerProjeto(&containerProjeto);
     cntrServicoCartao.setCntrServicoQuadro(&cntrServicoQuadro);
 
     // 3. Controladoras de apresentacao.

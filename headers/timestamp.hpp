@@ -8,15 +8,17 @@
  * @brief Dominio de data e hora (inicio e termino de Projeto; entrada, inicio
  *        e termino de Cartao).
  *
- * Formato: "DD-MES-AAAA-HH:MM", com DD de 01 a 31, MES em JAN FEV MAR ABR MAI
- * JUN JUL AGO SET OUT NOV DEZ, AAAA de 2000 a 2099 e HH:MM de 00:00 a 23:59.
- * A data precisa existir, considerando anos bissextos (29-FEV-2025 e invalido).
+ * Formato: "DIA-MES-AAAA-HH:MM", com DIA de 1 a 31 (1 ou 2 digitos: "5" ou
+ * "05"), MES em JAN FEV MAR ABR MAI JUN JUL AGO SET OUT NOV DEZ, AAAA de 2000
+ * a 2099 e HH:MM de 00:00 a 23:59. A data precisa existir, considerando anos
+ * bissextos (29-FEV-2025 e invalido).
  *
- * Ex.: "15-MAR-2026-14:30"
+ * Ex.: "15-MAR-2026-14:30" ou "5-MAR-2026-14:30"
  */
 class Timestamp {
     private:
-        static const std::string::size_type TAMANHO = 17;
+        // Tamanho de "-MES-AAAA-HH:MM", o que vem depois do dia.
+        static const std::string::size_type TAMANHO_SEM_DIA = 15;
         static const int ANO_MINIMO = 2000;
         static const int ANO_MAXIMO = 2099;
         static const char* const MESES[12];
@@ -35,12 +37,12 @@ class Timestamp {
     public:
         /**
          * @brief Guarda o timestamp.
-         * @param valor Data e hora no formato "DD-MES-AAAA-HH:MM".
+         * @param valor Data e hora no formato "DIA-MES-AAAA-HH:MM" (dia com 1 ou 2 digitos).
          * @throw std::invalid_argument Se o formato ou a data forem invalidos (o valor anterior fica).
          */
         void setValor(std::string valor);
 
-        /** @brief Retorna o timestamp no formato "DD-MES-AAAA-HH:MM". */
+        /** @brief Retorna o timestamp como foi informado em setValor ("" se nada foi guardado). */
         std::string getValor() const;
 
         /**

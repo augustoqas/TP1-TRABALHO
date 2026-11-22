@@ -37,6 +37,28 @@ bool CntrServicoQuadro::usuarioGestor(const Email& usuario) const {
     return pessoa.getPapel().getValor() == "GESTOR";
 }
 
+bool CntrServicoQuadro::gestorDoProjeto(const Email& usuario, const Identificador& projeto) const {
+    if (!this->usuarioGestor(usuario) || this->containerProjeto == nullptr) {
+        return false;
+    }
+    Email gestor;
+    if (!this->containerProjeto->pesquisarGestor(projeto, gestor)) {
+        return false;
+    }
+    return gestor.getValor() == usuario.getValor();
+}
+
+bool CntrServicoQuadro::gestorDoQuadro(const Email& usuario, const Identificador& quadro) const {
+    if (this->containerQuadro == nullptr) {
+        return false;
+    }
+    Identificador projeto;
+    if (!this->containerQuadro->pesquisarProjeto(quadro, projeto)) {
+        return false;
+    }
+    return this->gestorDoProjeto(usuario, projeto);
+}
+
 int CntrServicoQuadro::contarFazendo(const Identificador& quadro) const {
     std::vector<CartaoAtividade> cartoes;
     this->containerCartao->listar(quadro, cartoes);
@@ -56,14 +78,8 @@ bool CntrServicoQuadro::quadroCompleto(const Quadro& quadro) {
 }
 
 bool CntrServicoQuadro::criar(const Email& usuario, const Identificador& projeto, const Quadro& quadro) {
-    if (!this->usuarioGestor(usuario)) {
-        return false;
-    }
-    if (this->containerProjeto == nullptr) {
-        return false;
-    }
-    Projeto lido;
-    if (!this->containerProjeto->pesquisar(projeto, lido)) {
+    // Tambem recusa projeto inexistente (sem gestor).
+    if (!this->gestorDoProjeto(usuario, projeto)) {
         return false;
     }
     if (!quadroCompleto(quadro)) {
@@ -81,7 +97,8 @@ bool CntrServicoQuadro::ler(const Email& usuario, const Identificador& identific
 }
 
 bool CntrServicoQuadro::atualizar(const Email& usuario, const Quadro& quadro) {
-    if (!this->usuarioGestor(usuario)) {
+    // Tambem recusa quadro inexistente (sem projeto).
+    if (!this->gestorDoQuadro(usuario, quadro.getIdentificador())) {
         return false;
     }
     if (this->containerCartao == nullptr) {
@@ -99,7 +116,7 @@ bool CntrServicoQuadro::atualizar(const Email& usuario, const Quadro& quadro) {
 }
 
 bool CntrServicoQuadro::excluir(const Email& usuario, const Identificador& identificador) {
-    if (!this->usuarioGestor(usuario)) {
+    if (!this->gestorDoQuadro(usuario, identificador)) {
         return false;
     }
     if (this->containerCartao == nullptr) {

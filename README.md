@@ -55,17 +55,19 @@ O sistema oferece **26 serviços**, além de criar conta e autenticar:
 |---|---|:---:|:---:|
 | **Pessoa** | Criar · Ler · Atualizar · Excluir · Listar | ✅ | ✅ |
 | **Projeto** | Ler · Listar | ✅ | ✅ |
-| | Criar · Atualizar · Excluir | ✅ | ❌ |
+| | Criar | ✅ | ❌ |
+| | Atualizar · Excluir | ✅ só o gestor do projeto | ❌ |
 | **Quadro** | Ler · Listar | ✅ | ✅ |
-| | Criar · Atualizar · Excluir | ✅ | ❌ |
+| | Criar · Atualizar · Excluir | ✅ só o gestor do projeto | ❌ |
 | **Cartão de atividade** | Ler · Listar · Mover | ✅ | ✅ |
 | | Ler tempo de ciclo (e médio) · Ler lead time (e médio) · Ler WIP | ✅ | ✅ |
-| | Criar · Atualizar · Excluir | ✅ | ❌ |
+| | Criar · Atualizar · Excluir | ✅ só o gestor do projeto | ❌ |
 
 <details>
 <summary><b>📐 Regras de negócio</b></summary>
 <br>
 
+- O **gestor de um projeto é quem o criou** (qualquer pessoa com papel GESTOR pode criar projetos). Só ele atualiza ou exclui o projeto e cria, atualiza ou exclui os quadros do projeto e os cartões desses quadros. Ler, listar, mover cartões e consultar métricas ficam abertos a qualquer usuário autenticado, gestor ou desenvolvedor.
 - Um cartão só se move de **A FAZER → FAZENDO** e de **FAZENDO → FEITO**, respeitando o limite de WIP do quadro.
 - A **chave primária** de uma entidade (email ou identificador) não pode ser editada.
 - As **multiplicidades** do diagrama de classes são sempre respeitadas.
@@ -157,7 +159,7 @@ Cada atributo é uma **classe domínio**. O `setValor` lança `std::invalid_argu
 | `Senha` | 5 caracteres alfanuméricos, com pelo menos uma letra e um dígito |
 | `Tamanho` | `GRANDE`, `MEDIO` ou `PEQUENO` |
 | `Texto` | Até 30 caracteres. Começa com letra maiúscula e termina com ponto |
-| `Timestamp` | `DIA-MES-ANO-HH:MM` (ex.: `15-MAR-2026-14:30`), com ano entre 2000 e 2099 e anos bissextos considerados |
+| `Timestamp` | `DIA-MES-ANO-HH:MM` (ex.: `15-MAR-2026-14:30` ou `5-MAR-2026-14:30`), com dia de 1 a 31 (1 ou 2 dígitos), ano entre 2000 e 2099 e anos bissextos considerados |
 
 </details>
 

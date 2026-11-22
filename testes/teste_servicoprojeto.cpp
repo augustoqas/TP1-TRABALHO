@@ -1,6 +1,7 @@
 // Testes da camada de servico de Projeto (issue #16).
 // Conversa com o servico so pela interface; pessoas e quadros sao incluidos direto
-// nos conteineres para simular cadastro e vinculos.
+// nos conteineres para simular cadastro e vinculos. Dois gestores: G1 (gestor) cria
+// PRJ001 e G2 (outroGestor) cria PRJ002; so o gestor de cada projeto o altera.
 #include <string>
 #include <vector>
 
@@ -113,8 +114,19 @@ int main() {
     verificar(!servico->criar(gestor, Projeto()), "projeto vazio recusado");
     verificar(servico->criar(outroGestor, projetoPadrao("PRJ002")), "outro gestor cria o seu projeto");
 
+    // Conteiner: o gestor de cada projeto e quem o criou.
+    Email gestorLido;
+    verificar(projetos.pesquisarGestor(identificador("PRJ001"), gestorLido) &&
+              gestorLido.getValor() == "gestor@unb.br", "conteiner: gestor do PRJ001 e quem o criou");
+    verificar(projetos.pesquisarGestor(identificador("PRJ002"), gestorLido) &&
+              gestorLido.getValor() == "outro.gestor@unb.br", "conteiner: gestor do PRJ002 e o outro gestor");
+    Email gestorIntacto = email("intacto@unb.br");
+    verificar(!projetos.pesquisarGestor(identificador("PRJ999"), gestorIntacto) &&
+              gestorIntacto.getValor() == "intacto@unb.br", "conteiner: projeto inexistente nao tem gestor (saida intacta)");
+
     // 7. Ler.
     verificar(servico->ler(dev, identificador("PRJ001"), lido), "desenvolvedor le projeto");
+    verificar(servico->ler(outroGestor, identificador("PRJ001"), lido), "outro gestor le projeto que nao criou");
     verificar(resumo(lido) == resumo(projetoPadrao("PRJ001")), "ler devolve todos os dados");
     Projeto intacto = projetoPadrao("XYZ999");
     verificar(!servico->ler(gestor, identificador("PRJ999"), intacto), "ler projeto inexistente recusado");
@@ -127,13 +139,17 @@ int main() {
     verificar(lista.size() == 2 && contem(lista, "PRJ001") && contem(lista, "PRJ002"),
               "listar devolve so os identificadores cadastrados");
     verificar(!servico->listar(estranho, lista), "usuario nao cadastrado nao lista");
+    verificar(servico->listar(outroGestor, lista) && lista.size() == 2, "outro gestor lista todos os projetos");
 
     // 8. Atualizar.
     Projeto novo = projeto("PRJ001", "Kanban Novo", "Versao dois.", "02-MAR-2026-09:00", "31-JUL-2026-17:00");
     verificar(!servico->atualizar(dev, novo), "desenvolvedor nao atualiza");
     verificar(servico->ler(gestor, identificador("PRJ001"), lido) && resumo(lido) == resumo(projetoPadrao("PRJ001")),
               "atualizacao recusada nao muda nada");
-    verificar(servico->atualizar(gestor, novo), "gestor atualiza");
+    verificar(!servico->atualizar(outroGestor, novo), "outro gestor nao atualiza projeto que nao criou");
+    verificar(servico->ler(gestor, identificador("PRJ001"), lido) && resumo(lido) == resumo(projetoPadrao("PRJ001")),
+              "atualizacao do outro gestor nao muda nada");
+    verificar(servico->atualizar(gestor, novo), "gestor do projeto atualiza");
     verificar(servico->ler(gestor, identificador("PRJ001"), lido) && resumo(lido) == resumo(novo),
               "atualizar troca nome, descricao, inicio e termino");
     verificar(!servico->atualizar(gestor, projetoPadrao("PRJ999")), "atualizar projeto inexistente recusado");
@@ -153,7 +169,11 @@ int main() {
     verificar(!servico->excluir(dev, identificador("PRJ002")), "desenvolvedor nao exclui");
     verificar(!servico->excluir(gestor, identificador("PRJ999")), "excluir projeto inexistente recusado");
     quadros.remover(identificador("QDR001"));
-    verificar(servico->excluir(gestor, identificador("PRJ001")), "projeto sem quadros e excluido");
+    verificar(!servico->excluir(outroGestor, identificador("PRJ001")), "outro gestor nao exclui projeto que nao criou");
+    verificar(servico->ler(gestor, identificador("PRJ001"), lido), "projeto continua depois da exclusao recusada");
+    verificar(!servico->excluir(gestor, identificador("PRJ002")), "gestor nao exclui projeto do outro gestor");
+    verificar(servico->ler(gestor, identificador("PRJ002"), lido), "projeto do outro gestor continua existindo");
+    verificar(servico->excluir(gestor, identificador("PRJ001")), "projeto sem quadros e excluido pelo seu gestor");
     verificar(!servico->ler(gestor, identificador("PRJ001"), lido), "projeto excluido nao existe mais");
     verificar(!projetos.existeGestor(gestor), "excluir remove o vinculo de gestor");
     verificar(servico->listar(gestor, lista) && lista.size() == 1 && contem(lista, "PRJ002"),

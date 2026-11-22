@@ -52,6 +52,12 @@ class ContainerQuadro {
 
         /** @brief Diz se o projeto tem algum quadro. */
         bool existeQuadroNoProjeto(const Identificador& projeto) const;
+
+        /**
+         * @brief Informa o projeto ao qual o quadro pertence.
+         * Retorna false se o quadro nao existir (projeto nao e alterado).
+         */
+        bool pesquisarProjeto(const Identificador& quadro, Identificador& projeto) const;
 };
 
 #endif // CONTAINERQUADRO_HPP_INCLUDED

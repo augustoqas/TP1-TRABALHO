@@ -37,21 +37,24 @@ bool Timestamp::lerNumero(const std::string& texto, std::string::size_type inici
 }
 
 long Timestamp::validar(std::string valor) {
-    if (valor.size() != TAMANHO || valor[2] != '-' || valor[6] != '-' || valor[11] != '-' || valor[14] != ':') {
-        throw std::invalid_argument("Timestamp invalido: use o formato DD-MES-AAAA-HH:MM (ex.: 15-MAR-2026-14:30).");
+    // O dia tem 1 ou 2 digitos; o resto ("-MES-AAAA-HH:MM") tem posicoes fixas a partir de d.
+    std::string::size_type d = valor.find('-');
+    if ((d != 1 && d != 2) || valor.size() != d + TAMANHO_SEM_DIA || valor[d + 4] != '-' ||
+        valor[d + 9] != '-' || valor[d + 12] != ':') {
+        throw std::invalid_argument("Timestamp invalido: use o formato DIA-MES-AAAA-HH:MM (ex.: 5-MAR-2026-14:30).");
     }
 
     int dia = 0;
     int ano = 0;
     int hora = 0;
     int minuto = 0;
-    if (!lerNumero(valor, 0, 2, dia) || !lerNumero(valor, 7, 4, ano) ||
-        !lerNumero(valor, 12, 2, hora) || !lerNumero(valor, 15, 2, minuto)) {
+    if (!lerNumero(valor, 0, d, dia) || !lerNumero(valor, d + 5, 4, ano) ||
+        !lerNumero(valor, d + 10, 2, hora) || !lerNumero(valor, d + 13, 2, minuto)) {
         throw std::invalid_argument("Timestamp invalido: dia, ano, hora e minuto devem ser digitos.");
     }
 
     int mes = 0;
-    std::string sigla = valor.substr(3, 3);
+    std::string sigla = valor.substr(d + 1, 3);
     for (int i = 0; i < 12; i++) {
         if (sigla == MESES[i]) {
             mes = i + 1;
