@@ -16,6 +16,7 @@ Trabalho prático de **Técnicas de Programação 1 (CIC0197)** · Universidade 
 [Funcionalidades](#-funcionalidades) ·
 [Arquitetura](#%EF%B8%8F-arquitetura) ·
 [Como executar](#-como-executar) ·
+[Interface gráfica](#-proposta-de-interface-gr%C3%A1fica) ·
 [Estrutura](#-estrutura-do-projeto) ·
 [Equipe](#-equipe)
 
@@ -219,6 +220,19 @@ e faça commit da pasta `docs/doxygen/`. Membros sem documentação aparecem em 
 
 ---
 
+## 🎨 Proposta de interface gráfica
+
+O sistema entregue usa a interface de console. Como proposta de evolução, desenhamos uma interface gráfica para o mesmo sistema, com identidade própria e baseada em pesquisa de produtos reais (Linear, Jira, GitHub Projects) e em fundamentos de design (Refactoring UI, Laws of UX, WCAG 2.2).
+
+| | |
+|---|---|
+| ![Quadro](docs/design/telas/2-quadro.png) | ![Cartão](docs/design/telas/3-cartao.png) |
+| **Quadro** · o limite de WIP aparece no cabeçalho da coluna e no momento de arrastar | **Cartão** · a linha do tempo desenha o tempo de ciclo e o lead time |
+
+Telas completas, design system, justificativas e referências em [`docs/design/`](docs/design/README.md).
+
+---
+
 ## 📁 Estrutura do projeto
 
 ```text
@@ -234,6 +248,7 @@ TP1-TRABALHO/
 │   └── roteiros/       #   Roteiros de tela, incluindo o teste fumaça (91_fumaca)
 ├── docs/
 │   ├── arquitetura/    #   Modelo de arquitetura (PDF, diagrama UML e gerador)
+│   ├── design/         #   Proposta de interface gráfica (telas e design system)
 │   ├── doxygen/html/   #   Documentação Doxygen gerada (abra index.html)
 │   ├── principal.md    #   Página principal da documentação Doxygen
 │   └── teste_fumaca.md #   Guia do vídeo do teste fumaça

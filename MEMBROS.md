@@ -32,6 +32,7 @@ A autoria abaixo vem do histórico do repositório (`git blame`). Cada arquivo `
   - teste da formatação das métricas na tela de Cartão (`teste_formatarminutos.cpp`);
   - roteiros de Pessoa, login, fim de entrada, cancelamento e a demonstração `90_demo`.
 - **Vídeo do teste fumaça** (issue #25), seguindo o guia `docs/teste_fumaca.md`.
+- **Proposta de interface gráfica:** `docs/design/` (pesquisa, design system, telas e justificativas).
 - **Documentação:** `README.md` e este arquivo.
 - **Organização:** planejamento e divisão das tarefas nas issues do GitHub.
 
